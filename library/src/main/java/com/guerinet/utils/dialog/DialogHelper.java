@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.utils;
+package com.guerinet.utils.dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;
@@ -27,9 +27,10 @@ import android.support.v7.app.AlertDialog;
  * @since 1.0.0
  */
 public class DialogHelper {
+    /* NEUTRAL DIALOGS */
 
     /**
-     * Creates an alert dialog with one 'ok' button
+     * Displays an {@link AlertDialog} with one 'ok' button
      *
      * @param context  App context
      * @param title    Dialog title
@@ -46,7 +47,7 @@ public class DialogHelper {
     }
 
     /**
-     * Creates an alert dialog with one 'ok' button
+     * Displays an {@link AlertDialog} with one 'ok' button
      *
      * @param context App context
      * @param title   Dialog title
@@ -56,8 +57,10 @@ public class DialogHelper {
         neutral(context, title, message, null);
     }
 
+    /* ALERT DIALOGS */
+
     /**
-     * Creates a alert dialog with two buttons
+     * Displays a {@link AlertDialog} with two buttons
      *
      * @param context        App context
      * @param title          Dialog title
@@ -78,7 +81,7 @@ public class DialogHelper {
     }
 
     /**
-     * Creates an alert dialog with two buttons: 'ok' and 'cancel'
+     * Displays an {@link AlertDialog} with two buttons: 'ok' and 'cancel'
      *
      * @param context  App context
      * @param title    Dialog title
@@ -88,5 +91,30 @@ public class DialogHelper {
     public static void alert(Context context, @StringRes int title, @StringRes int message,
             DialogInterface.OnClickListener listener) {
         alert(context, title, message, android.R.string.ok, android.R.string.cancel, listener);
+    }
+
+    /* LIST DIALOGS */
+
+    /**
+     * Displays an {@link AlertDialog} with a list of single choices to choose from
+     * and which will close when a choice has been made
+     *
+     * @param context       App context
+     * @param title         Dialog title
+     * @param listInterface An implementation of the {@link ListDialogInterface}
+     */
+    public static void list(Context context, @StringRes int title,
+            final ListDialogInterface listInterface) {
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setSingleChoiceItems(listInterface.getChoices(), listInterface.getCurrentChoice(),
+                        new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                listInterface.onChoiceSelected(which);
+                                //Dismiss the dialog when a choice has been made
+                                dialog.dismiss();
+                            }
+                        });
     }
 }
