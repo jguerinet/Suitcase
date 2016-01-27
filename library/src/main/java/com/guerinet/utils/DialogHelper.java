@@ -55,4 +55,38 @@ public class DialogHelper {
     public static void neutral(Context context, @StringRes int title, @StringRes int message) {
         neutral(context, title, message, null);
     }
+
+    /**
+     * Creates a alert dialog with two buttons
+     *
+     * @param context        App context
+     * @param title          Dialog title
+     * @param message        Dialog message
+     * @param positiveButton Dialog's positive button text
+     * @param negativeButton Dialog's negative button text
+     * @param listener       {@link DialogInterface.OnClickListener} for both buttons
+     */
+    public static void alert(Context context, @StringRes int title, @StringRes int message,
+            @StringRes int positiveButton, @StringRes int negativeButton,
+            DialogInterface.OnClickListener listener) {
+        new AlertDialog.Builder(context)
+                .setTitle(title)
+                .setMessage(message)
+                .setPositiveButton(positiveButton, listener)
+                .setNegativeButton(negativeButton, listener)
+                .show();
+    }
+
+    /**
+     * Creates an alert dialog with two buttons: 'ok' and 'cancel'
+     *
+     * @param context  App context
+     * @param title    Dialog title
+     * @param message  Dialog message
+     * @param listener {@link DialogInterface.OnClickListener} for both buttons
+     */
+    public static void alert(Context context, @StringRes int title, @StringRes int message,
+            DialogInterface.OnClickListener listener) {
+        alert(context, title, message, android.R.string.ok, android.R.string.cancel, listener);
+    }
 }
