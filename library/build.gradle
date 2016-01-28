@@ -20,7 +20,7 @@ apply plugin: 'com.neenbedankt.android-apt'
 
 group = 'com.guerinet'
 archivesBaseName = 'android-utils'
-version = '1.0.6'
+version = '1.0.7'
 
 android {
     compileSdkVersion 23
@@ -29,7 +29,7 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 7
+        versionCode 8
         versionName version
     }
     buildTypes {
