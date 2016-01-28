@@ -1,16 +1,25 @@
-# Readme File Template
+# Android Utils
 
 ## Summary
-Insert a quick summary about this repository.
+Android utility classes and methods that I use in most of my Android projects
 
 ## Instructions
-Give some instructions on how to use this.
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). 
+Replace X.X.X below with the latest version found on the [Releases](https://github.com/jguerinet/android-utils/releases) page:
 
-## Branches
-* Branch: List them here if needed
+    repositories {
+        maven { url "https://jitpack.io" }
+    }
+
+	dependencies {
+	    compile 'com.guerinet:android-utils:X.X.X'
+	}
+
 
 ## Gradle Dependencies
-* Gradle Dependency: List them here
+* [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
+* [Dagger](https://google.github.io/dagger)
+* [Timber](https://github.com/JakeWharton/timber)
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
@@ -19,7 +28,7 @@ Give some instructions on how to use this.
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2015 Julien Guerinet
+	 Copyright 2016 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.
