@@ -27,31 +27,51 @@ import android.support.v7.app.AlertDialog;
  * @since 1.0.0
  */
 public class DialogUtils {
+
+    /**
+     * Constructs the base part of the builder, taking into account possibly null title and messages
+     * @param context App context
+     * @param title   Dialog title, -1 if none
+     * @param message Dialog message, -1 if none
+     * @return The {@link AlertDialog.Builder} instance
+     */
+    private static AlertDialog.Builder build(Context context, @StringRes int title,
+            @StringRes int message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        //Set the title and/or message if they are present
+        if (title != -1) {
+            builder.setTitle(title);
+        }
+        if (message != -1) {
+            builder.setMessage(message);
+        }
+
+        return builder;
+    }
+
     /* NEUTRAL DIALOGS */
 
     /**
      * Displays an {@link AlertDialog} with one 'ok' button
      *
      * @param context  App context
-     * @param title    Dialog title
-     * @param message  Dialog message
+     * @param title    Dialog title, -1 if none
+     * @param message  Dialog message, -1 if none
      * @param listener {@link DialogInterface.OnClickListener} for the button
      */
     public static void neutral(Context context, @StringRes int title, @StringRes int message,
             DialogInterface.OnClickListener listener) {
-        new AlertDialog.Builder(context)
-                .setTitle(title)
-                .setMessage(message)
-                .setNeutralButton(android.R.string.ok, listener)
-                .show();
+        build(context, title, message)
+                .setNeutralButton(android.R.string.ok, listener);
     }
 
     /**
      * Displays an {@link AlertDialog} with one 'ok' button
      *
      * @param context App context
-     * @param title   Dialog title
-     * @param message Dialog message
+     * @param title   Dialog title, -1 if none
+     * @param message Dialog message, -1 if none
      */
     public static void neutral(Context context, @StringRes int title, @StringRes int message) {
         neutral(context, title, message, null);
@@ -63,8 +83,8 @@ public class DialogUtils {
      * Displays a {@link AlertDialog} with two buttons
      *
      * @param context        App context
-     * @param title          Dialog title
-     * @param message        Dialog message
+     * @param title          Dialog title, -1 if none
+     * @param message        Dialog message, -1 if none
      * @param positiveButton Dialog's positive button text
      * @param negativeButton Dialog's negative button text
      * @param listener       {@link DialogInterface.OnClickListener} for both buttons
@@ -72,9 +92,7 @@ public class DialogUtils {
     public static void alert(Context context, @StringRes int title, @StringRes int message,
             @StringRes int positiveButton, @StringRes int negativeButton,
             DialogInterface.OnClickListener listener) {
-        new AlertDialog.Builder(context)
-                .setTitle(title)
-                .setMessage(message)
+        build(context, title, message)
                 .setPositiveButton(positiveButton, listener)
                 .setNegativeButton(negativeButton, listener)
                 .show();
@@ -84,8 +102,8 @@ public class DialogUtils {
      * Displays an {@link AlertDialog} with two buttons: 'ok' and 'cancel'
      *
      * @param context  App context
-     * @param title    Dialog title
-     * @param message  Dialog message
+     * @param title    Dialog title, -1 if none
+     * @param message  Dialog message, -1 if none
      * @param listener {@link DialogInterface.OnClickListener} for both buttons
      */
     public static void alert(Context context, @StringRes int title, @StringRes int message,
@@ -100,13 +118,12 @@ public class DialogUtils {
      * and which will close when a choice has been made
      *
      * @param context       App context
-     * @param title         Dialog title
+     * @param title         Dialog title, -1 if none
      * @param listInterface An implementation of the {@link ListDialogInterface}
      */
     public static void list(Context context, @StringRes int title,
             final ListDialogInterface listInterface) {
-        new AlertDialog.Builder(context)
-                .setTitle(title)
+        build(context, title, -1)
                 .setSingleChoiceItems(listInterface.getChoices(), listInterface.getCurrentChoice(),
                         new DialogInterface.OnClickListener() {
                             @Override
