@@ -48,7 +48,7 @@ public class BooleanPreference {
      * @param defaultValue  Default value
      */
     @Inject
-    protected BooleanPreference(@NonNull SharedPreferences prefs, @NonNull String key,
+    public BooleanPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             boolean defaultValue) {
         this.prefs = prefs;
         this.key = key;

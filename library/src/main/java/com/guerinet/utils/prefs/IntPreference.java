@@ -48,7 +48,7 @@ public class IntPreference {
      * @param defaultValue  Default value
      */
     @Inject
-    protected IntPreference(@NonNull SharedPreferences prefs, @NonNull String key,
+    public IntPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             int defaultValue) {
         this.prefs = prefs;
         this.key = key;

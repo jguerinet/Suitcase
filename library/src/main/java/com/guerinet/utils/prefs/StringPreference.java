@@ -48,7 +48,7 @@ public class StringPreference {
      * @param defaultValue  Default value
      */
     @Inject
-    protected StringPreference(@NonNull SharedPreferences prefs, @NonNull String key,
+    public StringPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             String defaultValue) {
         this.prefs = prefs;
         this.key = key;
