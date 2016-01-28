@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.6 (2016-01-28)
+* Added more AlertDialog helper methods
+* Switched the Gradle dependencies to "provided"
+
 ## Version 1.0.5 (2016-01-28)
 * Now returning the created AlertDialog in the DialogUtils statis helper methods. 
 
