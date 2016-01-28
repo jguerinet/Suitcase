@@ -51,6 +51,29 @@ public class DialogUtils {
         return builder;
     }
 
+    /**
+     * Constructs the base part of the builder, taking into account possibly null title and messages
+     *
+     * @param context App context
+     * @param title   Dialog title, -1 if none
+     * @param message Dialog message, null if none
+     * @return The {@link AlertDialog.Builder} instance
+     */
+    private static AlertDialog.Builder build(Context context, @StringRes int title,
+            String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        //Set the title and/or message if they are present
+        if (title != -1) {
+            builder.setTitle(title);
+        }
+        if (message != null) {
+            builder.setMessage(message);
+        }
+
+        return builder;
+    }
+
     /* NEUTRAL DIALOGS */
 
     /**
@@ -92,16 +115,8 @@ public class DialogUtils {
      */
     public static AlertDialog neutral(Context context, @StringRes int title,
             @Nullable String message) {
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-
-        if (title != -1) {
-            builder.setTitle(title);
-        }
-        if (message != null) {
-            builder.setMessage(message);
-        }
-
-        return builder.setNeutralButton(android.R.string.ok, null)
+        return build(context, title, message)
+                .setNeutralButton(android.R.string.ok, null)
                 .show();
     }
 
@@ -140,6 +155,26 @@ public class DialogUtils {
             DialogInterface.OnClickListener listener) {
         return alert(context, title, message, android.R.string.ok, android.R.string.cancel,
                 listener);
+    }
+
+    /**
+     * Displays an {@link AlertDialog} with two buttons
+     *
+     * @param context        App context
+     * @param title          Dialog title, -1 if none
+     * @param message        Dialog message, null if none
+     * @param positiveButton Dialog's positive button text
+     * @param negativeButton Dialog's negative button text
+     * @param listener       {@link DialogInterface.OnClickListener} for both buttons
+     * @return The {@link AlertDialog} instance
+     */
+    public static AlertDialog alert(Context context, @StringRes int title, String message,
+            @StringRes int positiveButton, @StringRes int negativeButton,
+            DialogInterface.OnClickListener listener) {
+        return build(context, title, message)
+                .setPositiveButton(positiveButton, listener)
+                .setNegativeButton(negativeButton, listener)
+                .show();
     }
 
     /* LIST DIALOGS */
