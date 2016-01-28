@@ -18,6 +18,7 @@ Replace X.X.X below with the latest version found on the [Releases](https://gith
 
 ## Gradle Dependencies
 * [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
+* [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
 * [Dagger](https://google.github.io/dagger)
 * [Timber](https://github.com/JakeWharton/timber)
 
