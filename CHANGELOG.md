@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.7 (2016-01-28)
+* Fixed bug with the scopes of the constructors of the Preference classes 
+
 ## Version 1.0.6 (2016-01-28)
 * Added more AlertDialog helper methods
 * Switched the Gradle dependencies to "provided"
