@@ -59,11 +59,13 @@ public class DialogUtils {
      * @param title    Dialog title, -1 if none
      * @param message  Dialog message, -1 if none
      * @param listener {@link DialogInterface.OnClickListener} for the button
+     * @return The {@link AlertDialog} instance
      */
-    public static void neutral(Context context, @StringRes int title, @StringRes int message,
+    public static AlertDialog neutral(Context context, @StringRes int title, @StringRes int message,
             DialogInterface.OnClickListener listener) {
-        build(context, title, message)
-                .setNeutralButton(android.R.string.ok, listener);
+        return build(context, title, message)
+                .setNeutralButton(android.R.string.ok, listener)
+                .show();
     }
 
     /**
@@ -72,9 +74,11 @@ public class DialogUtils {
      * @param context App context
      * @param title   Dialog title, -1 if none
      * @param message Dialog message, -1 if none
+     * @return The {@link AlertDialog} instance
      */
-    public static void neutral(Context context, @StringRes int title, @StringRes int message) {
-        neutral(context, title, message, null);
+    public static AlertDialog neutral(Context context, @StringRes int title,
+            @StringRes int message) {
+        return neutral(context, title, message, null);
     }
 
     /* ALERT DIALOGS */
@@ -88,11 +92,12 @@ public class DialogUtils {
      * @param positiveButton Dialog's positive button text
      * @param negativeButton Dialog's negative button text
      * @param listener       {@link DialogInterface.OnClickListener} for both buttons
+     * @return The {@link AlertDialog} instance
      */
-    public static void alert(Context context, @StringRes int title, @StringRes int message,
+    public static AlertDialog alert(Context context, @StringRes int title, @StringRes int message,
             @StringRes int positiveButton, @StringRes int negativeButton,
             DialogInterface.OnClickListener listener) {
-        build(context, title, message)
+        return build(context, title, message)
                 .setPositiveButton(positiveButton, listener)
                 .setNegativeButton(negativeButton, listener)
                 .show();
@@ -105,10 +110,12 @@ public class DialogUtils {
      * @param title    Dialog title, -1 if none
      * @param message  Dialog message, -1 if none
      * @param listener {@link DialogInterface.OnClickListener} for both buttons
+     * @return The {@link AlertDialog} instance
      */
-    public static void alert(Context context, @StringRes int title, @StringRes int message,
+    public static AlertDialog alert(Context context, @StringRes int title, @StringRes int message,
             DialogInterface.OnClickListener listener) {
-        alert(context, title, message, android.R.string.ok, android.R.string.cancel, listener);
+        return alert(context, title, message, android.R.string.ok, android.R.string.cancel,
+                listener);
     }
 
     /* LIST DIALOGS */
@@ -120,10 +127,11 @@ public class DialogUtils {
      * @param context       App context
      * @param title         Dialog title, -1 if none
      * @param listInterface An implementation of the {@link ListDialogInterface}
+     * @return The {@link AlertDialog} instance
      */
-    public static void list(Context context, @StringRes int title,
+    public static AlertDialog list(Context context, @StringRes int title,
             final ListDialogInterface listInterface) {
-        build(context, title, -1)
+        return build(context, title, -1)
                 .setSingleChoiceItems(listInterface.getChoices(), listInterface.getCurrentChoice(),
                         new DialogInterface.OnClickListener() {
                             @Override
@@ -132,6 +140,7 @@ public class DialogUtils {
                                 //Dismiss the dialog when a choice has been made
                                 dialog.dismiss();
                             }
-                        });
+                        })
+                .show();
     }
 }
