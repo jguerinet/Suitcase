@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.5 (2016-01-28)
+* Now returning the created AlertDialog in the DialogUtils statis helper methods. 
+
 ## Version 1.0.4 (2016-01-28)
 * Added option to not specify a title and message for any type of Alert Dialog
 
