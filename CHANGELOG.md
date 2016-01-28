@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.2 (2016-01-27)
+* Renamed the DialogUtil class 
+
 ## Version 1.0.1 (2016-01-27)
 * Added the non swipeable ViewPager
 
