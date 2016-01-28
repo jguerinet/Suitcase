@@ -22,11 +22,11 @@ import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
 /**
- * Static helper methods to quickly create {@link AlertDialog}s
+ * Static utility methods to quickly create {@link AlertDialog}s
  * @author Julien Guerinet
  * @since 1.0.0
  */
-public class DialogHelper {
+public class DialogUtils {
     /* NEUTRAL DIALOGS */
 
     /**
