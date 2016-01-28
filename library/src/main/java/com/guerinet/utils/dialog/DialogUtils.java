@@ -18,6 +18,7 @@ package com.guerinet.utils.dialog;
 
 import android.content.Context;
 import android.content.DialogInterface;
+import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
 import android.support.v7.app.AlertDialog;
 
@@ -79,6 +80,29 @@ public class DialogUtils {
     public static AlertDialog neutral(Context context, @StringRes int title,
             @StringRes int message) {
         return neutral(context, title, message, null);
+    }
+
+    /**
+     * Displays an {@link AlertDialog} with one 'ok' button
+     *
+     * @param context App context
+     * @param title   Dialog title, -1 if none
+     * @param message Dialog message, null if none
+     * @return The {@link AlertDialog} instance
+     */
+    public static AlertDialog neutral(Context context, @StringRes int title,
+            @Nullable String message) {
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+
+        if (title != -1) {
+            builder.setTitle(title);
+        }
+        if (message != null) {
+            builder.setMessage(message);
+        }
+
+        return builder.setNeutralButton(android.R.string.ok, null)
+                .show();
     }
 
     /* ALERT DIALOGS */
