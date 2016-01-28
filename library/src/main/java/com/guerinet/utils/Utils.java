@@ -45,7 +45,7 @@ import timber.log.Timber;
  * @author Julien Guerinet
  * @since 1.0.0
  */
-public class Util {
+public class Utils {
 
     /**
      * Displays a toast of short length

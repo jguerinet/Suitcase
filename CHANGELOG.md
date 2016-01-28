@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.3 (2016-01-27)
+* Renamed the Utils class 
+
 ## Version 1.0.2 (2016-01-27)
 * Renamed the DialogUtil class 
 
