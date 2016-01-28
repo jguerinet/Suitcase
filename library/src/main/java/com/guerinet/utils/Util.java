@@ -18,9 +18,11 @@ package com.guerinet.utils;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
 import android.support.annotation.StringRes;
@@ -53,6 +55,18 @@ public class Util {
      */
     public static void toast(Context context, @StringRes int message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Opens a given URL
+     *
+     * @param context App context
+     * @param url      URL to open
+     */
+    public static void openURL(Context context, String url) {
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setData(Uri.parse(url));
+        context.startActivity(intent);
     }
 
     /**
