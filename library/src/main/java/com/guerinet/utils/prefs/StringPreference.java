@@ -26,15 +26,7 @@ import javax.inject.Inject;
  * @author Julien Guerinet
  * @since 1.0.0
  */
-public class StringPreference {
-    /**
-     * {@link SharedPreferences} instance
-     */
-    protected final SharedPreferences prefs;
-    /**
-     * Key under which the pref should be stored
-     */
-    protected final String key;
+public class StringPreference extends BasePreference {
     /**
      * Default value
      */
@@ -50,8 +42,7 @@ public class StringPreference {
     @Inject
     public StringPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             String defaultValue) {
-        this.prefs = prefs;
-        this.key = key;
+        super(prefs, key);
         this.defaultValue = defaultValue;
     }
 
@@ -70,15 +61,6 @@ public class StringPreference {
     public void set(String value) {
         prefs.edit()
                 .putString(key, value)
-                .apply();
-    }
-
-    /**
-     * Clears the current {@link SharedPreferences}
-     */
-    public void clear() {
-        prefs.edit()
-                .remove(key)
                 .apply();
     }
 }

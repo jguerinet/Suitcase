@@ -22,45 +22,45 @@ import android.support.annotation.NonNull;
 import javax.inject.Inject;
 
 /**
- * Preference utility class for booleans
+ * Base class for all Preference helpers
  * @author Julien Guerinet
- * @since 1.0.0
+ * @since 1.0.9
  */
-public class BooleanPreference extends BasePreference {
+public class BasePreference {
     /**
-     * Default value
+     * {@link SharedPreferences} instance
      */
-    protected final boolean defaultValue;
+    protected final SharedPreferences prefs;
+    /**
+     * Key under which the pref should be stored
+     */
+    protected final String key;
 
     /**
      * Default Constructor
      *
      * @param prefs         {@link SharedPreferences} instance
      * @param key           Key under which the pref should be stored
-     * @param defaultValue  Default value
      */
     @Inject
-    public BooleanPreference(@NonNull SharedPreferences prefs, @NonNull String key,
-            boolean defaultValue) {
-        super(prefs, key);
-        this.defaultValue = defaultValue;
+    public BasePreference(@NonNull SharedPreferences prefs, @NonNull String key) {
+        this.prefs = prefs;
+        this.key = key;
     }
 
     /**
-     * @return Current value of this boolean, defaulting to the default value
+     * Clears the current {@link SharedPreferences}
      */
-    public boolean get() {
-        return prefs.getBoolean(key, defaultValue);
-    }
-
-    /**
-     * Sets the value in the {@link SharedPreferences}
-     *
-     * @param value New value to save
-     */
-    public void set(boolean value) {
+    public void clear() {
         prefs.edit()
-                .putBoolean(key, value)
+                .remove(key)
                 .apply();
+    }
+
+    /**
+     * @return True if the current preference is set, false otherwise
+     */
+    public boolean isSet() {
+        return prefs.contains(key);
     }
 }

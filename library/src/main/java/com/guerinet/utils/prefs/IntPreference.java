@@ -26,15 +26,7 @@ import javax.inject.Inject;
  * @author Julien Guerinet
  * @since 1.0.0
  */
-public class IntPreference {
-    /**
-     * {@link SharedPreferences} instance
-     */
-    protected final SharedPreferences prefs;
-    /**
-     * Key under which the pref should be stored
-     */
-    protected final String key;
+public class IntPreference extends BasePreference {
     /**
      * Default value
      */
@@ -50,8 +42,7 @@ public class IntPreference {
     @Inject
     public IntPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             int defaultValue) {
-        this.prefs = prefs;
-        this.key = key;
+        super(prefs, key);
         this.defaultValue = defaultValue;
     }
 
@@ -70,15 +61,6 @@ public class IntPreference {
     public void set(int value) {
         prefs.edit()
                 .putInt(key, value)
-                .apply();
-    }
-
-    /**
-     * Clears the current {@link SharedPreferences}
-     */
-    public void clear() {
-        prefs.edit()
-                .remove(key)
                 .apply();
     }
 }
