@@ -72,4 +72,13 @@ public class StringPreference {
                 .putString(key, value)
                 .apply();
     }
+
+    /**
+     * Clears the current {@link SharedPreferences}
+     */
+    public void clear() {
+        prefs.edit()
+                .remove(key)
+                .apply();
+    }
 }
