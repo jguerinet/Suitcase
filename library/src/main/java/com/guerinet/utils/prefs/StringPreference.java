@@ -30,15 +30,15 @@ public class StringPreference {
     /**
      * {@link SharedPreferences} instance
      */
-    private final SharedPreferences prefs;
+    protected final SharedPreferences prefs;
     /**
      * Key under which the pref should be stored
      */
-    private final String key;
+    protected final String key;
     /**
      * Default value
      */
-    private final String defaultValue;
+    protected final String defaultValue;
 
     /**
      * Default Constructor

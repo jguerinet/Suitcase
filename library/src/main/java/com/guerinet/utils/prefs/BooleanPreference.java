@@ -30,15 +30,15 @@ public class BooleanPreference {
     /**
      * {@link SharedPreferences} instance
      */
-    private final SharedPreferences prefs;
+    protected final SharedPreferences prefs;
     /**
      * Key under which the pref should be stored
      */
-    private final String key;
+    protected final String key;
     /**
      * Default value
      */
-    private final boolean defaultValue;
+    protected final boolean defaultValue;
 
     /**
      * Default Constructor
