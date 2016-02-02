@@ -22,6 +22,8 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.graphics.drawable.Drawable;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
@@ -217,6 +219,15 @@ public class Utils {
             Timber.e(e, "Unsupported encoding while getting the query params");
             return "";
         }
+    }
+
+    /**
+     * @param manager The {@link ConnectivityManager} instance
+     * @return True if the user is connected to the internet, false otherwise
+     */
+    public static boolean isConnected(ConnectivityManager manager) {
+        NetworkInfo info = manager.getActiveNetworkInfo();
+        return info != null && info.isConnectedOrConnecting();
     }
 
     /* MARSHMALLOW PERMISSIONS */
