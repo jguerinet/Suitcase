@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.10 (2016-02-02)
+* Added Device class, with helper methods to determine the device's OS
+* Added method to check connectivity 
+
 ## Version 1.0.9 (2016-01-29)
 * Set up a base class for all preference utility classes 
 * Added method to check if the preference is set
