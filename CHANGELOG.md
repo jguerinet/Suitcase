@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.11 (2016-02-02)
+* Added method to read a String from a file in the raw resource folder
+
 ## Version 1.0.10 (2016-02-02)
 * Added Device class, with helper methods to determine the device's OS
 * Added method to check connectivity 
