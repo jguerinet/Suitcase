@@ -21,6 +21,18 @@ Replace X.X.X below with the latest version found on the [Releases](https://gith
 * [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
 * [Dagger](https://google.github.io/dagger)
 * [Timber](https://github.com/JakeWharton/timber)
+* [Okio](https://github.com/square/okio)
+
+## A Note About the Gradle Dependencies
+The Gradle dependencies are declared using the 'provided' scope, which means that they won't be included if you don't explicitly add them to your 
+`build.gradle` file. These following methods/classes need the following dependencies declared: 
+
+* The `DialogUtils` class needs AppCompat 
+* The `NonSwipeableViewPager` class needs support v4 
+* The `ProductionTree` class needs Timber  
+* In `Utils`, both `setTint()` need support v4 
+* In `Utils`, `stringFromRaw()` needs Okio and Timber
+* In `Utils`, `isPermissionGranted()` and `requestPermission()` need support v4
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
