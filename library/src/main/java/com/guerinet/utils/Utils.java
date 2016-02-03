@@ -27,6 +27,7 @@ import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.ColorInt;
 import android.support.annotation.Nullable;
+import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
@@ -36,10 +37,13 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.io.File;
+import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
 
+import okio.BufferedSource;
+import okio.Okio;
 import timber.log.Timber;
 
 /**
@@ -228,6 +232,25 @@ public class Utils {
     public static boolean isConnected(ConnectivityManager manager) {
         NetworkInfo info = manager.getActiveNetworkInfo();
         return info != null && info.isConnectedOrConnecting();
+    }
+
+    /**
+     * Reads a String from a file in the raw folder
+     *
+     * @param context App context
+     * @param fileId  Resource Id of the file to read from the raw folder
+     * @return The contents of the file in String format
+     */
+    public static String stringFromRaw(Context context, @RawRes int fileId) {
+        try {
+            BufferedSource fileSource = Okio.buffer(Okio.source(
+                    context.getResources().openRawResource(fileId)));
+
+            return fileSource.readUtf8();
+        } catch(IOException e) {
+            Timber.e(e, "Error reading String from raw");
+        }
+        return null;
     }
 
     /* MARSHMALLOW PERMISSIONS */
