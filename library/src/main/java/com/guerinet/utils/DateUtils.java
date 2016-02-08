@@ -108,11 +108,27 @@ public class DateUtils {
     }
 
     /**
+     * @param dateTime The {@link ZonedDateTime} to check
+     * @return True if the date is in the past, false otherwise (right now would return false)
+     */
+    public static boolean isPast(ZonedDateTime dateTime) {
+        return ZonedDateTime.now().isAfter(dateTime);
+    }
+
+    /**
      * @param date The {@link LocalDate} to check
      * @return True if the date is in the future, false otherwise (today would return false)
      */
     public static boolean isFuture(LocalDate date) {
         return LocalDate.now().isBefore(date);
+    }
+
+    /**
+     * @param dateTime The {@link ZonedDateTime} to check
+     * @return True if the date is in the future, false otherwise (right now would return false)
+     */
+    public static boolean isFuture(ZonedDateTime dateTime) {
+        return ZonedDateTime.now().isBefore(dateTime);
     }
 
     /**
