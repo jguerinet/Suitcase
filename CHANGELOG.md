@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.12 (2016-02-08)
+* Added some date utility methods
+* Added a SharedPreferences helper class for dates
+
 ## Version 1.0.11 (2016-02-02)
 * Added method to read a String from a file in the raw resource folder
 
