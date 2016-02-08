@@ -20,6 +20,7 @@ Replace X.X.X below with the latest version found on the [Releases](https://gith
 * [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
 * [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
 * [Dagger](https://google.github.io/dagger)
+* [AndroidThreeTen](https://github.com/JakeWharton/ThreeTenABP)
 * [Timber](https://github.com/JakeWharton/timber)
 * [Okio](https://github.com/square/okio)
 
@@ -30,6 +31,7 @@ The Gradle dependencies are declared using the 'provided' scope, which means tha
 * The `DialogUtils` class needs AppCompat 
 * The `NonSwipeableViewPager` class needs support v4 
 * The `ProductionTree` class needs Timber  
+* The `DateUtils` and `DatePreference` needs AndroidThreeTen
 * In `Utils`, both `setTint()` need support v4 
 * In `Utils`, `stringFromRaw()` needs Okio and Timber
 * In `Utils`, `isPermissionGranted()` and `requestPermission()` need support v4
