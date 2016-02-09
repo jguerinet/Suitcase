@@ -48,6 +48,10 @@ public class DateUtils {
      */
     private DateTimeFormatter longDateFormatter;
     /**
+     * {@link DateTimeFormatter} intance used for the short time String
+     */
+    private DateTimeFormatter shortTimeFormatter;
+    /**
      * {@link DateTimeFormatter} instance used for the RFC 1123 String
      */
     private DateTimeFormatter rfcFormatter;
@@ -79,11 +83,24 @@ public class DateUtils {
         return instance().mediumDateFormatter;
     }
 
+    /**
+     * @return The long date {@link DateTimeFormatter} instance
+     */
     private static DateTimeFormatter longDateFormatter() {
         if (instance().longDateFormatter == null) {
             instance().longDateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG);
         }
         return instance().longDateFormatter;
+    }
+
+    /**
+     * @return The short time {@link DateTimeFormatter} instance
+     */
+    private static DateTimeFormatter shortTimeFormatter() {
+        if (instance().shortTimeFormatter == null) {
+            instance().shortTimeFormatter = DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT);
+        }
+        return instance().shortTimeFormatter;
     }
 
     /**
@@ -150,20 +167,30 @@ public class DateUtils {
     /**
      * Returns the medium text of a date (Ex: Jan 1, 2000)
      *
-     * @param date Date to use
-     * @return The localized medium String
+     * @param temporal Temporal to use
+     * @return The localized medium date String
      */
-    public static String getMediumDateString(@NonNull Temporal date) {
-        return mediumDateFormatter().format(date);
+    public static String getMediumDateString(@NonNull Temporal temporal) {
+        return mediumDateFormatter().format(temporal);
     }
 
     /**
      * Returns the long text of a date (Ex: January 1, 2000)
      *
-     * @param date Date to use
-     * @return The localized long String
+     * @param temporal Temporal to use
+     * @return The localized long date String
      */
-    public static String getLongDateString(@NonNull Temporal date) {
-        return longDateFormatter().format(date);
+    public static String getLongDateString(@NonNull Temporal temporal) {
+        return longDateFormatter().format(temporal);
+    }
+
+    /**
+     * Returns the short text of a time (Ex: 3:30pm)
+     *
+     * @param temporal Temporal to use
+     * @return The localized short time String
+     */
+    public static String getShortDateString(@NonNull Temporal temporal) {
+        return shortTimeFormatter().format(temporal);
     }
 }
