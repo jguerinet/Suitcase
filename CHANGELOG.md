@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.14 (2016-02-08)
+* Added method to get the short String for a time 
+
 ## Version 1.0.13 (2016-02-08)
 * Added methods to check the future and past of a ZoneDateTime
 
