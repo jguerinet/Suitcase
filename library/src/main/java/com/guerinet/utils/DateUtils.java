@@ -190,7 +190,7 @@ public class DateUtils {
      * @param temporal Temporal to use
      * @return The localized short time String
      */
-    public static String getShortDateString(@NonNull Temporal temporal) {
+    public static String getShortTimeString(@NonNull Temporal temporal) {
         return shortTimeFormatter().format(temporal);
     }
 }
