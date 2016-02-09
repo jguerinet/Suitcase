@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.15 (2016-02-08)
+* Fixed method name in DateUtils
+
 ## Version 1.0.14 (2016-02-08)
 * Added method to get the short String for a time 
 
