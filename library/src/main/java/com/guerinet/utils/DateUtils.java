@@ -40,6 +40,10 @@ public class DateUtils {
      */
     private static DateUtils instance;
     /**
+     * {@link DateTimeFormatter} instance used for the short date String
+     */
+    private DateTimeFormatter shortDateFormatter;
+    /**
      * {@link DateTimeFormatter} instance used for the medium date String
      */
     private DateTimeFormatter mediumDateFormatter;
@@ -71,6 +75,16 @@ public class DateUtils {
             instance = new DateUtils();
         }
         return instance;
+    }
+
+    /**
+     * @return The short date {@link DateTimeFormatter} instance
+     */
+    private static DateTimeFormatter shortDateFormatter() {
+        if (instance().shortTimeFormatter == null) {
+            instance().shortTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        }
+        return instance().shortTimeFormatter;
     }
 
     /**
@@ -162,6 +176,16 @@ public class DateUtils {
 
         //Set it to the UTC time zone
         return rfcFormatter().format(dateTime.withZoneSameInstant(ZoneOffset.UTC));
+    }
+
+    /**
+     * Returns the short text of a date (Ex: 01/01/00)
+     *
+     * @param temporal Temporal to use
+     * @return The localized short date String
+     */
+    public static String getShortDateString(@NonNull Temporal temporal) {
+        return shortDateFormatter().format(temporal);
     }
 
     /**
