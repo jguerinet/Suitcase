@@ -17,6 +17,7 @@
 package com.guerinet.utils;
 
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
@@ -73,6 +74,22 @@ public class Utils {
         Intent intent = new Intent(Intent.ACTION_VIEW)
                 .setData(Uri.parse(url));
         context.startActivity(intent);
+    }
+
+    /**
+     * Opens the URL to an app in the Play Store or in the browser if the Play Store does not exist
+     *
+     * @param context     App context
+     * @param packageName App package name
+     */
+    public static void openPlayStoreApp(Context context, String packageName) {
+        try {
+            context.startActivity(new Intent(
+                    Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));
+        } catch(ActivityNotFoundException e) {
+            //If the user user dot have the play store installed, open it in their browser
+            openURL(context, "https://play.google.com/store/apps/details?id=" + packageName);
+        }
     }
 
     /**
