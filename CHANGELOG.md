@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.17 (2016-02-18)
+* Added method to open an app on the Play Store 
+
 ## Version 1.0.16 (2016-02-12)
 * Added method to get the short String for a date 
 
