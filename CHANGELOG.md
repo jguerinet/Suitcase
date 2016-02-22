@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.18 (2016-02-22)
+* Added method to get a BufferedSource for a raw resource
+
 ## Version 1.0.17 (2016-02-18)
 * Added method to open an app on the Play Store 
 
