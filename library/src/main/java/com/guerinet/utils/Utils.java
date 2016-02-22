@@ -252,6 +252,17 @@ public class Utils {
     }
 
     /**
+     * Returns a BufferedSource for a file in the raw folder (can be used with Moshi for example)
+     *
+     * @param context App context
+     * @param fileId  Resource Id of the file to read from the raw folder
+     * @return The {@link BufferedSource}
+     */
+    public static BufferedSource sourceFromRaw(Context context, @RawRes int fileId) {
+        return Okio.buffer(Okio.source(context.getResources().openRawResource(fileId)));
+    }
+
+    /**
      * Reads a String from a file in the raw folder
      *
      * @param context App context
@@ -260,10 +271,7 @@ public class Utils {
      */
     public static String stringFromRaw(Context context, @RawRes int fileId) {
         try {
-            BufferedSource fileSource = Okio.buffer(Okio.source(
-                    context.getResources().openRawResource(fileId)));
-
-            return fileSource.readUtf8();
+            return sourceFromRaw(context, fileId).readUtf8();
         } catch(IOException e) {
             Timber.e(e, "Error reading String from raw");
         }
