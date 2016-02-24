@@ -16,7 +16,6 @@
 
 package com.guerinet.utils;
 
-import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 
 import org.threeten.bp.LocalDate;
@@ -173,7 +172,6 @@ public class DateUtils {
         if (dateTime == null) {
             return null;
         }
-
         //Set it to the UTC time zone
         return rfcFormatter().format(dateTime.withZoneSameInstant(ZoneOffset.UTC));
     }
@@ -182,9 +180,12 @@ public class DateUtils {
      * Returns the short text of a date (Ex: 01/01/00)
      *
      * @param temporal Temporal to use
-     * @return The localized short date String
+     * @return The localized short date String, null if the date is null
      */
-    public static String getShortDateString(@NonNull Temporal temporal) {
+    public static String getShortDateString(@Nullable Temporal temporal) {
+        if (temporal == null) {
+            return null;
+        }
         return shortDateFormatter().format(temporal);
     }
 
@@ -192,9 +193,12 @@ public class DateUtils {
      * Returns the medium text of a date (Ex: Jan 1, 2000)
      *
      * @param temporal Temporal to use
-     * @return The localized medium date String
+     * @return The localized medium date String, null if the date is null
      */
-    public static String getMediumDateString(@NonNull Temporal temporal) {
+    public static String getMediumDateString(@Nullable Temporal temporal) {
+        if (temporal == null) {
+            return null;
+        }
         return mediumDateFormatter().format(temporal);
     }
 
@@ -202,9 +206,12 @@ public class DateUtils {
      * Returns the long text of a date (Ex: January 1, 2000)
      *
      * @param temporal Temporal to use
-     * @return The localized long date String
+     * @return The localized long date String, null if the date is null
      */
-    public static String getLongDateString(@NonNull Temporal temporal) {
+    public static String getLongDateString(@Nullable Temporal temporal) {
+        if (temporal == null) {
+            return null;
+        }
         return longDateFormatter().format(temporal);
     }
 
@@ -212,9 +219,12 @@ public class DateUtils {
      * Returns the short text of a time (Ex: 3:30pm)
      *
      * @param temporal Temporal to use
-     * @return The localized short time String
+     * @return The localized short time String, null if the date is null
      */
-    public static String getShortTimeString(@NonNull Temporal temporal) {
+    public static String getShortTimeString(@Nullable Temporal temporal) {
+        if (temporal == null) {
+            return null;
+        }
         return shortTimeFormatter().format(temporal);
     }
 }
