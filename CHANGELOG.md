@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.20 (2016-02-24)
+* New: Date/Time formatter methods can now take null parameters (they will return null in this case)
+* Fix: Fixed short date formatter not being correctly initialized
+
 ## Version 1.0.19 (2016-02-23)
 * New: Added methods to load and save objects to internal storage
 
