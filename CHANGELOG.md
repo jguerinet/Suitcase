@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.19 (2016-02-23)
+* New: Added methods to load and save objects to internal storage
+
 ## Version 1.0.18 (2016-02-22)
 * Added method to get a BufferedSource for a raw resource
 
