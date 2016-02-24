@@ -81,10 +81,10 @@ public class DateUtils {
      * @return The short date {@link DateTimeFormatter} instance
      */
     private static DateTimeFormatter shortDateFormatter() {
-        if (instance().shortTimeFormatter == null) {
-            instance().shortTimeFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
+        if (instance().shortDateFormatter == null) {
+            instance().shortDateFormatter = DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT);
         }
-        return instance().shortTimeFormatter;
+        return instance().shortDateFormatter;
     }
 
     /**
