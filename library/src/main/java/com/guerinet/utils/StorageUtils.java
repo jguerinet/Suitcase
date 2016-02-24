@@ -21,7 +21,9 @@ import android.support.annotation.Nullable;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
 
 import timber.log.Timber;
 
@@ -43,7 +45,7 @@ public class StorageUtils {
             //Return the FileInputStream from the given file name
             return context.openFileInput(fileName);
         } catch (FileNotFoundException e) {
-            Timber.e("File not found: %s", tag);
+            Timber.e("Error: File not found: %s", tag);
             return null;
         }
     }
@@ -73,6 +75,27 @@ public class StorageUtils {
         } catch (Exception e) {
             Timber.e(e, "Error loading %s from internal storage", tag);
             return null;
+        }
+    }
+
+    /**
+     * Saves an object to internal storage
+     *
+     * @param context  App context
+     * @param object   Object to save
+     * @param fileName File name to save the object under
+     * @param tag      Tag to use in case of an error
+     */
+    public static void saveObject(Context context, Object object, String fileName, String tag) {
+        try {
+            //Open a FileOutputStream to a file in internal storage
+            FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
+            //Open an ObjectOutputStream using the FileOutputStream
+            ObjectOutputStream out = new ObjectOutputStream(fos);
+            //Write the object to the stream
+            out.writeObject(object);
+        } catch(Exception e) {
+            Timber.e(e, "Error saving %s to internal storage", tag);
         }
     }
 }
