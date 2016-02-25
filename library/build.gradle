@@ -46,7 +46,7 @@ dependencies {
     provided 'com.google.dagger:dagger:2.0.2'
     provided 'org.glassfish:javax.annotation:10.0-b28'
     provided 'com.jakewharton.threetenabp:threetenabp:1.0.3'
-    provided 'com.jakewharton.timber:timber:4.1.0'
+    provided 'com.jakewharton.timber:timber:4.1.1'
     provided 'com.squareup.okio:okio:1.6.0'
 }
 
