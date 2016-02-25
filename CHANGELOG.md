@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.21 (2016-02-25)
+* New: CustomDurationViewPager is a ViewPager instance that has a custom scroll animation speed 
+
 ## Version 1.0.20 (2016-02-24)
 * New: Date/Time formatter methods can now take null parameters (they will return null in this case)
 * Fix: Fixed short date formatter not being correctly initialized
