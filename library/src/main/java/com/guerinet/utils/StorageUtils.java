@@ -54,14 +54,12 @@ public class StorageUtils {
      * Loads the object at the given file name
      *
      * @param context  App context
-     * @param type     Object class
      * @param fileName File name
      * @param tag      Tag to use for any caught exception
      * @return The object loaded, null if none
      */
     @SuppressWarnings("unchecked")
-    public static @Nullable <T> T loadObject(Context context, Class<T> type, String fileName,
-            String tag) {
+    public static @Nullable Object loadObject(Context context, String fileName, String tag) {
         //If the FIS is null, don't continue
         FileInputStream fis = load(context, fileName, tag);
         if (fis == null) {
@@ -71,7 +69,7 @@ public class StorageUtils {
         //Set up the ObjectInputStream from the FileInputStream
         try {
             ObjectInputStream in = new ObjectInputStream(fis);
-            return type.cast(in.readObject());
+            return in.readObject();
         } catch (Exception e) {
             Timber.e(e, "Error loading %s from internal storage", tag);
             return null;
