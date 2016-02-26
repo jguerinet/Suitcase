@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.22 (2016-02-25)
+* Fix: Fixed the loadObject() method in the StorageUtils to work with a list of objects 
+
 ## Version 1.0.21 (2016-02-25)
 * New: CustomDurationViewPager is a ViewPager instance that has a custom scroll animation speed 
 
