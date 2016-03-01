@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.23 (2016-03-01)
+* New: Added method to open the current app in the Play Store using the package name from the passed Context
+
 ## Version 1.0.22 (2016-02-25)
 * Fix: Fixed the loadObject() method in the StorageUtils to work with a list of objects 
 
