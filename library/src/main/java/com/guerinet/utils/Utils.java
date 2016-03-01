@@ -93,6 +93,15 @@ public class Utils {
     }
 
     /**
+     * Opens the URL to the app this context represents in the Play Store of in the browser if the
+     *  Play Store does not exist
+     * @param context App context, which will be used to get the package name
+     */
+    public static void openPlayStoreApp(Context context) {
+        openPlayStoreApp(context, context.getPackageName());
+    }
+
+    /**
      * @param context App context
      * @return App package info, null if an error
      */
