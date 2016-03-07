@@ -95,6 +95,22 @@ public class DialogUtils {
     /**
      * Displays an {@link AlertDialog} with one 'ok' button
      *
+     * @param context  App context
+     * @param title    Dialog title, -1 if none
+     * @param message  Dialog message, null if none
+     * @param listener {@link DialogInterface.OnClickListener} for the button
+     * @return The {@link AlertDialog} instance
+     */
+    public static AlertDialog neutral(Context context, @StringRes int title,
+            @Nullable String message, DialogInterface.OnClickListener listener) {
+        return build(context, title, message)
+                .setNeutralButton(android.R.string.ok, listener)
+                .show();
+    }
+
+    /**
+     * Displays an {@link AlertDialog} with one 'ok' button
+     *
      * @param context App context
      * @param title   Dialog title, -1 if none
      * @param message Dialog message, -1 if none
