@@ -2,6 +2,7 @@
 
 ## Version 1.0.24 (2016-03-07)
 * New: Added method to display a neutral AlertDialog with a message String and an OnClickListener for the button
+* New: Added method to display a toast with a message String 
 
 ## Version 1.0.23 (2016-03-01)
 * New: Added method to open the current app in the Play Store using the package name from the passed Context
