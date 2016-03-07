@@ -27,6 +27,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.support.annotation.ColorInt;
+import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
 import android.support.annotation.RawRes;
 import android.support.annotation.StringRes;
@@ -61,6 +62,16 @@ public class Utils {
      * @param message Message to show
      */
     public static void toast(Context context, @StringRes int message) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
+    }
+
+    /**
+     * Displays a toast of Short length
+     *
+     * @param context App context
+     * @param message Message to show
+     */
+    public static void toast(Context context, @NonNull String message) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show();
     }
 
