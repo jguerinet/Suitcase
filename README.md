@@ -34,7 +34,7 @@ The Gradle dependencies are declared using the 'provided' scope, which means tha
 * The `ProductionTree` class needs Timber  
 * The `DateUtils` and `DatePreference` needs AndroidThreeTen
 * In `Utils`, both `setTint()` need support v4
-* In `Utils`, `stringFromRaw()` needs Okio and Timber
+* In `Utils`, `stringFromRaw()` needs Okio
 * In `Utils`, `isPermissionGranted()` and `requestPermission()` need support v4
 
 ## Contributors
