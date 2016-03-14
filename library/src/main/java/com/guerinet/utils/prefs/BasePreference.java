@@ -19,8 +19,6 @@ package com.guerinet.utils.prefs;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-import javax.inject.Inject;
-
 /**
  * Base class for all Preference helpers
  * @author Julien Guerinet
@@ -42,7 +40,6 @@ public class BasePreference {
      * @param prefs         {@link SharedPreferences} instance
      * @param key           Key under which the pref should be stored
      */
-    @Inject
     public BasePreference(@NonNull SharedPreferences prefs, @NonNull String key) {
         this.prefs = prefs;
         this.key = key;

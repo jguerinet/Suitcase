@@ -19,8 +19,6 @@ package com.guerinet.utils.prefs;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-import javax.inject.Inject;
-
 /**
  * Preference utility class for ints
  * @author Julien Guerinet
@@ -39,9 +37,7 @@ public class IntPreference extends BasePreference {
      * @param key           Key under which the pref should be stored
      * @param defaultValue  Default value
      */
-    @Inject
-    public IntPreference(@NonNull SharedPreferences prefs, @NonNull String key,
-            int defaultValue) {
+    public IntPreference(@NonNull SharedPreferences prefs, @NonNull String key, int defaultValue) {
         super(prefs, key);
         this.defaultValue = defaultValue;
     }

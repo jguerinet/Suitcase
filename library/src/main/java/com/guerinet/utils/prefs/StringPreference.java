@@ -19,8 +19,6 @@ package com.guerinet.utils.prefs;
 import android.content.SharedPreferences;
 import android.support.annotation.NonNull;
 
-import javax.inject.Inject;
-
 /**
  * Preference utility class for Strings
  * @author Julien Guerinet
@@ -39,7 +37,6 @@ public class StringPreference extends BasePreference {
      * @param key           Key under which the pref should be stored
      * @param defaultValue  Default value
      */
-    @Inject
     public StringPreference(@NonNull SharedPreferences prefs, @NonNull String key,
             String defaultValue) {
         super(prefs, key);

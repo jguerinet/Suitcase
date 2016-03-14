@@ -21,8 +21,6 @@ import android.support.annotation.NonNull;
 
 import org.threeten.bp.ZonedDateTime;
 
-import javax.inject.Inject;
-
 /**
  * Preference utility class for dates
  * @author Julien Guerinet
@@ -41,7 +39,6 @@ public class DatePreference extends StringPreference {
      * @param key           Key under which the pref should be stored
      * @param defaultValue  Default value
      */
-    @Inject
     public DatePreference(@NonNull SharedPreferences prefs, @NonNull String key,
             ZonedDateTime defaultValue) {
         super(prefs, key, defaultValue == null ? null : defaultValue.toString());
