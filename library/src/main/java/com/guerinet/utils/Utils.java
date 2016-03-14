@@ -35,6 +35,7 @@ import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.Pair;
+import android.util.Log;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -46,7 +47,6 @@ import java.util.List;
 
 import okio.BufferedSource;
 import okio.Okio;
-import timber.log.Timber;
 
 /**
  * Static utility classes
@@ -120,7 +120,7 @@ public class Utils {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
         } catch(PackageManager.NameNotFoundException e) {
-            Timber.e(e, "PackageInfo not found");
+            Log.e("Utils", "Package Info not found", e);
             return null;
         }
     }
@@ -257,7 +257,7 @@ public class Utils {
 
             return result.toString();
         } catch(UnsupportedEncodingException e) {
-            Timber.e(e, "Unsupported encoding while getting the query params");
+            Log.e("Utils", "Unsupported encoding while getting the query params", e);
             return "";
         }
     }
@@ -293,7 +293,7 @@ public class Utils {
         try {
             return sourceFromRaw(context, fileId).readUtf8();
         } catch(IOException e) {
-            Timber.e(e, "Error reading String from raw");
+            Log.e("Utils", "Error reading String from raw", e);
         }
         return null;
     }

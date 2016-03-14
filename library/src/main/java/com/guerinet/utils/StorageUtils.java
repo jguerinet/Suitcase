@@ -18,14 +18,13 @@ package com.guerinet.utils;
 
 import android.content.Context;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
-
-import timber.log.Timber;
 
 /**
  * Utility methods for loading and saving files to internal storage
@@ -45,7 +44,7 @@ public class StorageUtils {
             //Return the FileInputStream from the given file name
             return context.openFileInput(fileName);
         } catch (FileNotFoundException e) {
-            Timber.e("Error: File not found: %s", tag);
+            Log.e("Storage Utils Load", "Error: File not found: " + tag);
             return null;
         }
     }
@@ -71,7 +70,7 @@ public class StorageUtils {
             ObjectInputStream in = new ObjectInputStream(fis);
             return in.readObject();
         } catch (Exception e) {
-            Timber.e(e, "Error loading %s from internal storage", tag);
+            Log.e("Storage Utils Load", "Error loading " + tag + " from internal storage", e);
             return null;
         }
     }
@@ -93,7 +92,7 @@ public class StorageUtils {
             //Write the object to the stream
             out.writeObject(object);
         } catch(Exception e) {
-            Timber.e(e, "Error saving %s to internal storage", tag);
+            Log.e("Storage Utils Save", "Error saving" + tag + " to internal storage", e);
         }
     }
 }
