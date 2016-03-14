@@ -20,7 +20,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 ## Gradle Dependencies
 * [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
 * [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
-* [Dagger](https://google.github.io/dagger)
 * [AndroidThreeTen](https://github.com/JakeWharton/ThreeTenABP)
 * [Timber](https://github.com/JakeWharton/timber)
 * [Okio](https://github.com/square/okio)
