@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.25 (2016-03-14)
+* Removed the need for Timber for some utility classes 
+* Removed Dagger dependency 
+
 ## Version 1.0.24 (2016-03-07)
 * New: Added method to display a neutral AlertDialog with a message String and an OnClickListener for the button
 * New: Added method to display a toast with a message String 
