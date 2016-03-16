@@ -82,6 +82,12 @@ public class Utils {
      * @param url      URL to open
      */
     public static void openURL(Context context, String url) {
+        //Check that http:// or https:// is there
+        if (!url.toLowerCase().startsWith(("http://").toLowerCase()) &&
+                !url.toLowerCase().startsWith(("https://").toLowerCase())) {
+            url = "http://" + url;
+        }
+
         Intent intent = new Intent(Intent.ACTION_VIEW)
                 .setData(Uri.parse(url));
         context.startActivity(intent);
