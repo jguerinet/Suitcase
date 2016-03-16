@@ -22,6 +22,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
+import android.content.pm.ResolveInfo;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -92,6 +93,33 @@ public class Utils {
         Intent intent = new Intent(Intent.ACTION_VIEW)
                 .setData(Uri.parse(url));
         context.startActivity(intent);
+    }
+
+    /**
+     * Opens a given PDF
+     *
+     * @param context App context
+     * @param path    Path to the PDF
+     * @throws ActivityNotFoundException If no suitable app was found
+     */
+    public static void openPDF(Context context, Uri path) throws ActivityNotFoundException {
+        //Check if there is a PDF reader
+        PackageManager packageManager = context.getPackageManager();
+        Intent intent = new Intent(Intent.ACTION_VIEW)
+                .setType("application/pdf");
+        List<ResolveInfo> list =
+                packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
+
+        if (list.size() > 0) {
+            //If there is one, use it
+            intent = new Intent(Intent.ACTION_VIEW)
+                    .setDataAndType(path, "application/pdf")
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+            context.startActivity(intent);
+        } else {
+            //If not, throw the exception
+            throw new ActivityNotFoundException("No PDF app found");
+        }
     }
 
     /**
