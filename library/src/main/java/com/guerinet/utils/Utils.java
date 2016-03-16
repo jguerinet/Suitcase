@@ -26,6 +26,7 @@ import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
+import android.os.Build;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -147,6 +148,19 @@ public class Utils {
     public static String versionName(Context context) {
         PackageInfo info = getPackageInfo(context);
         return info == null ? null : info.versionName;
+    }
+
+    /**
+     * @return The device manufacturer and model
+     */
+    public static String device() {
+        String model = Build.MODEL;
+        //Add the manufacturer if it's not there already
+        if (!model.startsWith(Build.MANUFACTURER)) {
+            model = Build.MANUFACTURER + " " + model;
+        }
+
+        return model;
     }
 
     /**
