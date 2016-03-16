@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.27 (2016-03-16)
+* New: Added method to open PDFs
+
 ## Version 1.0.26 (2016-03-16)
 * New: Added method to get the device manufacturer and model 
 * Added check for `http://` or `https://` on a URL before trying to open it 
