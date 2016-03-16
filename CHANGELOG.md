@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.0.26 (2016-03-16)
+* New: Added method to get the device manufacturer and model 
+* Added check for `http://` or `https://` on a URL before trying to open it 
+
 ## Version 1.0.25 (2016-03-14)
 * Removed the need for Timber for some utility classes 
 * Removed Dagger dependency 
