@@ -212,10 +212,38 @@ public class DialogUtils {
                             @Override
                             public void onClick(DialogInterface dialog, int which) {
                                 listInterface.onChoiceSelected(which);
-                                //Dismiss the dialog when a choice has been made
+                                // Dismiss the dialog when a choice has been made
                                 dialog.dismiss();
                             }
                         })
+                .show();
+    }
+
+    /**
+     * Displays an {@link AlertDialog} with a multiple choice list of items to choose from
+     *
+     * @param context       App context
+     * @param title         Dialog title
+     * @param listInterface An implementation of the {@link MultiListDialogInterface}
+     * @return The {@link AlertDialog} instance
+     */
+    public static AlertDialog multiList(Context context, @StringRes int title,
+            final MultiListDialogInterface listInterface) {
+        return build(context, title, -1)
+                .setMultiChoiceItems(listInterface.getChoices(), listInterface.getSelectedItems(),
+                        new DialogInterface.OnMultiChoiceClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which,
+                                    boolean isChecked) {
+                                listInterface.onChoiceSelected(which, isChecked);
+                            }
+                        })
+                .setNeutralButton(android.R.string.ok, new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        listInterface.onCloseDialog();
+                    }
+                })
                 .show();
     }
 }
