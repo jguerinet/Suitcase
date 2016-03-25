@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.28 (2016-03-25)
+* New: Added method to quickly generate a multi-choice dialog
+
 ## Version 1.0.27 (2016-03-16)
 * New: Added method to open PDFs
 
