@@ -41,7 +41,7 @@ public class StorageUtils {
      */
     public static @Nullable FileInputStream load(Context context, String fileName, String tag) {
         try {
-            //Return the FileInputStream from the given file name
+            // Return the FileInputStream from the given file name
             return context.openFileInput(fileName);
         } catch (FileNotFoundException e) {
             Log.e("Storage Utils Load", "Error: File not found: " + tag);
@@ -59,13 +59,13 @@ public class StorageUtils {
      */
     @SuppressWarnings("unchecked")
     public static @Nullable Object loadObject(Context context, String fileName, String tag) {
-        //If the FIS is null, don't continue
+        // If the FIS is null, don't continue
         FileInputStream fis = load(context, fileName, tag);
         if (fis == null) {
             return null;
         }
 
-        //Set up the ObjectInputStream from the FileInputStream
+        // Set up the ObjectInputStream from the FileInputStream
         try {
             ObjectInputStream in = new ObjectInputStream(fis);
             return in.readObject();
@@ -85,11 +85,11 @@ public class StorageUtils {
      */
     public static void saveObject(Context context, Object object, String fileName, String tag) {
         try {
-            //Open a FileOutputStream to a file in internal storage
+            // Open a FileOutputStream to a file in internal storage
             FileOutputStream fos = context.openFileOutput(fileName, Context.MODE_PRIVATE);
-            //Open an ObjectOutputStream using the FileOutputStream
+            // Open an ObjectOutputStream using the FileOutputStream
             ObjectOutputStream out = new ObjectOutputStream(fos);
-            //Write the object to the stream
+            // Write the object to the stream
             out.writeObject(object);
         } catch(Exception e) {
             Log.e("Storage Utils Save", "Error saving" + tag + " to internal storage", e);

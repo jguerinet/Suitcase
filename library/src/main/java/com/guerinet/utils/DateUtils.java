@@ -121,7 +121,7 @@ public class DateUtils {
      */
     private static DateTimeFormatter rfcFormatter() {
         if (instance().rfcFormatter == null) {
-            //We want to locale to always be US regardless of the user's locale
+            // We want to locale to always be US regardless of the user's locale
             instance().rfcFormatter = DateTimeFormatter.RFC_1123_DATE_TIME.withLocale(Locale.US);
         }
         return instance().rfcFormatter;
@@ -172,7 +172,7 @@ public class DateUtils {
         if (dateTime == null) {
             return null;
         }
-        //Set it to the UTC time zone
+        // Set it to the UTC time zone
         return rfcFormatter().format(dateTime.withZoneSameInstant(ZoneOffset.UTC));
     }
 

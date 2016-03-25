@@ -50,13 +50,13 @@ public class NonSwipeableViewPager extends ViewPager {
 
     @Override
     public boolean onInterceptTouchEvent(MotionEvent arg0) {
-        //Do not register any touch events
+        // Do not register any touch events
         return false;
     }
 
     @Override
     public boolean onTouchEvent(MotionEvent event) {
-        //Do no register any touch events
+        // Do no register any touch events
         return false;
     }
 }

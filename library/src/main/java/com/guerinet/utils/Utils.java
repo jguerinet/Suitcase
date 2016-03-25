@@ -84,7 +84,7 @@ public class Utils {
      * @param url      URL to open
      */
     public static void openURL(Context context, String url) {
-        //Check that http:// or https:// is there
+        // Check that http:// or https:// is there
         if (!url.toLowerCase().startsWith(("http://").toLowerCase()) &&
                 !url.toLowerCase().startsWith(("https://").toLowerCase())) {
             url = "http://" + url;
@@ -103,7 +103,7 @@ public class Utils {
      * @throws ActivityNotFoundException If no suitable app was found
      */
     public static void openPDF(Context context, Uri path) throws ActivityNotFoundException {
-        //Check if there is a PDF reader
+        // Check if there is a PDF reader
         PackageManager packageManager = context.getPackageManager();
         Intent intent = new Intent(Intent.ACTION_VIEW)
                 .setType("application/pdf");
@@ -111,13 +111,13 @@ public class Utils {
                 packageManager.queryIntentActivities(intent, PackageManager.MATCH_DEFAULT_ONLY);
 
         if (list.size() > 0) {
-            //If there is one, use it
+            // If there is one, use it
             intent = new Intent(Intent.ACTION_VIEW)
                     .setDataAndType(path, "application/pdf")
                     .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
             context.startActivity(intent);
         } else {
-            //If not, throw the exception
+            // If not, throw the exception
             throw new ActivityNotFoundException("No PDF app found");
         }
     }
@@ -132,8 +132,8 @@ public class Utils {
         try {
             context.startActivity(new Intent(
                     Intent.ACTION_VIEW, Uri.parse("market://details?id=" + packageName)));
-        } catch(ActivityNotFoundException e) {
-            //If the user user dot have the play store installed, open it in their browser
+        } catch (ActivityNotFoundException e) {
+            // If the user user dot have the play store installed, open it in their browser
             openURL(context, "https://play.google.com/store/apps/details?id=" + packageName);
         }
     }
@@ -154,7 +154,7 @@ public class Utils {
     private static PackageInfo getPackageInfo(Context context) {
         try {
             return context.getPackageManager().getPackageInfo(context.getPackageName(), 0);
-        } catch(PackageManager.NameNotFoundException e) {
+        } catch (PackageManager.NameNotFoundException e) {
             Log.e("Utils", "Package Info not found", e);
             return null;
         }
@@ -183,7 +183,7 @@ public class Utils {
      */
     public static String device() {
         String model = Build.MODEL;
-        //Add the manufacturer if it's not there already
+        // Add the manufacturer if it's not there already
         if (!model.startsWith(Build.MANUFACTURER)) {
             model = Build.MANUFACTURER + " " + model;
         }
@@ -198,10 +198,10 @@ public class Utils {
      * @param color    The new color
      */
     public static void setTint(Drawable drawable, @ColorInt int color) {
-        //Wrap the drawable in the compat library
+        // Wrap the drawable in the compat library
         drawable = DrawableCompat.wrap(drawable).mutate();
 
-        //Tint the drawable with the compat library
+        // Tint the drawable with the compat library
         DrawableCompat.setTint(drawable, color);
     }
 
@@ -226,18 +226,18 @@ public class Utils {
     public static void deleteFolderContents(File folder, boolean deleteFolder) {
         File[] files = folder.listFiles();
         if (files != null) {
-            //Go through the folder's files
+            // Go through the folder's files
             for (File f: files) {
                 if (f.isDirectory()) {
-                    //Recursively call this method if the file is a folder
+                    // Recursively call this method if the file is a folder
                     deleteFolderContents(f, true);
                 } else {
-                    //Delete the file if it is a file
+                    // Delete the file if it is a file
                     f.delete();
                 }
             }
         }
-        //Only delete the folder if necessary
+        // Only delete the folder if necessary
         if (deleteFolder) {
             folder.delete();
         }
@@ -264,7 +264,7 @@ public class Utils {
     public static File getFolder(Context context, String folderName, @Nullable String type) {
         File folder = new File(context.getExternalFilesDir(type), folderName);
 
-        //Create it if it doesn't exist already or it isn't a directory
+        // Create it if it doesn't exist already or it isn't a directory
         if (!folder.exists() || !folder.isDirectory()) {
             folder.mkdirs();
         }
@@ -284,27 +284,27 @@ public class Utils {
             StringBuilder result = new StringBuilder();
             boolean first = true;
 
-            //Add the original '?'
+            // Add the original '?'
             result.append("?");
 
-            //Go through the pairs
+            // Go through the pairs
             for (Pair<String, String> pair : params) {
                 if (first) {
-                    //First only happens once to avoid the first '&'
+                    // First only happens once to avoid the first '&'
                     first = false;
                 } else {
-                    //If not first, add the & to chain them together
+                    // If not first, add the & to chain them together
                     result.append("&");
                 }
 
-                //Append the key and value
+                // Append the key and value
                 result.append(URLEncoder.encode(pair.first, "UTF-8"));
                 result.append("=");
                 result.append(URLEncoder.encode(pair.second, "UTF-8"));
             }
 
             return result.toString();
-        } catch(UnsupportedEncodingException e) {
+        } catch (UnsupportedEncodingException e) {
             Log.e("Utils", "Unsupported encoding while getting the query params", e);
             return "";
         }
@@ -340,7 +340,7 @@ public class Utils {
     public static String stringFromRaw(Context context, @RawRes int fileId) {
         try {
             return sourceFromRaw(context, fileId).readUtf8();
-        } catch(IOException e) {
+        } catch (IOException e) {
             Log.e("Utils", "Error reading String from raw", e);
         }
         return null;
@@ -370,13 +370,13 @@ public class Utils {
      * @return True if the permission has already been granted, false otherwise
      */
     public static boolean requestPermission(Activity activity, String permission, int requestCode) {
-        //Check that we have the permission
+        // Check that we have the permission
         if (!isPermissionGranted(activity, permission)) {
-            //Request the permission
+            // Request the permission
             ActivityCompat.requestPermissions(activity, new String[]{permission}, requestCode);
             return false;
         }
-        //If we already have the permission, return true
+        // If we already have the permission, return true
         return true;
     }
 }

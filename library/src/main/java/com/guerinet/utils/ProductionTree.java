@@ -29,13 +29,13 @@ public abstract class ProductionTree extends Timber.Tree {
 
     @Override
     protected void log(int priority, String tag, String message, Throwable t) {
-        //We don't want to log verbose and debug logs
+        // We don't want to log verbose and debug logs
         if (priority == Log.VERBOSE || priority == Log.DEBUG) {
             return;
         }
 
         log(message);
-        //If there's a crash and it's not a socket timeout, log it too
+        // If there's a crash and it's not a socket timeout, log it too
         if (t != null) {
             logException(t);
         }

@@ -51,12 +51,12 @@ public class DatePreference extends StringPreference {
     public ZonedDateTime getDate() {
         String storedDate = super.get();
 
-        //If the stored date is null, return null
+        // If the stored date is null, return null
         if (storedDate == null) {
             return null;
         }
 
-        //If not, parse it onto a ZoneDateTime
+        // If not, parse it onto a ZoneDateTime
         return ZonedDateTime.parse(storedDate);
     }
 
