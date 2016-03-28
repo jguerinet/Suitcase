@@ -184,13 +184,28 @@ public class DialogUtils {
      * @param listener       {@link DialogInterface.OnClickListener} for both buttons
      * @return The {@link AlertDialog} instance
      */
-    public static AlertDialog alert(Context context, @StringRes int title, String message,
+    public static AlertDialog alert(Context context, @StringRes int title, @Nullable String message,
             @StringRes int positiveButton, @StringRes int negativeButton,
             DialogInterface.OnClickListener listener) {
         return build(context, title, message)
                 .setPositiveButton(positiveButton, listener)
                 .setNegativeButton(negativeButton, listener)
                 .show();
+    }
+
+    /**
+     * Displays an {@link AlertDialog} with 2 buttons, 'Ok' and 'Cancel'
+     *
+     * @param context  App context
+     * @param title    Dialog title, -1 if none
+     * @param message  Dialog message, null if none
+     * @param listener {@link DialogInterface.OnClickListener} for both buttons
+     * @return The {@link AlertDialog} instance
+     */
+    public static AlertDialog alert(Context context, @StringRes int title, @Nullable String message,
+            DialogInterface.OnClickListener listener) {
+        return alert(context, title, message, android.R.string.ok, android.R.string.cancel,
+                listener);
     }
 
     /* LIST DIALOGS */
