@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.29 (2016-03-28)
+* New: Added new helper method to create a 2-choice AlertDialog
+
 ## Version 1.0.28 (2016-03-25)
 * New: Added method to quickly generate a multi-choice dialog
 
