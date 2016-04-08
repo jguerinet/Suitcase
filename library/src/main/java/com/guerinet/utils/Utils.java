@@ -23,6 +23,7 @@ import android.content.Intent;
 import android.content.pm.PackageInfo;
 import android.content.pm.PackageManager;
 import android.content.pm.ResolveInfo;
+import android.content.res.TypedArray;
 import android.graphics.drawable.Drawable;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
@@ -344,6 +345,27 @@ public class Utils {
             Log.e("Utils", "Error reading String from raw", e);
         }
         return null;
+    }
+
+    /**
+     * Returns the resource Id for a given attribute Id to set an attribute programmatically
+     *
+     * @param context     App context
+     * @param attributeId Attribute Id
+     * @return Corresponding resource Id
+     */
+    public static int getResourceFromAttributes(Context context, int attributeId) {
+        // Get the attribute in a TypedArray form
+        int[] attrs = new int[]{attributeId};
+        TypedArray typedArray = context.obtainStyledAttributes(attrs);
+
+        // Extract the resource Id
+        int backgroundResource = typedArray.getResourceId(0, 0);
+
+        // Recycle the typedArray
+        typedArray.recycle();
+
+        return backgroundResource;
     }
 
     /* MARSHMALLOW PERMISSIONS */
