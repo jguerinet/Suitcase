@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.30 (2016-04-08)
+* New: Added method to an attribute's resource Id to set it programmatically 
+
 ## Version 1.0.29 (2016-03-28)
 * New: Added new helper method to create a 2-choice AlertDialog
 
