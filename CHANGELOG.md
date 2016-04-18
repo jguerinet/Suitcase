@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.0.31 (2016-04-18)
+* New: Added method to check the user's internet connection based on the context
+
 ## Version 1.0.30 (2016-04-08)
 * New: Added method to an attribute's resource Id to set it programmatically 
 
