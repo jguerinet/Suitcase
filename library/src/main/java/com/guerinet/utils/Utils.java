@@ -321,6 +321,16 @@ public class Utils {
     }
 
     /**
+     * @param context App context
+     * @return True if the user is connected to the internet, false otherwise
+     */
+    public static boolean isConnected(Context context) {
+        ConnectivityManager manager =
+                (ConnectivityManager) context.getSystemService(Context.CONNECTIVITY_SERVICE);
+        return isConnected(manager);
+    }
+
+    /**
      * Returns a BufferedSource for a file in the raw folder (can be used with Moshi for example)
      *
      * @param context App context
