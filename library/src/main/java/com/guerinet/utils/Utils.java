@@ -197,13 +197,16 @@ public class Utils {
      *
      * @param drawable The drawable to tint
      * @param color    The new color
+     * @return The wrapped drawable with the tint
      */
-    public static void setTint(Drawable drawable, @ColorInt int color) {
+    public static Drawable setTint(Drawable drawable, @ColorInt int color) {
         // Wrap the drawable in the compat library
         drawable = DrawableCompat.wrap(drawable).mutate();
 
         // Tint the drawable with the compat library
         DrawableCompat.setTint(drawable, color);
+
+        return drawable;
     }
 
     /**
@@ -214,7 +217,25 @@ public class Utils {
      * @param color    The new color
      */
     public static void setTint(TextView textView, int position, @ColorInt int color) {
-        setTint(textView.getCompoundDrawables()[position], color);
+        Drawable drawable = setTint(textView.getCompoundDrawables()[position], color);
+
+        // Set the drawable back
+        Drawable left = null, top = null, right = null, bottom = null;
+        switch (position) {
+            case 0:
+                left = drawable;
+                break;
+            case 1:
+                top = drawable;
+                break;
+            case 2:
+                right = drawable;
+                break;
+            case 3:
+                bottom = drawable;
+                break;
+        }
+        textView.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
     }
 
     /**
