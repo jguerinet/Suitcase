@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.1.0 (2016-04-21)
+* Update: Fixed bug where the tint was not getting correctly applied on a drawable in pre-Lollipop
+
 ## Version 1.0.31 (2016-04-18)
 * New: Added method to check the user's internet connection based on the context
 
