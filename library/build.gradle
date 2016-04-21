@@ -19,7 +19,7 @@ apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.guerinet'
 archivesBaseName = 'android-utils'
-version = '1.1.0'
+version = '1.1.1'
 
 android {
     compileSdkVersion 23
@@ -28,7 +28,7 @@ android {
     defaultConfig {
         minSdkVersion 15
         targetSdkVersion 23
-        versionCode 33
+        versionCode 34
         versionName version
     }
     buildTypes {
