@@ -39,6 +39,8 @@ import android.support.v4.content.ContextCompat;
 import android.support.v4.graphics.drawable.DrawableCompat;
 import android.support.v4.util.Pair;
 import android.util.Log;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -207,6 +209,26 @@ public class Utils {
         DrawableCompat.setTint(drawable, color);
 
         return drawable;
+    }
+
+    /**
+     * Tints and sets the image in an {@link ImageView}
+     *
+     * @param imageView The {@link ImageView} with the drawable to tint
+     * @param color     The new color
+     */
+    public static void setTint(ImageView imageView, @ColorInt int color) {
+        imageView.setImageDrawable(setTint(imageView.getDrawable(), color));
+    }
+
+    /**
+     * Tints and sets the image on a {@link MenuItem}
+     *
+     * @param item  The {@link MenuItem} with the drawable to change
+     * @param color The new color
+     */
+    public static void setTint(MenuItem item, @ColorInt int color) {
+        item.setIcon(setTint(item.getIcon(), color));
     }
 
     /**
