@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.1.1 (2016-05-04)
+* New: Added helper method to tint an ImageView
+* New: Added helper method to tint the icon of a menu item
+
 ## Version 1.1.0 (2016-04-21)
 * Update: Fixed bug where the tint was not getting correctly applied on a drawable in pre-Lollipop
 
