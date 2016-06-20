@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.1.2 (2016-06-20)
+* New: Added helper methods to get device screen height and width
+
 ## Version 1.1.1 (2016-05-04)
 * New: Added helper method to tint an ImageView
 * New: Added helper method to tint the icon of a menu item
