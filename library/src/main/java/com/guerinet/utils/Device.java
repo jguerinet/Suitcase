@@ -16,7 +16,12 @@
 
 package com.guerinet.utils;
 
+import android.app.Activity;
+import android.content.Context;
+import android.graphics.Point;
 import android.os.Build;
+import android.view.Display;
+import android.view.WindowManager;
 
 /**
  * Helper methods relating to the user's device
@@ -36,5 +41,41 @@ public class Device {
      */
     public static boolean isLollipop() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
+    }
+
+    /**
+     * Gets the device's default display size
+     *
+     * @param context App context
+     * @return Display size
+     */
+    private static Point getDisplaySize(Context context) {
+        WindowManager windowManager;
+        if (context instanceof Activity) {
+            windowManager = ((Activity) context).getWindowManager();
+        } else {
+            windowManager = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        }
+
+        Display display = windowManager.getDefaultDisplay();
+        Point size = new Point();
+        display.getSize(size);
+        return size;
+    }
+
+    /**
+     * @param context App context
+     * @return Device screen width, in pixels
+     */
+    public static int getWidth(Context context) {
+        return getDisplaySize(context).x;
+    }
+
+    /**
+     * @param context App context
+     * @return Device screen height, in pixels
+     */
+    public static int getHeight(Context context) {
+        return getDisplaySize(context).y;
     }
 }
