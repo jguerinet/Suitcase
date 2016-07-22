@@ -29,6 +29,7 @@ import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.net.Uri;
 import android.os.Build;
+import android.os.Process;
 import android.support.annotation.ColorInt;
 import android.support.annotation.NonNull;
 import android.support.annotation.Nullable;
@@ -48,6 +49,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
+import java.util.ArrayList;
 import java.util.List;
 
 import okio.BufferedSource;
@@ -419,6 +421,55 @@ public class Utils {
         typedArray.recycle();
 
         return backgroundResource;
+    }
+
+    /**
+     * Gets the logs and saves them to the given file
+     *  Note: Okio is needed for this
+     *
+     * @param file File to write the logs in
+     * @throws IOException
+     */
+    public static void getLogs(File file) throws IOException {
+        // Get an input stream
+        java.lang.Process process = Runtime.getRuntime().exec("logcat -v time -d " +
+                Process.myPid());
+        BufferedSource source = Okio.buffer(Okio.source(process.getInputStream()));
+        StringBuilder builder = new StringBuilder();
+        List<String> logs = new ArrayList<>();
+
+        // Read from the source line by line
+        String string;
+        while ((string = source.readUtf8Line()) != null) {
+            logs.add(string);
+        }
+
+        // Close the source
+        source.close();
+
+        // Only keep the last 500 lines
+        int index = 0;
+        if (logs.size() > 500) {
+            index = logs.size() - 500;
+        }
+
+        // Append the lines one by one with a line break in between
+        for (; index < logs.size(); index ++) {
+            builder.append(logs.get(index));
+            builder.append("\n");
+        }
+
+        // Clear the list of logs
+        logs.clear();
+
+        // If a copy already exists, delete it
+        if (file.exists()) {
+            //noinspection ResultOfMethodCallIgnored
+            file.delete();
+        }
+
+        // Write everything to the file
+        Okio.buffer(Okio.sink(file)).writeUtf8(builder.toString()).flush();
     }
 
     /* MARSHMALLOW PERMISSIONS */
