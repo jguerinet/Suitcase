@@ -1,6 +1,9 @@
 # Change Log
 
-## Version 1.3.0 (2016-07-22)
+## Version 1.1.4 (2016-07-27)
+* New: Added a LocalDatePreference to store LocalDates in SharedPreferences
+
+## Version 1.1.3 (2016-07-22)
 * New: Added method to put the logs into a given file (used for bug reports)
 
 ## Version 1.1.2 (2016-06-20)
