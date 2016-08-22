@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.1.5 (2016-08-22)
+* New: Added method to check if a given version is more recent than the current version
+
 ## Version 1.1.4 (2016-07-27)
 * New: Added a LocalDatePreference to store LocalDates in SharedPreferences
 
