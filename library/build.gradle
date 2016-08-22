@@ -14,8 +14,10 @@
  * limitations under the License.
  */
 
+plugins {
+    id "com.github.dcendents.android-maven" version "1.5"
+}
 apply plugin: 'com.android.library'
-apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.guerinet'
 archivesBaseName = 'android-utils'
