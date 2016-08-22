@@ -197,6 +197,54 @@ public class Utils {
     }
 
     /**
+     * Checks if the passed version is newer than the current version. Assumes the version names
+     *  are in the X.X.X format. Will not check if they are less than 3 numbers, will only check
+     *  the first 3 if there are more
+     *
+     * @param context        App context
+     * @param newVersionName New version name String
+     * @return True if the passed version is more recent, false otherwise
+     */
+    public static boolean isNewerVersion(Context context, String newVersionName) {
+        String currentVersionName = versionName(context);
+
+        // Check if they are non null
+        if (currentVersionName == null || newVersionName == null) {
+            return false;
+        }
+
+        // Split them with periods
+        String[] newVersion = newVersionName.split(".");
+        String[] currentVersion = currentVersionName.split(".");
+
+        // If they have less than three numbers, we can't continue
+        if (newVersion.length < 3 || currentVersion.length < 3) {
+            return false;
+        }
+
+        for (int i = 0; i < 3; i ++) {
+            try {
+                int newNumber = Integer.parseInt(newVersion[i]);
+                int currentNumber = Integer.parseInt(currentVersion[i]);
+
+                if (newNumber > currentNumber) {
+                    // New number is higher than the current number: update necessary
+                    return true;
+                } else if (newNumber < currentNumber) {
+                    // New number is lower than the current number: no update necessary
+                    return false;
+                }
+            } catch (Exception e) {
+                // Error parsing the number, return false
+                return false;
+            }
+        }
+
+        // Current Version is the same as the new version: no update necessary
+        return false;
+    }
+
+    /**
      * Tints the drawable with the given color
      *
      * @param drawable The drawable to tint
