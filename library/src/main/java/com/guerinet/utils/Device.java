@@ -29,17 +29,25 @@ import android.view.WindowManager;
  * @since 2.0.2
  */
 public class Device {
+
+    /**
+     * @return True if the OS is Nougat or higher, false otherwise
+     */
+    public static boolean isAtLeastNougat() {
+        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N;
+    }
+
     /**
      * @return True if the OS is Marshmallow or higher
      */
-    public static boolean isMarshmallow() {
+    public static boolean isAtLeastMarshmallow() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M;
     }
 
     /**
      * @return True fi the OS is Lollipop or higher
      */
-    public static boolean isLollipop() {
+    public static boolean isAtLeastLollipop() {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP;
     }
 
