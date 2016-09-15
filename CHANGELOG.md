@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 1.1.6 (2016-09-15)
+* New: Added method to check if we are on Nougat or higher
+* Renamed the OS version check method names to be clearer
+
 ## Version 1.1.5 (2016-08-22)
 * New: Added method to check if a given version is more recent than the current version
 
