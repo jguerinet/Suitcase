@@ -44,9 +44,9 @@ android {
 dependencies {
     provided 'com.android.support:appcompat-v7:24.2.1'
     provided 'com.android.support:support-v4:24.2.1'
-    provided 'com.jakewharton.threetenabp:threetenabp:1.0.3'
-    provided 'com.jakewharton.timber:timber:4.1.2'
-    provided 'com.squareup.okio:okio:1.9.0'
+    provided 'com.jakewharton.threetenabp:threetenabp:1.0.4'
+    provided 'com.jakewharton.timber:timber:4.3.0'
+    provided 'com.squareup.okio:okio:1.10.0'
 }
 
 // build a jar with source files
