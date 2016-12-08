@@ -119,7 +119,8 @@ public class Utils {
             // If there is one, use it
             intent = new Intent(Intent.ACTION_VIEW)
                     .setDataAndType(path, "application/pdf")
-                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP |
+                            Intent.FLAG_GRANT_READ_URI_PERMISSION);
             context.startActivity(intent);
         } else {
             // If not, throw the exception
