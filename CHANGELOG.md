@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.1.7 (2016-12-08)
+* Fixed the opening of the PDF for Nougat +
+
 ## Version 1.1.6 (2016-09-15)
 * New: Added method to check if we are on Nougat or higher
 * Renamed the OS version check method names to be clearer
