@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Julien Guerinet
+ * Copyright 2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -44,6 +44,9 @@ android {
 dependencies {
     provided 'com.android.support:appcompat-v7:25.0.1'
     provided 'com.android.support:support-v4:25.0.1'
+    provided 'com.android.support:recyclerview-v7:25.1.1'
+    provided 'com.jakewharton:butterknife:8.5.1'
+    annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     provided 'com.jakewharton.threetenabp:threetenabp:1.0.4'
     provided 'com.jakewharton.timber:timber:4.4.0'
     provided 'com.squareup.okio:okio:1.11.0'
