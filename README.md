@@ -30,8 +30,9 @@ The Gradle dependencies are declared using the 'provided' scope, which means tha
 
 * The `DialogUtils` class needs AppCompat
 * The `NonSwipeableViewPager` class needs support v4
-* The `ProductionTree` class needs Timber  
+* The `ProductionTree` class needs Timber
 * The `DateUtils` and `DatePreference` needs AndroidThreeTen
+* The `RecyclerViewBaseAdapter` needs supportv7-recyclerview and Timber
 * In `Utils`, both `setTint()` need support v4
 * In `Utils`, `stringFromRaw()` needs Okio
 * In `Utils`, `isPermissionGranted()` and `requestPermission()` need support v4
@@ -43,7 +44,7 @@ The Gradle dependencies are declared using the 'provided' scope, which means tha
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2016 Julien Guerinet
+	 Copyright 2016-2017 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.

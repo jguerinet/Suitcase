@@ -1,5 +1,8 @@
 # Change Log
 
+## Version 1.2.0 (2017-02-21)
+* Added the `RecyclerViewBaseAdapter`, a base adapter for a `RecyclerView` with a built-in ViewHolder and empty view support
+
 ## Version 1.1.7 (2016-12-08)
 * Fixed the opening of the PDF for Nougat +
 
