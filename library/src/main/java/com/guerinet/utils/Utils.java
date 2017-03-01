@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Julien Guerinet
+ * Copyright 2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -51,6 +51,7 @@ import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import okio.BufferedSource;
 import okio.Okio;
@@ -61,6 +62,13 @@ import okio.Okio;
  * @since 1.0.0
  */
 public class Utils {
+
+    /**
+     * @return Randomly generated UUID
+     */
+    public static String uuid() {
+        return UUID.randomUUID().toString();
+    }
 
     /**
      * Displays a toast of short length
