@@ -24,7 +24,7 @@ import org.threeten.bp.temporal.Temporal
 import java.util.*
 
 /**
- * Static date utility classes
+ * Static date formatting classes
  * @author Julien Guerinet
  * @since 1.0.0
  */
