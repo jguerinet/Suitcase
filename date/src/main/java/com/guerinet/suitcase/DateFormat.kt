@@ -29,7 +29,7 @@ import java.util.*
  * @since 1.0.0
  */
 
-object DateUtils {
+object DateFormat {
 
     val rfc1123Formatter: DateTimeFormatter by lazy {
         // We want the local to always be US regardless of the user's locale
