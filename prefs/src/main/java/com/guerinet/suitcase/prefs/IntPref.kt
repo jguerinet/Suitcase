@@ -19,24 +19,24 @@ package com.guerinet.suitcase.prefs
 import android.content.SharedPreferences
 
 /**
- * SharedPreferences utility class for Strings
+ * SharedPreferences utility class for [Int]s
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class StringPref(prefs: SharedPreferences, key: String, internal val defaultValue:String?) :
+open class IntPref(prefs: SharedPreferences, key: String, internal val defaultValue: Int) :
         BasePref(prefs, key) {
 
     /**
-     * @return Current String stored at the [key], the [defaultValue] if none stored
+     * @return Current value at this [key], the [defaultValue] if none stored
      */
-    fun get(): String {
-        return prefs.getString(key, defaultValue)
+    fun get(): Int {
+        return prefs.getInt(key, defaultValue)
     }
 
     /**
      * Saves the [value] at the [key] in these [prefs]
      */
-    fun set(value: String) {
-        prefs.edit().putString(key, value).apply()
+    fun set(value: Int) {
+        prefs.edit().putInt(key, value).apply()
     }
 }
