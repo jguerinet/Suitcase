@@ -61,4 +61,4 @@ repositories {
     mavenCentral()
 }
 
-apply from: "https://raw.githubusercontent.com/jguerinet/Android-Gradle-Artifact-Script/1ab069d5829772e0858119400012def968378e95/android-artifacts.gradle"
+apply from: "https://raw.githubusercontent.com/jguerinet/Android-Gradle-Artifact-Script/master/android-artifacts.gradle"
