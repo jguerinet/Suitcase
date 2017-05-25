@@ -27,7 +27,7 @@ open class StringPref(prefs: SharedPreferences, key: String, internal val defaul
         BasePref(prefs, key) {
 
     /**
-     * @return Current String stored at the [key], the [defaultValue] if none stored
+     * @return Current [String] value stored at the [key], the [defaultValue] if none stored
      */
     fun get(): String {
         return prefs.getString(key, defaultValue)

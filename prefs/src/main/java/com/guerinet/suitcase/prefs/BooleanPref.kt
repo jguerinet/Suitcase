@@ -19,24 +19,24 @@ package com.guerinet.suitcase.prefs
 import android.content.SharedPreferences
 
 /**
- * SharedPreferences utility class for [Int]s
+ * Preference utility class for [Boolean]s
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class IntPref(prefs: SharedPreferences, key: String, internal val defaultValue: Int) :
+open class BooleanPref(prefs: SharedPreferences, key: String, internal val defaultValue: Boolean) :
         BasePref(prefs, key) {
 
     /**
-     * @return Current [Int] value at this [key], the [defaultValue] if none stored
+     * @return current [Boolean] value at this [key], the [defaultValue] if none stored
      */
-    fun get(): Int {
-        return prefs.getInt(key, defaultValue)
+    fun get(): Boolean {
+       return prefs.getBoolean(key, defaultValue)
     }
 
     /**
-     * Saves the [value] at the [key] in these [prefs]
+     * Sets the [value] at the given [key] in the given [prefs]
      */
-    fun set(value: Int) {
-        prefs.edit().putInt(key, value).apply()
+    fun set(value: Boolean) {
+        prefs.edit().putBoolean(key, value).apply()
     }
 }
