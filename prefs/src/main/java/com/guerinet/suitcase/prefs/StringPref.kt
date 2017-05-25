@@ -19,23 +19,24 @@ package com.guerinet.suitcase.prefs
 import android.content.SharedPreferences
 
 /**
- * Base class for all SharedPreferences helpers
+ * SharedPreferences utility class for Strings
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class BasePref(internal val prefs:SharedPreferences, internal val key:String) {
+open class StringPref(prefs: SharedPreferences, key: String, internal val defaultValue:String) :
+        BasePref(prefs, key) {
 
     /**
-     * Clears the [prefs] of anything stored at this [key]
+     * @return Current String stored at the [key], the [defaultValue] if none stored
      */
-    fun clear() {
-        prefs.edit().remove(key).apply()
+    fun get(): String {
+        return prefs.getString(key, defaultValue)
     }
 
     /**
-     * @return True if there is something stored in these [prefs] at this [key], false otherwise
+     * @param value [String] to save at this [key] in these [prefs]
      */
-    fun isSet(): Boolean {
-        return prefs.contains(key)
+    fun set(value: String) {
+        prefs.edit().putString(key, value).apply()
     }
 }
