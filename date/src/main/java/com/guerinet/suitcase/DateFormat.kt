@@ -56,6 +56,7 @@ object DateFormat {
      * @return RFC 1123 String representation of the [dateTime] in the UTC time zone,
      *  null if the [dateTime] was null
      */
+    @JvmStatic
     fun getRFC1123String(dateTime: ZonedDateTime?): String? {
         return if (dateTime == null) null else
             rfc1123Formatter.format(dateTime.withZoneSameInstant(ZoneOffset.UTC))
@@ -65,6 +66,7 @@ object DateFormat {
      * @return Localized short date String (ex: 01/01/00) of the given [temporal],
      *  null if the [temporal] was null
      */
+    @JvmStatic
     fun getShortDateString(temporal: Temporal?): String? {
         return if (temporal == null) null else shortDateFormatter.format(temporal)
     }
@@ -73,6 +75,7 @@ object DateFormat {
      * @return Localized medium date String (ex: Jan 1, 2000) of the given [temporal],
      *  null if the [temporal] was null
      */
+    @JvmStatic
     fun getMediumDateString(temporal: Temporal?): String? {
         return if (temporal == null) null else mediumDateFormatter.format(temporal)
     }
@@ -81,6 +84,7 @@ object DateFormat {
      * @return Localized long date String (ex: January 1, 2000) of the given [temporal],
      *  null if the [temporal] was null
      */
+    @JvmStatic
     fun getLongDateString(temporal: Temporal?): String? {
         return if (temporal == null) null else longDateFormatter.format(temporal)
     }
@@ -89,6 +93,7 @@ object DateFormat {
      * @return Localized short time String (ex: 3:30PM) of the given [temporal],
      *  null if the [temporal] was null
      */
+    @JvmStatic
     fun getShortTimeString(temporal: Temporal?): String? {
         return if (temporal == null) null else shortTimeFormatter.format(temporal)
     }
