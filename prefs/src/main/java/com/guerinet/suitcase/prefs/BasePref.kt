@@ -14,4 +14,28 @@
  * limitations under the License.
  */
 
-include ':library', ':date', ':prefs'
+package com.guerinet.suitcase.prefs
+
+import android.content.SharedPreferences
+
+/**
+ * Base class for all SharedPreferences helpers
+ * @author Julien Guerinet
+ * @since 2.0.0
+ */
+class BasePref(val prefs:SharedPreferences, val key:String) {
+
+    /**
+     * Clears the [prefs] of anything stored at this [key]
+     */
+    fun clear() {
+        prefs.edit().remove(key).apply()
+    }
+
+    /**
+     * @return True if there is something stored in these [prefs] at this [key], false otherwise
+     */
+    fun isSet(): Boolean {
+        return prefs.contains(key)
+    }
+}
