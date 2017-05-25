@@ -31,24 +31,24 @@ import java.util.*
 
 object DateFormat {
 
-    val rfc1123Formatter: DateTimeFormatter by lazy {
+    private val rfc1123Formatter: DateTimeFormatter by lazy {
         // We want the local to always be US regardless of the user's locale
         DateTimeFormatter.RFC_1123_DATE_TIME.withLocale(Locale.US)
     }
 
-    val shortDateFormatter: DateTimeFormatter by lazy {
+    private val shortDateFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofLocalizedDate(FormatStyle.SHORT)
     }
 
-    val mediumDateFormatter: DateTimeFormatter by lazy {
+    private val mediumDateFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofLocalizedDate(FormatStyle.MEDIUM)
     }
 
-    val longDateFormatter: DateTimeFormatter by lazy {
+    private val longDateFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)
     }
 
-    val shortTimeFormatter: DateTimeFormatter by lazy {
+    private val shortTimeFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofLocalizedTime(FormatStyle.SHORT)
     }
 
