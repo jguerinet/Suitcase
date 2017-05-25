@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Julien Guerinet
+ * Copyright 2016-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,14 +29,13 @@ buildscript {
 }
 
 android {
-    compileSdkVersion 25
-    buildToolsVersion "25.0.2"
+    compileSdkVersion Integer.valueOf(suitcase_target_sdk)
+    buildToolsVersion suitcase_build_tools_version
 
     defaultConfig {
-        minSdkVersion 17
-        targetSdkVersion 25
-        versionCode 1
-        versionName "1.0"
+        minSdkVersion suitcase_min_sdk
+        targetSdkVersion suitcase_target_sdk
+        versionName suitcase_version
 
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
 
@@ -61,3 +60,5 @@ dependencies {
 repositories {
     mavenCentral()
 }
+
+apply from: "https://raw.githubusercontent.com/jguerinet/Android-Gradle-Artifact-Script/1ab069d5829772e0858119400012def968378e95/android-artifacts.gradle"
