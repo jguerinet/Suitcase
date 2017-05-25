@@ -16,7 +16,7 @@
 
 @file:JvmName("DateUtils")
 
-package com.guerinet.suitcase
+package com.guerinet.suitcase.date
 
 import org.threeten.bp.LocalDate
 import org.threeten.bp.ZonedDateTime
