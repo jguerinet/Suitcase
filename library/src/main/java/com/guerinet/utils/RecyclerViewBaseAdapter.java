@@ -1,5 +1,5 @@
 /*
- * Copyright 2017 Julien Guerinet
+ * Copyright 2016-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import butterknife.ButterKnife;
-import timber.log.Timber;
 
 /**
  * Basic adapter implementation for {@link RecyclerView}s
@@ -54,9 +53,7 @@ public abstract class RecyclerViewBaseAdapter extends
      * Called when the list needs to be updated
      *  No default implementation but can be implemented by the subclasses
      */
-    public void update() {
-        Timber.i("WARNING: Update method called but not implemented");
-    }
+    public void update() {}
 
     /**
      * @param visible True if the empty view should be visible, false otherwise
