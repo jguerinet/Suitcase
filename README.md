@@ -1,27 +1,28 @@
-# Android Utils
+# Suitcase
+[![Release](https://jitpack.io/v/com.guerinet/suitcase.svg)](https://jitpack.io/#com.guerinet/suitcase)
 
 ## Summary
-Android utility classes and methods that I use in most of my Android projects
+Android utility classes and methods that I use in all of my projects. When off on a coding adventure, don't forget to pack your suitcase!
 
 ## Instructions
-[![Release](https://jitpack.io/v/com.guerinet/android-utils.svg)](https://jitpack.io/#com.guerinet/android-utils)
-
-To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above or on the [Releases](https://github.com/jguerinet/android-utils/releases) page:
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above:
 
     repositories {
         maven { url "https://jitpack.io" }
     }
 
 	dependencies {
-	    compile 'com.guerinet:android-utils:X.X.X'
+	    compile 'com.guerinet:suitcase:X.X.X'
 	}
 
+You can either include all of the different modules with the code above, or choose which modules to include:
+* `com.guerinet.suitcase:date`: Date utility methods and classes, uses [AndroidThreeTen](https://github.com/JakeWharton/ThreeTenABP)
+* `com.guerinet.suitcase:log`: Logging utility methods and classes, uses [Timber](https://github.com/JakeWharton/timber)
+* `com.guerinet.suitcase:prefs`: `SharedPreferences` utility methods and classes
 
 ## Gradle Dependencies
 * [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
 * [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
-* [AndroidThreeTen](https://github.com/JakeWharton/ThreeTenABP)
-* [Timber](https://github.com/JakeWharton/timber)
 * [Okio](https://github.com/square/okio)
 
 ## A Note About the Gradle Dependencies
@@ -30,8 +31,6 @@ The Gradle dependencies are declared using the 'provided' scope, which means tha
 
 * The `DialogUtils` class needs AppCompat
 * The `NonSwipeableViewPager` class needs support v4
-* The `ProductionTree` class needs Timber
-* The `DateUtils` and `DatePreference` needs AndroidThreeTen
 * The `RecyclerViewBaseAdapter` needs supportv7-recyclerview and Timber
 * In `Utils`, both `setTint()` need support v4
 * In `Utils`, `stringFromRaw()` needs Okio
