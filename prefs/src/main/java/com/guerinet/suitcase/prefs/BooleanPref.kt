@@ -23,7 +23,7 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class BooleanPref(prefs: SharedPreferences, key: String, internal val defaultValue: Boolean) :
+open class BooleanPref(prefs: SharedPreferences, key: String, protected val defaultValue: Boolean) :
         BasePref(prefs, key) {
 
     /**

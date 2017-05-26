@@ -23,7 +23,7 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class BasePref(internal val prefs:SharedPreferences, internal val key:String) {
+open class BasePref(protected val prefs:SharedPreferences, protected val key:String) {
 
     /**
      * Clears the [prefs] of anything stored at this [key]

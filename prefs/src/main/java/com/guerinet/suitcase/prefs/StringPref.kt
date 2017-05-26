@@ -23,7 +23,7 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class StringPref(prefs: SharedPreferences, key: String, internal val defaultValue:String?) :
+open class StringPref(prefs: SharedPreferences, key: String, protected val defaultValue:String?) :
         BasePref(prefs, key) {
 
     /**
