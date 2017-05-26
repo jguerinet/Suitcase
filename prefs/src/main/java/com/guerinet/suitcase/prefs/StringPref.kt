@@ -29,14 +29,14 @@ open class StringPref(prefs: SharedPreferences, key: String, internal val defaul
     /**
      * @return Current [String] value stored at the [key], the [defaultValue] if none stored
      */
-    fun get(): String {
+    fun get(): String? {
         return prefs.getString(key, defaultValue)
     }
 
     /**
      * Saves the [value] at the [key] in these [prefs]
      */
-    fun set(value: String) {
+    fun set(value: String?) {
         prefs.edit().putString(key, value).apply()
     }
 }
