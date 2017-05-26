@@ -46,6 +46,5 @@ dependencies {
     })
     testCompile 'junit:junit:4.12'
 }
-repositories {
-    mavenCentral()
-}
+
+apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"
