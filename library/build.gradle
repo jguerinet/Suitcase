@@ -15,6 +15,8 @@
  */
 
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'org.jetbrains.dokka-android'
 apply plugin: 'com.github.dcendents.android-maven'
 
 group = 'com.guerinet'
@@ -44,6 +46,7 @@ dependencies {
     provided 'com.android.support:support-v4:25.2.0'
     provided 'com.android.support:recyclerview-v7:25.2.0'
     provided 'com.jakewharton:butterknife:8.5.1'
+    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
     annotationProcessor 'com.jakewharton:butterknife-compiler:8.5.1'
     provided 'com.squareup.okio:okio:1.11.0'
 }
