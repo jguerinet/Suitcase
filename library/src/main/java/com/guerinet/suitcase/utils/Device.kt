@@ -54,6 +54,18 @@ object Device {
     }
 
     /**
+     * @return Device manufacturer and model
+     */
+    @JvmStatic
+    fun model(): String {
+        var model = Build.MODEL
+        if (!model.startsWith(Build.MANUFACTURER, true)) {
+            model = Build.MANUFACTURER + " " + model
+        }
+        return model
+    }
+
+    /**
      * @param context App context
      * @return Device screen width, in pixels
      */
