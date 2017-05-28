@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.dialog;
+package com.guerinet.suitcase.dialog;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;

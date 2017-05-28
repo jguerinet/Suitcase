@@ -14,20 +14,27 @@
  * limitations under the License.
  */
 
-package com.guerinet.dialog;
-
-import org.junit.Test;
-
-import static org.junit.Assert.assertEquals;
+package com.guerinet.suitcase.dialog
 
 /**
- * Example local unit test, which will execute on the development machine (host).
- *
- * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
+ * Interface used for creating single choice list dialogs
+ * @author Julien Guerinet
+ * @since 2.0.0
  */
-public class ExampleUnitTest {
-    @Test
-    public void addition_isCorrect() throws Exception {
-        assertEquals(4, 2 + 2);
-    }
+interface SingleListInterface {
+
+    /**
+     * @return Position of the current choice, -1 if no current choice is selected
+     */
+    fun getCurrentChoice(): Int
+
+    /**
+     * List of choices in String format
+     */
+    fun getChoices(): Array<String>
+
+    /**
+     * Called when a user has selected the choice at the given [position]
+     */
+    fun onChoiceSelected(position: Int)
 }

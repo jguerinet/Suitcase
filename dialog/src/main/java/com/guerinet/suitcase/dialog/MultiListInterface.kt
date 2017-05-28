@@ -1,5 +1,5 @@
 /*
- * Copyright 2016 Julien Guerinet
+ * Copyright 2016-2017 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-package com.guerinet.utils.dialog;
+package com.guerinet.suitcase.dialog
 
 /**
- * Interface used for creating list dialogs.
+ * Interface used for creating multiple choice list dialogs
  * @author Julien Guerinet
- * @since 1.0.0
+ * @since 2.0.0
  */
-public interface ListDialogInterface {
-    /**
-     * @return Position of the current choice, -1 if none
-     */
-    int getCurrentChoice();
+interface MultiListInterface {
 
     /**
-     * @return List of {@link CharSequence}s to display as the choices
+     * @return A [IntArray] corresponding to position of the currently checked choices
      */
-    CharSequence[] getChoices();
+    fun getSelectedItems(): Array<Int>
 
     /**
-     * Called when a user has chosen an option
-     *
-     * @param position Position of the selected choice
+     * @return List of [String] choices to display
      */
-    void onChoiceSelected(int position);
+    fun getChoices(): Array<String>
+
+    /**
+     * Called when the dialog closes with the list of choice [positions] selected
+     */
+    fun onChoicesSelected(positions: Array<Int>)
 }
