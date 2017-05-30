@@ -24,6 +24,7 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.support.annotation.StringRes
 import android.widget.Toast
+import com.guerinet.utils.BuildConfig
 import java.io.File
 import java.util.*
 
@@ -115,17 +116,58 @@ object Utils {
     }
 
     /**
+     *  @return True if the [newVersionName] is more recent than the [oldVersionName] (which is the
+     *      current version if not specified)
+     */
+    @JvmStatic
+    fun isNewerVersion(oldVersionName: String? = BuildConfig.VERSION_NAME, newVersionName: String?):
+            Boolean {
+        if (oldVersionName == null || newVersionName == null) {
+            return false
+        }
+
+        // Split the version by the periods
+        val oldVersion = oldVersionName.split(".")
+        val newVersion = newVersionName.split(".")
+
+        // Get the smaller number of the 2
+        val maxIndex = maxOf(oldVersion.size, newVersion.size)
+
+        for (i in 0..maxIndex) {
+            try {
+                val oldNumber = Integer.parseInt(oldVersion[i])
+                val newNumber = Integer.parseInt(newVersion[i])
+
+                if (newNumber > oldNumber) {
+                    // New number is higher than the current number: update necessary
+                    return true
+                } else if (newNumber < oldNumber) {
+                    // New number is lower than the current number: no update necessary
+                    return false
+                }
+                // No number is same as old number: continue loop
+            } catch (e: Exception) {
+                // Error parsing the number, no visible update necessary
+                return false
+            }
+        }
+
+        // Old version is same as new version: no version necessary
+        return false
+    }
+
+    /**
      * Deletes the contents of a [folder] and the folder itself if [deleteFolder] is true
      */
     @JvmStatic
-    fun deleteFolderContents(folder: File, deleteFolder: Boolean = true) {
+    fun deleteFolder(folder: File, deleteFolder: Boolean = true) {
         val files = folder.listFiles()
         if (files != null) {
             for (file in files) {
                 // Go through the folder's files
                 if (file.isDirectory) {
                     // Recursively call this method if the file is a folder
-                    deleteFolderContents(file, true)
+                    deleteFolder(file, true)
                 } else {
                     file.delete()
                 }
