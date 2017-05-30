@@ -26,7 +26,7 @@ import android.view.MotionEvent
  * @author Julien Guerinet
  * @since 2.0.0
  */
-class NonSwipeableViewPager : ViewPager {
+open class NonSwipeableViewPager : ViewPager {
 
     constructor(context: Context): super(context)
 
