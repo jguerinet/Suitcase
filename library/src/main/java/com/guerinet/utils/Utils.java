@@ -16,20 +16,12 @@
 
 package com.guerinet.utils;
 
-import android.content.Context;
 import android.graphics.drawable.Drawable;
 import android.support.annotation.ColorInt;
-import android.support.annotation.RawRes;
 import android.support.v4.graphics.drawable.DrawableCompat;
-import android.util.Log;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-
-import java.io.IOException;
-
-import okio.BufferedSource;
-import okio.Okio;
 
 /**
  * Static utility classes
@@ -102,32 +94,5 @@ public class Utils {
                 break;
         }
         textView.setCompoundDrawablesWithIntrinsicBounds(left, top, right, bottom);
-    }
-
-    /**
-     * Returns a BufferedSource for a file in the raw folder (can be used with Moshi for example)
-     *
-     * @param context App context
-     * @param fileId  Resource Id of the file to read from the raw folder
-     * @return The {@link BufferedSource}
-     */
-    public static BufferedSource sourceFromRaw(Context context, @RawRes int fileId) {
-        return Okio.buffer(Okio.source(context.getResources().openRawResource(fileId)));
-    }
-
-    /**
-     * Reads a String from a file in the raw folder
-     *
-     * @param context App context
-     * @param fileId  Resource Id of the file to read from the raw folder
-     * @return The contents of the file in String format
-     */
-    public static String stringFromRaw(Context context, @RawRes int fileId) {
-        try {
-            return sourceFromRaw(context, fileId).readUtf8();
-        } catch (IOException e) {
-            Log.e("Utils", "Error reading String from raw", e);
-        }
-        return null;
     }
 }
