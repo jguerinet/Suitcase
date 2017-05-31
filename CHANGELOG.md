@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.2 (2017-05-31)
+* `dialog`: 
+    * Fixed order parameters to work better in Java
+
 ## Version 2.0.1 (2017-05-31)
 * `date`: 
     * Changed all of the `XXXPref` methods to open
