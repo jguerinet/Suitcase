@@ -35,6 +35,7 @@ object UIUtils {
      *
      * @return The wrapped [Drawable] with the tint
      */
+    @JvmStatic
     fun setTint(drawable: Drawable, @ColorInt color: Int): Drawable {
         // Wrap the drawable in the compat library
         val wrappedDrawable = DrawableCompat.wrap(drawable).mutate()
@@ -48,6 +49,7 @@ object UIUtils {
     /**
      * Tints and sets the image with the given [color] in the given [imageView]
      */
+    @JvmStatic
     fun setTint(imageView: ImageView, @ColorInt color: Int) {
         imageView.setImageDrawable(setTint(imageView.drawable, color))
     }
@@ -55,6 +57,7 @@ object UIUtils {
     /**
      * Tings and sets the image with the given [color] in the given menu [item]
      */
+    @JvmStatic
     fun setTint(item: MenuItem, @ColorInt color: Int) {
         item.icon = setTint(item.icon, color)
     }
@@ -63,6 +66,7 @@ object UIUtils {
      * Tints the compound drawable at a given [position] (0: left, 1: top, 2: right, 3: bottom)
      *  of a [textView] with the given [color]
      */
+    @JvmStatic
     fun setTint(textView: TextView, position: Int, @ColorInt color: Int) {
         val drawables = textView.compoundDrawables
 
