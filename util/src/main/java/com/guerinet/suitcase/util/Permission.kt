@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.utils
+package com.guerinet.suitcase.util
 
 import android.app.Activity
 import android.content.Context
