@@ -24,7 +24,6 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.support.annotation.StringRes
 import android.widget.Toast
-import com.guerinet.utils.BuildConfig
 import java.io.File
 import java.util.*
 
@@ -232,5 +231,13 @@ object Utils {
         typedArray.recycle()
 
         return resource
+    }
+
+    /**
+     * @return The resource Id of the given [type] for the given [id] name in the given [context]
+     */
+    @JvmStatic
+    fun getResourceId(context: Context, type: String, id: String): Int {
+        return context.resources.getIdentifier(id, type, context.packageName)
     }
 }
