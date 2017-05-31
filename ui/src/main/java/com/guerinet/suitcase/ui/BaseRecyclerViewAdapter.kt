@@ -31,8 +31,8 @@ import butterknife.ButterKnife
 abstract class BaseRecyclerViewAdapter(val emptyView: View?) :
         RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseHolder>() {
 
-    override fun onBindViewHolder(holder: BaseHolder?, position: Int) {
-        holder?.bind(position)
+    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
+        holder.bind(position)
     }
 
     /**
@@ -55,8 +55,8 @@ abstract class BaseRecyclerViewAdapter(val emptyView: View?) :
         /**
          * Constructor taking the [parent] and the [layoutId] of the item view to create
          */
-        constructor(parent: ViewGroup?, @LayoutRes layoutId: Int) :
-                this(LayoutInflater.from(parent?.context).inflate(layoutId, parent, false))
+        constructor(parent: ViewGroup, @LayoutRes layoutId: Int) :
+                this(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
 
         /**
          * Binds this holder to the given [position]
