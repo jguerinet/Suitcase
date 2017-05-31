@@ -14,38 +14,6 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka-android'
-
-android {
-    compileSdkVersion Integer.valueOf(suitcase_target_sdk)
-    buildToolsVersion suitcase_build_tools_version
-
-    defaultConfig {
-        minSdkVersion suitcase_min_sdk
-        targetSdkVersion suitcase_target_sdk
-        versionName suitcase_version
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
 dependencies {
-    compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
+    compile "com.afollestad.material-dialogs:commons:0.9.4.5"
 }
-
-apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"

@@ -14,47 +14,15 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.android.library'
-apply plugin: 'kotlin-android'
-apply plugin: 'org.jetbrains.dokka-android'
-
 repositories {
     maven { url "https://jitpack.io" }
 }
 
-android {
-    compileSdkVersion Integer.valueOf(suitcase_target_sdk)
-    buildToolsVersion suitcase_build_tools_version
-
-    defaultConfig {
-        minSdkVersion suitcase_min_sdk
-        targetSdkVersion suitcase_target_sdk
-        versionName suitcase_version
-
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
-
-    }
-
-    buildTypes {
-        release {
-            minifyEnabled false
-            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
-        }
-    }
-}
-
-def version_dbflow = "4.0.2"
+def dbflow_version = "4.0.2"
 
 dependencies {
-    compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-    compile "com.github.raizlabs.dbflow:dbflow:${version_dbflow}"
-    compile "com.github.raizlabs.dbflow:dbflow-core:${version_dbflow}"
-    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
-    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${version_dbflow}"
-    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
-        exclude group: 'com.android.support', module: 'support-annotations'
-    })
-    testCompile 'junit:junit:4.12'
+    compile "com.github.raizlabs.dbflow:dbflow:${dbflow_version}"
+    compile "com.github.raizlabs.dbflow:dbflow-core:${dbflow_version}"
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
+    compile "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
 }
-
-apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"

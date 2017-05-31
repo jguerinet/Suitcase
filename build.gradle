@@ -17,7 +17,12 @@
 apply plugin: 'com.github.ben-manes.versions'
 buildscript {
 
-    ext.kotlin_version = '1.1.2-3'
+    // Versions shared across modules
+    ext.android_support_version = '25.3.1'
+    ext.espresso_version = '2.2.2'
+    ext.junit_version = '4.12'
+    ext.kotlin_version = '1.1.2-4'
+    ext.threetenabp_version = '1.0.5'
 
     repositories {
         jcenter()
@@ -25,9 +30,9 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:2.2.3'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.14.0'
+        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
-        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.13"
+        classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.14"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
     }
 }
@@ -36,6 +41,43 @@ allprojects {
     repositories {
         jcenter()
     }
+}
+
+subprojects {
+    apply plugin: 'com.android.library'
+    apply plugin: 'kotlin-android'
+    apply plugin: 'org.jetbrains.dokka-android'
+    apply plugin: 'com.github.dcendents.android-maven'
+
+    android {
+        compileSdkVersion Integer.valueOf(suitcase_target_sdk)
+        buildToolsVersion suitcase_build_tools_version
+
+        defaultConfig {
+            minSdkVersion suitcase_min_sdk
+            targetSdkVersion suitcase_target_sdk
+            versionName suitcase_version
+
+            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        }
+
+        buildTypes {
+            release {
+                minifyEnabled false
+                proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            }
+        }
+    }
+
+    dependencies {
+        compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+        androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version", {
+            exclude group: 'com.android.support', module: 'support-annotations'
+        })
+        testCompile "junit:junit:$junit_version"
+    }
+
+    apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"
 }
 
 task clean(type: Delete) {
