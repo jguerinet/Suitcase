@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 2.0.1 (2017-05-31)
+* `date`: 
+    * Changed all of the `XXXPref` methods to open
+* `dialog`: 
+    * Added some `@JvmOverloads` to the right methods in `DialogUtils`
+* `prefs`: 
+    * Changed all of the `XXXPref` methods to open  
+
 ## Version 2.0.0 (2017-05-31)
 * Converted everything to Kotlin! 
 * Renamed the repo 
