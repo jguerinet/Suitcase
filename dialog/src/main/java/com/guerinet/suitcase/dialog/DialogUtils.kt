@@ -115,9 +115,9 @@ object DialogUtils {
     @JvmStatic
     @JvmOverloads
     fun alert(context: Context, @StringRes title: Int = -1, @StringRes message: Int = -1,
+              listener: MaterialDialog.SingleButtonCallback? = null,
               @StringRes positiveText: Int = android.R.string.ok,
-              @StringRes negativeText: Int = android.R.string.cancel,
-              listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
+              @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
         return build(context, title, message, listener)
                 .positiveText(positiveText)
                 .negativeText(negativeText)
@@ -133,9 +133,9 @@ object DialogUtils {
      */
     @JvmStatic
     fun alert(context: Context, @StringRes title: Int = -1, message: String? = null,
+              listener: MaterialDialog.SingleButtonCallback? = null,
               @StringRes positiveText: Int = android.R.string.ok,
-              @StringRes negativeText: Int = android.R.string.cancel,
-              listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
+              @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
         return build(context, title, message, listener)
                 .positiveText(positiveText)
                 .negativeText(negativeText)
@@ -153,8 +153,8 @@ object DialogUtils {
      */
     @JvmStatic
     @JvmOverloads
-    fun singleList(context: Context, @StringRes title: Int = -1, showRadioButtons: Boolean = true,
-                   listInterface: SingleListInterface): MaterialDialog {
+    fun singleList(context: Context, @StringRes title: Int = -1, listInterface: SingleListInterface,
+                   showRadioButtons: Boolean = true): MaterialDialog {
         val builder = build(context, title)
                 .items(*listInterface.getChoices())
 
