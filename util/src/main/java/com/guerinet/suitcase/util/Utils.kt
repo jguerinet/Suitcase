@@ -104,6 +104,7 @@ object Utils {
      *  browser (if the Play Store is not found)
      */
     @JvmStatic
+    @JvmOverloads
     fun openPlayStoreApp(context: Context, packageName: String = context.packageName) {
         try {
             context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" +
@@ -119,6 +120,7 @@ object Utils {
      *      current version if not specified)
      */
     @JvmStatic
+    @JvmOverloads
     fun isNewerVersion(oldVersionName: String? = BuildConfig.VERSION_NAME, newVersionName: String?):
             Boolean {
         if (oldVersionName == null || newVersionName == null) {
@@ -159,6 +161,7 @@ object Utils {
      * Deletes the contents of a [folder] and the folder itself if [deleteFolder] is true
      */
     @JvmStatic
+    @JvmOverloads
     fun deleteFolder(folder: File, deleteFolder: Boolean = true) {
         val files = folder.listFiles()
         if (files != null) {
