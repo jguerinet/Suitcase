@@ -81,6 +81,7 @@ object DialogUtils {
      *  @return Displayed dialog
      */
     @JvmStatic
+    @JvmOverloads
     fun neutral(context: Context, @StringRes title: Int = -1, @StringRes message: Int = -1,
                 listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
         return build(context, title, message, listener)
@@ -112,6 +113,7 @@ object DialogUtils {
      *  @return Displayed dialog
      */
     @JvmStatic
+    @JvmOverloads
     fun alert(context: Context, @StringRes title: Int = -1, @StringRes message: Int = -1,
               @StringRes positiveText: Int = android.R.string.ok,
               @StringRes negativeText: Int = android.R.string.cancel,
@@ -150,6 +152,7 @@ object DialogUtils {
      * @return Shown dialog
      */
     @JvmStatic
+    @JvmOverloads
     fun singleList(context: Context, @StringRes title: Int = -1, showRadioButtons: Boolean = true,
                    listInterface: SingleListInterface): MaterialDialog {
         val builder = build(context, title)
@@ -174,6 +177,7 @@ object DialogUtils {
      * @return Shown dialog
      */
     @JvmStatic
+    @JvmOverloads
     fun multiList(context: Context, @StringRes title: Int = -1, listInterface: MultiListInterface):
             MaterialDialog {
         return build(context, title)
