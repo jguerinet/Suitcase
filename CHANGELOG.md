@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.0.0 (2017-05-31)
+* Converted everything to Kotlin! 
+* Renamed the repo 
+* Broke everything out into separate modules (see the README for more info) 
+* Dependencies now come bundled in instead of expecting them to be included by the different projects
+
 ## Version 1.2.1 (2017-02-28)
 * Added method to get a randomly generated UUID
 

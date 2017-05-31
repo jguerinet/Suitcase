@@ -16,25 +16,20 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	}
 
 You can either include all of the different modules with the code above, or choose which modules to include:
-* `com.guerinet.suitcase:date`: Date utility methods and classes, uses [AndroidThreeTen](https://github.com/JakeWharton/ThreeTenABP)
-* `com.guerinet.suitcase:log`: Logging utility methods and classes, uses [Timber](https://github.com/JakeWharton/timber)
+* `com.guerinet.suitcase:date`: Date utility methods and classes, uses [AndroidThreeTen][1]
+* `com.guerinet.suitcase:db`: DBFlow utility methods and classes, uses [AndroidThreeTen][1] and [DBFlow][2]
+* `com.guerinet.suitcase:dialog`: Dialog utility methods, uses [MaterialDialogs][3]
+* `com.guerinet.suitcase:io`: I/O utility methods, uses [Okio][4]
+* `com.guerinet.suitcase:log`: Logging utility methods and classes, uses [Timber][5]
 * `com.guerinet.suitcase:prefs`: `SharedPreferences` utility methods and classes
+* `com.guerinet.suitcase:ui`: UI utility methods and classes
+* `com.guerinet.suitcase:util`: Basic utility methods and resources
 
-## Gradle Dependencies
-* [Android AppCompat](http://developer.android.com/tools/support-library/features.html#v7-appcompat)
-* [Android Support v4](http://developer.android.com/tools/support-library/features.html#v4)
-* [Okio](https://github.com/square/okio)
-
-## A Note About the Gradle Dependencies
-The Gradle dependencies are declared using the 'provided' scope, which means that they won't be included if you don't explicitly add them to your
-`build.gradle` file. These following methods/classes need the following dependencies declared:
-
-* The `DialogUtils` class needs AppCompat
-* The `NonSwipeableViewPager` class needs support v4
-* The `RecyclerViewBaseAdapter` needs supportv7-recyclerview and Timber
-* In `Utils`, both `setTint()` need support v4
-* In `Utils`, `stringFromRaw()` needs Okio
-* In `Utils`, `isPermissionGranted()` and `requestPermission()` need support v4
+[1]:https://github.com/JakeWharton/ThreeTenABP
+[2]:https://github.com/Raizlabs/DBFlow
+[3]:https://github.com/afollestad/material-dialogs
+[4]:https://github.com/square/okio
+[5]:https://github.com/JakeWharton/timber
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
