@@ -11,25 +11,39 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         maven { url "https://jitpack.io" }
     }
 
+    def suitcase_version = 'X.X.X'
+
 	dependencies {
-	    compile 'com.guerinet:suitcase:X.X.X'
+	    // Date utility methods and classes, uses AndroidThreeTen
+	    compile "com.guerinet.suitcase:date:${suitcase_version}"
+
+        // DBFlow utility methods and classes, uses AndroidThreeTen and DBFlow
+        compile "com.guerinet.suitcase:db:${suitcase_version}"
+
+        // Dialog utility methods, uses Material Dialogs
+        compile "com.guerinet.suitcase:dialog:${suitcase_version}"
+
+        // I/O utility methods, uses Okio
+        compile "com.guerinet.suitcase:io:${suitcase_version}"
+
+        // Logging utility methods and classes, uses Timber
+        compile "com.guerinet.suitcase:log:${suitcase_version}"
+
+        // SharedPreferences utility methods and classes
+        compile "com.guerinet.suitcase:prefs:${suitcase_version}"
+
+        // UI utility methods and classes
+        compile "com.guerinet.suitcase:ui:${suitcase_version}"
+
+        // Basic utility methods and resources
+        compile "com.guerinet.suitcase:util:${suitcase_version}"
 	}
 
-You can either include all of the different modules with the code above, or choose which modules to include:
-* `com.guerinet.suitcase:date`: Date utility methods and classes, uses [AndroidThreeTen][1]
-* `com.guerinet.suitcase:db`: DBFlow utility methods and classes, uses [AndroidThreeTen][1] and [DBFlow][2]
-* `com.guerinet.suitcase:dialog`: Dialog utility methods, uses [MaterialDialogs][3]
-* `com.guerinet.suitcase:io`: I/O utility methods, uses [Okio][4]
-* `com.guerinet.suitcase:log`: Logging utility methods and classes, uses [Timber][5]
-* `com.guerinet.suitcase:prefs`: `SharedPreferences` utility methods and classes
-* `com.guerinet.suitcase:ui`: UI utility methods and classes
-* `com.guerinet.suitcase:util`: Basic utility methods and resources
-
-[1]:https://github.com/JakeWharton/ThreeTenABP
-[2]:https://github.com/Raizlabs/DBFlow
-[3]:https://github.com/afollestad/material-dialogs
-[4]:https://github.com/square/okio
-[5]:https://github.com/JakeWharton/timber
+* [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+* [DBFlow](https://github.com/Raizlabs/DBFlow)
+* [Material Dialogs](https://github.com/afollestad/material-dialogs)
+* [Okio](https://github.com/square/okio)
+* [Timber](https://github.com/JakeWharton/timber)
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
