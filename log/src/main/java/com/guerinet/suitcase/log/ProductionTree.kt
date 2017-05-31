@@ -46,10 +46,10 @@ abstract class ProductionTree  : Timber.Tree() {
     /**
      * Called when there is a [message] to log
      */
-    abstract fun log(message: String)
+    protected abstract fun log(message: String)
 
     /**
      * Called when there is a [Throwable] [t] to log
      */
-    abstract fun logException(t: Throwable)
+    protected abstract fun logException(t: Throwable)
 }
