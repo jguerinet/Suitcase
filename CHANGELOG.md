@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.0.3 (2017-05-31)
+* `ui`: 
+    * Made the utility methods static in Java
+* `util`:
+    * Overloaded some methods in the `Utils` class for Java
+
 ## Version 2.0.2 (2017-05-31)
 * `dialog`: 
     * Fixed order parameters to work better in Java
