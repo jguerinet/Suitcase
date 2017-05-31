@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.4 (2017-05-31)
+* `log`: 
+    * Made the abstract methods protected within the `ProductionTree`
+
 ## Version 2.0.3 (2017-05-31)
 * `ui`: 
     * Made the utility methods static in Java
