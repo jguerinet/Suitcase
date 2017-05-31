@@ -18,6 +18,10 @@ apply plugin: 'com.android.library'
 apply plugin: 'kotlin-android'
 apply plugin: 'org.jetbrains.dokka-android'
 
+repositories {
+    maven { url "https://jitpack.io" }
+}
+
 android {
     compileSdkVersion Integer.valueOf(suitcase_target_sdk)
     buildToolsVersion suitcase_build_tools_version
@@ -39,8 +43,14 @@ android {
     }
 }
 
+def version_dbflow = "4.0.2"
+
 dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+    compile "com.github.raizlabs.dbflow:dbflow:${version_dbflow}"
+    compile "com.github.raizlabs.dbflow:dbflow-core:${version_dbflow}"
+    compile 'com.jakewharton.threetenabp:threetenabp:1.0.5'
+    kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${version_dbflow}"
     androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
