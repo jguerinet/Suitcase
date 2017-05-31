@@ -29,14 +29,14 @@ open class IntPref(prefs: SharedPreferences, key: String, protected val defaultV
     /**
      * @return Current [Int] value at this [key], the [defaultValue] if none stored
      */
-    fun get(): Int {
+    open fun get(): Int {
         return prefs.getInt(key, defaultValue)
     }
 
     /**
      * Saves the [value] at the [key] in these [prefs]
      */
-    fun set(value: Int) {
+    open fun set(value: Int) {
         prefs.edit().putInt(key, value).apply()
     }
 }

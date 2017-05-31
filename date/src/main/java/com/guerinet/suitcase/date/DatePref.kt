@@ -31,7 +31,7 @@ open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDa
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    fun getDate(): ZonedDateTime? {
+    open fun getDate(): ZonedDateTime? {
         // Get the stored String
         val string = super.get()
 
@@ -42,7 +42,7 @@ open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDa
     /**
      * Sets the [value] at the given [key] in these [prefs]
      */
-    fun set(value: ZonedDateTime?) {
+    open fun set(value: ZonedDateTime?) {
         super.set(value?.toString())
     }
 }

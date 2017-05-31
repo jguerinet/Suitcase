@@ -29,14 +29,14 @@ open class BooleanPref(prefs: SharedPreferences, key: String, protected val defa
     /**
      * @return current [Boolean] value at this [key], the [defaultValue] if none stored
      */
-    fun get(): Boolean {
+    open fun get(): Boolean {
        return prefs.getBoolean(key, defaultValue)
     }
 
     /**
      * Sets the [value] at the given [key] in the given [prefs]
      */
-    fun set(value: Boolean) {
+    open fun set(value: Boolean) {
         prefs.edit().putBoolean(key, value).apply()
     }
 }

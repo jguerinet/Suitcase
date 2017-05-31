@@ -28,14 +28,14 @@ open class BasePref(protected val prefs:SharedPreferences, protected val key:Str
     /**
      * Clears the [prefs] of anything stored at this [key]
      */
-    fun clear() {
+    open fun clear() {
         prefs.edit().remove(key).apply()
     }
 
     /**
      * @return True if there is something stored in these [prefs] at this [key], false otherwise
      */
-    fun isSet(): Boolean {
+    open fun isSet(): Boolean {
         return prefs.contains(key)
     }
 }

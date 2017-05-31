@@ -31,7 +31,7 @@ open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: Lo
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    fun getDate(): LocalDate? {
+    open fun getDate(): LocalDate? {
         val string = super.get()
 
         return if (string == null) null else LocalDate.parse(string)
@@ -40,7 +40,7 @@ open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: Lo
     /**
      * Sets the [value] at the given [key] in these [prefs]
      */
-    fun set(value: LocalDate?) {
+    open fun set(value: LocalDate?) {
         super.set(value?.toString())
     }
 }
