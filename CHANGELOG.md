@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.5 (2017-06-28)
+* `util`:  
+    * Added method to open a Url within a Chrome custom tab 
+
 ## Version 2.0.4 (2017-05-31)
 * `log`: 
     * Made the abstract methods protected within the `ProductionTree`

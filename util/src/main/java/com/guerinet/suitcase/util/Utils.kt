@@ -20,9 +20,14 @@ import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
+import android.support.annotation.ColorRes
+import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
+import android.support.customtabs.CustomTabsIntent
+import android.support.v4.content.ContextCompat
 import android.widget.Toast
 import java.io.File
 import java.util.*
@@ -72,6 +77,32 @@ object Utils {
         }
 
         context.startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(fullUrl)))
+    }
+
+    /**
+     * Opens a Chrome custom tab when opening a [url] using the app [context] with a default share
+     * option. Optionally sets the [toolbarColor] (it's a light grey if none supplied) and uses the
+     * Drawable [closeButtonId] to set a custom close button (it's a black cross if none supplied)
+     */
+    @JvmStatic
+    fun openCustomTab(context: Context, url: String, @ColorRes toolbarColor: Int? = null,
+                      @DrawableRes closeButtonId: Int? = null) {
+        val builder = CustomTabsIntent.Builder()
+                .addDefaultShareMenuItem()
+
+        if (toolbarColor != null) {
+            // Set the custom toolbar color if there is one
+            builder.setToolbarColor(ContextCompat.getColor(context, toolbarColor))
+        }
+
+        if (closeButtonId != null) {
+            // Set the custom close button icon if there is one
+            builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.resources,
+                    closeButtonId))
+        }
+
+        // Build and launch
+        builder.build().launchUrl(context, Uri.parse(url))
     }
 
     /**

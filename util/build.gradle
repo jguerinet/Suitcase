@@ -16,4 +16,5 @@
 
 dependencies {
     compile "com.android.support:support-v4:$android_support_version"
+    compile "com.android.support:customtabs:$android_support_version"
 }
