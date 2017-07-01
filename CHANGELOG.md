@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.6 (2017-07-01)
+* `util`: 
+    * Fixed bug where opening a Url in a Chrome custom tab would crash the app if the scheme was missing from the Url 
+
 ## Version 2.0.5 (2017-06-28)
 * `util`:  
     * Added method to open a Url within a Chrome custom tab 
