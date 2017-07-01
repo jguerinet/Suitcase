@@ -87,6 +87,14 @@ object Utils {
     @JvmStatic
     fun openCustomTab(context: Context, url: String, @ColorRes toolbarColor: Int? = null,
                       @DrawableRes closeButtonId: Int? = null) {
+        // Check that the scheme is present, add it if not
+        val fullUrl : String
+        if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
+            fullUrl = "http://" + url
+        } else {
+            fullUrl = url
+        }
+
         val builder = CustomTabsIntent.Builder()
                 .addDefaultShareMenuItem()
 
@@ -102,7 +110,7 @@ object Utils {
         }
 
         // Build and launch
-        builder.build().launchUrl(context, Uri.parse(url))
+        builder.build().launchUrl(context, Uri.parse(fullUrl))
     }
 
     /**
