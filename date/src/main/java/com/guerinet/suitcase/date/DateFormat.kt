@@ -21,6 +21,7 @@ import org.threeten.bp.ZonedDateTime
 import org.threeten.bp.format.DateTimeFormatter
 import org.threeten.bp.format.FormatStyle
 import org.threeten.bp.temporal.Temporal
+import org.threeten.bp.temporal.TemporalAccessor
 import java.util.*
 
 /**
@@ -46,6 +47,10 @@ object DateFormat {
 
     private val longDateFormatter: DateTimeFormatter by lazy {
         DateTimeFormatter.ofLocalizedDate(FormatStyle.LONG)
+    }
+
+    private val fullDateFormatter: DateTimeFormatter by lazy {
+        DateTimeFormatter.ofLocalizedDate(FormatStyle.FULL)
     }
 
     private val shortTimeFormatter: DateTimeFormatter by lazy {
@@ -76,7 +81,7 @@ object DateFormat {
      *  null if the [temporal] was null
      */
     @JvmStatic
-    fun getMediumDateString(temporal: Temporal?): String? {
+    fun getMediumDateString(temporal: TemporalAccessor?): String? {
         return if (temporal == null) null else mediumDateFormatter.format(temporal)
     }
 
@@ -85,8 +90,16 @@ object DateFormat {
      *  null if the [temporal] was null
      */
     @JvmStatic
-    fun getLongDateString(temporal: Temporal?): String? {
+    fun getLongDateString(temporal: TemporalAccessor?): String? {
         return if (temporal == null) null else longDateFormatter.format(temporal)
+    }
+
+    /**
+     * @return Localized full date String (ex: Monday, January 1, 2000) of the given [temporal],
+     *  null if the [temporal] was null
+     */
+    fun getFullDateString(temporal: TemporalAccessor?): String? {
+        return if (temporal == null) null else fullDateFormatter.format(temporal)
     }
 
     /**
