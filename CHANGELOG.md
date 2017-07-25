@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.0.8 (2017-07-25)
+* `date`: 
+    * Added missing static annotation 
+
 ## Version 2.0.7 (2017-07-25)
 * `date`: 
     * Switched some of the formatting Strings to take in `TemporalAccessor`s instead of `Temporal`s

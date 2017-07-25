@@ -98,6 +98,7 @@ object DateFormat {
      * @return Localized full date String (ex: Monday, January 1, 2000) of the given [temporal],
      *  null if the [temporal] was null
      */
+    @JvmStatic
     fun getFullDateString(temporal: TemporalAccessor?): String? {
         return if (temporal == null) null else fullDateFormatter.format(temporal)
     }
