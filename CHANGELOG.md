@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.0.7 (2017-07-25)
+* `date`: 
+    * Switched some of the formatting Strings to take in `TemporalAccessor`s instead of `Temporal`s
+    * Added formatting method to return the full date String
+
 ## Version 2.0.6 (2017-07-01)
 * `util`: 
     * Fixed bug where opening a Url in a Chrome custom tab would crash the app if the scheme was missing from the Url 
