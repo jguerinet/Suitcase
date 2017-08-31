@@ -14,6 +14,10 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
     def suitcase_version = 'X.X.X'
 
 	dependencies {
+
+        // Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
+        compile "com.guerinet.suitcase:analytics:${suitcase_version}"
+
 	    // Date utility methods and classes, uses AndroidThreeTen
 	    compile "com.guerinet.suitcase:date:${suitcase_version}"
 
@@ -39,6 +43,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         compile "com.guerinet.suitcase:util:${suitcase_version}"
 	}
 
+* [Google Play Services](https://developers.google.com/android/guides/overview)
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
 * [DBFlow](https://github.com/Raizlabs/DBFlow)
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)

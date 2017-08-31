@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.1.0 (2017-08-31)
+* `analytics`
+    * Added the Analytics module for Google Analytics helper methods 
+
 ## Version 2.0.8 (2017-07-25)
 * `date`: 
     * Added missing static annotation 
