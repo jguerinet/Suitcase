@@ -1,3 +1,4 @@
+
 /*
  * Copyright 2016-2017 Julien Guerinet
  *
@@ -14,4 +15,6 @@
  * limitations under the License.
  */
 
-include ':util', ':date', ':prefs', ':log', ':dialog', ':ui', ':io', ':db', ':analytics'
+dependencies {
+
+}
