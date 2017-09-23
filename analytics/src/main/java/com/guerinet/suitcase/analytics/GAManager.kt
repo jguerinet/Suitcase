@@ -30,18 +30,23 @@ import com.google.android.gms.analytics.Tracker
  *
  * @param context  App context
  * @param config   Xml file used to configure the tracker
- * @param disabled True if we should not send to Google Analytics, false otherwise
  */
-open class GAManager(context: Context, @XmlRes config: Int, var disabled: Boolean = false) {
+open class GAManager(context: Context, @XmlRes config: Int) {
 
-    val tracker: Tracker = GoogleAnalytics.getInstance(context).newTracker(config)
+    private val tracker: Tracker = GoogleAnalytics.getInstance(context).newTracker(config)
+
+    /**
+     * True if we should not send anything to Google Analytics, false otherwise.
+     *  Should be overridden by the clients if it does need to be disabled
+     */
+    open fun isDisabled(): Boolean = false
 
     /**
      * Sends an event with the given [category], [action], and optional [label] to Google Analytics
      */
     @JvmOverloads
     fun sendEvent(category: String, action: String, label: String? = null) {
-        if (disabled) {
+        if (isDisabled()) {
             Log.d("GAManager", "Event: $category, $action, $label")
             return
         }
@@ -63,7 +68,7 @@ open class GAManager(context: Context, @XmlRes config: Int, var disabled: Boolea
      * Sends a screen with the given [name] to Google Analytics
      */
     fun sendScreen(name: String) {
-        if (disabled) {
+        if (isDisabled()) {
             Log.d("GAManager", "Screen: $name")
             return
         }
