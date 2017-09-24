@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.1.1 (2017-09-23)
+* `analytics`
+    * Switched `isDisabled()` to be a method instead of a variable
+
 ## Version 2.1.0 (2017-08-31)
 * `analytics`
     * Added the Analytics module for Google Analytics helper methods 
