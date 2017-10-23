@@ -2,7 +2,7 @@
 
 ## Version 2.1.2 (2017-10-23)
 * `dialog`: 
-    * Fixed the multi list dialog button type
+    * Fixed the multi list dialog button type 
 
 ## Version 2.1.1 (2017-09-23)
 * `analytics`
