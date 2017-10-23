@@ -186,7 +186,7 @@ object DialogUtils {
                     listInterface.onChoicesSelected(which)
                     true
                 })
-                .neutralText(android.R.string.ok)
+                .positiveText(android.R.string.ok)
                 .show()
     }
 }
