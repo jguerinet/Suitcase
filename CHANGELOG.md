@@ -1,8 +1,12 @@
 # Change Log
 
-## Version 2.1.1 (2017-10-23)
+## Version 2.1.2 (2017-10-23)
 * `dialog`: 
     * Fixed the multi list dialog button type
+
+## Version 2.1.1 (2017-09-23)
+* `analytics`
+    * Switched `isDisabled()` to be a method instead of a variable
 
 ## Version 2.1.0 (2017-08-31)
 * `analytics`
