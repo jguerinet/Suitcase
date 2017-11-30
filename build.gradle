@@ -18,18 +18,19 @@ apply plugin: 'com.github.ben-manes.versions'
 buildscript {
 
     // Versions shared across modules
-    ext.android_support_version = '25.3.1'
+    ext.android_support_version = '26.1.0'
     ext.espresso_version = '2.2.2'
     ext.junit_version = '4.12'
-    ext.kotlin_version = '1.1.2-3'
+    ext.kotlin_version = '1.2.0'
     ext.threetenabp_version = '1.0.5'
 
     repositories {
         jcenter()
+        google()
     }
 
     dependencies {
-        classpath 'com.android.tools.build:gradle:2.2.3'
+        classpath 'com.android.tools.build:gradle:3.0.1'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.14"
@@ -40,6 +41,7 @@ buildscript {
 allprojects {
     repositories {
         jcenter()
+        google()
     }
 }
 
@@ -51,7 +53,6 @@ subprojects {
 
     android {
         compileSdkVersion Integer.valueOf(suitcase_target_sdk)
-        buildToolsVersion suitcase_build_tools_version
 
         defaultConfig {
             minSdkVersion suitcase_min_sdk

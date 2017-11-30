@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    compile "com.afollestad.material-dialogs:commons:0.9.4.5"
+    api "com.afollestad.material-dialogs:commons:0.9.4.5"
 }

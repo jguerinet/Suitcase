@@ -15,7 +15,7 @@
  */
 
 dependencies {
-    compile project(':prefs')
-    compile "com.android.support:appcompat-v7:$android_support_version"
-    compile "com.jakewharton.threetenabp:threetenabp:1.0.5"
+    implementation project(':prefs')
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
 }

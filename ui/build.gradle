@@ -17,9 +17,9 @@
 def butterknife_version = "8.6.0"
 
 dependencies {
-    compile "com.android.support:support-v4:$android_support_version"
-    compile "com.android.support:appcompat-v7:$android_support_version"
-    compile "com.android.support:recyclerview-v7:$android_support_version"
-    compile "com.jakewharton:butterknife:${butterknife_version}"
+    implementation "com.android.support:support-v4:$android_support_version"
+    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation "com.android.support:recyclerview-v7:$android_support_version"
+    implementation "com.jakewharton:butterknife:${butterknife_version}"
     annotationProcessor "com.jakewharton:butterknife-compiler:${butterknife_version}"
 }

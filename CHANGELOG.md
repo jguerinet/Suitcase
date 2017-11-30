@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 2.2.0 (2017-11-29)
+* Updated all of the dependencies (notably support library)
+* Bumped target to 26
+* `util`:
+    * Added a method to check if a Permission has been granted
+
 ## Version 2.1.2 (2017-10-23)
 * `dialog`: 
     * Fixed the multi list dialog button type 

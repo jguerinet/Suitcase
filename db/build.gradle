@@ -18,11 +18,11 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
-def dbflow_version = "4.0.2"
+def dbflow_version = "4.1.2"
 
 dependencies {
-    compile "com.github.raizlabs.dbflow:dbflow:${dbflow_version}"
-    compile "com.github.raizlabs.dbflow:dbflow-core:${dbflow_version}"
+    implementation "com.github.raizlabs.dbflow:dbflow:${dbflow_version}"
+    implementation "com.github.raizlabs.dbflow:dbflow-core:${dbflow_version}"
     kapt "com.github.Raizlabs.DBFlow:dbflow-processor:${dbflow_version}"
-    compile "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
+    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
 }
