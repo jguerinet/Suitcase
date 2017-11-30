@@ -33,10 +33,9 @@ object Permission {
      * @return true if the request [permission] is granted (checked with the app [context])
      */
     @JvmStatic
-    fun isGranted(context: Context, permission: String): Boolean {
-        return ContextCompat.checkSelfPermission(context, permission) ==
-                PackageManager.PERMISSION_GRANTED
-    }
+    fun isGranted(context: Context, permission: String): Boolean =
+            ContextCompat.checkSelfPermission(context, permission) ==
+                    PackageManager.PERMISSION_GRANTED
 
     /**
      * Checks if the given [permission] has been granted, and has been granted using the
@@ -54,4 +53,12 @@ object Permission {
         // If we already have the permission, return true
         return true
     }
+
+    /**
+     * Checks if the [grantResults] notify us that the permission has been granted.
+     *  To be used within Activity.onRequestPermissionsResult()
+     * @return True if the permission has been granted
+     */
+    fun isGranted(grantResults: IntArray): Boolean =
+            grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
 }
