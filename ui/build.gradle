@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-def butterknife_version = "8.6.0"
+def butterknife_version = "8.8.1"
 
 dependencies {
     implementation "com.android.support:support-v4:$android_support_version"
