@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.2.2 (2017-12-26)
+* `util`:
+    * Made the `BaseUpdateManager` methods `open`
+
 ## Version 2.2.1 (2017-12-26)
 * Updated Kotlin
 * `util`:

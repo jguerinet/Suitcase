@@ -36,12 +36,12 @@ abstract class BaseUpdateManager(private val prefs: SharedPreferences,
     /**
      * @return True if an update is necessary, false otherwise
      */
-    fun needsUpdate(): Boolean = prefs.getInt(versionPrefName, -1) < currentVersionCode
+    open fun needsUpdate(): Boolean = prefs.getInt(versionPrefName, -1) < currentVersionCode
 
     /**
      * Runs any update code if necessary
      */
-    fun update() {
+    open fun update() {
         var storedCode = prefs.getInt(versionPrefName, -1)
 
         if (storedCode < currentVersionCode) {
