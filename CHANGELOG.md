@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.2.1 (2017-12-26)
+* Updated Kotlin
+* `util`:
+    * Added the `BaseUpdateManager` class, to serve as a base for running update code
+
 ## Version 2.2.0 (2017-11-29)
 * Updated all of the dependencies (notably support library)
 * Bumped target to 26
