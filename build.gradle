@@ -14,7 +14,6 @@
  * limitations under the License.
  */
 
-apply plugin: 'com.github.ben-manes.versions'
 buildscript {
 
     // Versions shared across modules
@@ -31,7 +30,6 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.0.1'
-        classpath 'com.github.ben-manes:gradle-versions-plugin:0.15.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.4.1'
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.14"
         classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlin_version"
