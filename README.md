@@ -16,31 +16,31 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	dependencies {
 
         // Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
-        compile "com.guerinet.suitcase:analytics:${suitcase_version}"
+        implementation "com.guerinet.suitcase:analytics:${suitcase_version}"
 
 	    // Date utility methods and classes, uses AndroidThreeTen
-	    compile "com.guerinet.suitcase:date:${suitcase_version}"
+	    implementation "com.guerinet.suitcase:date:${suitcase_version}"
 
         // DBFlow utility methods and classes, uses AndroidThreeTen and DBFlow
-        compile "com.guerinet.suitcase:db:${suitcase_version}"
+        implementation "com.guerinet.suitcase:db:${suitcase_version}"
 
         // Dialog utility methods, uses Material Dialogs
-        compile "com.guerinet.suitcase:dialog:${suitcase_version}"
+        implementation "com.guerinet.suitcase:dialog:${suitcase_version}"
 
         // I/O utility methods, uses Okio
-        compile "com.guerinet.suitcase:io:${suitcase_version}"
+        implementation "com.guerinet.suitcase:io:${suitcase_version}"
 
         // Logging utility methods and classes, uses Timber
-        compile "com.guerinet.suitcase:log:${suitcase_version}"
+        implementation "com.guerinet.suitcase:log:${suitcase_version}"
 
         // SharedPreferences utility methods and classes
-        compile "com.guerinet.suitcase:prefs:${suitcase_version}"
+        implementation "com.guerinet.suitcase:prefs:${suitcase_version}"
 
         // UI utility methods and classes
-        compile "com.guerinet.suitcase:ui:${suitcase_version}"
+        implementation "com.guerinet.suitcase:ui:${suitcase_version}"
 
         // Basic utility methods and resources
-        compile "com.guerinet.suitcase:util:${suitcase_version}"
+        implementation "com.guerinet.suitcase:util:${suitcase_version}"
 	}
 
 * [Google Play Services](https://developers.google.com/android/guides/overview)
@@ -57,7 +57,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2016-2017 Julien Guerinet
+	 Copyright 2016-2018 Julien Guerinet
 
 	 Licensed under the Apache License, Version 2.0 (the "License");
 	 you may not use this file except in compliance with the License.
