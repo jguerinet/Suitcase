@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,6 @@ import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import butterknife.ButterKnife
 
 /**
  * Basic RecyclerView adapter implementation for [RecyclerView]s
@@ -45,12 +44,7 @@ abstract class BaseRecyclerViewAdapter(val emptyView: View?) :
     /**
      * Basic implementation of the [RecyclerView.ViewHolder]
      */
-    abstract class BaseHolder : RecyclerView.ViewHolder {
-
-        constructor(itemView: View) : super(itemView) {
-            @Suppress("LeakingThis")
-            ButterKnife.bind(this, itemView)
-        }
+    abstract class BaseHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         /**
          * Constructor taking the [parent] and the [layoutId] of the item view to create
