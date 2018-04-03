@@ -69,11 +69,11 @@ subprojects {
     }
 
     dependencies {
-        compile "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
-        androidTestCompile("com.android.support.test.espresso:espresso-core:$espresso_version", {
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+        androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
-        testCompile "junit:junit:$junit_version"
+        testImplementation "junit:junit:$junit_version"
     }
 
     apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"
