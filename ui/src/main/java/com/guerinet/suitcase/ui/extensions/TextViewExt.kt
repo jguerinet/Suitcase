@@ -18,7 +18,6 @@ package com.guerinet.suitcase.ui.extensions
 
 import android.support.annotation.ColorInt
 import android.widget.TextView
-import com.guerinet.suitcase.ui.UIUtils
 
 /**
  * [TextView] extensions
@@ -34,7 +33,7 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
     val drawables = compoundDrawables
 
     // Tint the necessary one
-    drawables[position] = UIUtils.setTint(drawables[position], color)
+    drawables[position] = drawables[position].setTintCompat(color)
 
     // Set the drawables back
     setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],

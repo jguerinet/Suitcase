@@ -18,7 +18,6 @@ package com.guerinet.suitcase.ui.extensions
 
 import android.support.annotation.ColorInt
 import android.widget.ImageView
-import com.guerinet.suitcase.ui.UIUtils
 
 /**
  * [ImageView] extensions
@@ -30,5 +29,5 @@ import com.guerinet.suitcase.ui.UIUtils
  * Sets the tint with the given [color]
  */
 fun ImageView.setTint(@ColorInt color: Int) {
-    setImageDrawable(UIUtils.setTint(drawable, color))
+    setImageDrawable(drawable.setTintCompat(color))
 }

@@ -18,7 +18,6 @@ package com.guerinet.suitcase.ui.extensions
 
 import android.support.annotation.ColorInt
 import android.view.MenuItem
-import com.guerinet.suitcase.ui.UIUtils
 
 /**
  * [MenuItem] extensions
@@ -30,5 +29,5 @@ import com.guerinet.suitcase.ui.UIUtils
  * Sets the tint to the given [color] on the icon if there is one
  */
 fun MenuItem.setTint(@ColorInt color: Int) {
-    if (icon != null) UIUtils.setTint(icon, color)
+    if (icon != null) icon.setTintCompat(color)
 }
