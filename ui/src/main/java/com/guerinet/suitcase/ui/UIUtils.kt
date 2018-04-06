@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -22,6 +22,7 @@ import android.support.v4.graphics.drawable.DrawableCompat
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
+import com.guerinet.suitcase.ui.extensions.setDrawableTint
 
 /**
  * Static UI Utility methods
@@ -67,14 +68,9 @@ object UIUtils {
      *  of a [textView] with the given [color]
      */
     @JvmStatic
-    fun setTint(textView: TextView, position: Int, @ColorInt color: Int) {
-        val drawables = textView.compoundDrawables
-
-        // Tint the necessary one
-        drawables[position] = setTint(drawables[position], color)
-
-        // Set the drawables back
-        textView.setCompoundDrawablesWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
-                drawables[3])
-    }
+    @Deprecated("Replaced by the TextView extension setTint(position, color)",
+            ReplaceWith("textView.setDrawableTint(position, color)",
+                    "com.guerinet.suitcase.ui.extensions.setDrawableTint"))
+    fun setTint(textView: TextView, position: Int, @ColorInt color: Int) =
+            textView.setDrawableTint(position, color)
 }
