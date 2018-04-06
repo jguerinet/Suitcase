@@ -16,8 +16,9 @@
 
 @file:JvmName("DateUtils")
 
-package com.guerinet.suitcase.date
+package com.guerinet.suitcase.date.extensions
 
+import com.guerinet.suitcase.date.Format
 import org.threeten.bp.temporal.Temporal
 
 /**

@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.date
+package com.guerinet.suitcase.date.extensions
 
+import com.guerinet.suitcase.date.Format
 import org.threeten.bp.ZonedDateTime
 
 /**

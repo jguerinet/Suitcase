@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.date
+package com.guerinet.suitcase.date.extensions
 
 import org.threeten.bp.LocalDate
 
