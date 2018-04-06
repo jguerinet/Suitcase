@@ -20,7 +20,7 @@ repositories {
     maven { url "https://jitpack.io" }
 }
 
-def dbflow_version = "4.1.2"
+def dbflow_version = "4.2.4"
 
 dependencies {
     implementation "com.github.raizlabs.dbflow:dbflow:${dbflow_version}"
