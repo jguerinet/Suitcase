@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -87,11 +87,10 @@ object Device {
      * @return Display size by using the app [context]
      */
     private fun getDisplaySize(context: Context): Point {
-        val windowManager: WindowManager
-        if (context is Activity) {
-            windowManager = context.windowManager
+        val windowManager = if (context is Activity) {
+            context.windowManager
         } else {
-            windowManager = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
         }
 
         val display = windowManager.defaultDisplay
