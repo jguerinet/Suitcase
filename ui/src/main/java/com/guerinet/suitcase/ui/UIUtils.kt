@@ -52,9 +52,10 @@ object UIUtils {
      * Tints and sets the image with the given [color] in the given [imageView]
      */
     @JvmStatic
-    fun setTint(imageView: ImageView, @ColorInt color: Int) {
-        imageView.setImageDrawable(setTint(imageView.drawable, color))
-    }
+    @Deprecated("Replaced by extension", ReplaceWith("imageView.setTint(color)",
+            "com.guerinet.suitcase.ui.extensions.setTint"))
+    fun setTint(imageView: ImageView, @ColorInt color: Int) =
+            imageView.setTint(color)
 
     /**
      * Tings and sets the image with the given [color] in the given menu [item]
