@@ -18,12 +18,12 @@ package com.guerinet.suitcase.ui
 
 import android.graphics.drawable.Drawable
 import android.support.annotation.ColorInt
-import android.support.v4.graphics.drawable.DrawableCompat
 import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import com.guerinet.suitcase.ui.extensions.setDrawableTint
 import com.guerinet.suitcase.ui.extensions.setTint
+import com.guerinet.suitcase.ui.extensions.setTintCompat
 
 /**
  * Static UI Utility methods
@@ -33,20 +33,12 @@ import com.guerinet.suitcase.ui.extensions.setTint
 object UIUtils {
 
     /**
-     * Tints the [drawable] with the given [color]
-     *
-     * @return The wrapped [Drawable] with the tint
+     * @return Wrapped [Drawable] with the tint of the given [color]
      */
     @JvmStatic
-    fun setTint(drawable: Drawable, @ColorInt color: Int): Drawable {
-        // Wrap the drawable in the compat library
-        val wrappedDrawable = DrawableCompat.wrap(drawable).mutate()
-
-        // Tint the drawable
-        DrawableCompat.setTint(wrappedDrawable, color)
-
-        return drawable
-    }
+    @Deprecated("Replaced by extension", ReplaceWith("drawable.setTintCompat(color)",
+            "com.guerinet.suitcase.ui.extensions.setTintCompat"))
+    fun setTint(drawable: Drawable, @ColorInt color: Int) = drawable.setTintCompat(color)
 
     /**
      * Tints and sets the image with the given [color] in the given [imageView]
