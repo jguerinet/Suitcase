@@ -30,6 +30,7 @@ import com.guerinet.suitcase.ui.extensions.setTintCompat
  * @author Julien Guerinet
  * @since 2.0.0
  */
+@Deprecated("Replaced by extensions")
 object UIUtils {
 
     /**
