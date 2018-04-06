@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,17 +18,16 @@ package com.guerinet.suitcase.util
 
 import android.content.ActivityNotFoundException
 import android.content.Context
-import android.content.Intent
-import android.content.pm.PackageManager
-import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
 import android.widget.Toast
+import com.guerinet.suitcase.util.extensions.openCustomTab
+import com.guerinet.suitcase.util.extensions.openPdf
+import com.guerinet.suitcase.util.extensions.openPlayStoreApp
+import com.guerinet.suitcase.util.extensions.openUrl
 import java.io.File
 import java.util.*
 
@@ -61,97 +60,6 @@ object Utils {
     @JvmStatic
     fun toast(context: Context, message: String) {
         Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    /**
-     * Opens a given [url] using the app [context]
-     */
-    @JvmStatic
-    fun openUrl(context: Context, url: String) {
-        // Check that http:// or https:// is there
-        val fullUrl : String
-        if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
-            fullUrl = "http://" + url
-        } else {
-            fullUrl = url
-        }
-
-        context.startActivity(Intent(Intent.ACTION_VIEW).setData(Uri.parse(fullUrl)))
-    }
-
-    /**
-     * Opens a Chrome custom tab when opening a [url] using the app [context] with a default share
-     * option. Optionally sets the [toolbarColor] (it's a light grey if none supplied) and uses the
-     * Drawable [closeButtonId] to set a custom close button (it's a black cross if none supplied)
-     */
-    @JvmStatic
-    fun openCustomTab(context: Context, url: String, @ColorRes toolbarColor: Int? = null,
-                      @DrawableRes closeButtonId: Int? = null) {
-        // Check that the scheme is present, add it if not
-        val fullUrl : String
-        if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
-            fullUrl = "http://" + url
-        } else {
-            fullUrl = url
-        }
-
-        val builder = CustomTabsIntent.Builder()
-                .addDefaultShareMenuItem()
-
-        if (toolbarColor != null) {
-            // Set the custom toolbar color if there is one
-            builder.setToolbarColor(ContextCompat.getColor(context, toolbarColor))
-        }
-
-        if (closeButtonId != null) {
-            // Set the custom close button icon if there is one
-            builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.resources,
-                    closeButtonId))
-        }
-
-        // Build and launch
-        builder.build().launchUrl(context, Uri.parse(fullUrl))
-    }
-
-    /**
-     * Attempts to open the Pdf at the given [path] using the app [context]
-     * @throws ActivityNotFoundException if no app to open the pdf is found
-     */
-    @JvmStatic
-    @Throws(ActivityNotFoundException::class)
-    fun openPdf(context: Context, path: Uri) {
-        // Check if there is a Pdf reader
-        val packageManager = context.packageManager
-        val pdfIntent = Intent(Intent.ACTION_VIEW).setType("application/pdf")
-        val list = packageManager.queryIntentActivities(pdfIntent, PackageManager.MATCH_DEFAULT_ONLY)
-
-        if (list.isNotEmpty()) {
-            // If there is one, use it
-            val intent = Intent(Intent.ACTION_VIEW)
-                    .setDataAndType(path, "application/pdf")
-                    .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP
-                            or(Intent.FLAG_GRANT_READ_URI_PERMISSION))
-            context.startActivity(intent)
-        } else {
-            // If not, throw the exception
-            throw ActivityNotFoundException("No Pdf app found")
-        }
-    }
-
-    /**
-     * Opens an app using the app [context] and the app [packageName] in the Play Store or in the
-     *  browser (if the Play Store is not found)
-     */
-    @JvmStatic
-    @JvmOverloads
-    fun openPlayStoreApp(context: Context, packageName: String = context.packageName) {
-        try {
-            context.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("market://details?id=" +
-                    packageName)))
-        } catch (e: ActivityNotFoundException) {
-            // If the user does not have the Play Store installed, open it in their browser
-            openUrl(context, "https://play.google.com/store/app/details?id=" + packageName)
-        }
     }
 
     /**
@@ -282,4 +190,47 @@ object Utils {
     fun getResourceId(context: Context, type: String, id: String): Int {
         return context.resources.getIdentifier(id, type, context.packageName)
     }
+
+    /* DEPRECATED */
+
+    /**
+     * Opens a given [url] using the app [context]
+     */
+    @JvmStatic
+    @Deprecated("Replaced by extension", ReplaceWith("context.openUrl(url)",
+            "com.guerinet.suitcase.util.extensions.openUrl"))
+    fun openUrl(context: Context, url: String) = context.openUrl(url)
+
+    /**
+     * Opens a Chrome custom tab when opening a [url] using the app [context] with a default share
+     * option. Optionally sets the [toolbarColor] (it's a light grey if none supplied) and uses the
+     * Drawable [closeButtonId] to set a custom close button (it's a black cross if none supplied)
+     */
+    @JvmStatic
+    @Deprecated("Replaced by extension",
+            ReplaceWith("context.openCustomTab(url, toolbarColor, closeButtonId)",
+                    "com.guerinet.suitcase.util.extensions.openCustomTab"))
+    fun openCustomTab(context: Context, url: String, @ColorRes toolbarColor: Int? = null,
+                      @DrawableRes closeButtonId: Int? = null) =
+            context.openCustomTab(url, toolbarColor, closeButtonId)
+
+    /**
+     * Attempts to open the Pdf at the given [path] using the app [context]
+     * @throws ActivityNotFoundException if no app to open the pdf is found
+     */
+    @JvmStatic
+    @Throws(ActivityNotFoundException::class)
+    @Deprecated("Replaced by extension", ReplaceWith("context.openPdf(path)",
+            "com.guerinet.suitcase.util.extensions.openPdf"))
+    fun openPdf(context: Context, path: Uri) = context.openPdf(path)
+
+    /**
+     * Opens an app using the app [context] and the app [packageName] in the Play Store or in the
+     *  browser (if the Play Store is not found)
+     */
+    @JvmStatic
+    @Deprecated("Replaced by extension", ReplaceWith("context.openPlayStoreApp(packageName)",
+            "com.guerinet.suitcase.util.extensions.openPlayStoreApp"))
+    fun openPlayStoreApp(context: Context, packageName: String) =
+            context.openPlayStoreApp(packageName)
 }
