@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -26,16 +26,13 @@ import timber.log.Timber
  */
 abstract class ProductionTree  : Timber.Tree() {
 
-    override fun log(priority: Int, tag: String?, message: String?, t: Throwable?) {
+    override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
         // We don't want to log verbose and debug logs
         if (priority == Log.VERBOSE || priority == Log.DEBUG) {
             return
         }
 
-        if (message != null) {
-            // Log the message if there is one
-            log(message)
-        }
+        log(message)
 
         if (t != null) {
             // Log the throwable if there is one
