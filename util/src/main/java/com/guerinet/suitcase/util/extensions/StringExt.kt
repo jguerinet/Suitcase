@@ -14,10 +14,11 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.util
+package com.guerinet.suitcase.util.extensions
 
 import android.text.Html
 import android.text.Spanned
+import com.guerinet.suitcase.util.Device
 
 /**
  * String extensions
