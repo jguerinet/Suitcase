@@ -60,7 +60,7 @@ object Device {
     fun model(): String {
         var model = Build.MODEL
         if (!model.startsWith(Build.MANUFACTURER, true)) {
-            model = Build.MANUFACTURER + " " + model
+            model = "${Build.MANUFACTURER} $model"
         }
         return model
     }
