@@ -23,6 +23,7 @@ import android.view.MenuItem
 import android.widget.ImageView
 import android.widget.TextView
 import com.guerinet.suitcase.ui.extensions.setDrawableTint
+import com.guerinet.suitcase.ui.extensions.setTint
 
 /**
  * Static UI Utility methods
@@ -59,18 +60,18 @@ object UIUtils {
      * Tings and sets the image with the given [color] in the given menu [item]
      */
     @JvmStatic
-    fun setTint(item: MenuItem, @ColorInt color: Int) {
-        item.icon = setTint(item.icon, color)
-    }
+    @Deprecated("Replaced by extension", ReplaceWith("item.setTint(color)",
+            "com.guerinet.suitcase.ui.extensions.setTint"))
+    fun setTint(item: MenuItem, @ColorInt color: Int) =
+            item.setTint(color)
 
     /**
      * Tints the compound drawable at a given [position] (0: left, 1: top, 2: right, 3: bottom)
      *  of a [textView] with the given [color]
      */
     @JvmStatic
-    @Deprecated("Replaced by the TextView extension setTint(position, color)",
-            ReplaceWith("textView.setDrawableTint(position, color)",
-                    "com.guerinet.suitcase.ui.extensions.setDrawableTint"))
+    @Deprecated("Replaced by extension", ReplaceWith("textView.setDrawableTint(position, color)",
+            "com.guerinet.suitcase.ui.extensions.setDrawableTint"))
     fun setTint(textView: TextView, position: Int, @ColorInt color: Int) =
             textView.setDrawableTint(position, color)
 }
