@@ -17,23 +17,33 @@
 package com.guerinet.suitcase.ui
 
 import android.support.annotation.LayoutRes
+import android.support.v7.recyclerview.extensions.ListAdapter
+import android.support.v7.util.DiffUtil
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 
 /**
- * Basic RecyclerView adapter implementation for [RecyclerView]s
+ * Basic [ListAdapter] implementation for [RecyclerView]s
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 2.3.0
  *
- * @param emptyView [View] to show if the list is empty, null if none (defaults to null)
+ * @param diffCallback  [DiffUtil.ItemCallback] to use for the [ListAdapter]
+ * @param emptyView     [View] to show if the list is empty, null if none (defaults to null)
  */
-abstract class BaseRecyclerViewAdapter(val emptyView: View? = null) :
-        RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseHolder>() {
+abstract class BaseListAdapter<T>(diffCallback: DiffUtil.ItemCallback<T>,
+                                  val emptyView: View? = null) :
+        ListAdapter<T, BaseListAdapter.BaseHolder<T>>(diffCallback) {
 
-    override fun onBindViewHolder(holder: BaseHolder, position: Int) {
-        holder.bind(position)
+    override fun onBindViewHolder(holder: BaseHolder<T>, position: Int) {
+        holder.bind(position, getItem(position))
+    }
+
+    override fun submitList(list: MutableList<T>?) {
+        super.submitList(list)
+        // Show the empty if an empty or null list is passed in
+        showEmptyView(list?.isEmpty() ?: true)
     }
 
     /**
@@ -46,17 +56,17 @@ abstract class BaseRecyclerViewAdapter(val emptyView: View? = null) :
     /**
      * Basic implementation of the [RecyclerView.ViewHolder]
      */
-    open class BaseHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+    open class BaseHolder<T>(itemView: View) : RecyclerView.ViewHolder(itemView) {
 
         /**
-         * Convenience constructor taking the [parent] and the [layoutId] of the item view to create
+         * Convenience constructor taking the [parent] abd tge [layoutId] of the item view to create
          */
         constructor(parent: ViewGroup, @LayoutRes layoutId: Int) :
                 this(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
 
         /**
-         * Binds this holder to the given [position]
+         * Binds the holder to the given [item] at the given [position]
          */
-        open fun bind(position: Int) {}
+        open fun bind(position: Int, item: T) {}
     }
 }
