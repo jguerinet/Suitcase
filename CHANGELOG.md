@@ -1,6 +1,9 @@
 # Change Log
 
-## Version 2.3.0 (2018-04-01)
+## Version 2.3.1 (2018-04-06)
+* Removed methods that are now part of [Android KTX](https://github.com/android/android-ktx)
+
+## Version 2.3.0 (2018-04-06)
 * Updated all dependencies
 * Switched min SDK to 17, target SDK to 27
 * `date`:
