@@ -47,22 +47,6 @@ object Utils {
     }
 
     /**
-     * Displays a toast of short length using the app [context] and the given [message]
-     */
-    @JvmStatic
-    fun toast(context: Context, @StringRes message: Int) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    /**
-     * Displays a toast of short length using the app [context] and the given [message]
-     */
-    @JvmStatic
-    fun toast(context: Context, message: String) {
-        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
-    }
-
-    /**
      *  @return True if the [newVersionName] is more recent than the [oldVersionName] (which is the
      *      current version if not specified)
      */
@@ -192,6 +176,24 @@ object Utils {
     }
 
     /* DEPRECATED */
+
+    /**
+     * Displays a toast of short length using the app [context] and the given [message]
+     */
+    @JvmStatic
+    @Deprecated("Replaced by android-ktx")
+    fun toast(context: Context, @StringRes message: Int) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
+
+    /**
+     * Displays a toast of short length using the app [context] and the given [message]
+     */
+    @JvmStatic
+    @Deprecated("Replaced by android-ktx")
+    fun toast(context: Context, message: String) {
+        Toast.makeText(context, message, Toast.LENGTH_SHORT).show()
+    }
 
     /**
      * Opens a given [url] using the app [context]
