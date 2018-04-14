@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,20 +23,10 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class IntPref(prefs: SharedPreferences, key: String, protected val defaultValue: Int) :
-        BasePref(prefs, key) {
+open class IntPref(prefs: SharedPreferences, key: String, defaultValue: Int) :
+        BasePref<Int>(prefs, key, defaultValue) {
 
-    /**
-     * @return Current [Int] value at this [key], the [defaultValue] if none stored
-     */
-    open fun get(): Int {
-        return prefs.getInt(key, defaultValue)
-    }
+    override fun get(): Int = prefs.getInt(key, defaultValue)
 
-    /**
-     * Saves the [value] at the [key] in these [prefs]
-     */
-    open fun set(value: Int) {
-        prefs.edit().putInt(key, value).apply()
-    }
+    override fun set(value: Int) = prefs.edit().putInt(key, value).apply()
 }

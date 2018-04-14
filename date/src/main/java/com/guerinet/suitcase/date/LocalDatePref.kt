@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,9 +29,16 @@ open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: Lo
         StringPref(prefs, key, defaultValue?.toString()) {
 
     /**
+     * Backing date property for getting and setting this pref
+     */
+    var date: LocalDate?
+        get() = getLocalDate()
+        set(value) = set(value)
+
+    /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    open fun getDate(): LocalDate? {
+    open fun getLocalDate(): LocalDate? {
         val string = super.get()
 
         return if (string == null) null else LocalDate.parse(string)

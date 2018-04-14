@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,20 +23,10 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class StringPref(prefs: SharedPreferences, key: String, protected val defaultValue:String?) :
-        BasePref(prefs, key) {
+open class StringPref(prefs: SharedPreferences, key: String, defaultValue: String?) :
+        BasePref<String?>(prefs, key, defaultValue) {
 
-    /**
-     * @return Current [String] value stored at the [key], the [defaultValue] if none stored
-     */
-    open fun get(): String? {
-        return prefs.getString(key, defaultValue)
-    }
+    override fun get(): String? = prefs.getString(key, defaultValue)
 
-    /**
-     * Saves the [value] at the [key] in these [prefs]
-     */
-    open fun set(value: String?) {
-        prefs.edit().putString(key, value).apply()
-    }
+    override fun set(value: String?) = prefs.edit().putString(key, value).apply()
 }

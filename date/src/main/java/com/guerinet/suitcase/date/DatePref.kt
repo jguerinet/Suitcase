@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,14 @@ import org.threeten.bp.ZonedDateTime
 open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime?) :
         StringPref(prefs, key, defaultValue?.toString()) {
 
+    var date: ZonedDateTime?
+        get() = getZonedDateTime()
+        set(value) = set(value)
+
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    open fun getDate(): ZonedDateTime? {
+    open fun getZonedDateTime(): ZonedDateTime? {
         // Get the stored String
         val string = super.get()
 

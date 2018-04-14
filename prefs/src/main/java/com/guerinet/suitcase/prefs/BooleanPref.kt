@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,20 +23,10 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class BooleanPref(prefs: SharedPreferences, key: String, protected val defaultValue: Boolean) :
-        BasePref(prefs, key) {
+open class BooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean) :
+        BasePref<Boolean>(prefs, key, defaultValue) {
 
-    /**
-     * @return current [Boolean] value at this [key], the [defaultValue] if none stored
-     */
-    open fun get(): Boolean {
-       return prefs.getBoolean(key, defaultValue)
-    }
+    override fun get(): Boolean = prefs.getBoolean(key, defaultValue)
 
-    /**
-     * Sets the [value] at the given [key] in the given [prefs]
-     */
-    open fun set(value: Boolean) {
-        prefs.edit().putBoolean(key, value).apply()
-    }
+    override fun set(value: Boolean) = prefs.edit().putBoolean(key, value).apply()
 }

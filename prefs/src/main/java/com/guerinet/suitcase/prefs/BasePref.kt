@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -23,7 +23,26 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class BasePref(protected val prefs:SharedPreferences, protected val key:String) {
+abstract class BasePref<T>(protected val prefs: SharedPreferences, protected val key: String,
+        protected val defaultValue: T) {
+
+    /**
+     * Backing property for getting and setting this pref
+     */
+    var value: T
+        get() = get()
+        set(value) = set(value)
+
+    /**
+     * Pref getter to be implemented by the subclass. Default implementation will return the
+     *  [defaultValue] if no value is stored
+     */
+    abstract fun get(): T
+
+    /**
+     * Pref setter to be implemented by the subclass
+     */
+    abstract fun set(value: T)
 
     /**
      * Clears the [prefs] of anything stored at this [key]
