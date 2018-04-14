@@ -96,25 +96,8 @@ object Utils {
      */
     @JvmStatic
     @JvmOverloads
-    fun deleteFolder(folder: File, deleteFolder: Boolean = true) {
-        val files = folder.listFiles()
-        if (files != null) {
-            for (file in files) {
-                // Go through the folder's files
-                if (file.isDirectory) {
-                    // Recursively call this method if the file is a folder
-                    deleteFolder(file, true)
-                } else {
-                    file.delete()
-                }
-            }
-        }
-
-        if (deleteFolder) {
-            // Delete the folder if necessary
-            folder.delete()
-        }
-    }
+    @Deprecated("Replaced with by a Kotlin method", ReplaceWith("folder.deleteRecursively()"))
+    fun deleteFolder(folder: File, deleteFolder: Boolean = true) = folder.deleteRecursively()
 
     /**
      * @return Folder with the given [folderName] and from the given [type] from the external
