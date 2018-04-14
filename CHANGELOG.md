@@ -1,5 +1,16 @@
 # Change Log
 
+## Version 2.4.0 (2018-04-14)
+* `io`:
+    * Deprecated the `IOUtils`, replacing it with extensions
+* `prefs`/`date`:
+    * Removed a bunch of redundant code within the pref classes
+    * Added backing properties to the pref classes
+* `util`:
+    * Made connectivity methods extensions
+    * Moved folder operations to extensions
+    * Moved permission operations to extensions / `Util` class
+
 ## Version 2.3.1 (2018-04-06)
 * Removed methods that are now part of [Android KTX](https://github.com/android/android-ktx)
 
