@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,8 +18,6 @@ package com.guerinet.suitcase.io
 
 import android.content.Context
 import android.support.annotation.RawRes
-import okio.BufferedSource
-import okio.Okio
 import java.io.IOException
 
 /**
@@ -27,6 +25,7 @@ import java.io.IOException
  * @author Julien Guerinet
  * @since 2.0.0
  */
+@Deprecated("Replaced with extensions")
 object IOUtils {
 
     /**
@@ -34,9 +33,8 @@ object IOUtils {
      *  [context]
      */
     @JvmStatic
-    fun sourceFromRaw(context: Context, @RawRes fileId: Int): BufferedSource {
-        return Okio.buffer(Okio.source(context.resources.openRawResource(fileId)))
-    }
+    @Deprecated("Replaced with extension", ReplaceWith("context.sourceFromRaw(fileId)"))
+    fun sourceFromRaw(context: Context, @RawRes fileId: Int) = context.sourceFromRaw(fileId)
 
     /**
      * @return A String for a file with the given [fileId] in the raw folder, using the app
@@ -45,7 +43,6 @@ object IOUtils {
      */
     @Throws(IOException::class)
     @JvmStatic
-    fun stringFromRaw(context: Context, @RawRes fileId: Int): String {
-        return sourceFromRaw(context, fileId).readUtf8()
-    }
+    @Deprecated("Replaced with extension", ReplaceWith("context.stringFromRaw(fileId)"))
+    fun stringFromRaw(context: Context, @RawRes fileId: Int) = context.stringFromRaw(fileId)
 }

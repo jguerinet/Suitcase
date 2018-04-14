@@ -22,7 +22,7 @@ import android.support.v4.app.ActivityCompat
 /**
  * [Activity] extensions
  * @author Julien Guerinet
- * @since 2.3.2
+ * @since 2.4.0
  */
 
 /**
