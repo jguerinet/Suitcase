@@ -24,6 +24,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.widget.Toast
+import com.guerinet.suitcase.util.extensions.getResourceId
 import com.guerinet.suitcase.util.extensions.isConnected
 import com.guerinet.suitcase.util.extensions.openCustomTab
 import com.guerinet.suitcase.util.extensions.openPdf
@@ -170,9 +171,10 @@ object Utils {
      * @return The resource Id of the given [type] for the given [id] name in the given [context]
      */
     @JvmStatic
-    fun getResourceId(context: Context, type: String, id: String): Int {
-        return context.resources.getIdentifier(id, type, context.packageName)
-    }
+    @Deprecated("Replaced by extension", ReplaceWith("context.getResourceId(type, id)",
+            "com.guerinet.suitcase.util.extensions.getResourceId"))
+    fun getResourceId(context: Context, type: String, id: String): Int =
+            context.getResourceId(type, id)
 
     /* DEPRECATED */
 

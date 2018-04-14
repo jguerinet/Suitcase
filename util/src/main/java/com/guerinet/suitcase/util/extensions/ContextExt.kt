@@ -115,6 +115,12 @@ fun Context.openPlayStoreApp(packageName: String = this.packageName) {
 }
 
 /**
+ * Returns the resource Id of the given [type] for the given [id] name
+ */
+fun Context.getResourceId(type: String, id: String): Int =
+        resources.getIdentifier(id, type, packageName)
+
+/**
  * True if the device is connected to the internet, false otherwise
  */
 val Context.isConnected: Boolean
