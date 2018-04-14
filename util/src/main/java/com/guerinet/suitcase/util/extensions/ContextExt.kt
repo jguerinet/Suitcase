@@ -21,6 +21,7 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.net.ConnectivityManager
 import android.net.Uri
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
@@ -112,3 +113,9 @@ fun Context.openPlayStoreApp(packageName: String = this.packageName) {
         openUrl("https://play.google.com/store/app/details?id=$packageName")
     }
 }
+
+/**
+ * True if the device is connected to the internet, false otherwise
+ */
+val Context.isConnected: Boolean
+    get() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).isConnected

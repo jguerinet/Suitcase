@@ -24,6 +24,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.widget.Toast
+import com.guerinet.suitcase.util.extensions.isConnected
 import com.guerinet.suitcase.util.extensions.openCustomTab
 import com.guerinet.suitcase.util.extensions.openPdf
 import com.guerinet.suitcase.util.extensions.openPlayStoreApp
@@ -134,20 +135,18 @@ object Utils {
      * @return True if the user is connected to the internet, false otherwise
      */
     @JvmStatic
-    fun isConnected(manager: ConnectivityManager): Boolean {
-        val networkInfo = manager.activeNetworkInfo
-        return networkInfo != null && networkInfo.isConnectedOrConnecting
-    }
+    @Deprecated("Replaced by extension",
+            ReplaceWith("manager.isConnected", "com.guerinet.suitcase.util.extensions.isConnected"))
+    fun isConnected(manager: ConnectivityManager): Boolean = manager.isConnected
 
     /**
      * @param context App context
      * @return True if the user is connected to the internet, false otherwise
      */
     @JvmStatic
-    fun isConnected(context: Context): Boolean {
-        return isConnected(context.getSystemService(Context.CONNECTIVITY_SERVICE)
-                as ConnectivityManager)
-    }
+    @Deprecated("Replaced by extension",
+            ReplaceWith("context.isConnected", "com.guerinet.suitcase.util.extensions.isConnected"))
+    fun isConnected(context: Context): Boolean = context.isConnected
 
     /**
      * @return Resource Id for a given [attributeId] to set an attribute programmatically, using
