@@ -19,7 +19,7 @@ package com.guerinet.suitcase.util
 import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
-import android.support.v4.app.ActivityCompat
+import com.guerinet.suitcase.util.extensions.hasPermission
 import com.guerinet.suitcase.util.extensions.isPermissionGranted
 
 /**
@@ -45,15 +45,11 @@ object Permission {
      *  @return True if the permission had already been granted, false otherwise
      */
     @JvmStatic
-    fun request(activity: Activity, permission: String, requestCode: Int): Boolean {
-        if (!activity.isPermissionGranted(permission)) {
-            // Request the permission
-            ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
-            return false
-        }
-        // If we already have the permission, return true
-        return true
-    }
+    @Deprecated("Replaced with extension",
+            ReplaceWith("activity.hasPermission(permission, requestCode)",
+                    "com.guerinet.suitcase.util.extensions.hasPermission"))
+    fun request(activity: Activity, permission: String, requestCode: Int) =
+            activity.hasPermission(permission, requestCode)
 
     /**
      * Checks if the [grantResults] notify us that the permission has been granted.
