@@ -115,6 +115,23 @@ fun Context.openPlayStoreApp(packageName: String = this.packageName) {
 }
 
 /**
+ * Returns the resource id for a given [attributeId] to set an attribute programmatically (0 if not
+ *  found)
+ */
+fun Context.getAttributeResourceId(attributeId: Int): Int {
+    // Get the attribute in types array form
+    val typedArray = obtainStyledAttributes(intArrayOf(attributeId))
+
+    // Extract the resource Id
+    val resource = typedArray.getResourceId(0, 0)
+
+    // Recycle the typed array
+    typedArray.recycle()
+
+    return resource
+}
+
+/**
  * Returns the resource Id of the given [type] for the given [id] name
  */
 fun Context.getResourceId(type: String, id: String): Int =

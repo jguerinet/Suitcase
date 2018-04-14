@@ -24,6 +24,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.widget.Toast
+import com.guerinet.suitcase.util.extensions.getAttributeResourceId
 import com.guerinet.suitcase.util.extensions.getResourceId
 import com.guerinet.suitcase.util.extensions.isConnected
 import com.guerinet.suitcase.util.extensions.openCustomTab
@@ -131,6 +132,8 @@ object Utils {
         return folder
     }
 
+    /* DEPRECATED */
+
     /**
      * @param manager ConnectivityManager instance
      * @return True if the user is connected to the internet, false otherwise
@@ -154,18 +157,10 @@ object Utils {
      *  the app [context]
      */
     @JvmStatic
-    fun getResourceFromAttributes(context: Context, attributeId: Int): Int {
-        // Get the attribute in TypedArray form
-        val typedArray = context.obtainStyledAttributes(intArrayOf(attributeId))
-
-        // Extract the resource Id
-        val resource = typedArray.getResourceId(0, 0)
-
-        // Recycle the typed array
-        typedArray.recycle()
-
-        return resource
-    }
+    @Deprecated("Replaced by extension", ReplaceWith("context.getAttributeResourceId(attributeId)",
+            "com.guerinet.suitcase.util.extensions.getAttributeResourceId"))
+    fun getResourceFromAttributes(context: Context, attributeId: Int): Int =
+            context.getAttributeResourceId(attributeId)
 
     /**
      * @return The resource Id of the given [type] for the given [id] name in the given [context]
@@ -175,8 +170,6 @@ object Utils {
             "com.guerinet.suitcase.util.extensions.getResourceId"))
     fun getResourceId(context: Context, type: String, id: String): Int =
             context.getResourceId(type, id)
-
-    /* DEPRECATED */
 
     /**
      * Displays a toast of short length using the app [context] and the given [message]
