@@ -25,6 +25,7 @@ import android.support.annotation.DrawableRes
 import android.support.annotation.StringRes
 import android.widget.Toast
 import com.guerinet.suitcase.util.extensions.getAttributeResourceId
+import com.guerinet.suitcase.util.extensions.getFile
 import com.guerinet.suitcase.util.extensions.getResourceId
 import com.guerinet.suitcase.util.extensions.isConnected
 import com.guerinet.suitcase.util.extensions.openCustomTab
@@ -91,6 +92,8 @@ object Utils {
         return false
     }
 
+    /* DEPRECATED */
+
     /**
      * Deletes the contents of a [folder] and the folder itself if [deleteFolder] is true
      */
@@ -104,18 +107,10 @@ object Utils {
      *  files directory using the app [context]. Will create it if it doesn't exist already
      */
     @JvmStatic
-    fun getFolder(context: Context, folderName: String, type: String?): File {
-        val folder = File(context.getExternalFilesDir(type), folderName)
-
-        // Create it if it doesn't exist already or if it isn't a directory
-        if (!folder.exists() || !folder.isDirectory) {
-            folder.mkdirs()
-        }
-
-        return folder
-    }
-
-    /* DEPRECATED */
+    @Deprecated("Replaced by extension", ReplaceWith("context.getFile(true, folderName, type)",
+            "com.guerinet.suitcase.util.extensions.getFile"))
+    fun getFolder(context: Context, folderName: String, type: String?): File =
+            context.getFile(true, folderName, type)
 
     /**
      * @param manager ConnectivityManager instance

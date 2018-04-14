@@ -27,6 +27,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
+import java.io.File
 
 /**
  * [Context] extensions
@@ -136,6 +137,23 @@ fun Context.getAttributeResourceId(attributeId: Int): Int {
  */
 fun Context.getResourceId(type: String, id: String): Int =
         resources.getIdentifier(id, type, packageName)
+
+/**
+ * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
+ *  does not have a specific type). This will create the file/folder if it doesn't exist already
+ */
+fun Context.getFile(isFolder: Boolean, name: String, type: String?): File {
+    val file = File(getExternalFilesDir(type), name)
+
+    if (!isFolder && !file.exists()) {
+        // If it's supposed to be a file and it doesn't exist, create it
+        file.createNewFile()
+    } else if (isFolder && (!file.exists() || !file.isDirectory)) {
+        // If it's supposed to be a folder and it doesn't exist or isn't a folder, create it
+        file.mkdirs()
+    }
+    return file
+}
 
 /**
  * True if the device is connected to the internet, false otherwise
