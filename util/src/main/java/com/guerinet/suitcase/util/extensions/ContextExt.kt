@@ -156,6 +156,12 @@ fun Context.getFile(isFolder: Boolean, name: String, type: String?): File {
 }
 
 /**
+ * Returns true if the given [permission] is granted
+ */
+fun Context.isPermissionGranted(permission: String): Boolean =
+        ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+
+/**
  * True if the device is connected to the internet, false otherwise
  */
 val Context.isConnected: Boolean

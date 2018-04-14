@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ import android.app.Activity
 import android.content.Context
 import android.content.pm.PackageManager
 import android.support.v4.app.ActivityCompat
-import android.support.v4.content.ContextCompat
+import com.guerinet.suitcase.util.extensions.isPermissionGranted
 
 /**
  * Static Marshmallow permission helper methods
@@ -33,9 +33,10 @@ object Permission {
      * @return true if the request [permission] is granted (checked with the app [context])
      */
     @JvmStatic
+    @Deprecated("Replaced with extension", ReplaceWith("context.isPermissionGranted(permission)",
+            "com.guerinet.suitcase.util.extensions.isPermissionGranted"))
     fun isGranted(context: Context, permission: String): Boolean =
-            ContextCompat.checkSelfPermission(context, permission) ==
-                    PackageManager.PERMISSION_GRANTED
+            context.isPermissionGranted(permission)
 
     /**
      * Checks if the given [permission] has been granted, and has been granted using the
@@ -45,7 +46,7 @@ object Permission {
      */
     @JvmStatic
     fun request(activity: Activity, permission: String, requestCode: Int): Boolean {
-        if (!isGranted(activity, permission)) {
+        if (!activity.isPermissionGranted(permission)) {
             // Request the permission
             ActivityCompat.requestPermissions(activity, arrayOf(permission), requestCode)
             return false
