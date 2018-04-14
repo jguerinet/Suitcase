@@ -18,7 +18,6 @@ package com.guerinet.suitcase.util
 
 import android.app.Activity
 import android.content.Context
-import android.content.pm.PackageManager
 import com.guerinet.suitcase.util.extensions.hasPermission
 import com.guerinet.suitcase.util.extensions.isPermissionGranted
 
@@ -27,6 +26,7 @@ import com.guerinet.suitcase.util.extensions.isPermissionGranted
  * @author Julien Guerinet
  * @since 2.0.0
  */
+@Deprecated("All methods have been moved")
 object Permission {
 
     /**
@@ -56,6 +56,6 @@ object Permission {
      *  To be used within Activity.onRequestPermissionsResult()
      * @return True if the permission has been granted
      */
-    fun isGranted(grantResults: IntArray): Boolean =
-            grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
+    @Deprecated("Moved to Utils", ReplaceWith("Utils.isPermissionGranted(grantResults)"))
+    fun isGranted(grantResults: IntArray): Boolean = Utils.isPermissionGranted(grantResults)
 }

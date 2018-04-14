@@ -18,6 +18,7 @@ package com.guerinet.suitcase.util
 
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.pm.PackageManager
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.support.annotation.ColorRes
@@ -49,6 +50,13 @@ object Utils {
     fun uuid():String {
         return UUID.randomUUID().toString()
     }
+
+    /**
+     * Returns true we have been granted a permission (this is checked using the [grantResults])
+     *  To be used within Activity.onRequestPermissionsResult()
+     */
+    fun isPermissionGranted(grantResults: IntArray): Boolean =
+            grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
 
     /**
      *  @return True if the [newVersionName] is more recent than the [oldVersionName] (which is the
