@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.4.1 (2018-04-23)
+ * `ui`:
+    * Added extension to set a `View`'s padding with a dimension Id
+    * Added extension to set a `TextView`'s text size with a dimension Id
+
 ## Version 2.4.0 (2018-04-14)
 * `io`:
     * Deprecated the `IOUtils`, replacing it with extensions

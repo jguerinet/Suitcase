@@ -17,6 +17,8 @@
 package com.guerinet.suitcase.ui.extensions
 
 import android.support.annotation.ColorInt
+import android.support.annotation.DimenRes
+import android.util.TypedValue
 import android.widget.TextView
 
 /**
@@ -38,4 +40,11 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
     // Set the drawables back
     setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
             drawables[3])
+}
+
+/**
+ * Changes the [TextView]'s text size by using the [textSizeId]
+ */
+fun TextView.setTextSizeId(@DimenRes textSizeId: Int) {
+    setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))
 }
