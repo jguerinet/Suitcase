@@ -140,9 +140,10 @@ fun Context.getResourceId(type: String, id: String): Int =
 
 /**
  * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
- *  does not have a specific type). This will create the file/folder if it doesn't exist already
+ *  does not have a specific type, defaults to null).
+ *  This will create the file/folder if it doesn't exist already.
  */
-fun Context.getFile(isFolder: Boolean, name: String, type: String?): File {
+fun Context.getFile(isFolder: Boolean, name: String, type: String? = null): File {
     val file = File(getExternalFilesDir(type), name)
 
     if (!isFolder && !file.exists()) {
