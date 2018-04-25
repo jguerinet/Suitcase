@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -28,10 +28,11 @@ import android.content.SharedPreferences
  * @param currentVersionCode    Current version code of the app. Can be retrieved with
  *                              BuildConfig.VERSION_CODE
  * @param versionPrefName       Name of the pref where the stored version is stored
+ *                              (defaults to "version")
  */
 abstract class BaseUpdateManager(private val prefs: SharedPreferences,
                                  private val currentVersionCode: Int,
-                                 private val versionPrefName: String) {
+        private val versionPrefName: String = "version") {
 
     /**
      * @return True if an update is necessary, false otherwise
