@@ -1,7 +1,17 @@
 # Change Log
 
+## Version 2.5.0 (2018-04-25)
+* `analytics`: 
+    * Convert `isDisabled` in `GAManager` to a property
+* `dialog`:
+    * Made all `DialogUtil` methods extensions and deprecated the old one
+* `util`: 
+    * Added a default name for the version pref name in the `BaseUpdateManager`
+    * Added a method that is called when an update is finished in the `BaseUpdateManager`
+    * Added a default file type (null) for `context.getFile()`
+
 ## Version 2.4.1 (2018-04-23)
- * `ui`:
+* `ui`:
     * Added extension to set a `View`'s padding with a dimension Id
     * Added extension to set a `TextView`'s text size with a dimension Id
 
