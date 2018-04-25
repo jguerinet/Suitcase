@@ -35,7 +35,7 @@ abstract class BaseUpdateManager(private val prefs: SharedPreferences,
         private val versionPrefName: String = "version") {
 
     /**
-     * @return True if an update is necessary, false otherwise
+     * Returns True if an update is necessary, false otherwise
      */
     open fun needsUpdate(): Boolean = prefs.getInt(versionPrefName, -1) < currentVersionCode
 
@@ -67,7 +67,13 @@ abstract class BaseUpdateManager(private val prefs: SharedPreferences,
 
         // Store the new version code
         prefs.edit().putInt(versionPrefName, currentVersionCode).apply()
+        onUpdateFinished()
     }
+
+    /**
+     * Called when an update has occurred and all of the update code has been run
+     */
+    open fun onUpdateFinished() {}
 
     /**
      * Called when this is the first time the user has opened the app
