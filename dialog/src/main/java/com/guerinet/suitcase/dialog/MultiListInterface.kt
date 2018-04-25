@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,14 +24,14 @@ package com.guerinet.suitcase.dialog
 interface MultiListInterface {
 
     /**
-     * @return A [IntArray] corresponding to position of the currently checked choices
+     * An [IntArray] corresponding to position of the currently checked choices
      */
-    fun getSelectedItems(): Array<Int>
+    val selectedItems: Array<Int>
 
     /**
-     * @return List of [String] choices to display
+     * List of [String] choices to display
      */
-    fun getChoices(): Array<String>
+    val choices: Array<String>
 
     /**
      * Called when the dialog closes with the list of choice [positions] selected

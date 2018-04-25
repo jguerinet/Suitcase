@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,17 +24,17 @@ package com.guerinet.suitcase.dialog
 interface SingleListInterface {
 
     /**
-     * @return Position of the current choice, -1 if no current choice is selected
+     * Position of the current choice, -1 if no current choice is selected
      */
-    fun getCurrentChoice(): Int
+    val currentChoice: Int
 
     /**
      * List of choices in String format
      */
-    fun getChoices(): Array<String>
+    val choices: Array<String>
 
     /**
-     * Called when a user has selected the choice at the given [position]
+     * Called when a user has selected the choice at the [position]
      */
     fun onChoiceSelected(position: Int)
 }

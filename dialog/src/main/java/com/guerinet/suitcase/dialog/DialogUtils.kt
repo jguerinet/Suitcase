@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,52 +25,8 @@ import com.afollestad.materialdialogs.MaterialDialog
  * @author Julien Guerinet
  * @since 2.0.0
  */
+@Deprecated("Replaced with extensions")
 object DialogUtils {
-
-    /**
-     * Constructs the base part of the builder using the app [context] by setting the [title] and
-     *  [message] from the Strings, as well as the [listener] for the buttons
-     *
-     *  @return Builder instance
-     */
-    private fun build(context: Context, @StringRes title: Int, @StringRes message: Int = -1,
-                      listener: MaterialDialog.SingleButtonCallback? = null):
-            MaterialDialog.Builder {
-        val builder = MaterialDialog.Builder(context)
-
-        // Set the title, message, and/or button listener if they are present
-        if (title != -1) {
-            builder.title(title)
-        }
-        if (message != -1) {
-            builder.content(message)
-        }
-
-        if (listener != null) {
-            builder.onAny(listener)
-        }
-
-        return builder
-    }
-
-    /**
-     * Constructs the base part of the builder using the app [context] by setting the [title] and
-     *  [message], as well as the [listener] for the buttons
-     *
-     *  @return Builder instance
-     */
-    private fun build(context: Context, @StringRes title: Int = -1, message: String?,
-                      listener: MaterialDialog.SingleButtonCallback? = null):
-            MaterialDialog.Builder {
-        val builder = build(context, title, listener = listener)
-
-        // Set the message if there is one
-        if (message != null) {
-            builder.content(message)
-        }
-
-        return builder
-    }
 
     /* NEUTRAL */
 
@@ -82,12 +38,11 @@ object DialogUtils {
      */
     @JvmStatic
     @JvmOverloads
+    @Deprecated("Replaced with extension",
+            ReplaceWith("context.neutralDialog(title, message, listener = listener)"))
     fun neutral(context: Context, @StringRes title: Int = -1, @StringRes message: Int = -1,
-                listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
-        return build(context, title, message, listener)
-                .neutralText(android.R.string.ok)
-                .show()
-    }
+            listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog =
+            context.neutralDialog(title, message, listener = listener)
 
     /**
      * Displays a dialog using the app [context] with one button. This dialog can have a [title],
@@ -96,12 +51,11 @@ object DialogUtils {
      *  @return Displayed dialog
      */
     @JvmStatic
+    @Deprecated("Replaced by extension",
+            ReplaceWith("context.neutralDialog(title, message, listener = listener)"))
     fun neutral(context: Context, @StringRes title: Int = -1, message: String? = null,
-                listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
-        return build(context, title, message, listener)
-                .neutralText(android.R.string.ok)
-                .show()
-    }
+            listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog =
+            context.neutralDialog(title, message, listener = listener)
 
     /* ALERT DIALOGS */
 
@@ -114,15 +68,13 @@ object DialogUtils {
      */
     @JvmStatic
     @JvmOverloads
+    @Deprecated("Replaced by extension", ReplaceWith(
+            "context.alertDialog(title, message, listener, positiveText, negativeText)"))
     fun alert(context: Context, @StringRes title: Int = -1, @StringRes message: Int = -1,
               listener: MaterialDialog.SingleButtonCallback? = null,
               @StringRes positiveText: Int = android.R.string.ok,
-              @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
-        return build(context, title, message, listener)
-                .positiveText(positiveText)
-                .negativeText(negativeText)
-                .show()
-    }
+            @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog =
+            context.alertDialog(title, message, listener, positiveText, negativeText)
 
     /**
      * Displays a dialog using the app [context] with 2 buttons with the given [positiveText] and
@@ -132,15 +84,13 @@ object DialogUtils {
      *  @return Displayed dialog
      */
     @JvmStatic
+    @Deprecated("Replaced by extension", ReplaceWith(
+            "context.alertDialog(title, message, listener, positiveText, negativeText)"))
     fun alert(context: Context, @StringRes title: Int = -1, message: String? = null,
               listener: MaterialDialog.SingleButtonCallback? = null,
               @StringRes positiveText: Int = android.R.string.ok,
-              @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
-        return build(context, title, message, listener)
-                .positiveText(positiveText)
-                .negativeText(negativeText)
-                .show()
-    }
+            @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog =
+            context.alertDialog(title, message, listener, positiveText, negativeText)
 
     /* LISTS DIALOGS */
 
@@ -153,22 +103,11 @@ object DialogUtils {
      */
     @JvmStatic
     @JvmOverloads
+    @Deprecated("Replaced by extension",
+            ReplaceWith("context.singleListDialog(title, listInterface, showRadioButtons)"))
     fun singleList(context: Context, @StringRes title: Int = -1, listInterface: SingleListInterface,
-                   showRadioButtons: Boolean = true): MaterialDialog {
-        val builder = build(context, title)
-                .items(*listInterface.getChoices())
-
-        if (showRadioButtons) {
-            builder.itemsCallbackSingleChoice(listInterface.getCurrentChoice(),
-                    { _, _, which, _ ->  listInterface.onChoiceSelected(which)
-                        true
-                    })
-        } else {
-            builder.itemsCallback({ _, _, position, _ ->  listInterface.onChoiceSelected(position)})
-        }
-
-        return builder.show()
-    }
+            showRadioButtons: Boolean = true): MaterialDialog =
+            context.singleListDialog(title, listInterface, showRadioButtons)
 
     /**
      * Displays a dialog with the app [context] with a multiple choice list of items to choose from.
@@ -178,15 +117,8 @@ object DialogUtils {
      */
     @JvmStatic
     @JvmOverloads
+    @Deprecated("Replaced by extension",
+            ReplaceWith("context.multiListDialog(title, listInterface)"))
     fun multiList(context: Context, @StringRes title: Int = -1, listInterface: MultiListInterface):
-            MaterialDialog {
-        return build(context, title)
-                .items(*listInterface.getChoices())
-                .itemsCallbackMultiChoice(listInterface.getSelectedItems(), { _, which, _ ->
-                    listInterface.onChoicesSelected(which)
-                    true
-                })
-                .positiveText(android.R.string.ok)
-                .show()
-    }
+            MaterialDialog = context.multiListDialog(title, listInterface)
 }
