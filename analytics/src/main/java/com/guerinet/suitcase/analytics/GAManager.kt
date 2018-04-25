@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -39,14 +39,14 @@ open class GAManager(context: Context, @XmlRes config: Int) {
      * True if we should not send anything to Google Analytics, false otherwise.
      *  Should be overridden by the clients if it does need to be disabled
      */
-    open fun isDisabled(): Boolean = false
+    open val isDisabled: Boolean = false
 
     /**
      * Sends an event with the given [category], [action], and optional [label] to Google Analytics
      */
     @JvmOverloads
     fun sendEvent(category: String, action: String, label: String? = null) {
-        if (isDisabled()) {
+        if (isDisabled) {
             Log.d("GAManager", "Event: $category, $action, $label")
             return
         }
@@ -55,9 +55,7 @@ open class GAManager(context: Context, @XmlRes config: Int) {
                 .setCategory(category)
                 .setAction(action)
 
-        if (label != null) {
-            builder.setLabel(label)
-        }
+        label?.apply { builder.setLabel(this) }
 
         tracker.send(builder.build())
 
@@ -68,7 +66,7 @@ open class GAManager(context: Context, @XmlRes config: Int) {
      * Sends a screen with the given [name] to Google Analytics
      */
     fun sendScreen(name: String) {
-        if (isDisabled()) {
+        if (isDisabled) {
             Log.d("GAManager", "Screen: $name")
             return
         }
