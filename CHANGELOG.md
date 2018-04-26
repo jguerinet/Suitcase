@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.6.0 (2018-04-26)
+* `prefs` & `date`: 
+    * Created nullable and non-nullable variations of every preference helper class
+        * Breaking: `StringPref`, `DatePref`, and `LocalDatePref` are no longer nullable. In order to continue using them as nullable, use their `NullXPref` equivalents
+
 ## Version 2.5.0 (2018-04-25)
 * `analytics`: 
     * Convert `isDisabled` in `GAManager` to a property
