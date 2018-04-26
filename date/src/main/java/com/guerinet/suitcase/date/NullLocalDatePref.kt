@@ -17,28 +17,37 @@
 package com.guerinet.suitcase.date
 
 import android.content.SharedPreferences
-import com.guerinet.suitcase.prefs.StringPref
-import org.threeten.bp.ZonedDateTime
+import com.guerinet.suitcase.prefs.NullStringPref
+import org.threeten.bp.LocalDate
 
 /**
- * Preferences utility class for ZonedDateTimes
+ * Preferences utility class for LocalDates
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime) :
-        StringPref(prefs, key, defaultValue.toString()) {
+open class NullLocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate?) :
+        NullStringPref(prefs, key, defaultValue?.toString()) {
 
-    var date: ZonedDateTime
-        get() = getZonedDateTime()
+    /**
+     * Backing date property for getting and setting this pref
+     */
+    var date: LocalDate?
+        get() = getLocalDate()
         set(value) = set(value)
 
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    open fun getZonedDateTime(): ZonedDateTime = ZonedDateTime.parse(super.get())
+    open fun getLocalDate(): LocalDate? {
+        val string = super.get()
+
+        return if (string == null) null else LocalDate.parse(string)
+    }
 
     /**
      * Sets the [value] at the given [key] in these [prefs]
      */
-    open fun set(value: ZonedDateTime) = super.set(value.toString())
+    open fun set(value: LocalDate?) {
+        super.set(value?.toString())
+    }
 }

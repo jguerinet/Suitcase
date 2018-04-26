@@ -19,14 +19,28 @@ package com.guerinet.suitcase.prefs
 import android.content.SharedPreferences
 
 /**
- * SharedPreferences utility class for Strings
+ * Preference utility class for nullable [Boolean]s
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 2.6.0
  */
-open class StringPref(prefs: SharedPreferences, key: String, defaultValue: String) :
-        BasePref<String>(prefs, key, defaultValue) {
+open class NullBooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean?) :
+        BasePref<Boolean?>(prefs, key, defaultValue) {
 
-    override fun get(): String = prefs.getString(key, defaultValue)
+    override fun get(): Boolean? {
+        // If it is set, get it. If not, use the default value
+        return if (isSet()) {
+            prefs.getBoolean(key, true)
+        } else {
+            defaultValue
+        }
+    }
 
-    override fun set(value: String) = prefs.edit().putString(key, value).apply()
+    override fun set(value: Boolean?) {
+        // If the value is null, clear out the pref
+        if (value == null) {
+            clear()
+        } else {
+            prefs.edit().putBoolean(key, value).apply()
+        }
+    }
 }

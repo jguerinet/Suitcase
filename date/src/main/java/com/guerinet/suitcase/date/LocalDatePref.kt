@@ -25,29 +25,23 @@ import org.threeten.bp.LocalDate
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate?) :
-        StringPref(prefs, key, defaultValue?.toString()) {
+open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate) :
+        StringPref(prefs, key, defaultValue.toString()) {
 
     /**
      * Backing date property for getting and setting this pref
      */
-    var date: LocalDate?
+    var date: LocalDate
         get() = getLocalDate()
         set(value) = set(value)
 
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    open fun getLocalDate(): LocalDate? {
-        val string = super.get()
-
-        return if (string == null) null else LocalDate.parse(string)
-    }
+    open fun getLocalDate(): LocalDate = LocalDate.parse(super.get())
 
     /**
      * Sets the [value] at the given [key] in these [prefs]
      */
-    open fun set(value: LocalDate?) {
-        super.set(value?.toString())
-    }
+    open fun set(value: LocalDate) = super.set(value.toString())
 }

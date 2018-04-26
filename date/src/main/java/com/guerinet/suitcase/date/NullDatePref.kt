@@ -17,7 +17,7 @@
 package com.guerinet.suitcase.date
 
 import android.content.SharedPreferences
-import com.guerinet.suitcase.prefs.StringPref
+import com.guerinet.suitcase.prefs.NullStringPref
 import org.threeten.bp.ZonedDateTime
 
 /**
@@ -25,20 +25,28 @@ import org.threeten.bp.ZonedDateTime
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime) :
-        StringPref(prefs, key, defaultValue.toString()) {
+open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime?) :
+        NullStringPref(prefs, key, defaultValue?.toString()) {
 
-    var date: ZonedDateTime
+    var date: ZonedDateTime?
         get() = getZonedDateTime()
         set(value) = set(value)
 
     /**
      * @return Current value stored at this [key], the [defaultValue] if none stored
      */
-    open fun getZonedDateTime(): ZonedDateTime = ZonedDateTime.parse(super.get())
+    open fun getZonedDateTime(): ZonedDateTime? {
+        // Get the stored String
+        val string = super.get()
+
+        // If the stored String is null, return null. If not, get the ZonedDateTime out of it
+        return if (string == null) null else ZonedDateTime.parse(string)
+    }
 
     /**
      * Sets the [value] at the given [key] in these [prefs]
      */
-    open fun set(value: ZonedDateTime) = super.set(value.toString())
+    open fun set(value: ZonedDateTime?) {
+        super.set(value?.toString())
+    }
 }
