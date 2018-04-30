@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.1 (2018-04-30)
+* `ui`: 
+    * Fix wrong call to get the `TextView`'s compound drawables when tinting
+
 ## Version 2.6.0 (2018-04-26)
 * `prefs` & `date`: 
     * Created nullable and non-nullable variations of every preference helper class
