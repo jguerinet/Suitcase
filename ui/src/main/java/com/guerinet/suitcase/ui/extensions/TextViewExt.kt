@@ -32,7 +32,7 @@ import android.widget.TextView
  *  0: Start, 1: Top, 2: End, 3: Bottom
  */
 fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
-    val drawables = compoundDrawables
+    val drawables = compoundDrawablesRelative
 
     // Tint the necessary one
     drawables[position] = drawables[position].setTintCompat(color)
