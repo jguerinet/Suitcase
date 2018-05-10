@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.2 (2018-05-10)
+* `date`: 
+    * Changed the `Temporal` extensions to be for `TemporalAccessor`s instead
+
 ## Version 2.6.1 (2018-04-30)
 * `ui`: 
     * Fix wrong call to get the `TextView`'s compound drawables when tinting
