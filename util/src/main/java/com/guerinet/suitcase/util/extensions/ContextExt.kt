@@ -16,6 +16,7 @@
 
 package com.guerinet.suitcase.util.extensions
 
+import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.Intent
@@ -23,11 +24,14 @@ import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
+import android.os.Build
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
+import com.guerinet.suitcase.util.Device
 import java.io.File
+import java.util.*
 
 /**
  * [Context] extensions
@@ -167,3 +171,30 @@ fun Context.isPermissionGranted(permission: String): Boolean =
  */
 val Context.isConnected: Boolean
     get() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).isConnected
+
+/**
+ * Creates a debug String that can be attached to feedback or bug reports. The String contains
+ *  the device model, sdk version, app [versionName], app [versionCode], language, and connection
+ */
+fun Context.getDebugInfo(versionName: String, versionCode: Int): String {
+    @SuppressLint("MissingPermission")
+    val info = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
+            .activeNetworkInfo
+
+    val connection = if (info != null) {
+        "${info.typeName} ${info.subtypeName}"
+    } else {
+        "N/A"
+    }
+
+    return "===============" +
+            "\nDebug Info" +
+            "\n===============" +
+            "\nDevice: ${Device.model()}" +
+            "\nSDK Version: ${Build.VERSION.SDK_INT}" +
+            "\nApp Version: $versionName" +
+            "\nBuild Number: $versionCode" +
+            "\nLanguage: ${Locale.getDefault().language}" +
+            "\nConnection Type: $connection" +
+            "\n===============\n\n"
+}
