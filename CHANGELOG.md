@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.3 (2018-05-11)
+* `util`: 
+    * Added method to get debug info for feedback/bug reports
+
 ## Version 2.6.2 (2018-05-10)
 * `date`: 
     * Changed the `Temporal` extensions to be for `TemporalAccessor`s instead
@@ -51,6 +55,7 @@
 * `ui`:
     * Added a `BaseListAdapter`
     * Made all tinting methods extensions
+    * Breaking: `TextView` drawable tinting now uses relative positioning
 * `util`:
     * Added a String extension to get a `Spanned` from an Html String
     * Made all `Context` util methods extensions
