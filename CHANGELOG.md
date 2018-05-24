@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.4 (2018-05-24)
+* `util`: 
+    * Added extension to get the color from a `Context` in a backwards compatible manner
+
 ## Version 2.6.3 (2018-05-11)
 * `util`: 
     * Added method to get debug info for feedback/bug reports
