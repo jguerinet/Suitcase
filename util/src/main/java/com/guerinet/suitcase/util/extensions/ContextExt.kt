@@ -179,9 +179,10 @@ val Context.isConnected: Boolean
 
 /**
  * Creates a debug String that can be attached to feedback or bug reports. The String contains
- *  the device model, sdk version, app [versionName], app [versionCode], language, and connection
+ *  the device model, sdk version, app [versionName], app [versionCode], language, connection type,
+ *  and any [customInfo] passed (defaults to an empty String)
  */
-fun Context.getDebugInfo(versionName: String, versionCode: Int): String {
+fun Context.getDebugInfo(versionName: String, versionCode: Int, customInfo: String = ""): String {
     @SuppressLint("MissingPermission")
     val info = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
             .activeNetworkInfo
@@ -201,5 +202,6 @@ fun Context.getDebugInfo(versionName: String, versionCode: Int): String {
             "\nBuild Number: $versionCode" +
             "\nLanguage: ${Locale.getDefault().language}" +
             "\nConnection Type: $connection" +
+            (if (customInfo.isNotBlank()) "\n$customInfo" else "") +
             "\n===============\n\n"
 }
