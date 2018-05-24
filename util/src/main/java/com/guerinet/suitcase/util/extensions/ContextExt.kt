@@ -40,6 +40,11 @@ import java.util.*
  */
 
 /**
+ * Returns a [color] from the resources in a backwards-compatible manner
+ */
+fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, color)
+
+/**
  * Opens the given [url]
  */
 fun Context.openUrl(url: String) {
