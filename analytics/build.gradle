@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api "com.google.android.gms:play-services-analytics:15.0.2"
+    api "com.google.android.gms:play-services-analytics:16.0.0"
 }
