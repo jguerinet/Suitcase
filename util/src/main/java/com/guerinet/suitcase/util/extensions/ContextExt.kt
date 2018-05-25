@@ -19,12 +19,14 @@ package com.guerinet.suitcase.util.extensions
 import android.annotation.SuppressLint
 import android.content.ActivityNotFoundException
 import android.content.Context
+import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
+import android.os.LocaleList
 import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.customtabs.CustomTabsIntent
@@ -176,6 +178,24 @@ fun Context.isPermissionGranted(permission: String): Boolean =
  */
 val Context.isConnected: Boolean
     get() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).isConnected
+
+/**
+ * Wraps the current context with a [language] change and returns the corresponding [ContextWrapper]
+ */
+fun Context.wrapWithLanguage(language: String): ContextWrapper {
+    val locale = Locale(language)
+    val configuration = resources.configuration
+
+    configuration.setLocale(locale)
+
+    if (Device.isAtLeastNougat()) {
+        val localeList = LocaleList(locale)
+        LocaleList.setDefault(localeList)
+        configuration.locales = localeList
+    }
+
+    return ContextWrapper(createConfigurationContext(configuration))
+}
 
 /**
  * Creates a debug String that can be attached to feedback or bug reports. The String contains
