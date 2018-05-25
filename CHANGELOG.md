@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.6 (2018-05-25)
+* `util`: 
+    * Added a method to wrap a `Context` with a `Locale` to change the app language
+
 ## Version 2.6.5 (2018-05-24)
 * `util`: 
     * Added option to add custom info to the debug info
