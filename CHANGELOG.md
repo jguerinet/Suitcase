@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.7 (2018-06-15)
+* `util`: 
+    * Made `showEmptyView()` methods on the adapters `open`
+
 ## Version 2.6.6 (2018-05-25)
 * `util`: 
     * Added a method to wrap a `Context` with a `Locale` to change the app language
