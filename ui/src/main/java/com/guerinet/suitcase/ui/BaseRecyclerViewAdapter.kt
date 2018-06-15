@@ -17,7 +17,6 @@
 package com.guerinet.suitcase.ui
 
 import android.support.annotation.LayoutRes
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -39,7 +38,7 @@ abstract class BaseRecyclerViewAdapter(val emptyView: View? = null) :
     /**
      * Determines whether the [emptyView], if there is one, [isVisible] or not
      */
-    fun showEmptyView(isVisible: Boolean) {
+    open fun showEmptyView(isVisible: Boolean) {
         emptyView?.visibility = if (isVisible) View.VISIBLE else View.GONE
     }
 
