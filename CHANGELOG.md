@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 2.6.8 (2018-07-12)
+* Library updates
+* `ui`: 
+    * Added method to simplify watching an [EditText]
+    
 ## Version 2.6.7 (2018-06-15)
 * `util`: 
     * Made `showEmptyView()` methods on the adapters `open`
