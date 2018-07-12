@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api "com.jakewharton.timber:timber:4.7.0"
+    api "com.jakewharton.timber:timber:4.7.1"
 }
