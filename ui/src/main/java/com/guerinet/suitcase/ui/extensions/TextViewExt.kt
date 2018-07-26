@@ -16,13 +16,14 @@
 
 package com.guerinet.suitcase.ui.extensions
 
+import android.graphics.drawable.Drawable
 import android.support.annotation.ColorInt
 import android.support.annotation.DimenRes
 import android.util.TypedValue
 import android.widget.TextView
 
 /**
- * [TextView] extensions
+ * TextView extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
@@ -41,6 +42,24 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
     setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
             drawables[3])
 }
+
+/**
+ * Sets the [start], [top], [end], and [bottom] drawables
+ */
+fun TextView.setDrawables(start: Drawable? = compoundDrawablesRelative[0],
+        top: Drawable? = compoundDrawablesRelative[1],
+        end: Drawable? = compoundDrawablesRelative[2],
+        bottom: Drawable? = compoundDrawablesRelative[3]) =
+        setCompoundDrawablesRelative(start, top, end, bottom)
+
+/**
+ * Sets the [start], [top], [end], and [bottom] drawable Ids (Warning: this will overwrite
+ *  previously set drawables)
+ */
+fun TextView.setDrawableIds(start: Int = 0,
+        top: Int = 0,
+        end: Int = 0,
+        bottom: Int = 0) = setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 
 /**
  * Changes the [TextView]'s text size by using the [textSizeId]
