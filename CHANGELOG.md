@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 2.6.10 (2018-07-26)
+* `ui`: 
+    * Big fix of v2.6.9
+
 ## Version 2.6.9 (2018-07-26)
 * `ui`: 
     * Added methods to set the drawables on a `TextView` as named parameters

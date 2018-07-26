@@ -50,7 +50,7 @@ fun TextView.setDrawables(start: Drawable? = compoundDrawablesRelative[0],
         top: Drawable? = compoundDrawablesRelative[1],
         end: Drawable? = compoundDrawablesRelative[2],
         bottom: Drawable? = compoundDrawablesRelative[3]) =
-        setCompoundDrawablesRelative(start, top, end, bottom)
+        setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 
 /**
  * Sets the [start], [top], [end], and [bottom] drawable Ids (Warning: this will overwrite
