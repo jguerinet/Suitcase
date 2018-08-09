@@ -26,21 +26,29 @@ import android.content.SharedPreferences
 open class NullIntPref(prefs: SharedPreferences, key: String, defaultValue: Int?) :
         BasePref<Int?>(prefs, key, defaultValue) {
 
-    override fun get(): Int? {
-        // If it is set, get it. If not, use the default value
-        return if (isSet()) {
-            prefs.getInt(key, -1)
-        } else {
-            defaultValue
+    override var value: Int?
+        get() {
+            // If it is set, get it. If not, use the default value
+            return if (isSet) {
+                prefs.getInt(key, -1)
+            } else {
+                defaultValue
+            }
         }
-    }
+        set(value) {
+            // If the value is null, clear out the pref
+            if (value == null) {
+                clear()
+            } else {
+                prefs.edit().putInt(key, value).apply()
+            }
+        }
 
-    override fun set(value: Int?) {
-        // If the value is null, clear out the pref
-        if (value == null) {
-            clear()
-        } else {
-            prefs.edit().putInt(key, value).apply()
-        }
+    @Deprecated("Replaced with property", ReplaceWith("value"))
+    open fun get(): Int? = value
+
+    @Deprecated("Replaced with property", ReplaceWith("this.value = value"))
+    open fun set(value: Int?) {
+        this.value = value
     }
 }
