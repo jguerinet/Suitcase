@@ -20,13 +20,14 @@ import android.annotation.SuppressLint
 import android.net.ConnectivityManager
 
 /**
- * [ConnectivityManager] extensions
+ * ConnectivityManager extensions
  * @author Julien Guerinet
  * @since 2.4.0
  */
 
 /**
  * True if the device is connected to the internet, false otherwise
+ *  This assumes we have the internet permission
  */
 val ConnectivityManager.isConnected: Boolean
     @SuppressLint("MissingPermission")

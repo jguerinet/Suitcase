@@ -20,7 +20,7 @@ import android.app.Activity
 import android.support.v4.app.ActivityCompat
 
 /**
- * [Activity] extensions
+ * Activity extensions
  * @author Julien Guerinet
  * @since 2.4.0
  */

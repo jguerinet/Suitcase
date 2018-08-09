@@ -36,7 +36,7 @@ import java.io.File
 import java.util.*
 
 /**
- * [Context] extensions
+ * Context extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
@@ -175,6 +175,7 @@ fun Context.isPermissionGranted(permission: String): Boolean =
 
 /**
  * True if the device is connected to the internet, false otherwise
+ *  This assumes the internet permission has been granted
  */
 val Context.isConnected: Boolean
     get() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).isConnected
