@@ -20,6 +20,7 @@ package com.guerinet.suitcase.date.extensions
 
 import com.guerinet.suitcase.date.Format
 import org.threeten.bp.temporal.TemporalAccessor
+import java.util.*
 
 /**
  * [TemporalAccessor] extensions
@@ -31,38 +32,38 @@ import org.threeten.bp.temporal.TemporalAccessor
  * Returns localized short date String (ex: 01/01/00) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
-fun TemporalAccessor?.getShortDateString(): String? {
-    return if (this == null) null else Format.shortDateFormatter.format(this)
+fun TemporalAccessor?.getShortDateString(locale: Locale = Locale.getDefault()): String? {
+    return if (this == null) null else Format.shortDateFormatter.withLocale(locale).format(this)
 }
 
 /**
  * Returns localized medium date String (ex: Jan 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
-fun TemporalAccessor?.getMediumDateString(): String? {
-    return if (this == null) null else Format.mediumDateFormatter.format(this)
+fun TemporalAccessor?.getMediumDateString(locale: Locale = Locale.getDefault()): String? {
+    return if (this == null) null else Format.mediumDateFormatter.withLocale(locale).format(this)
 }
 
 /**
  * Returns localized long date String (ex: January 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
-fun TemporalAccessor?.getLongDateString(): String? {
-    return if (this == null) null else Format.longDateFormatter.format(this)
+fun TemporalAccessor?.getLongDateString(locale: Locale = Locale.getDefault()): String? {
+    return if (this == null) null else Format.longDateFormatter.withLocale(locale).format(this)
 }
 
 /**
  * Returns localized full date String (ex: Monday, January 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
-fun TemporalAccessor?.getFullDateString(): String? {
-    return if (this == null) null else Format.fullDateFormatter.format(this)
+fun TemporalAccessor?.getFullDateString(locale: Locale = Locale.getDefault()): String? {
+    return if (this == null) null else Format.fullDateFormatter.withLocale(locale).format(this)
 }
 
 /**
  * Returns localized short time String (ex: 3:30PM) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
-fun TemporalAccessor?.getShortTimeString(): String? {
-    return if (this == null) null else Format.shortTimeFormatter.format(this)
+fun TemporalAccessor?.getShortTimeString(locale: Locale = Locale.getDefault()): String? {
+    return if (this == null) null else Format.shortTimeFormatter.withLocale(locale).format(this)
 }
