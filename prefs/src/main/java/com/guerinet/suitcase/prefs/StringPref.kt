@@ -27,6 +27,6 @@ open class StringPref(prefs: SharedPreferences, key: String, defaultValue: Strin
         BasePref<String>(prefs, key, defaultValue) {
 
     override var value: String
-        get() = prefs.getString(key, defaultValue)
+        get() = prefs.getString(key, defaultValue) ?: error("Impossible")
         set(value) = prefs.edit().putString(key, value).apply()
 }
