@@ -24,7 +24,7 @@ import timber.log.Timber
  * @author Julien Guerinet
  * @since 2.0.0
  */
-abstract class ProductionTree  : Timber.Tree() {
+abstract class ProductionTree : Timber.Tree() {
 
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
         // We don't want to log verbose and debug logs
@@ -32,7 +32,7 @@ abstract class ProductionTree  : Timber.Tree() {
             return
         }
 
-        log(message)
+        log(tag, message)
 
         if (t != null) {
             // Log the throwable if there is one
@@ -41,9 +41,9 @@ abstract class ProductionTree  : Timber.Tree() {
     }
 
     /**
-     * Called when there is a [message] to log
+     * Called when there is a [tag] and a [message] to log
      */
-    protected abstract fun log(message: String)
+    protected abstract fun log(tag: String?, message: String)
 
     /**
      * Called when there is a [Throwable] [t] to log
