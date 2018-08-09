@@ -21,7 +21,7 @@ import android.support.annotation.ColorInt
 import android.support.v4.graphics.drawable.DrawableCompat
 
 /**
- * [Drawable] extensions
+ * Drawable extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */

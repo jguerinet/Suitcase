@@ -17,17 +17,22 @@
 package com.guerinet.suitcase.ui.extensions
 
 import android.support.annotation.ColorInt
+import android.support.annotation.ColorRes
+import android.support.v4.content.ContextCompat
 import android.widget.ImageView
 
 /**
- * [ImageView] extensions
+ * ImageView extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
 
 /**
- * Sets the tint with the given [color]
+ * Sets the tint with the [color]
  */
-fun ImageView.setTint(@ColorInt color: Int) {
-    setImageDrawable(drawable.setTintCompat(color))
-}
+fun ImageView.setTint(@ColorInt color: Int) = setImageDrawable(drawable.setTintCompat(color))
+
+/**
+ * Sets the tint with the [colorId]
+ */
+fun ImageView.setTintId(@ColorRes colorId: Int) = setTint(ContextCompat.getColor(context, colorId))
