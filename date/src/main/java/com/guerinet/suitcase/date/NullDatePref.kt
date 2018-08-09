@@ -28,25 +28,20 @@ import org.threeten.bp.ZonedDateTime
 open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime?) :
         NullStringPref(prefs, key, defaultValue?.toString()) {
 
-    var date: ZonedDateTime?
-        get() = getZonedDateTime()
-        set(value) = set(value)
+    open var date: ZonedDateTime?
+        get() {
+            val string = super.value
+            return string?.run { ZonedDateTime.parse(this) }
+        }
+        set(value) {
+            super.value = value?.toString()
+        }
 
-    /**
-     * @return Current value stored at this [key], the [defaultValue] if none stored
-     */
-    open fun getZonedDateTime(): ZonedDateTime? {
-        // Get the stored String
-        val string = super.get()
+    @Deprecated("Replaced by property", ReplaceWith("date"))
+    open fun getZonedDateTime(): ZonedDateTime? = date
 
-        // If the stored String is null, return null. If not, get the ZonedDateTime out of it
-        return if (string == null) null else ZonedDateTime.parse(string)
-    }
-
-    /**
-     * Sets the [value] at the given [key] in these [prefs]
-     */
+    @Deprecated("Replaced by property", ReplaceWith("date = value"))
     open fun set(value: ZonedDateTime?) {
-        super.set(value?.toString())
+        date = value
     }
 }
