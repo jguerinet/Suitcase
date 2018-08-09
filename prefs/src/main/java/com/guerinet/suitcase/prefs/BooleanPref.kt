@@ -26,7 +26,15 @@ import android.content.SharedPreferences
 open class BooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean) :
         BasePref<Boolean>(prefs, key, defaultValue) {
 
-    override fun get(): Boolean = prefs.getBoolean(key, defaultValue)
+    override var value: Boolean
+        get() = prefs.getBoolean(key, defaultValue)
+        set(value) = prefs.edit().putBoolean(key, value).apply()
 
-    override fun set(value: Boolean) = prefs.edit().putBoolean(key, value).apply()
+    @Deprecated("Replaced with property", ReplaceWith("value"))
+    open fun get(): Boolean = value
+
+    @Deprecated("Replaced with property", ReplaceWith("this.value = value"))
+    open fun set(value: Boolean) {
+        this.value = value
+    }
 }
