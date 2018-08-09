@@ -28,17 +28,17 @@ import org.threeten.bp.ZonedDateTime
 open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime) :
         StringPref(prefs, key, defaultValue.toString()) {
 
-    var date: ZonedDateTime
-        get() = getZonedDateTime()
-        set(value) = set(value)
+    open var date: ZonedDateTime
+        get() = ZonedDateTime.parse(value)
+        set(value) {
+            super.value = value.toString()
+        }
 
-    /**
-     * @return Current value stored at this [key], the [defaultValue] if none stored
-     */
-    open fun getZonedDateTime(): ZonedDateTime = ZonedDateTime.parse(super.get())
+    @Deprecated("Replaced with property", ReplaceWith("date"))
+    open fun getZonedDateTime(): ZonedDateTime = date
 
-    /**
-     * Sets the [value] at the given [key] in these [prefs]
-     */
-    open fun set(value: ZonedDateTime) = super.set(value.toString())
+    @Deprecated("Replaced with property", ReplaceWith("date = value"))
+    open fun set(value: ZonedDateTime) {
+        date = value
+    }
 }
