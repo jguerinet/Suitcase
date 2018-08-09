@@ -29,32 +29,16 @@ abstract class BasePref<T>(protected val prefs: SharedPreferences, protected val
     /**
      * Backing property for getting and setting this pref
      */
-    var value: T
-        get() = get()
-        set(value) = set(value)
+    abstract var value: T
 
     /**
-     * Pref getter to be implemented by the subclass. Default implementation will return the
-     *  [defaultValue] if no value is stored
+     * True if there is something stored in these [prefs] at this [key], false otherwise
      */
-    abstract fun get(): T
-
-    /**
-     * Pref setter to be implemented by the subclass
-     */
-    abstract fun set(value: T)
+    val isSet: Boolean
+        get() = prefs.contains(key)
 
     /**
      * Clears the [prefs] of anything stored at this [key]
      */
-    open fun clear() {
-        prefs.edit().remove(key).apply()
-    }
-
-    /**
-     * @return True if there is something stored in these [prefs] at this [key], false otherwise
-     */
-    open fun isSet(): Boolean {
-        return prefs.contains(key)
-    }
+    open fun clear() = prefs.edit().remove(key).apply()
 }
