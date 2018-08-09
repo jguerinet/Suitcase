@@ -26,7 +26,15 @@ import android.content.SharedPreferences
 open class IntPref(prefs: SharedPreferences, key: String, defaultValue: Int) :
         BasePref<Int>(prefs, key, defaultValue) {
 
-    override fun get(): Int = prefs.getInt(key, defaultValue)
+    override var value: Int
+        get() = prefs.getInt(key, defaultValue)
+        set(value) = prefs.edit().putInt(key, value).apply()
 
-    override fun set(value: Int) = prefs.edit().putInt(key, value).apply()
+    @Deprecated("Replaced with property", ReplaceWith("value"))
+    open fun get(): Int = value
+
+    @Deprecated("Replaced with property", ReplaceWith("this.value = value"))
+    open fun set(value: Int) {
+        this.value = value
+    }
 }
