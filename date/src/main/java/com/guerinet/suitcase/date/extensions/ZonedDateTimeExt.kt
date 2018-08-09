@@ -17,6 +17,7 @@
 package com.guerinet.suitcase.date.extensions
 
 import com.guerinet.suitcase.date.Format
+import org.threeten.bp.LocalDate
 import org.threeten.bp.ZonedDateTime
 
 /**
@@ -30,6 +31,12 @@ import org.threeten.bp.ZonedDateTime
  */
 val ZonedDateTime.isPast: Boolean
     get() = ZonedDateTime.now().isAfter(this)
+
+/**
+ * True if this [ZonedDateTime] is today (regardless of the time), false otherwise
+ */
+val ZonedDateTime.isToday: Boolean
+    get() = this.toLocalDate() == LocalDate.now()
 
 /**
  * True if this [ZonedDateTime] is in the future, false otherwise (today would return false)

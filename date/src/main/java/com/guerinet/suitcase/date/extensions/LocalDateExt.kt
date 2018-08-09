@@ -31,6 +31,12 @@ val LocalDate.isPast: Boolean
     get() = LocalDate.now().isAfter(this)
 
 /**
+ * True if this [LocalDate] is today, false otherwise
+ */
+val LocalDate.isToday: Boolean
+    get() = LocalDate.now() == this
+
+/**
  * True if this [LocalDate] is in the future, false otherwise (today would return false)
  */
 val LocalDate.isFuture: Boolean
