@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -32,14 +32,9 @@ open class NonSwipeableViewPager : ViewPager {
 
     constructor(context: Context, attrs: AttributeSet): super(context, attrs)
 
-    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
-        // Do not register any touch events
-        return false
-    }
+    // Do not register any touch events
+    override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean = false
 
-    override fun onTouchEvent(ev: MotionEvent?): Boolean {
-        // Do not register any touch events
-        return false
-    }
-
+    // Do not register any touch events
+    override fun onTouchEvent(ev: MotionEvent?): Boolean = false
 }
