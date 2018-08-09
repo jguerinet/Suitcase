@@ -21,9 +21,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	    // Date utility methods and classes, uses AndroidThreeTen
 	    implementation "com.guerinet.suitcase:date:${suitcase_version}"
 
-        // DBFlow utility methods and classes, uses AndroidThreeTen and DBFlow
-        implementation "com.guerinet.suitcase:db:${suitcase_version}"
-
         // Dialog utility methods, uses Material Dialogs
         implementation "com.guerinet.suitcase:dialog:${suitcase_version}"
 
@@ -45,7 +42,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
 * [Google Play Services](https://developers.google.com/android/guides/overview)
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
-* [DBFlow](https://github.com/Raizlabs/DBFlow)
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)
 * [Okio](https://github.com/square/okio)
 * [Timber](https://github.com/JakeWharton/timber)
