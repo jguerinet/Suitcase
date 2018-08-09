@@ -17,12 +17,14 @@
 package com.guerinet.suitcase.util.extensions
 
 import android.annotation.SuppressLint
+import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
 import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
+import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
@@ -31,6 +33,7 @@ import android.support.annotation.ColorRes
 import android.support.annotation.DrawableRes
 import android.support.customtabs.CustomTabsIntent
 import android.support.v4.content.ContextCompat
+import android.view.WindowManager
 import com.guerinet.suitcase.util.Device
 import java.io.File
 import java.util.*
@@ -40,6 +43,34 @@ import java.util.*
  * @author Julien Guerinet
  * @since 2.3.0
  */
+
+/**
+ * Device screen width, in pixels
+ */
+val Context.displayWidth: Int
+    get() = displaySize.x
+
+/**
+ * Device screen height, in pixels
+ */
+val Context.displayHeight: Int
+    get() = displaySize.y
+
+/**
+ * Device display size as a [Point]
+ */
+val Context.displaySize: Point
+    get() {
+        val windowManager = if (this is Activity) {
+            windowManager
+        } else {
+            getSystemService(Context.WINDOW_SERVICE) as WindowManager
+        }
+
+        return Point().apply {
+            windowManager.defaultDisplay.getSize(this)
+        }
+    }
 
 /**
  * Returns a [color] from the resources in a backwards-compatible manner

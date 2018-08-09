@@ -16,11 +16,7 @@
 
 package com.guerinet.suitcase.util
 
-import android.app.Activity
-import android.content.Context
-import android.graphics.Point
 import android.os.Build
-import android.view.WindowManager
 
 /**
  * Helper methods relating to the user's device
@@ -63,39 +59,5 @@ object Device {
             model = "${Build.MANUFACTURER} $model"
         }
         return model
-    }
-
-    /**
-     * @param context App context
-     * @return Device screen width, in pixels
-     */
-    @JvmStatic
-    fun getWidth(context: Context): Int {
-        return getDisplaySize(context).x
-    }
-
-    /**
-     * @param context App context
-     * @return Device screen height, in pixels
-     */
-    @JvmStatic
-    fun getHeight(context: Context): Int {
-        return getDisplaySize(context).y
-    }
-
-    /**
-     * @return Display size by using the app [context]
-     */
-    private fun getDisplaySize(context: Context): Point {
-        val windowManager = if (context is Activity) {
-            context.windowManager
-        } else {
-            context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
-        }
-
-        val display = windowManager.defaultDisplay
-        val size = Point()
-        display.getSize(size)
-        return size
     }
 }
