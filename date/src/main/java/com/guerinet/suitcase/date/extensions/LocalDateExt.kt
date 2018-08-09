@@ -19,24 +19,22 @@ package com.guerinet.suitcase.date.extensions
 import org.threeten.bp.LocalDate
 
 /**
- * [LocalDate] extensions
+ * LocalDate extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
 
 /**
- * Returns true if this LocalDate is in the past, false otherwise (today would return false)
+ * True if this [LocalDate] is in the past, false otherwise (today would return false)
  */
-fun LocalDate.isPast(): Boolean {
-    return LocalDate.now().isAfter(this)
-}
+val LocalDate.isPast: Boolean
+    get() = LocalDate.now().isAfter(this)
 
 /**
- * Returns true if this LocalDate is in the future, false otherwise (today would return false)
+ * True if this [LocalDate] is in the future, false otherwise (today would return false)
  */
-fun LocalDate.isFuture(): Boolean {
-    return LocalDate.now().isBefore(this)
-}
+val LocalDate.isFuture: Boolean
+    get() = LocalDate.now().isBefore(this)
 
 /**
  * Allows us to use the [LocalDate] as a range
