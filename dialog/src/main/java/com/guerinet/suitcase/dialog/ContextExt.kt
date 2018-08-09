@@ -21,7 +21,7 @@ import android.support.annotation.StringRes
 import com.afollestad.materialdialogs.MaterialDialog
 
 /**
- * [Context] extensions relating to dialogs
+ * Context extensions relating to dialogs
  * @author Julien Guerinet
  * @since 2.5.0
  */
@@ -87,23 +87,24 @@ fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
 /* LISTS DIALOGS */
 
 /**
- * Displays and returns a dialog with a single choice list of items to choose from.
- *  Dialog may have a [title] and uses a [listInterface] to determine the list of choices.
- *  May show radio buttons depending on [showRadioButtons]
+ * Displays and returns a dialog with a single choice list of [choices] to choose from.
+ *  Dialog may have a [title] and may show radio buttons depending on [showRadioButtons].
+ *  A [currentChoice] can be given (-1 if none, defaults to -1). When a choice is selected,
+ *  [onChoiceSelected] is called
  */
-fun Context.singleListDialog(@StringRes title: Int = -1, listInterface: SingleListInterface,
-        showRadioButtons: Boolean = true): MaterialDialog {
+fun Context.singleListDialog(@StringRes title: Int = -1, showRadioButtons: Boolean = true,
+        currentChoice: Int = -1, choices: Array<String>, onChoiceSelected: (position: Int) -> Unit)
+        : MaterialDialog {
     val builder = build(title)
-            .items(*listInterface.choices)
+            .items(*choices)
 
     if (showRadioButtons) {
-        builder.itemsCallbackSingleChoice(listInterface.currentChoice,
-                { _, _, which, _ ->
-                    listInterface.onChoiceSelected(which)
-                    true
-                })
+        builder.itemsCallbackSingleChoice(currentChoice) { _, _, which, _ ->
+            onChoiceSelected(which)
+            true
+        }
     } else {
-        builder.itemsCallback({ _, _, position, _ -> listInterface.onChoiceSelected(position) })
+        builder.itemsCallback { _, _, position, _ -> onChoiceSelected(position) }
     }
     return builder.show()
 }
@@ -117,10 +118,10 @@ fun Context.multiListDialog(@StringRes title: Int = -1, listInterface: MultiList
         @StringRes button: Int = android.R.string.ok): MaterialDialog {
     return build(title)
             .items(*listInterface.choices)
-            .itemsCallbackMultiChoice(listInterface.selectedItems, { _, which, _ ->
+            .itemsCallbackMultiChoice(listInterface.selectedItems) { _, which, _ ->
                 listInterface.onChoicesSelected(which)
                 true
-            })
+            }
             .positiveText(button)
             .show()
 }
