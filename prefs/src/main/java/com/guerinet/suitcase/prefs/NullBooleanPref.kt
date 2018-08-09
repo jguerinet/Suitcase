@@ -26,21 +26,28 @@ import android.content.SharedPreferences
 open class NullBooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean?) :
         BasePref<Boolean?>(prefs, key, defaultValue) {
 
-    override fun get(): Boolean? {
-        // If it is set, get it. If not, use the default value
-        return if (isSet()) {
-            prefs.getBoolean(key, true)
-        } else {
-            defaultValue
+    override var value: Boolean?
+        get() {
+            // If it is set, get it. If not, use the default value
+            return if (isSet) {
+                prefs.getBoolean(key, true)
+            } else {
+                defaultValue
+            }
         }
-    }
+        set(value) {
+            if (value == null) {
+                clear()
+            } else {
+                prefs.edit().putBoolean(key, value).apply()
+            }
+        }
 
-    override fun set(value: Boolean?) {
-        // If the value is null, clear out the pref
-        if (value == null) {
-            clear()
-        } else {
-            prefs.edit().putBoolean(key, value).apply()
-        }
+    @Deprecated("Replaced with property", ReplaceWith("value"))
+    open fun get(): Boolean? = value
+
+    @Deprecated("Replaced with property", ReplaceWith("this.value = value"))
+    open fun set(value: Boolean?) {
+        this.value = value
     }
 }
