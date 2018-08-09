@@ -39,5 +39,4 @@ fun Context.sourceFromRaw(@RawRes fileId: Int): BufferedSource =
  *  Throws an [IOException] if there was an error during the read
  */
 @Throws(IOException::class)
-fun Context.stringFromRaw(@RawRes fileId: Int): String =
-        sourceFromRaw(fileId).readUtf8()
+fun Context.stringFromRaw(@RawRes fileId: Int): String = sourceFromRaw(fileId).readUtf8()
