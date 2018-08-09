@@ -20,32 +20,29 @@ import com.guerinet.suitcase.date.Format
 import org.threeten.bp.ZonedDateTime
 
 /**
- * [ZonedDateTime] extensions
+ * ZonedDateTime extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
 
 /**
- * Returns true if this ZonedDateTime is in the past, false otherwise (today would return false)
+ * True if this [ZonedDateTime] is in the past, false otherwise (today would return false)
  */
-fun ZonedDateTime.isPast(): Boolean {
-    return ZonedDateTime.now().isAfter(this)
-}
+val ZonedDateTime.isPast: Boolean
+    get() = ZonedDateTime.now().isAfter(this)
 
 /**
- * Returns true if this ZonedDateTime is in the future, false otherwise (today would return false)
+ * True if this [ZonedDateTime] is in the future, false otherwise (today would return false)
  */
-fun ZonedDateTime.isFuture(): Boolean {
-    return ZonedDateTime.now().isBefore(this)
-}
+val ZonedDateTime.isFuture: Boolean
+    get() = ZonedDateTime.now().isBefore(this)
 
 /**
- * Returns the RFC 1123 String representation of the [ZonedDateTime] in the UTC time zone,
+ * RFC 1123 String representation of the [ZonedDateTime] in the UTC time zone,
  *  null if the [ZonedDateTime] was null
  */
-fun ZonedDateTime?.getRFC1123String(): String? {
-    return if (this == null) null else Format.rfc1123Formatter.format(this)
-}
+val ZonedDateTime?.rfc1123String: String?
+    get() = this?.run { Format.rfc1123Formatter.format(this) }
 
 /**
  * Allows us to use the [ZonedDateTime] as a range
