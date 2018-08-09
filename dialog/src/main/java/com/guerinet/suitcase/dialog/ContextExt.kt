@@ -110,16 +110,19 @@ fun Context.singleListDialog(@StringRes title: Int = -1, showRadioButtons: Boole
 }
 
 /**
- * Displays and returns a dialog with a multiple choice list of items to choose from.
- *  Dialog may have a [title] and uses a [listInterface] to determine the list of choices. It also
- *  has one [button] (defaults to the Android OK)
+ * Displays and returns a dialog with a multiple choice list of [choices] to choose from.
+ *  Dialog may have a [title] and has one [button] (text defaults to the Android OK). A list of
+ *  [selectedItems] can be given (defaults to an empty list). When the user has clicked on the
+ *  button, [onChoicesSelected] is called with the list of selected choices.
  */
-fun Context.multiListDialog(@StringRes title: Int = -1, listInterface: MultiListInterface,
-        @StringRes button: Int = android.R.string.ok): MaterialDialog {
+fun Context.multiListDialog(@StringRes title: Int = -1,
+        @StringRes button: Int = android.R.string.ok, selectedItems: Array<Int> = arrayOf(),
+        choices: Array<String>, onChoicesSelected: (positions: Array<Int>) -> Unit):
+        MaterialDialog {
     return build(title)
-            .items(*listInterface.choices)
-            .itemsCallbackMultiChoice(listInterface.selectedItems) { _, which, _ ->
-                listInterface.onChoicesSelected(which)
+            .items(*choices)
+            .itemsCallbackMultiChoice(selectedItems) { _, which, _ ->
+                onChoicesSelected(which)
                 true
             }
             .positiveText(button)
