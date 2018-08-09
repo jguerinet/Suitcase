@@ -21,7 +21,7 @@ import android.view.View
 import android.view.ViewGroup
 
 /**
- * [View] extensions
+ * View extensions
  * @author Julien Guerinet
  * @since 2.4.1
  */
