@@ -92,9 +92,9 @@ fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
  *  A [currentChoice] can be given (-1 if none, defaults to -1). When a choice is selected,
  *  [onChoiceSelected] is called
  */
-fun Context.singleListDialog(@StringRes title: Int = -1, showRadioButtons: Boolean = true,
-        currentChoice: Int = -1, choices: Array<String>, onChoiceSelected: (position: Int) -> Unit)
-        : MaterialDialog {
+fun Context.singleListDialog(@StringRes title: Int = -1, currentChoice: Int = -1,
+        choices: Array<String>, showRadioButtons: Boolean = true,
+        onChoiceSelected: (position: Int) -> Unit): MaterialDialog {
     val builder = build(title)
             .items(*choices)
 
