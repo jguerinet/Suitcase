@@ -31,23 +31,17 @@ open class NullLocalDatePref(prefs: SharedPreferences, key: String, defaultValue
     /**
      * Backing date property for getting and setting this pref
      */
-    var date: LocalDate?
-        get() = getLocalDate()
-        set(value) = set(value)
+    open var date: LocalDate?
+        get() = super.value?.run { LocalDate.parse(this) }
+        set(value) {
+            super.value = value?.toString()
+        }
 
-    /**
-     * @return Current value stored at this [key], the [defaultValue] if none stored
-     */
-    open fun getLocalDate(): LocalDate? {
-        val string = super.get()
+    @Deprecated("Replaced with property", ReplaceWith("date"))
+    open fun getLocalDate(): LocalDate? = date
 
-        return if (string == null) null else LocalDate.parse(string)
-    }
-
-    /**
-     * Sets the [value] at the given [key] in these [prefs]
-     */
+    @Deprecated("Replaced with property", ReplaceWith("date = value"))
     open fun set(value: LocalDate?) {
-        super.set(value?.toString())
+        date = value
     }
 }

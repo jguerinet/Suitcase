@@ -29,10 +29,7 @@ open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: Zon
         NullStringPref(prefs, key, defaultValue?.toString()) {
 
     open var date: ZonedDateTime?
-        get() {
-            val string = super.value
-            return string?.run { ZonedDateTime.parse(this) }
-        }
+        get() = super.value?.run { ZonedDateTime.parse(this) }
         set(value) {
             super.value = value?.toString()
         }
