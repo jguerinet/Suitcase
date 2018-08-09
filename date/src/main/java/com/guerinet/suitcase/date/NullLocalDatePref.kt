@@ -36,12 +36,4 @@ open class NullLocalDatePref(prefs: SharedPreferences, key: String, defaultValue
         set(value) {
             super.value = value?.toString()
         }
-
-    @Deprecated("Replaced with property", ReplaceWith("date"))
-    open fun getLocalDate(): LocalDate? = date
-
-    @Deprecated("Replaced with property", ReplaceWith("date = value"))
-    open fun set(value: LocalDate?) {
-        date = value
-    }
 }

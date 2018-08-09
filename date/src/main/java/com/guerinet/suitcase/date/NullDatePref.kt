@@ -33,12 +33,4 @@ open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: Zon
         set(value) {
             super.value = value?.toString()
         }
-
-    @Deprecated("Replaced by property", ReplaceWith("date"))
-    open fun getZonedDateTime(): ZonedDateTime? = date
-
-    @Deprecated("Replaced by property", ReplaceWith("date = value"))
-    open fun set(value: ZonedDateTime?) {
-        date = value
-    }
 }

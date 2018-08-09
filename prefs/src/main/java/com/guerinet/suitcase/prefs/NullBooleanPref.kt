@@ -42,12 +42,4 @@ open class NullBooleanPref(prefs: SharedPreferences, key: String, defaultValue: 
                 prefs.edit().putBoolean(key, value).apply()
             }
         }
-
-    @Deprecated("Replaced with property", ReplaceWith("value"))
-    open fun get(): Boolean? = value
-
-    @Deprecated("Replaced with property", ReplaceWith("this.value = value"))
-    open fun set(value: Boolean?) {
-        this.value = value
-    }
 }
