@@ -22,7 +22,7 @@ buildscript {
     ext.android_support_version = '27.1.1'
     ext.espresso_version = '3.0.2'
     ext.junit_version = '4.12'
-    ext.kotlin_version = '1.2.51'
+    ext.kotlin_version = '1.2.60'
     ext.threetenabp_version = '1.1.0'
 
     repositories {
@@ -73,7 +73,7 @@ subprojects {
     }
 
     dependencies {
-        implementation "org.jetbrains.kotlin:kotlin-stdlib-jre7:$kotlin_version"
+        implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
         androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
