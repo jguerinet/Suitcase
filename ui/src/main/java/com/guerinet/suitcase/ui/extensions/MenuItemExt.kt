@@ -20,7 +20,7 @@ import android.support.annotation.ColorInt
 import android.view.MenuItem
 
 /**
- * [MenuItem] extensions
+ * MenuItem extensions
  * @author Julien Guerinet
  * @since 2.3.0
  */
@@ -28,6 +28,4 @@ import android.view.MenuItem
 /**
  * Sets the tint to the given [color] on the icon if there is one
  */
-fun MenuItem.setTint(@ColorInt color: Int) {
-    if (icon != null) icon.setTintCompat(color)
-}
+fun MenuItem.setTint(@ColorInt color: Int) = icon?.setTintCompat(color)

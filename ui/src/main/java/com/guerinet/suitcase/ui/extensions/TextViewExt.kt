@@ -18,7 +18,9 @@ package com.guerinet.suitcase.ui.extensions
 
 import android.graphics.drawable.Drawable
 import android.support.annotation.ColorInt
+import android.support.annotation.ColorRes
 import android.support.annotation.DimenRes
+import android.support.v4.content.ContextCompat
 import android.util.TypedValue
 import android.widget.TextView
 
@@ -29,7 +31,7 @@ import android.widget.TextView
  */
 
 /**
- * Sets a tint of the given [color] on the drawable at the given relative [position]
+ * Sets a tint of the [color] on the drawable at the relative [position]
  *  0: Start, 1: Top, 2: End, 3: Bottom
  */
 fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
@@ -42,6 +44,13 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
     setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
             drawables[3])
 }
+
+/**
+ * Sets the tint of a [colorId] on the drawable at the relative [position]
+ *  0: Start, 1: Top, 2: End, 3: Bottom
+ */
+fun TextView.setDrawableTintId(position: Int, @ColorRes colorId: Int) =
+        setDrawableTint(position, ContextCompat.getColor(context, colorId))
 
 /**
  * Sets the [start], [top], [end], and [bottom] drawables
@@ -64,6 +73,5 @@ fun TextView.setDrawableIds(start: Int = 0,
 /**
  * Changes the [TextView]'s text size by using the [textSizeId]
  */
-fun TextView.setTextSizeId(@DimenRes textSizeId: Int) {
-    setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))
-}
+fun TextView.setTextSizeId(@DimenRes textSizeId: Int) =
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))
