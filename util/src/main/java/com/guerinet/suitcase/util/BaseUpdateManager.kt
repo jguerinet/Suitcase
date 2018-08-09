@@ -31,8 +31,9 @@ import android.content.SharedPreferences
  *                              (defaults to "version")
  */
 abstract class BaseUpdateManager(private val prefs: SharedPreferences,
-                                 private val currentVersionCode: Int,
-        private val versionPrefName: String = "version") {
+        private val currentVersionCode: Int,
+        private val versionPrefName: String = "version"
+) {
 
     /**
      * Returns True if an update is necessary, false otherwise
