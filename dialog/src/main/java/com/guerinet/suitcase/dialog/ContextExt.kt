@@ -18,6 +18,7 @@ package com.guerinet.suitcase.dialog
 
 import android.content.Context
 import android.support.annotation.StringRes
+import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 
 /**
@@ -34,7 +35,7 @@ import com.afollestad.materialdialogs.MaterialDialog
  */
 fun Context.neutralDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
         @StringRes button: Int = android.R.string.ok,
-        listener: MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
     return build(title, message, listener)
             .neutralText(button)
             .show()
@@ -45,8 +46,8 @@ fun Context.neutralDialog(@StringRes title: Int = 0, @StringRes message: Int = 0
  *  a [button] text (defaults to the Android OK), and a button [listener]
  */
 fun Context.neutralDialog(@StringRes title: Int = 0, message: String? = null,
-        @StringRes button: Int = android.R.string.ok, listener:
-        MaterialDialog.SingleButtonCallback? = null): MaterialDialog {
+        @StringRes button: Int = android.R.string.ok,
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
     return build(title, message, listener)
             .neutralText(button)
             .show()
@@ -60,7 +61,7 @@ fun Context.neutralDialog(@StringRes title: Int = 0, message: String? = null,
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
-        listener: MaterialDialog.SingleButtonCallback? = null,
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null,
         @StringRes positiveText: Int = android.R.string.ok,
         @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
     return build(title, message, listener)
@@ -75,7 +76,7 @@ fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
-        listener: MaterialDialog.SingleButtonCallback? = null,
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null,
         @StringRes positiveText: Int = android.R.string.ok,
         @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
     return build(title, message, listener)
@@ -134,7 +135,7 @@ fun Context.multiListDialog(@StringRes title: Int = -1,
  *  as well as the [listener] for the buttons
  */
 private fun Context.build(@StringRes title: Int, @StringRes message: Int = 0,
-        listener: MaterialDialog.SingleButtonCallback? = null):
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null):
         MaterialDialog.Builder {
     val builder = MaterialDialog.Builder(this)
 
@@ -158,8 +159,8 @@ private fun Context.build(@StringRes title: Int, @StringRes message: Int = 0,
  *  as well as the [listener] for the buttons
  */
 private fun Context.build(@StringRes title: Int, message: String?,
-        listener: MaterialDialog.SingleButtonCallback?): MaterialDialog.Builder {
-
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null):
+        MaterialDialog.Builder {
     val builder = build(title, listener = listener)
 
     // Set the message if there is one
