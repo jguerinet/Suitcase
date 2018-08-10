@@ -93,8 +93,8 @@ fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
  *  A [currentChoice] can be given (-1 if none, defaults to -1). When a choice is selected,
  *  [onChoiceSelected] is called
  */
-fun Context.singleListDialog(@StringRes title: Int = -1, currentChoice: Int = -1,
-        choices: Array<String>, showRadioButtons: Boolean = true,
+fun Context.singleListDialog(choices: Array<String>, @StringRes title: Int = -1,
+        currentChoice: Int = -1, showRadioButtons: Boolean = true,
         onChoiceSelected: (position: Int) -> Unit): MaterialDialog {
     val builder = build(title)
             .items(*choices)
@@ -116,10 +116,9 @@ fun Context.singleListDialog(@StringRes title: Int = -1, currentChoice: Int = -1
  *  [selectedItems] can be given (defaults to an empty list). When the user has clicked on the
  *  button, [onChoicesSelected] is called with the list of selected choices.
  */
-fun Context.multiListDialog(@StringRes title: Int = -1,
+fun Context.multiListDialog(choices: Array<String>, @StringRes title: Int = -1,
         @StringRes button: Int = android.R.string.ok, selectedItems: Array<Int> = arrayOf(),
-        choices: Array<String>, onChoicesSelected: (positions: Array<Int>) -> Unit):
-        MaterialDialog {
+        onChoicesSelected: (positions: Array<Int>) -> Unit): MaterialDialog {
     return build(title)
             .items(*choices)
             .itemsCallbackMultiChoice(selectedItems) { _, which, _ ->
