@@ -61,9 +61,9 @@ fun Context.neutralDialog(@StringRes title: Int = 0, message: String? = null,
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null,
         @StringRes positiveText: Int = android.R.string.ok,
-        @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
+        @StringRes negativeText: Int = android.R.string.cancel,
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
     return build(title, message, listener)
             .positiveText(positiveText)
             .negativeText(negativeText)
@@ -76,9 +76,9 @@ fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null,
         @StringRes positiveText: Int = android.R.string.ok,
-        @StringRes negativeText: Int = android.R.string.cancel): MaterialDialog {
+        @StringRes negativeText: Int = android.R.string.cancel,
+        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
     return build(title, message, listener)
             .positiveText(positiveText)
             .negativeText(negativeText)
