@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 3.1.0 (2018-08-10)
+* `dialog`
+    * Changed all the interfaces to lambdas
+    * Moved all lambdas to be the last parameter in the functions
+
 ## Version 3.0.0 (2018-08-09)
 
 * Removed the `db` module completely
