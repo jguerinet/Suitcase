@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 3.1.1 (2018-08-10)
+* `dialog`: 
+    * Changed the order of the params in the list dialog functions to have all defaulted params at the end. 
+
 ## Version 3.1.0 (2018-08-10)
 * `dialog`
     * Changed all the interfaces to lambdas
