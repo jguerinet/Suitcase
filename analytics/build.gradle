@@ -16,4 +16,5 @@
 
 dependencies {
     api "com.google.android.gms:play-services-analytics:16.0.0"
+    compile 'com.google.firebase:firebase-core:16.0.1'
 }
