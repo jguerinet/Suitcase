@@ -16,7 +16,6 @@
 
 package com.guerinet.suitcase.util.extensions
 
-import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -27,7 +26,6 @@ import android.graphics.BitmapFactory
 import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.Uri
-import android.os.Build
 import android.os.LocaleList
 import android.view.WindowManager
 import androidx.annotation.ColorRes
@@ -227,33 +225,4 @@ fun Context.wrapWithLanguage(language: String): ContextWrapper {
     }
 
     return ContextWrapper(createConfigurationContext(configuration))
-}
-
-/**
- * Creates a debug String that can be attached to feedback or bug reports. The String contains
- *  the device model, sdk version, app [versionName], app [versionCode], language, connection type,
- *  and any [customInfo] passed (defaults to an empty String)
- */
-fun Context.getDebugInfo(versionName: String, versionCode: Int, customInfo: String = ""): String {
-    @SuppressLint("MissingPermission")
-    val info = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager)
-            .activeNetworkInfo
-
-    val connection = if (info != null) {
-        "${info.typeName} ${info.subtypeName}"
-    } else {
-        "N/A"
-    }
-
-    return "===============" +
-            "\nDebug Info" +
-            "\n===============" +
-            "\nDevice: ${Device.model()}" +
-            "\nSDK Version: ${Build.VERSION.SDK_INT}" +
-            "\nApp Version: $versionName" +
-            "\nBuild Number: $versionCode" +
-            "\nLanguage: ${Locale.getDefault().language}" +
-            "\nConnection Type: $connection" +
-            (if (customInfo.isNotBlank()) "\n$customInfo" else "") +
-            "\n===============\n\n"
 }

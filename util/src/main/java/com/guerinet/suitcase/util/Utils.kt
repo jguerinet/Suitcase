@@ -17,6 +17,7 @@
 package com.guerinet.suitcase.util
 
 import android.content.pm.PackageManager
+import android.os.Build
 import java.util.*
 
 /**
@@ -38,6 +39,23 @@ object Utils {
      */
     fun isPermissionGranted(grantResults: IntArray): Boolean =
             grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED
+
+    /**
+     * Creates a debug String that can be attached to feedback or bug reports. The String contains
+     *  the device model, sdk version, app [versionName], app [versionCode], language,
+     *  and any [customInfo] passed (defaults to an empty String)
+     */
+    fun getDebugInfo(versionName: String, versionCode: Int, customInfo: String = ""): String =
+            "===============" +
+                    "\nDebug Info" +
+                    "\n===============" +
+                    "\nDevice: ${Device.model()}" +
+                    "\nSDK Version: ${Build.VERSION.SDK_INT}" +
+                    "\nApp Version: $versionName" +
+                    "\nBuild Number: $versionCode" +
+                    "\nLanguage: ${Locale.getDefault().language}" +
+                    (if (customInfo.isNotBlank()) "\n$customInfo" else "") +
+                    "\n===============\n\n"
 
     /**
      * Returns true if the [newVersionName] is more recent than the [oldVersionName] (which is the
