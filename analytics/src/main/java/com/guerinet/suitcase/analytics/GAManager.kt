@@ -16,9 +16,10 @@
 
 package com.guerinet.suitcase.analytics
 
+import android.annotation.SuppressLint
 import android.content.Context
-import android.support.annotation.XmlRes
 import android.util.Log
+import androidx.annotation.XmlRes
 import com.google.android.gms.analytics.GoogleAnalytics
 import com.google.android.gms.analytics.HitBuilders
 import com.google.android.gms.analytics.Tracker
@@ -33,6 +34,7 @@ import com.google.android.gms.analytics.Tracker
  */
 open class GAManager(context: Context, @XmlRes config: Int) {
 
+    @SuppressLint("MissingPermission")
     private val tracker: Tracker = GoogleAnalytics.getInstance(context).newTracker(config)
 
     /**

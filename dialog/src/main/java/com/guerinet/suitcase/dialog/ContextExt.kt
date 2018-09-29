@@ -17,7 +17,7 @@
 package com.guerinet.suitcase.dialog
 
 import android.content.Context
-import android.support.annotation.StringRes
+import androidx.annotation.StringRes
 import com.afollestad.materialdialogs.DialogAction
 import com.afollestad.materialdialogs.MaterialDialog
 

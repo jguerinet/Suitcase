@@ -16,8 +16,8 @@
 
 package com.guerinet.suitcase.ui.extensions
 
-import android.support.annotation.ColorInt
 import android.view.MenuItem
+import androidx.annotation.ColorInt
 
 /**
  * MenuItem extensions

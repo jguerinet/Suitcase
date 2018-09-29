@@ -16,9 +16,9 @@
 
 package com.guerinet.suitcase.ui.extensions
 
-import android.support.annotation.DimenRes
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.DimenRes
 
 /**
  * View extensions

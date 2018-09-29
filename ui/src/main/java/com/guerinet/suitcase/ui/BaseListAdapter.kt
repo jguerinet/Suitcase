@@ -16,13 +16,13 @@
 
 package com.guerinet.suitcase.ui
 
-import android.support.annotation.LayoutRes
-import android.support.v7.recyclerview.extensions.ListAdapter
-import android.support.v7.util.DiffUtil
-import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.annotation.LayoutRes
+import androidx.recyclerview.widget.DiffUtil
+import androidx.recyclerview.widget.ListAdapter
+import androidx.recyclerview.widget.RecyclerView
 
 /**
  * Basic [ListAdapter] implementation for [RecyclerView]s

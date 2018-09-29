@@ -17,7 +17,7 @@
 package com.guerinet.suitcase.io
 
 import android.content.Context
-import android.support.annotation.RawRes
+import androidx.annotation.RawRes
 import okio.BufferedSource
 import okio.Okio
 import java.io.IOException

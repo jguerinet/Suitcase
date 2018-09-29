@@ -16,10 +16,10 @@
 
 package com.guerinet.suitcase.ui.extensions
 
-import android.support.annotation.ColorInt
-import android.support.annotation.ColorRes
-import android.support.v4.content.ContextCompat
 import android.widget.ImageView
+import androidx.annotation.ColorInt
+import androidx.annotation.ColorRes
+import androidx.core.content.ContextCompat
 
 /**
  * ImageView extensions

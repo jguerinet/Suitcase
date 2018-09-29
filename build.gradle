@@ -61,7 +61,7 @@ subprojects {
             targetSdkVersion suitcase_target_sdk
             versionName suitcase_version
 
-            testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+            testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
         }
 
         buildTypes {
@@ -74,7 +74,7 @@ subprojects {
 
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-        androidTestImplementation("com.android.support.test.espresso:espresso-core:$espresso_version", {
+        androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0-alpha4', {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
         testImplementation "junit:junit:$junit_version"

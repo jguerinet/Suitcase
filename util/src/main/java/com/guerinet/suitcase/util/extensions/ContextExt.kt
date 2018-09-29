@@ -29,11 +29,11 @@ import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.Build
 import android.os.LocaleList
-import android.support.annotation.ColorRes
-import android.support.annotation.DrawableRes
-import android.support.customtabs.CustomTabsIntent
-import android.support.v4.content.ContextCompat
 import android.view.WindowManager
+import androidx.annotation.ColorRes
+import androidx.annotation.DrawableRes
+import androidx.browser.customtabs.CustomTabsIntent
+import androidx.core.content.ContextCompat
 import com.guerinet.suitcase.util.Device
 import java.io.File
 import java.util.*

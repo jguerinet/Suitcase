@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2017 Julien Guerinet
+ * Copyright 2016-2018 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,6 +16,6 @@
 
 dependencies {
     implementation project(':prefs')
-    implementation "com.android.support:appcompat-v7:$android_support_version"
+    implementation 'androidx.appcompat:appcompat:1.0.0'
     implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
 }
