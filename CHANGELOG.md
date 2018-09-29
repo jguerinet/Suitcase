@@ -1,6 +1,7 @@
 # Change Log
 
 ## Version 4.0.0 (2018-09-29)
+
 * Updated all libraries, including switching over to AndroidX
 * `lifecycle`:
     * Added module for the Android Lifecycle components, with an extension to observe on a LifecycleOwner.  
@@ -10,10 +11,12 @@
     * Removed the connection info from the debug info, moved it from an extension to a static method
 
 ## Version 3.1.1 (2018-08-10)
+
 * `dialog`: 
     * Changed the order of the params in the list dialog functions to have all defaulted params at the end. 
 
 ## Version 3.1.0 (2018-08-10)
+
 * `dialog`
     * Changed all the interfaces to lambdas
     * Moved all lambdas to be the last parameter in the functions
