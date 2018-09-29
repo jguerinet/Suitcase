@@ -22,7 +22,7 @@ import org.threeten.bp.LocalDate
 /**
  * Converts [LocalDate]s to Strings and vice-versa for Room
  * @author Julien Guerinet
- * @since 3.0.0
+ * @since 4.0.0
  */
 class LocalDateConverter {
 

@@ -21,7 +21,7 @@ import androidx.room.TypeConverter
 /**
  * Converts a List of Ints to a CSV and vice-versa for Room
  * @author Julien Guerinet
- * @since 2.1.0
+ * @since 4.0.0
  */
 class IntListConverter {
 

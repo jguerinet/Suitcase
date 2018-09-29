@@ -22,7 +22,7 @@ import org.threeten.bp.ZonedDateTime
 /**
  * Converts [ZonedDateTime]s to Strings and vice-versa for DBFlow
  * @author Julien Guerinet
- * @since 2.1.0
+ * @since 4.0.0
  */
 class ZonedDateTimeConverter {
 
