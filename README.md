@@ -27,11 +27,17 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // I/O utility methods, uses Okio
         implementation "com.guerinet.suitcase:io:${suitcase_version}"
 
+        // Lifecycle utility methods, uses the Android Lifecycle components
+        implementation "com.guerinet.suitcase:lifecycle:${suitcase_version}"
+
         // Logging utility methods and classes, uses Timber
         implementation "com.guerinet.suitcase:log:${suitcase_version}"
 
         // SharedPreferences utility methods and classes
         implementation "com.guerinet.suitcase:prefs:${suitcase_version}"
+
+        // Room utility methods, uses Room
+        implementation "com.guerinet.suitcase:room:${suitcase_version}"
 
         // UI utility methods and classes
         implementation "com.guerinet.suitcase:ui:${suitcase_version}"
