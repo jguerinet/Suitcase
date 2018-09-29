@@ -14,4 +14,20 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':lifecycle', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.suitcase.lifecycle
+
+import androidx.lifecycle.LifecycleOwner
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.Observer
+
+/**
+ * LifecycleOwner extensions
+ * @author Julien Guerinet
+ * @since 4.0.0
+ */
+
+/**
+ * Observes the [liveData] and calls the [body] when it changes
+ */
+fun <T : Any, L : LiveData<T>> LifecycleOwner.observe(liveData: L, body: (T?) -> Unit) =
+        liveData.observe(this, Observer(body))
