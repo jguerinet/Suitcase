@@ -14,4 +14,21 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.room
+
+import androidx.room.TypeConverter
+
+/**
+ * Converts a List of Strings to a CSV and vice-versa for Room
+ * @author Julien Guerinet
+ * @since 2.1.0
+ */
+class StringListConverter {
+
+    @TypeConverter
+    fun stringListToString(value: List<String>?): String? = value?.joinToString(",")
+
+    @TypeConverter
+    fun stringToStringList(value: String?): List<String>? =
+            if (value.isNullOrEmpty()) null else value?.split(",")
+}

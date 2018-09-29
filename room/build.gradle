@@ -14,4 +14,12 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+apply plugin: 'kotlin-kapt'
+
+def room_version = "2.0.0-rc01"
+
+dependencies {
+    implementation "androidx.room:room-runtime:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
+}

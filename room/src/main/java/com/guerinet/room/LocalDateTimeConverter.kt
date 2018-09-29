@@ -14,4 +14,22 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.room
+
+import androidx.room.TypeConverter
+import org.threeten.bp.LocalDateTime
+
+/**
+ * Converts [LocalDateTime]s to Strings and vice-versa for Room
+ * @author Julien Guerinet
+ * @since 3.0.0
+ */
+class LocalDateTimeConverter {
+
+    @TypeConverter
+    fun localDateTimeToString(value: LocalDateTime?): String? = value?.toString()
+
+    @TypeConverter
+    fun stringToLocalDateTime(value: String?): LocalDateTime? =
+            if (value.isNullOrBlank()) null else LocalDateTime.parse(value)
+}

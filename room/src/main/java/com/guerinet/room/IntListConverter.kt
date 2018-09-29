@@ -14,4 +14,21 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.room
+
+import androidx.room.TypeConverter
+
+/**
+ * Converts a List of Ints to a CSV and vice-versa for Room
+ * @author Julien Guerinet
+ * @since 2.1.0
+ */
+class IntListConverter {
+
+    @TypeConverter
+    fun intListToString(value: List<Int>?): String? = value?.joinToString(",")
+
+    @TypeConverter
+    fun stringToIntList(value: String?): List<Int>? =
+            if (value.isNullOrEmpty()) null else value?.split(",")?.map { it.toInt() }
+}

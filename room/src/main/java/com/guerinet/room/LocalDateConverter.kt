@@ -14,4 +14,22 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.room
+
+import androidx.room.TypeConverter
+import org.threeten.bp.LocalDate
+
+/**
+ * Converts [LocalDate]s to Strings and vice-versa for Room
+ * @author Julien Guerinet
+ * @since 3.0.0
+ */
+class LocalDateConverter {
+
+    @TypeConverter
+    fun localDateToString(value: LocalDate?): String? = value?.toString()
+
+    @TypeConverter
+    fun stringToLocalDate(value: String?): LocalDate? =
+            if (value.isNullOrBlank()) null else LocalDate.parse(value)
+}

@@ -14,4 +14,23 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':io', ':log', ':prefs', ':room', ':ui', ':util'
+package com.guerinet.room
+
+import androidx.room.TypeConverter
+import org.threeten.bp.ZonedDateTime
+
+/**
+ * Converts [ZonedDateTime]s to Strings and vice-versa for DBFlow
+ * @author Julien Guerinet
+ * @since 2.1.0
+ */
+class ZonedDateTimeConverter {
+
+    @TypeConverter
+    fun zonedDateTimeToString(value: ZonedDateTime?): String? = value?.toString()
+
+    @TypeConverter
+    fun stringToZonedDateTime(value: String?): ZonedDateTime? =
+            if (value.isNullOrBlank()) null else ZonedDateTime.parse(value)
+
+}
