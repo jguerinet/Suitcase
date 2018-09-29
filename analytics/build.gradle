@@ -16,5 +16,5 @@
 
 dependencies {
     implementation 'androidx.annotation:annotation:1.0.0'
-    api "com.google.android.gms:play-services-analytics:16.0.0"
+    api "com.google.android.gms:play-services-analytics:16.0.3"
 }

@@ -19,7 +19,8 @@ package com.guerinet.suitcase.io
 import android.content.Context
 import androidx.annotation.RawRes
 import okio.BufferedSource
-import okio.Okio
+import okio.buffer
+import okio.source
 import java.io.IOException
 
 /**
@@ -32,7 +33,7 @@ import java.io.IOException
  * Returns a [BufferedSource] for a file with the given [fileId] within the raw folder
  */
 fun Context.sourceFromRaw(@RawRes fileId: Int): BufferedSource =
-        Okio.buffer(Okio.source(resources.openRawResource(fileId)))
+        resources.openRawResource(fileId).source().buffer()
 
 /**
  * Attempts to read and return a String from a file with the given [fileId] within the raw folder.
