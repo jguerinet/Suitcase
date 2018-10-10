@@ -21,7 +21,7 @@ import android.content.SharedPreferences
 /**
  * Base class that manages any updates received from the app
  * @author Julien Guerinet
- * @since 2.2.1
+ * @since 4.1.0
  *
  * @param prefs                 [SharedPreferences] instance where we can store/read the
  *                              version number
@@ -30,40 +30,46 @@ import android.content.SharedPreferences
  * @param versionPrefName       Name of the pref where the stored version is stored
  *                              (defaults to "version")
  */
-abstract class BaseUpdateManager(private val prefs: SharedPreferences,
+open class BaseUpdateManager(private val prefs: SharedPreferences,
         private val currentVersionCode: Int,
         private val versionPrefName: String = "version"
 ) {
 
+    /** Stored version code, [FIRST_OPEN] if none stored */
+    private val storedCode: Int
+        get() = prefs.getInt(versionPrefName, FIRST_OPEN)
+
+    private val migrations = mutableListOf<Migration>()
+
     /**
-     * Returns True if an update is necessary, false otherwise
+     * Adds a new [migration] to the list of migrations to run on an update
      */
-    open fun needsUpdate(): Boolean = prefs.getInt(versionPrefName, -1) < currentVersionCode
+    fun addMigration(migration: Migration) = migrations.add(migration)
+
+    /**
+     * Returns true if an update is necessary, false otherwise
+     */
+    open fun needsUpdate(): Boolean = storedCode < currentVersionCode
 
     /**
      * Runs any update code if necessary
      */
     open fun update() {
-        var storedCode = prefs.getInt(versionPrefName, -1)
+        var storedCode = storedCode
 
         if (storedCode < currentVersionCode) {
             // Stored code is smaller than current version code: app has updated
-            while (storedCode < currentVersionCode) {
-                when (storedCode) {
-                    -1 -> {
-                        val breakLoop = firstOpen()
-                        if (breakLoop) {
-                            // If we need to break the loop, set the stored code to the current one
-                            storedCode = currentVersionCode
+            migrations
+                    // Sort the migrations (in case they were given unsorted)
+                    .sortedWith(Comparator { o1, o2 -> o1.versionCode - o2.versionCode })
+                    .forEach {
+                        if (it.versionCode < storedCode) {
+                            // If the migration version code is older than the stored code, continue
+                            return@forEach
                         }
+                        // Run the block, update the stored code with what is returned
+                        storedCode = it.block()
                     }
-                    else -> {
-                        // Run any necessary update code. Update the stored with what is returned
-                        storedCode = update(storedCode)
-                    }
-                }
-                storedCode ++
-            }
         }
 
         // Store the new version code
@@ -77,16 +83,20 @@ abstract class BaseUpdateManager(private val prefs: SharedPreferences,
     open fun onUpdateFinished() {}
 
     /**
-     * Called when this is the first time the user has opened the app
-     * @return True if we should stop any update code after this, false if we should continue
+     * Migration code to run on app update
+     *
+     * @param versionCode   Version this migration should be run for
+     * @param block         Migration to run. Returns the version code to continue any migrations
+     *                      with, allowing us to skip other migrations. If the migrations should
+     *                      run normally, simply return this migration's version code. If no other
+     *                      migration code should run (ex: first open), return the current version
+     *                      number.
      */
-    abstract fun firstOpen(): Boolean
+    class Migration(val versionCode: Int, val block: () -> Int)
 
-    /**
-     * Runs any update code necessary for the given [version]
-     * @return The version to continue the update loop from. This allows us to skip version updates
-     *  or skip any other update by returning the current version. If the updates should continue
-     *  in the same fashion, the given [version] should be returned.
-     */
-    abstract fun update(version: Int): Int
+    companion object {
+
+        /** Placeholder for the version number for a first open */
+        const val FIRST_OPEN = -1
+    }
 }

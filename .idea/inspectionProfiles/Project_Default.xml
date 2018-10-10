@@ -1,6 +1,23 @@
 <component name="InspectionProjectProfileManager">
   <profile version="1.0">
     <option name="myName" value="Project Default" />
-    <inspection_tool class="UseExpressionBody" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="AndroidLintGradleDynamicVersion" enabled="false" level="WARNING" enabled_by_default="false" />
+    <inspection_tool class="AndroidLintMissingTranslation" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="Convert2streamapi" enabled="false" level="WEAK WARNING" enabled_by_default="false" />
+    <inspection_tool class="DuplicatePropertyInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="CURRENT_FILE" value="true" />
+      <option name="MODULE_WITH_DEPENDENCIES" value="false" />
+      <option name="CHECK_DUPLICATE_VALUES" value="true" />
+      <option name="CHECK_DUPLICATE_KEYS" value="true" />
+      <option name="CHECK_DUPLICATE_KEYS_WITH_DIFFERENT_VALUES" value="true" />
+    </inspection_tool>
+    <inspection_tool class="GrUnnecessarySemicolon" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="RedundantSemicolon" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryBlockStatement" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoreSwitchBranches" value="false" />
+    </inspection_tool>
+    <inspection_tool class="UnnecessarySemicolon" enabled="true" level="ERROR" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryThis" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="UnnecessaryToStringCall" enabled="true" level="WARNING" enabled_by_default="true" />
   </profile>
 </component>
