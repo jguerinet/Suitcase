@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.1.2 (2018-10-10)
+
+-   `util`: 
+    -   Minor updates to the new `BaseUpdateManager`
+
 ## Version 4.1.1 (2018-10-10)
 
 -   `util`: 

@@ -39,12 +39,8 @@ open class BaseUpdateManager(private val prefs: SharedPreferences,
     private val storedCode: Int
         get() = prefs.getInt(versionPrefName, FIRST_OPEN)
 
-    private val migrations = mutableListOf<Migration>()
-
-    /**
-     * Adds new [migrations] to the list of migrations to run on an update
-     */
-    fun addMigrations(vararg migrations: Migration) = this.migrations.addAll(migrations)
+    /** List of [Migration]s to potentially run during an update */
+    open val migrations = mutableListOf<Migration>()
 
     /**
      * Returns true if an update is necessary, false otherwise
