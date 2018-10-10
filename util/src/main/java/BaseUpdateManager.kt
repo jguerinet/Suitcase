@@ -42,9 +42,9 @@ open class BaseUpdateManager(private val prefs: SharedPreferences,
     private val migrations = mutableListOf<Migration>()
 
     /**
-     * Adds a new [migration] to the list of migrations to run on an update
+     * Adds new [migrations] to the list of migrations to run on an update
      */
-    fun addMigration(migration: Migration) = migrations.add(migration)
+    fun addMigrations(vararg migrations: Migration) = this.migrations.addAll(migrations)
 
     /**
      * Returns true if an update is necessary, false otherwise
@@ -68,7 +68,7 @@ open class BaseUpdateManager(private val prefs: SharedPreferences,
                             return@forEach
                         }
                         // Run the block, update the stored code with what is returned
-                        storedCode = it.block()
+                        storedCode = it.block(it.versionCode)
                     }
         }
 
@@ -89,10 +89,10 @@ open class BaseUpdateManager(private val prefs: SharedPreferences,
      * @param block         Migration to run. Returns the version code to continue any migrations
      *                      with, allowing us to skip other migrations. If the migrations should
      *                      run normally, simply return this migration's version code. If no other
-     *                      migration code should run (ex: first open), return the current version
-     *                      number.
+     *                      migration code should run (ex: first open), return the given version
+     *                      code.
      */
-    class Migration(val versionCode: Int, val block: () -> Int)
+    class Migration(val versionCode: Int, val block: (versionCode: Int) -> Int)
 
     companion object {
 

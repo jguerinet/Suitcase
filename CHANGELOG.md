@@ -1,10 +1,15 @@
 # Change Log
 
+## Version 4.1.1 (2018-10-10)
+
+-   `util`: 
+    -   Minor updates to the new `BaseUpdateManager`
+
 ## Version 4.1.0 (2018-10-10)
 
 -   `util`: 
-    -   Added the new `UpdateManager` that works off of `Migration` classes
-    -   Renamed old `UpdateManager` to `OldUpdateManager` (breaking)
+    -   Added the new `BaseUpdateManager` that works off of `Migration` classes
+    -   Renamed old `BaseUpdateManager` to `OldBaseUpdateManager` (breaking)
     -   Switched to Kotlin folder conventions for this module
 
 ## Version 4.0.0 (2018-09-29)
