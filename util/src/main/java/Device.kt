@@ -45,7 +45,7 @@ object Device {
      * @return True if the OS is Lollipop or higher, false otherwise
      */
     @JvmStatic
-    fun isAtLeastLollipop(): Boolean{
+    fun isAtLeastLollipop(): Boolean {
         return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
     }
 

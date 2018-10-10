@@ -80,7 +80,7 @@ fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, 
  */
 fun Context.openUrl(url: String) {
     // Check that http:// or https:// is there
-    val fullUrl = if (! url.startsWith("http://", true) && ! url.startsWith("https://", true)) {
+    val fullUrl = if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
         "http://$url"
     } else {
         url
@@ -94,9 +94,9 @@ fun Context.openUrl(url: String) {
  *  [closeButtonId] to set a custom close button (it's a black cross if none supplied)
  */
 fun Context.openCustomTab(url: String, @ColorRes toolbarColor: Int? = null,
-                          @DrawableRes closeButtonId: Int? = null) {
+        @DrawableRes closeButtonId: Int? = null) {
     // Check that the scheme is present, add it if not
-    val fullUrl = if (! url.startsWith("http://", true) && ! url.startsWith("https://", true)) {
+    val fullUrl = if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
         "http://$url"
     } else {
         url
