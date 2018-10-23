@@ -21,7 +21,7 @@ package com.guerinet.room
  * @author Julien Guerinet
  * @since 4.0.0
  */
-class StringListConverter : ListConverter<String>() {
+class StringListConverter : BaseListConverter<String>() {
 
     override fun objectFromString(value: String): String = value
 }

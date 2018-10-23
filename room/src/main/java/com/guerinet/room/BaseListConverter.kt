@@ -25,7 +25,7 @@ import androidx.room.TypeConverter
  *
  * @param delimiter Delimiter to use when converting the list to a String. Defaults to a comma.
  */
-abstract class ListConverter<T>(private val delimiter: String = ",") {
+abstract class BaseListConverter<T>(private val delimiter: String = ",") {
 
     /**
      * Default implementation of [toString] is to call [toString] on each objects and join the with

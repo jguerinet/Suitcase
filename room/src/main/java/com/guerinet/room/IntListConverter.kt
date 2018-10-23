@@ -21,7 +21,7 @@ package com.guerinet.room
  * @author Julien Guerinet
  * @since 4.0.0
  */
-class IntListConverter : ListConverter<Int>() {
+class IntListConverter : BaseListConverter<Int>() {
 
     override fun objectFromString(value: String): Int = value.toInt()
 }
