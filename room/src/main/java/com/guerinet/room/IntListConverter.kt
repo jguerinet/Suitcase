@@ -16,19 +16,12 @@
 
 package com.guerinet.room
 
-import androidx.room.TypeConverter
-
 /**
  * Converts a List of Ints to a CSV and vice-versa for Room
  * @author Julien Guerinet
  * @since 4.0.0
  */
-class IntListConverter {
+class IntListConverter : ListConverter<Int>() {
 
-    @TypeConverter
-    fun intListToString(value: List<Int>?): String? = value?.joinToString(",")
-
-    @TypeConverter
-    fun stringToIntList(value: String?): List<Int>? =
-            if (value.isNullOrEmpty()) null else value?.split(",")?.map { it.toInt() }
+    override fun objectFromString(value: String): Int = value.toInt()
 }
