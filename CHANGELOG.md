@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 4.2.0 (2018-10-23)
+
+-   `room`: 
+    -   Added the `BaseDao` for basic functions on one model type
+    -   Added the `BaseConverter` for a basic `TypeConverter` implementation
+    -   Added the `BaseListConverter` for a basic list `TypeConverter` implementation
+    -   Added a `TypeConverter` for `LocalTime`s
+
 ## Version 4.1.2 (2018-10-10)
 
 -   `util`: 
