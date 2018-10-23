@@ -33,11 +33,13 @@ abstract class BaseConverter<T> {
     open fun toString(value: T?): String? = value?.toString()
 
     /**
-     * Converts the [value] to a [T]. If the [value] is null, the returned [T] is null. If not,
-     *  this called [objectFromString]. This can be overridden.
+     * Converts the [value] to a [T]. If the [value] is null or empty, the returned [T] is null.
+     *  If not, this called [objectFromString]. This can be overridden.
      */
     @TypeConverter
-    open fun fromString(value: String?): T? = if (value == null) null else objectFromString(value)
+    open fun fromString(value: String?): T? =
+    // Note: The !! can be removed with Kotlin 1.3
+            if (value.isNullOrEmpty()) null else objectFromString(value!!)
 
     /**
      * Converts the [value] to a [T]

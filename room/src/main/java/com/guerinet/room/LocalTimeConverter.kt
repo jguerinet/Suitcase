@@ -16,7 +16,6 @@
 
 package com.guerinet.room
 
-import androidx.room.TypeConverter
 import org.threeten.bp.LocalTime
 
 /**
@@ -24,12 +23,7 @@ import org.threeten.bp.LocalTime
  * @author Julien Guerinet
  * @since 4.2.0
  */
-class LocalTimeConverter {
+class LocalTimeConverter : BaseConverter<LocalTime>() {
 
-    @TypeConverter
-    fun localTimeToString(value: LocalTime?): String? = value?.toString()
-
-    @TypeConverter
-    fun stringToLocalTime(value: String?): LocalTime? =
-            if (value.isNullOrBlank()) null else LocalTime.parse(value)
+    override fun objectFromString(value: String): LocalTime? = LocalTime.parse(value)
 }

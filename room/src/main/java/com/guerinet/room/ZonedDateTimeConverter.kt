@@ -16,7 +16,6 @@
 
 package com.guerinet.room
 
-import androidx.room.TypeConverter
 import org.threeten.bp.ZonedDateTime
 
 /**
@@ -24,13 +23,7 @@ import org.threeten.bp.ZonedDateTime
  * @author Julien Guerinet
  * @since 4.0.0
  */
-class ZonedDateTimeConverter {
+class ZonedDateTimeConverter : BaseConverter<ZonedDateTime>() {
 
-    @TypeConverter
-    fun zonedDateTimeToString(value: ZonedDateTime?): String? = value?.toString()
-
-    @TypeConverter
-    fun stringToZonedDateTime(value: String?): ZonedDateTime? =
-            if (value.isNullOrBlank()) null else ZonedDateTime.parse(value)
-
+    override fun objectFromString(value: String): ZonedDateTime? = ZonedDateTime.parse(value)
 }

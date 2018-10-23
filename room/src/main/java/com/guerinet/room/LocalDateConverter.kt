@@ -16,7 +16,6 @@
 
 package com.guerinet.room
 
-import androidx.room.TypeConverter
 import org.threeten.bp.LocalDate
 
 /**
@@ -24,12 +23,7 @@ import org.threeten.bp.LocalDate
  * @author Julien Guerinet
  * @since 4.0.0
  */
-class LocalDateConverter {
+class LocalDateConverter : BaseConverter<LocalDate>() {
 
-    @TypeConverter
-    fun localDateToString(value: LocalDate?): String? = value?.toString()
-
-    @TypeConverter
-    fun stringToLocalDate(value: String?): LocalDate? =
-            if (value.isNullOrBlank()) null else LocalDate.parse(value)
+    override fun objectFromString(value: String): LocalDate? = LocalDate.parse(value)
 }
