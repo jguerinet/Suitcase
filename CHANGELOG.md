@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 4.2.1 (2018-10-25)
+
+-   `room`: 
+    -   Moved the `Dao`s and the `TypeConverter`s to separate packages
+    -   Added the `BaseUpdateDao` and the `BaseInsertDao` if you just need one subcategory of default methods
+    -   Changed the conflict strategy of the `INSERT` functions to be `REPLACE` 
+
 ## Version 4.2.0 (2018-10-23)
 
 -   `room`: 
