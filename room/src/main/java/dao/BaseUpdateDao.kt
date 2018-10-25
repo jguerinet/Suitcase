@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.room
+package com.guerinet.room.dao
 
 import androidx.room.Update
 

@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.room
+package com.guerinet.room.converter
 
 import androidx.room.TypeConverter
 

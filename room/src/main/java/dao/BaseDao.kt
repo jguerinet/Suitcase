@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.room
+package com.guerinet.room.dao
 
 /**
  * Basic Dao with INSERT and UPDATE functions for one model

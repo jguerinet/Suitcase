@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.room
+package com.guerinet.room.converter
 
 /**
  * Converts a List of Strings to a CSV and vice-versa for Room
