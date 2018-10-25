@@ -16,9 +16,24 @@
 
 package com.guerinet.room
 
+import androidx.room.Insert
+
 /**
- * Basic Dao with INSERT and UPDATE functions for one model
+ * Basic Dao INSERT functions for one model
  * @author Julien Guerinet
- * @since 4.2.0
+ * @since 4.2.1
  */
-interface BaseDao<T> : BaseInsertDao<T>, BaseUpdateDao<T>
+interface BaseInsertDao<T> {
+
+    /**
+     * Inserts 1 [obj] into the database
+     */
+    @Insert
+    fun insert(obj: T)
+
+    /**
+     * Inserts a list of [objects] into the database
+     */
+    @Insert
+    fun insert(objects: List<T>)
+}
