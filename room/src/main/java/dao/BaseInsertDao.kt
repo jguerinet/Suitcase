@@ -17,6 +17,7 @@
 package com.guerinet.room.dao
 
 import androidx.room.Insert
+import androidx.room.OnConflictStrategy
 
 /**
  * Basic Dao INSERT functions for one model
@@ -28,12 +29,12 @@ interface BaseInsertDao<T> {
     /**
      * Inserts 1 [obj] into the database
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(obj: T)
 
     /**
      * Inserts a list of [objects] into the database
      */
-    @Insert
+    @Insert(onConflict = OnConflictStrategy.REPLACE)
     fun insert(objects: List<T>)
 }
