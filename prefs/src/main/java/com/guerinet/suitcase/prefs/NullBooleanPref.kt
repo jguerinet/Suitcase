@@ -24,7 +24,7 @@ import android.content.SharedPreferences
  * @since 2.6.0
  */
 open class NullBooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean?) :
-        BasePref<Boolean?>(prefs, key, defaultValue) {
+    BasePref<Boolean?>(prefs, key, defaultValue) {
 
     override var value: Boolean?
         get() {

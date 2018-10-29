@@ -24,7 +24,7 @@ import android.content.SharedPreferences
  * @since 2.0.0
  */
 open class NullIntPref(prefs: SharedPreferences, key: String, defaultValue: Int?) :
-        BasePref<Int?>(prefs, key, defaultValue) {
+    BasePref<Int?>(prefs, key, defaultValue) {
 
     override var value: Int?
         get() {

@@ -24,7 +24,7 @@ import android.content.SharedPreferences
  * @since 2.0.0
  */
 open class BooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean) :
-        BasePref<Boolean>(prefs, key, defaultValue) {
+    BasePref<Boolean>(prefs, key, defaultValue) {
 
     override var value: Boolean
         get() = prefs.getBoolean(key, defaultValue)

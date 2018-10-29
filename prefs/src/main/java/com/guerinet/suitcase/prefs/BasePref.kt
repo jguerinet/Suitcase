@@ -23,8 +23,10 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.0.0
  */
-abstract class BasePref<T>(protected val prefs: SharedPreferences, protected val key: String,
-        protected val defaultValue: T) {
+abstract class BasePref<T>(
+    protected val prefs: SharedPreferences, protected val key: String,
+    protected val defaultValue: T
+) {
 
     /**
      * Backing property for getting and setting this pref

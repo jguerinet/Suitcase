@@ -24,7 +24,7 @@ import android.content.SharedPreferences
  * @since 2.0.0
  */
 open class StringPref(prefs: SharedPreferences, key: String, defaultValue: String) :
-        BasePref<String>(prefs, key, defaultValue) {
+    BasePref<String>(prefs, key, defaultValue) {
 
     override var value: String
         get() = prefs.getString(key, defaultValue) ?: error("Impossible")
