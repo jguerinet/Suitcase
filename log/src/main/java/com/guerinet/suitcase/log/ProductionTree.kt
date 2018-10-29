@@ -32,7 +32,7 @@ abstract class ProductionTree : Timber.Tree() {
             return
         }
 
-        log(tag, message)
+        log(priority, tag, message)
 
         if (t != null) {
             // Log the throwable if there is one
@@ -41,9 +41,9 @@ abstract class ProductionTree : Timber.Tree() {
     }
 
     /**
-     * Called when there is a [tag] and a [message] to log
+     * Called when there is a [priority], [tag] and a [message] to log
      */
-    protected abstract fun log(tag: String?, message: String)
+    protected abstract fun log(priority: Int, tag: String?, message: String)
 
     /**
      * Called when there is a [Throwable] [t] to log
