@@ -54,8 +54,8 @@ open class GAManager(context: Context, @XmlRes config: Int) {
         }
 
         val builder = HitBuilders.EventBuilder()
-                .setCategory(category)
-                .setAction(action)
+            .setCategory(category)
+            .setAction(action)
 
         label?.apply { builder.setLabel(this) }
 
