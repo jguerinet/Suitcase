@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.3.1 (2018-10-29)
+
+-   `log`: 
+    -   Added the logging of the `priority`
+
 ## Version 4.3.0 (2018-10-29)
 
 -   Updated to Kotlin 1.3
