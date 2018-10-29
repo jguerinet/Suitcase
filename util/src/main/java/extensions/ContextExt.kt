@@ -93,8 +93,10 @@ fun Context.openUrl(url: String) {
  *  Optionally sets the [toolbarColor] (it's a light grey if none supplied) and uses the Drawable
  *  [closeButtonId] to set a custom close button (it's a black cross if none supplied)
  */
-fun Context.openCustomTab(url: String, @ColorRes toolbarColor: Int? = null,
-        @DrawableRes closeButtonId: Int? = null) {
+fun Context.openCustomTab(
+    url: String, @ColorRes toolbarColor: Int? = null,
+    @DrawableRes closeButtonId: Int? = null
+) {
     // Check that the scheme is present, add it if not
     val fullUrl = if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
         "http://$url"
@@ -103,7 +105,7 @@ fun Context.openCustomTab(url: String, @ColorRes toolbarColor: Int? = null,
     }
 
     val builder = CustomTabsIntent.Builder()
-            .addDefaultShareMenuItem()
+        .addDefaultShareMenuItem()
 
     if (toolbarColor != null) {
         // Set the custom toolbar color if there is one
@@ -133,8 +135,8 @@ fun Context.openPdf(path: Uri) {
     if (list.isNotEmpty()) {
         // If there is one, use it
         val intent = Intent(Intent.ACTION_VIEW)
-                .setDataAndType(path, "application/pdf")
-                .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_GRANT_READ_URI_PERMISSION)
+            .setDataAndType(path, "application/pdf")
+            .setFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP or Intent.FLAG_GRANT_READ_URI_PERMISSION)
         startActivity(intent)
     } else {
         // If not, throw the exception
@@ -176,7 +178,7 @@ fun Context.getAttributeResourceId(attributeId: Int): Int {
  * Returns the resource Id of the given [type] for the given [id] name
  */
 fun Context.getResourceId(type: String, id: String): Int =
-        resources.getIdentifier(id, type, packageName)
+    resources.getIdentifier(id, type, packageName)
 
 /**
  * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
@@ -200,7 +202,7 @@ fun Context.getFile(isFolder: Boolean, name: String, type: String? = null): File
  * Returns true if the given [permission] is granted
  */
 fun Context.isPermissionGranted(permission: String): Boolean =
-        ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
+    ContextCompat.checkSelfPermission(this, permission) == PackageManager.PERMISSION_GRANTED
 
 /**
  * True if the device is connected to the internet, false otherwise

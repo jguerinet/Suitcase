@@ -30,9 +30,10 @@ import android.content.SharedPreferences
  * @param versionPrefName       Name of the pref where the stored version is stored
  *                              (defaults to "version")
  */
-open class BaseUpdateManager(private val prefs: SharedPreferences,
-        private val currentVersionCode: Int,
-        private val versionPrefName: String = "version"
+open class BaseUpdateManager(
+    private val prefs: SharedPreferences,
+    private val currentVersionCode: Int,
+    private val versionPrefName: String = "version"
 ) {
 
     /** Stored version code, [FIRST_OPEN] if none stored */
@@ -56,16 +57,16 @@ open class BaseUpdateManager(private val prefs: SharedPreferences,
         if (storedCode < currentVersionCode) {
             // Stored code is smaller than current version code: app has updated
             migrations
-                    // Sort the migrations (in case they were given unsorted)
-                    .sortedWith(Comparator { o1, o2 -> o1.versionCode - o2.versionCode })
-                    .forEach {
-                        if (it.versionCode < storedCode) {
-                            // If the migration version code is older than the stored code, continue
-                            return@forEach
-                        }
-                        // Run the block, update the stored code with what is returned
-                        storedCode = it.block(it.versionCode)
+                // Sort the migrations (in case they were given unsorted)
+                .sortedWith(Comparator { o1, o2 -> o1.versionCode - o2.versionCode })
+                .forEach {
+                    if (it.versionCode < storedCode) {
+                        // If the migration version code is older than the stored code, continue
+                        return@forEach
                     }
+                    // Run the block, update the stored code with what is returned
+                    storedCode = it.block(it.versionCode)
+                }
         }
 
         // Store the new version code

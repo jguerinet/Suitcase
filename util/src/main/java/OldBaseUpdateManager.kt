@@ -32,9 +32,10 @@ import android.content.SharedPreferences
  * @param versionPrefName       Name of the pref where the stored version is stored
  *                              (defaults to "version")
  */
-abstract class OldBaseUpdateManager(private val prefs: SharedPreferences,
-        private val currentVersionCode: Int,
-        private val versionPrefName: String = "version"
+abstract class OldBaseUpdateManager(
+    private val prefs: SharedPreferences,
+    private val currentVersionCode: Int,
+    private val versionPrefName: String = "version"
 ) {
 
     /**
