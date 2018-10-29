@@ -41,7 +41,7 @@ abstract class BaseListConverter<T>(private val delimiter: String = ",") {
      */
     @TypeConverter
     open fun fromString(value: String?): List<T>? = if (value.isNullOrEmpty()) null else
-        value?.split(delimiter)?.map { objectFromString(it) }
+        value.split(delimiter).map { objectFromString(it) }
 
     /**
      * Converts the [value] to a String. The default implementation is to call [toString]
