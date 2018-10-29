@@ -33,7 +33,7 @@ import java.io.IOException
  * Returns a [BufferedSource] for a file with the given [fileId] within the raw folder
  */
 fun Context.sourceFromRaw(@RawRes fileId: Int): BufferedSource =
-        resources.openRawResource(fileId).source().buffer()
+    resources.openRawResource(fileId).source().buffer()
 
 /**
  * Attempts to read and return a String from a file with the given [fileId] within the raw folder.
