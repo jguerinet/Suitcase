@@ -41,8 +41,10 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
     drawables[position] = drawables[position].setTintCompat(color)
 
     // Set the drawables back
-    setCompoundDrawablesRelativeWithIntrinsicBounds(drawables[0], drawables[1], drawables[2],
-            drawables[3])
+    setCompoundDrawablesRelativeWithIntrinsicBounds(
+        drawables[0], drawables[1], drawables[2],
+        drawables[3]
+    )
 }
 
 /**
@@ -50,28 +52,32 @@ fun TextView.setDrawableTint(position: Int, @ColorInt color: Int) {
  *  0: Start, 1: Top, 2: End, 3: Bottom
  */
 fun TextView.setDrawableTintId(position: Int, @ColorRes colorId: Int) =
-        setDrawableTint(position, ContextCompat.getColor(context, colorId))
+    setDrawableTint(position, ContextCompat.getColor(context, colorId))
 
 /**
  * Sets the [start], [top], [end], and [bottom] drawables
  */
-fun TextView.setDrawables(start: Drawable? = compoundDrawablesRelative[0],
-        top: Drawable? = compoundDrawablesRelative[1],
-        end: Drawable? = compoundDrawablesRelative[2],
-        bottom: Drawable? = compoundDrawablesRelative[3]) =
-        setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
+fun TextView.setDrawables(
+    start: Drawable? = compoundDrawablesRelative[0],
+    top: Drawable? = compoundDrawablesRelative[1],
+    end: Drawable? = compoundDrawablesRelative[2],
+    bottom: Drawable? = compoundDrawablesRelative[3]
+) =
+    setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 
 /**
  * Sets the [start], [top], [end], and [bottom] drawable Ids (Warning: this will overwrite
  *  previously set drawables)
  */
-fun TextView.setDrawableIds(start: Int = 0,
-        top: Int = 0,
-        end: Int = 0,
-        bottom: Int = 0) = setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
+fun TextView.setDrawableIds(
+    start: Int = 0,
+    top: Int = 0,
+    end: Int = 0,
+    bottom: Int = 0
+) = setCompoundDrawablesRelativeWithIntrinsicBounds(start, top, end, bottom)
 
 /**
  * Changes the [TextView]'s text size by using the [textSizeId]
  */
 fun TextView.setTextSizeId(@DimenRes textSizeId: Int) =
-        setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))
+    setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))

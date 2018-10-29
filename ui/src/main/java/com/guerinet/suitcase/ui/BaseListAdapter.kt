@@ -32,9 +32,11 @@ import androidx.recyclerview.widget.RecyclerView
  * @param diffCallback  [DiffUtil.ItemCallback] to use for the [ListAdapter]
  * @param emptyView     [View] to show if the list is empty, null if none (defaults to null)
  */
-abstract class BaseListAdapter<T>(diffCallback: DiffUtil.ItemCallback<T>,
-                                  val emptyView: View? = null) :
-        ListAdapter<T, BaseListAdapter.BaseHolder<T>>(diffCallback) {
+abstract class BaseListAdapter<T>(
+    diffCallback: DiffUtil.ItemCallback<T>,
+    val emptyView: View? = null
+) :
+    ListAdapter<T, BaseListAdapter.BaseHolder<T>>(diffCallback) {
 
     override fun onBindViewHolder(holder: BaseHolder<T>, position: Int) {
         holder.bind(position, getItem(position))

@@ -16,6 +16,7 @@
 
 package com.guerinet.suitcase.ui
 
+import android.annotation.SuppressLint
 import android.content.Context
 import android.util.AttributeSet
 import android.view.MotionEvent
@@ -28,13 +29,14 @@ import androidx.viewpager.widget.ViewPager
  */
 open class NonSwipeableViewPager : ViewPager {
 
-    constructor(context: Context): super(context)
+    constructor(context: Context) : super(context)
 
-    constructor(context: Context, attrs: AttributeSet): super(context, attrs)
+    constructor(context: Context, attrs: AttributeSet) : super(context, attrs)
 
     // Do not register any touch events
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean = false
 
     // Do not register any touch events
+    @SuppressLint("ClickableViewAccessibility")
     override fun onTouchEvent(ev: MotionEvent?): Boolean = false
 }

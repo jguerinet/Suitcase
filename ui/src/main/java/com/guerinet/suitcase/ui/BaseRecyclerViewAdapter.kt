@@ -30,7 +30,7 @@ import androidx.recyclerview.widget.RecyclerView
  * @param emptyView [View] to show if the list is empty, null if none (defaults to null)
  */
 abstract class BaseRecyclerViewAdapter(val emptyView: View? = null) :
-        RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseHolder>() {
+    RecyclerView.Adapter<BaseRecyclerViewAdapter.BaseHolder>() {
 
     override fun onBindViewHolder(holder: BaseHolder, position: Int) {
         holder.bind(position)

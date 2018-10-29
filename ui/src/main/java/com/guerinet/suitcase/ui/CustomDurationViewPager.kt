@@ -28,7 +28,7 @@ import androidx.viewpager.widget.ViewPager
  * @since 2.0.0
  */
 open class CustomDurationViewPager : ViewPager {
-    private var scroller : CustomDurationScroller? = null
+    private var scroller: CustomDurationScroller? = null
 
     init {
         try {
@@ -43,7 +43,8 @@ open class CustomDurationViewPager : ViewPager {
             scroller = CustomDurationScroller(context, interpolatorField.get(null) as Interpolator)
             @Suppress("LeakingThis")
             scrollerField.set(this, scroller)
-        } catch (ignored: Exception) {}
+        } catch (ignored: Exception) {
+        }
     }
 
     constructor(context: Context) : super(context)
@@ -59,11 +60,11 @@ open class CustomDurationViewPager : ViewPager {
     }
 
     private class CustomDurationScroller(context: Context, interpolator: Interpolator) :
-            Scroller(context, interpolator) {
+        Scroller(context, interpolator) {
         /**
          * Factor by which we are slowing down or speeding up the scrolling. Default is 1
          */
-        internal var scrollFactor : Double = 1.0
+        internal var scrollFactor: Double = 1.0
 
         override fun startScroll(startX: Int, startY: Int, dx: Int, dy: Int, duration: Int) {
             super.startScroll(startX, startY, dx, dy, (duration * scrollFactor).toInt())
