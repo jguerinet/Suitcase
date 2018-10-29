@@ -33,7 +33,7 @@ abstract class BaseListConverter<T>(private val delimiter: String = ",") {
      */
     @TypeConverter
     open fun toString(value: List<T>?): String? =
-            value?.joinToString(delimiter) { objectToString(it) }
+        value?.joinToString(delimiter) { objectToString(it) }
 
     /**
      * Default implementation of [fromString] is to split the [value] by the [delimiter] and call

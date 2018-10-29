@@ -38,8 +38,7 @@ abstract class BaseConverter<T> {
      */
     @TypeConverter
     open fun fromString(value: String?): T? =
-    // Note: The !! can be removed with Kotlin 1.3
-            if (value.isNullOrEmpty()) null else objectFromString(value)
+        if (value.isNullOrEmpty()) null else objectFromString(value)
 
     /**
      * Converts the [value] to a [T]
