@@ -26,7 +26,7 @@ import org.threeten.bp.ZonedDateTime
  * @since 2.0.0
  */
 open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime?) :
-        NullStringPref(prefs, key, defaultValue?.toString()) {
+    NullStringPref(prefs, key, defaultValue?.toString()) {
 
     open var date: ZonedDateTime?
         get() = super.value?.run { ZonedDateTime.parse(this) }

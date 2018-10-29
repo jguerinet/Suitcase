@@ -33,32 +33,32 @@ import java.util.*
  *  null if the [TemporalAccessor] was null
  */
 fun TemporalAccessor?.getShortDateString(locale: Locale = Locale.getDefault()): String? =
-        this?.run { Format.shortDateFormatter.withLocale(locale).format(this) }
+    this?.run { Format.shortDateFormatter.withLocale(locale).format(this) }
 
 /**
  * Returns localized medium date String (ex: Jan 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
 fun TemporalAccessor?.getMediumDateString(locale: Locale = Locale.getDefault()): String? =
-        this?.run { Format.mediumDateFormatter.withLocale(locale).format(this) }
+    this?.run { Format.mediumDateFormatter.withLocale(locale).format(this) }
 
 /**
  * Returns localized long date String (ex: January 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
 fun TemporalAccessor?.getLongDateString(locale: Locale = Locale.getDefault()): String? =
-        this?.run { Format.longDateFormatter.withLocale(locale).format(this) }
+    this?.run { Format.longDateFormatter.withLocale(locale).format(this) }
 
 /**
  * Returns localized full date String (ex: Monday, January 1, 2000) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
 fun TemporalAccessor?.getFullDateString(locale: Locale = Locale.getDefault()): String? =
-        this?.run { Format.fullDateFormatter.withLocale(locale).format(this) }
+    this?.run { Format.fullDateFormatter.withLocale(locale).format(this) }
 
 /**
  * Returns localized short time String (ex: 3:30PM) of the [TemporalAccessor],
  *  null if the [TemporalAccessor] was null
  */
 fun TemporalAccessor?.getShortTimeString(locale: Locale = Locale.getDefault()): String? =
-        this?.run { Format.shortTimeFormatter.withLocale(locale).format(this) }
+    this?.run { Format.shortTimeFormatter.withLocale(locale).format(this) }

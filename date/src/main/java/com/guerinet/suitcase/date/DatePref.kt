@@ -26,7 +26,7 @@ import org.threeten.bp.ZonedDateTime
  * @since 2.0.0
  */
 open class DatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime) :
-        StringPref(prefs, key, defaultValue.toString()) {
+    StringPref(prefs, key, defaultValue.toString()) {
 
     open var date: ZonedDateTime
         get() = ZonedDateTime.parse(value)

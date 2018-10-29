@@ -26,7 +26,7 @@ import org.threeten.bp.LocalDate
  * @since 2.0.0
  */
 open class LocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate) :
-        StringPref(prefs, key, defaultValue.toString()) {
+    StringPref(prefs, key, defaultValue.toString()) {
 
     /**
      * Backing date property for getting and setting this pref

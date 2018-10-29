@@ -26,7 +26,7 @@ import org.threeten.bp.LocalDate
  * @since 2.0.0
  */
 open class NullLocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate?) :
-        NullStringPref(prefs, key, defaultValue?.toString()) {
+    NullStringPref(prefs, key, defaultValue?.toString()) {
 
     /**
      * Backing date property for getting and setting this pref

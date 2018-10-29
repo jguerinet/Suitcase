@@ -56,8 +56,10 @@ val ZonedDateTime?.rfc1123String: String?
  */
 operator fun ZonedDateTime.rangeTo(other: ZonedDateTime) = ZonedDateProgression(this, other)
 
-class ZonedDateIterator(startDate: ZonedDateTime, val endDateInclusive: ZonedDateTime,
-                   val stepDays: Long) : Iterator<ZonedDateTime> {
+class ZonedDateIterator(
+    startDate: ZonedDateTime, val endDateInclusive: ZonedDateTime,
+    val stepDays: Long
+) : Iterator<ZonedDateTime> {
 
     private var currentDate = startDate
 
@@ -70,13 +72,15 @@ class ZonedDateIterator(startDate: ZonedDateTime, val endDateInclusive: ZonedDat
     }
 }
 
-class ZonedDateProgression(override val start: ZonedDateTime,
-                           override val endInclusive: ZonedDateTime,
-                           val stepDays: Long = 1) :
-        Iterable<ZonedDateTime>, ClosedRange<ZonedDateTime> {
+class ZonedDateProgression(
+    override val start: ZonedDateTime,
+    override val endInclusive: ZonedDateTime,
+    val stepDays: Long = 1
+) :
+    Iterable<ZonedDateTime>, ClosedRange<ZonedDateTime> {
 
     override fun iterator(): Iterator<ZonedDateTime> =
-            ZonedDateIterator(start, endInclusive, stepDays)
+        ZonedDateIterator(start, endInclusive, stepDays)
 
     infix fun step(days: Long) = ZonedDateProgression(start, endInclusive, days)
 }
