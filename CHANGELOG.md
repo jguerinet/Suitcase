@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.3.0 (2018-10-29)
+
+-   Updated to Kotlin 1.3
+-   Changed min SDK version to 21
+
 ## Version 4.2.1 (2018-10-25)
 
 -   `room`: 
