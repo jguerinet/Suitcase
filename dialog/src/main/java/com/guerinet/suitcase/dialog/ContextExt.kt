@@ -33,24 +33,28 @@ import com.afollestad.materialdialogs.MaterialDialog
  * Displays and returns a dialog with one button. This dialog can have a [title], a [message],
  *  a [button] text (defaults to the Android OK), and a button [listener].
  */
-fun Context.neutralDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
-        @StringRes button: Int = android.R.string.ok,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
+fun Context.neutralDialog(
+    @StringRes title: Int = 0, @StringRes message: Int = 0,
+    @StringRes button: Int = android.R.string.ok,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+): MaterialDialog {
     return build(title, message, listener)
-            .neutralText(button)
-            .show()
+        .neutralText(button)
+        .show()
 }
 
 /**
  * Displays and returns a dialog with one button. This dialog can have a [title], a [message],
  *  a [button] text (defaults to the Android OK), and a button [listener]
  */
-fun Context.neutralDialog(@StringRes title: Int = 0, message: String? = null,
-        @StringRes button: Int = android.R.string.ok,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
+fun Context.neutralDialog(
+    @StringRes title: Int = 0, message: String? = null,
+    @StringRes button: Int = android.R.string.ok,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+): MaterialDialog {
     return build(title, message, listener)
-            .neutralText(button)
-            .show()
+        .neutralText(button)
+        .show()
 }
 
 /* ALERT DIALOGS */
@@ -60,14 +64,16 @@ fun Context.neutralDialog(@StringRes title: Int = 0, message: String? = null,
  *  and [negativeText] (defaults to the Android Cancel). This dialog can have a [title],
  *  a [message], and a [listener] for both buttons.
  */
-fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
-        @StringRes positiveText: Int = android.R.string.ok,
-        @StringRes negativeText: Int = android.R.string.cancel,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
+fun Context.alertDialog(
+    @StringRes title: Int = 0, @StringRes message: Int = 0,
+    @StringRes positiveText: Int = android.R.string.ok,
+    @StringRes negativeText: Int = android.R.string.cancel,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+): MaterialDialog {
     return build(title, message, listener)
-            .positiveText(positiveText)
-            .negativeText(negativeText)
-            .show()
+        .positiveText(positiveText)
+        .negativeText(negativeText)
+        .show()
 }
 
 /**
@@ -75,14 +81,16 @@ fun Context.alertDialog(@StringRes title: Int = 0, @StringRes message: Int = 0,
  *  and [negativeText] (defaults to the Android Cancel). This dialog can have a [title],
  *  a [message], and a [listener] for both buttons.
  */
-fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
-        @StringRes positiveText: Int = android.R.string.ok,
-        @StringRes negativeText: Int = android.R.string.cancel,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null): MaterialDialog {
+fun Context.alertDialog(
+    @StringRes title: Int = 0, message: String? = null,
+    @StringRes positiveText: Int = android.R.string.ok,
+    @StringRes negativeText: Int = android.R.string.cancel,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+): MaterialDialog {
     return build(title, message, listener)
-            .positiveText(positiveText)
-            .negativeText(negativeText)
-            .show()
+        .positiveText(positiveText)
+        .negativeText(negativeText)
+        .show()
 }
 
 /* LISTS DIALOGS */
@@ -93,11 +101,13 @@ fun Context.alertDialog(@StringRes title: Int = 0, message: String? = null,
  *  A [currentChoice] can be given (-1 if none, defaults to -1). When a choice is selected,
  *  [onChoiceSelected] is called
  */
-fun Context.singleListDialog(choices: Array<String>, @StringRes title: Int = -1,
-        currentChoice: Int = -1, showRadioButtons: Boolean = true,
-        onChoiceSelected: (position: Int) -> Unit): MaterialDialog {
+fun Context.singleListDialog(
+    choices: Array<String>, @StringRes title: Int = -1,
+    currentChoice: Int = -1, showRadioButtons: Boolean = true,
+    onChoiceSelected: (position: Int) -> Unit
+): MaterialDialog {
     val builder = build(title)
-            .items(*choices)
+        .items(*choices)
 
     if (showRadioButtons) {
         builder.itemsCallbackSingleChoice(currentChoice) { _, _, which, _ ->
@@ -116,25 +126,29 @@ fun Context.singleListDialog(choices: Array<String>, @StringRes title: Int = -1,
  *  [selectedItems] can be given (defaults to an empty list). When the user has clicked on the
  *  button, [onChoicesSelected] is called with the list of selected choices.
  */
-fun Context.multiListDialog(choices: Array<String>, @StringRes title: Int = -1,
-        @StringRes button: Int = android.R.string.ok, selectedItems: Array<Int> = arrayOf(),
-        onChoicesSelected: (positions: Array<Int>) -> Unit): MaterialDialog {
+fun Context.multiListDialog(
+    choices: Array<String>, @StringRes title: Int = -1,
+    @StringRes button: Int = android.R.string.ok, selectedItems: Array<Int> = arrayOf(),
+    onChoicesSelected: (positions: Array<Int>) -> Unit
+): MaterialDialog {
     return build(title)
-            .items(*choices)
-            .itemsCallbackMultiChoice(selectedItems) { _, which, _ ->
-                onChoicesSelected(which)
-                true
-            }
-            .positiveText(button)
-            .show()
+        .items(*choices)
+        .itemsCallbackMultiChoice(selectedItems) { _, which, _ ->
+            onChoicesSelected(which)
+            true
+        }
+        .positiveText(button)
+        .show()
 }
 
 /**
  * Constructs and returns the base part of the builder by setting the [title] and [message],
  *  as well as the [listener] for the buttons
  */
-private fun Context.build(@StringRes title: Int, @StringRes message: Int = 0,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null):
+private fun Context.build(
+    @StringRes title: Int, @StringRes message: Int = 0,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+):
         MaterialDialog.Builder {
     val builder = MaterialDialog.Builder(this)
 
@@ -157,8 +171,10 @@ private fun Context.build(@StringRes title: Int, @StringRes message: Int = 0,
  * Constructs and returns the base part of the builder by setting the [title] and [message],
  *  as well as the [listener] for the buttons
  */
-private fun Context.build(@StringRes title: Int, message: String?,
-        listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null):
+private fun Context.build(
+    @StringRes title: Int, message: String?,
+    listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
+):
         MaterialDialog.Builder {
     val builder = build(title, listener = listener)
 
