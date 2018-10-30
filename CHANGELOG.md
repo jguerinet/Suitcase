@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.3.2 (2018-10-30)
+
+-   `log`: 
+    -   Added a logger for `Koin`
+
 ## Version 4.3.1 (2018-10-29)
 
 -   `log`: 
