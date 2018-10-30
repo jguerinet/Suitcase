@@ -30,7 +30,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // Lifecycle utility methods, uses the Android Lifecycle components
         implementation "com.guerinet.suitcase:lifecycle:${suitcase_version}"
 
-        // Logging utility methods and classes, uses Timber
+        // Logging utility methods and classes, uses Timber. Also a Logger for Koin, but Koin is explicitly needed as a dependency
         implementation "com.guerinet.suitcase:log:${suitcase_version}"
 
         // SharedPreferences utility methods and classes
@@ -51,6 +51,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)
 * [Okio](https://github.com/square/okio)
 * [Timber](https://github.com/JakeWharton/timber)
+* [Koin](https://github.com/InsertKoinIO/koin)
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
