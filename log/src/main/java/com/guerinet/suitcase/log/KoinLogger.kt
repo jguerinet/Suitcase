@@ -14,7 +14,22 @@
  * limitations under the License.
  */
 
-dependencies {
-    api "com.jakewharton.timber:timber:4.7.1"
-    compileOnly "org.koin:koin-core:1.0.1"
+package com.guerinet.suitcase.log
+
+import org.koin.log.Logger
+import timber.log.Timber
+
+/**
+ * Default logger to use for Koin
+ * @author Julien Guerinet
+ * @since 4.3.2
+ */
+class KoinLogger : Logger {
+
+    override fun debug(msg: String) = Timber.tag("Koin").v(msg)
+
+    override fun err(msg: String) = Timber.tag("Koin").e(msg)
+
+    override fun info(msg: String) = Timber.tag("Koin").d(msg)
+
 }
