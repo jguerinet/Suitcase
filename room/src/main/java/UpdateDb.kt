@@ -26,7 +26,7 @@ import com.guerinet.room.converter.ZonedDateTimeConverter
 /**
  * Database to store all [AppUpdate]s
  * @author Julien Guerinet
- * @since 4.3.0
+ * @since 4.4.0
  */
 @Database(exportSchema = false, entities = [AppUpdate::class], version = 1)
 @TypeConverters(ZonedDateTimeConverter::class)

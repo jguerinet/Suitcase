@@ -22,7 +22,7 @@ import androidx.room.Query
 /**
  * Dao to retrieve the [AppUpdate]s
  * @author Julien Guerinet
- * @since 4.3.0
+ * @since 4.4.0
  */
 @Dao
 interface UpdateDao {

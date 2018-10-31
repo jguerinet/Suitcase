@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.4.0 (2018-10-31)
+
+-   `room`: 
+    -   Added the `AppUpdate` class and its Db/Dao to keep track of when the app is updated
+
 ## Version 4.3.2 (2018-10-30)
 
 -   `log`: 
