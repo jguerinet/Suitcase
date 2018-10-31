@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 4.4.1 (2018-10-31)
+
+-   `room`: 
+    -   Added `TypeConverter`s for `MutableList<T>`, with convenience converters for String and Int
+    -   Added convenience method to log an `AppUpdate` based on its name and code
+
 ## Version 4.4.0 (2018-10-31)
 
 -   `room`: 
