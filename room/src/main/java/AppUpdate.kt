@@ -33,9 +33,15 @@ import org.threeten.bp.ZonedDateTime
 data class AppUpdate(
     val version: String,
     val timestamp: ZonedDateTime = ZonedDateTime.now(),
-    @PrimaryKey(autoGenerate = true) val id: Int
+    @PrimaryKey(autoGenerate = true) val id: Int = 0
 ) {
     companion object {
+
+        /**
+         * Saves an [AppUpdate] with the [name] and [code] to the Db using the [updateDao]
+         */
+        fun log(updateDao: UpdateDao, name: String, code: Int) =
+            updateDao.insert(AppUpdate(getVersion(name, code)))
 
         /**
          * Returns the version String to use for the app [name] and [code]

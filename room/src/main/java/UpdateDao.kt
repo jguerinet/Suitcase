@@ -18,6 +18,7 @@ package com.guerinet.room
 
 import androidx.room.Dao
 import androidx.room.Query
+import com.guerinet.room.dao.BaseInsertDao
 
 /**
  * Dao to retrieve the [AppUpdate]s
@@ -25,7 +26,7 @@ import androidx.room.Query
  * @since 4.4.0
  */
 @Dao
-interface UpdateDao {
+interface UpdateDao : BaseInsertDao<AppUpdate> {
 
     /**
      * Returns all of the [AppUpdate]s
