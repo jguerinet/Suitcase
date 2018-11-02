@@ -22,6 +22,7 @@ import androidx.annotation.RawRes
 import androidx.core.content.FileProvider
 import okio.BufferedSource
 import okio.buffer
+import okio.sink
 import okio.source
 import java.io.File
 import java.io.IOException
@@ -65,11 +66,29 @@ fun Context.getUriForFile(applicationId: String, file: File): Uri =
     FileProvider.getUriForFile(this, "$applicationId.fileProvider", file)
 
 /**
- * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
- *  does not have a specific type, defaults to null).
- *  This will create the file/folder if it doesn't exist already.
+ * Returns a newly created file with the [fileName] and [contents]
+ *  NOTE: This will delete a file with the given file name if it already exists
  */
-fun Context.getFile(isFolder: Boolean, name: String, type: String? = null): File {
+private fun Context.createAndWriteFile(fileName: String, contents: String): File {
+    // Create the file with the logs
+    val file = File(getExternalFilesDir(null), fileName)
+
+    // If a copy already exists, delete it
+    if (file.exists()) {
+        file.delete()
+    }
+
+    // Write everything to the file
+    file.sink().buffer().writeUtf8(contents).flush()
+    return file
+}
+
+/**
+ * Returns a file (or folder if [isFolder] is true (defaults to false)) with the [name] and
+ *  [type] (null if it does not have a specific type, defaults to null).
+ *  NOTE: This will create the file/folder if it doesn't exist already.
+ */
+fun Context.getFile(name: String, isFolder: Boolean = false, type: String? = null): File {
     val file = File(getExternalFilesDir(type), name)
 
     if (!isFolder && !file.exists()) {
