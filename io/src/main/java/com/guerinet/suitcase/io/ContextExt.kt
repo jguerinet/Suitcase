@@ -21,6 +21,7 @@ import androidx.annotation.RawRes
 import okio.BufferedSource
 import okio.buffer
 import okio.source
+import java.io.File
 import java.io.IOException
 
 /**
@@ -41,3 +42,21 @@ fun Context.sourceFromRaw(@RawRes fileId: Int): BufferedSource =
  */
 @Throws(IOException::class)
 fun Context.stringFromRaw(@RawRes fileId: Int): String = sourceFromRaw(fileId).readUtf8()
+
+/**
+ * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
+ *  does not have a specific type, defaults to null).
+ *  This will create the file/folder if it doesn't exist already.
+ */
+fun Context.getFile(isFolder: Boolean, name: String, type: String? = null): File {
+    val file = File(getExternalFilesDir(type), name)
+
+    if (!isFolder && !file.exists()) {
+        // If it's supposed to be a file and it doesn't exist, create it
+        file.createNewFile()
+    } else if (isFolder && (!file.exists() || !file.isDirectory)) {
+        // If it's supposed to be a folder and it doesn't exist or isn't a folder, create it
+        file.mkdirs()
+    }
+    return file
+}
