@@ -52,7 +52,7 @@ fun Context.stringFromRaw(@RawRes fileId: Int): String = sourceFromRaw(fileId).r
  *
  *  Example:
  *      <provider
- *          android:name="android.support.v4.content.FileProvider"
+ *          android:name="androidx.core.content.FileProvider"
  *          android:authorities="${applicationId}.provider"
  *          android:exported="false"
  *          android:grantUriPermissions="true">
