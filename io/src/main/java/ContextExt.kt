@@ -69,7 +69,7 @@ fun Context.getUriForFile(applicationId: String, file: File): Uri =
  * Returns a newly created file with the [fileName] and [contents]
  *  NOTE: This will delete a file with the given file name if it already exists
  */
-private fun Context.createAndWriteFile(fileName: String, contents: String): File {
+fun Context.createAndWriteFile(fileName: String, contents: String): File {
     // Create the file with the logs
     val file = File(getExternalFilesDir(null), fileName)
 
