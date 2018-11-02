@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.5.2 (2018-11-02)
+
+-   `io`: 
+    -   Further bug fixes for v4.5.1, including a method name change for `getFileUri()`
+
 ## Version 4.5.1 (2018-11-02)
 
 -   `io`: 
