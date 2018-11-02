@@ -17,7 +17,9 @@
 package com.guerinet.suitcase.io
 
 import android.content.Context
+import android.net.Uri
 import androidx.annotation.RawRes
+import androidx.core.content.FileProvider
 import okio.BufferedSource
 import okio.buffer
 import okio.source
@@ -42,6 +44,25 @@ fun Context.sourceFromRaw(@RawRes fileId: Int): BufferedSource =
  */
 @Throws(IOException::class)
 fun Context.stringFromRaw(@RawRes fileId: Int): String = sourceFromRaw(fileId).readUtf8()
+
+/**
+ * Returns the [Uri] for the given file
+ *  NOTE: This assumes you have added a [FileProvider] within your manifest that is called "APPLICATION_ID.fileProvider"
+ *
+ *  Example:
+ *      <provider
+ *          android:name="android.support.v4.content.FileProvider"
+ *          android:authorities="${applicationId}.provider"
+ *          android:exported="false"
+ *          android:grantUriPermissions="true">
+ *          <meta-data
+ *              android:name="android.support.FILE_PROVIDER_PATHS"
+ *              android:resource="@xml/default_provider_paths"/>
+ *      </provider>
+ *  A provider path covering all external files is bundled in this library: default_provider_paths
+ */
+fun Context.getUriForFile(applicationId: String, file: File): Uri =
+    FileProvider.getUriForFile(this, "$applicationId.fileProvider", file)
 
 /**
  * Returns a file (or folder if [isFolder] is true) with the given [name] and [type] (null if it
