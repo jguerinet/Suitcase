@@ -1,5 +1,13 @@
 # Change Log
 
+## Version 4.5.0 (2018-11-02)
+
+-   `io`: 
+    -   Added `Context` extension to get the `Uri` for a file
+    -   Added `Context` extension to create and write contents to a file
+    -   Changed order of parameters on `getFile()`
+    -   Added a provider paths Xml to cover the default case
+
 ## Version 4.4.1 (2018-10-31)
 
 -   `room`: 
