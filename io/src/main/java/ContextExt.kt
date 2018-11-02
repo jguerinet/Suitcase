@@ -62,7 +62,7 @@ fun Context.stringFromRaw(@RawRes fileId: Int): String = sourceFromRaw(fileId).r
  *      </provider>
  *  A provider path covering all external files is bundled in this library: default_provider_paths
  */
-fun Context.getUriForFile(applicationId: String, file: File): Uri =
+fun Context.getFileUri(applicationId: String, file: File): Uri =
     FileProvider.getUriForFile(this, "$applicationId.fileProvider", file)
 
 /**
