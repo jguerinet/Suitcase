@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.5.1 (2018-11-02)
+
+-   `io`: 
+    -   Bug fix for v4.5.0
+
 ## Version 4.5.0 (2018-11-02)
 
 -   `io`: 
