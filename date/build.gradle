@@ -16,6 +16,6 @@
 
 dependencies {
     implementation project(':prefs')
-    implementation 'androidx.appcompat:appcompat:1.0.0'
+    implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
 }
