@@ -17,6 +17,7 @@
 package com.guerinet.suitcase.analytics
 
 import android.content.Context
+import androidx.core.os.bundleOf
 import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
@@ -30,3 +31,9 @@ import com.google.firebase.analytics.FirebaseAnalytics
  */
 @Suppress("NOTHING_TO_INLINE")
 inline fun Context.firebase() = lazy { FirebaseAnalytics.getInstance(this) }
+
+/**
+ * Logs the an event with the [name] and an optional set of [params] to attach
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) = logEvent(name, bundleOf(*params))
