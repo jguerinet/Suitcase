@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.6.0 (2018-11-20)
+
+-   `firebase-analytics`: 
+    -   New module, with useful extension functions to use Google Analytics for Firebase within your app
+
 ## Version 4.5.2 (2018-11-02)
 
 -   `io`: 
