@@ -78,7 +78,7 @@ subprojects {
         testImplementation "junit:junit:$junit_version"
     }
 
-    apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/kotlin-artifacts.gradle"
+    apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/android-kotlin-artifacts.gradle"
 }
 
 task clean(type: Delete) {
