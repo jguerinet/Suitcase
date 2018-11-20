@@ -16,6 +16,7 @@
 
 package com.guerinet.suitcase.analytics
 
+import android.app.Activity
 import android.content.Context
 import androidx.core.os.bundleOf
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -37,6 +38,12 @@ inline fun Context.firebase() = lazy { FirebaseAnalytics.getInstance(this) }
  */
 @Suppress("NOTHING_TO_INLINE")
 inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) = logEvent(name, bundleOf(*params))
+
+/**
+ * Sets the screen [name] for the [activity]
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun FirebaseAnalytics.screen(activity: Activity, name: String) = setCurrentScreen(activity, name, null)
 
 /**
  * Sets a list of user [properties] on this [FirebaseAnalytics] instance
