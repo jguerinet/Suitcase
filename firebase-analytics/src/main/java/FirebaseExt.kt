@@ -37,3 +37,10 @@ inline fun Context.firebase() = lazy { FirebaseAnalytics.getInstance(this) }
  */
 @Suppress("NOTHING_TO_INLINE")
 inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) = logEvent(name, bundleOf(*params))
+
+/**
+ * Sets a list of user [properties] on this [FirebaseAnalytics] instance
+ */
+@Suppress("NOTHING_TO_INLINE")
+inline fun FirebaseAnalytics.setUserProperties(vararg properties: Pair<String, String?>) =
+    properties.forEach { setUserProperty(it.first, it.second) }
