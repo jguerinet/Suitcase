@@ -24,6 +24,9 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // Dialog utility methods, uses Material Dialogs
         implementation "com.guerinet.suitcase:dialog:${suitcase_version}"
 
+        // Firebase analytics extension functions, uses Firebase
+        implementation "com.guerinet.suitcase:firebase-analytics:$suitcase_version"
+
         // I/O utility methods, uses Okio
         implementation "com.guerinet.suitcase:io:${suitcase_version}"
 
@@ -49,6 +52,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 * [Google Play Services](https://developers.google.com/android/guides/overview)
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)
+* [Firebase](https://firebase.google.com/docs/analytics/)
 * [Okio](https://github.com/square/okio)
 * [Timber](https://github.com/JakeWharton/timber)
 * [Koin](https://github.com/InsertKoinIO/koin)
