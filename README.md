@@ -16,37 +16,37 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	dependencies {
 
         // Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
-        implementation "com.guerinet.suitcase:analytics:${suitcase_version}"
+        implementation "com.guerinet.suitcase:analytics:$suitcase_version"
 
 	    // Date utility methods and classes, uses AndroidThreeTen
-	    implementation "com.guerinet.suitcase:date:${suitcase_version}"
+	    implementation "com.guerinet.suitcase:date:$suitcase_version"
 
         // Dialog utility methods, uses Material Dialogs
-        implementation "com.guerinet.suitcase:dialog:${suitcase_version}"
+        implementation "com.guerinet.suitcase:dialog:$suitcase_version"
 
         // Firebase analytics extension functions, uses Firebase
         implementation "com.guerinet.suitcase:firebase-analytics:$suitcase_version"
 
         // I/O utility methods, uses Okio
-        implementation "com.guerinet.suitcase:io:${suitcase_version}"
+        implementation "com.guerinet.suitcase:io:$suitcase_version"
 
         // Lifecycle utility methods, uses the Android Lifecycle components
-        implementation "com.guerinet.suitcase:lifecycle:${suitcase_version}"
+        implementation "com.guerinet.suitcase:lifecycle:$suitcase_version"
 
         // Logging utility methods and classes, uses Timber. Also a Logger for Koin, but Koin is explicitly needed as a dependency
-        implementation "com.guerinet.suitcase:log:${suitcase_version}"
+        implementation "com.guerinet.suitcase:log:$suitcase_version"
 
         // SharedPreferences utility methods and classes
-        implementation "com.guerinet.suitcase:prefs:${suitcase_version}"
+        implementation "com.guerinet.suitcase:prefs:$suitcase_version"
 
         // Room utility methods, uses Room
-        implementation "com.guerinet.suitcase:room:${suitcase_version}"
+        implementation "com.guerinet.suitcase:room:$suitcase_version"
 
         // UI utility methods and classes
-        implementation "com.guerinet.suitcase:ui:${suitcase_version}"
+        implementation "com.guerinet.suitcase:ui:$suitcase_version"
 
         // Basic utility methods and resources
-        implementation "com.guerinet.suitcase:util:${suitcase_version}"
+        implementation "com.guerinet.suitcase:util:$suitcase_version"
 	}
 
 * [Google Play Services](https://developers.google.com/android/guides/overview)
