@@ -14,4 +14,5 @@
  * limitations under the License.
  */
 
-include ':analytics', ':date', ':dialog', ':firebase-analytics', ':io', ':lifecycle', ':log', ':prefs', ':room', ':ui', ':util'
+dependencies {
+}
