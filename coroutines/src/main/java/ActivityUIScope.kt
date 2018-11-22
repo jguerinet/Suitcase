@@ -16,24 +16,26 @@
 
 package com.guerinet.suitcase.coroutines
 
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Job
-import kotlin.coroutines.CoroutineContext
+import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Lifecycle
+import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.OnLifecycleEvent
 
 /**
- * Coroutine scope tied to the Main Dispatcher
+ * A UIScope that binds itself to an Activity's lifecycle
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class UIScope : CoroutineScope {
-
-    private val job: Job by lazy { Job() }
-
-    override val coroutineContext: CoroutineContext
-        get() = job + uiDispatcher
+class ActivityUIScope : UIScope(), LifecycleObserver {
 
     /**
-     * Destroys this by cancelling the job
+     * Destroy's the [job] when the activity's onDestroy() is called
      */
-    fun destroy() = job.cancel()
+    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
+    fun onDestroy() = destroy()
 }
+
+/**
+ * Registers the [activityUIScope] to get the lifecycle events of this Activity. Should be called in onCreate()
+ */
+fun AppCompatActivity.registerActivityUIScope(activityUIScope: ActivityUIScope) = lifecycle.addObserver(activityUIScope)
