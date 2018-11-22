@@ -16,14 +16,15 @@
 
 package com.guerinet.suitcase.coroutines
 
-import androidx.lifecycle.ViewModel
+import android.app.Application
+import androidx.lifecycle.AndroidViewModel
 
 /**
- * A ViewModel with an attached [UIScope]
+ * An AndroidViewModel with an attached [UIScope]
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class ScopedViewModel : ViewModel() {
+open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(application) {
 
     protected val uiScope = UIScope()
 
@@ -31,4 +32,5 @@ open class ScopedViewModel : ViewModel() {
         super.onCleared()
         uiScope.destroy()
     }
+
 }
