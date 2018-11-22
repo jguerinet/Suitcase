@@ -27,17 +27,10 @@ import kotlin.coroutines.CoroutineContext
  */
 class UIScope : CoroutineScope {
 
-    private lateinit var job: Job
+    private val job: Job by lazy { Job() }
 
     override val coroutineContext: CoroutineContext
         get() = job + uiDispatcher
-
-    /**
-     * Initializes this by creating the Job
-     */
-    fun init() {
-        job = Job()
-    }
 
     /**
      * Destroys this by cancelling the job
