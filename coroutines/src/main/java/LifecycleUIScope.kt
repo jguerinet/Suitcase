@@ -16,17 +16,17 @@
 
 package com.guerinet.suitcase.coroutines
 
-import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.LifecycleObserver
+import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 
 /**
- * A UIScope that binds itself to an Activity's lifecycle
+ * A UIScope that binds itself to an LifecycleOwner's lifecycle
  * @author Julien Guerinet
  * @since 4.7.0
  */
-class ActivityUIScope : UIScope(), LifecycleObserver {
+class LifecycleUIScope : UIScope(), LifecycleObserver {
 
     /**
      * Destroy's the [job] when the activity's onDestroy() is called
@@ -36,6 +36,6 @@ class ActivityUIScope : UIScope(), LifecycleObserver {
 }
 
 /**
- * Registers the [activityUIScope] to get the lifecycle events of this Activity. Should be called in onCreate()
+ * Registers the [lifecycleUIScope] to get the lifecycle events of this Activity. Should be called in onCreate()
  */
-fun AppCompatActivity.registerActivityUIScope(activityUIScope: ActivityUIScope) = lifecycle.addObserver(activityUIScope)
+fun LifecycleOwner.registerActivityUIScope(lifecycleUIScope: LifecycleUIScope) = lifecycle.addObserver(lifecycleUIScope)
