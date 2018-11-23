@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.7.1 (2018-11-23)
+
+-   `coroutines`: 
+    -   Move the `bind()` method into the `LifeycleOwnerUIScope`
+
 ## Version 4.7.0 (2018-11-23)
 
 -   `coroutines`: 
