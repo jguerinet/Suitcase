@@ -29,13 +29,13 @@ import androidx.lifecycle.OnLifecycleEvent
 class LifecycleUIScope : UIScope(), LifecycleObserver {
 
     /**
+     * Binds this to a [lifecycleOwner]. Should be called in onCreate()
+     */
+    fun bind(lifecycleOwner: LifecycleOwner) = lifecycleOwner.lifecycle.addObserver(this)
+
+    /**
      * Destroy's the [job] when the activity's onDestroy() is called
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
     fun onDestroy() = destroy()
 }
-
-/**
- * Registers the [lifecycleUIScope] to get the lifecycle events of this Activity. Should be called in onCreate()
- */
-fun LifecycleOwner.registerActivityUIScope(lifecycleUIScope: LifecycleUIScope) = lifecycle.addObserver(lifecycleUIScope)
