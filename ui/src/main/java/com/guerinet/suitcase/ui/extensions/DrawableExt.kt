@@ -34,7 +34,7 @@ fun Drawable.setTintCompat(@ColorInt color: Int): Drawable {
     val wrappedDrawable = DrawableCompat.wrap(this).mutate()
 
     // Tint the Drawable and return it
-    DrawableCompat.setTint(wrappedDrawable, color)
+    wrappedDrawable.setTint(color)
 
     return wrappedDrawable
 }
