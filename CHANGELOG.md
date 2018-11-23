@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.7.2 (2018-11-23)
+
+-   `coroutines`: 
+    -   Fix the coroutine dependency used (Android specific)
+
 ## Version 4.7.1 (2018-11-23)
 
 -   `coroutines`: 
