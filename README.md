@@ -18,6 +18,9 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
         implementation "com.guerinet.suitcase:analytics:$suitcase_version"
 
+        // Coroutines extension functions and models, uses Kotlin Coroutines
+        implementation "com.guerinet.suitcase:coroutines:$suitcase_version"
+
 	    // Date utility methods and classes, uses AndroidThreeTen
 	    implementation "com.guerinet.suitcase:date:$suitcase_version"
 
@@ -50,6 +53,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 	}
 
 * [Google Play Services](https://developers.google.com/android/guides/overview)
+* [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)
 * [Firebase](https://firebase.google.com/docs/analytics/)
