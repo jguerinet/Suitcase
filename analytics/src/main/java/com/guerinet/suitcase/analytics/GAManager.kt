@@ -32,6 +32,7 @@ import com.google.android.gms.analytics.Tracker
  * @param context  App context
  * @param config   Xml file used to configure the tracker
  */
+@Deprecated("Google Analytics for Android has been deprecated, please switch to Firebase")
 open class GAManager(context: Context, @XmlRes config: Int) {
 
     @SuppressLint("MissingPermission")
