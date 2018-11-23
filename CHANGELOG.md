@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.7.0 (2018-11-23)
+
+-   `coroutines`: 
+    -   New module, with useful extension functions and classes to use with Kotlin coroutines 
+
 ## Version 4.6.0 (2018-11-20)
 
 -   `firebase-analytics`: 
