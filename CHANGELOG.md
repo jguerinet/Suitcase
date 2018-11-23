@@ -4,6 +4,8 @@
 
 -   `coroutines`: 
     -   Move the `bind()` method into the `LifeycleOwnerUIScope`
+-   `util`: 
+    -   Add explicit `ActivityNotFoundException` throwing for when opening a url or custom tab
 
 ## Version 4.7.0 (2018-11-23)
 
