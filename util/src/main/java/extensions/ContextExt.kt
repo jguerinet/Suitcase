@@ -204,7 +204,7 @@ fun Context.wrapWithLanguage(language: String): ContextWrapper {
 
     configuration.setLocale(locale)
 
-    if (Device.isAtLeastNougat()) {
+    if (Device.isApiLevel(24)) {
         val localeList = LocaleList(locale)
         LocaleList.setDefault(localeList)
         configuration.locales = localeList

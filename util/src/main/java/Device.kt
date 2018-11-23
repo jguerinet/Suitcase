@@ -26,38 +26,19 @@ import android.os.Build
 object Device {
 
     /**
-     * @return True if the OS is Nougat or higher, false otherwise
+     * Returns true if the device is at least the api [level], false otherwise
      */
     @JvmStatic
-    fun isAtLeastNougat(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.N
-    }
+    fun isApiLevel(level: Int) = Build.VERSION.SDK_INT >= level
 
-    /**
-     * @return True if the OS is Marshmallow or higher, false otherwise
-     */
+    /** Device manufacturer and model */
     @JvmStatic
-    fun isAtLeastMarshmallow(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.M
-    }
-
-    /**
-     * @return True if the OS is Lollipop or higher, false otherwise
-     */
-    @JvmStatic
-    fun isAtLeastLollipop(): Boolean {
-        return Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP
-    }
-
-    /**
-     * @return Device manufacturer and model
-     */
-    @JvmStatic
-    fun model(): String {
-        var model = Build.MODEL
-        if (!model.startsWith(Build.MANUFACTURER, true)) {
-            model = "${Build.MANUFACTURER} $model"
+    val model: String
+        get() {
+            var model = Build.MODEL
+            if (!model.startsWith(Build.MANUFACTURER, true)) {
+                model = "${Build.MANUFACTURER} $model"
+            }
+            return model
         }
-        return model
-    }
 }
