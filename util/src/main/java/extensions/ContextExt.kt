@@ -77,6 +77,7 @@ fun Context.getColorCompat(@ColorRes color: Int) = ContextCompat.getColor(this, 
 /**
  * Opens the given [url]
  */
+@Throws(ActivityNotFoundException::class)
 fun Context.openUrl(url: String) {
     // Check that http:// or https:// is there
     val fullUrl = if (!url.startsWith("http://", true) && !url.startsWith("https://", true)) {
@@ -92,8 +93,10 @@ fun Context.openUrl(url: String) {
  *  Optionally sets the [toolbarColor] (it's a light grey if none supplied) and uses the Drawable
  *  [closeButtonId] to set a custom close button (it's a black cross if none supplied)
  */
+@Throws(ActivityNotFoundException::class)
 fun Context.openCustomTab(
-    url: String, @ColorRes toolbarColor: Int? = null,
+    url: String,
+    @ColorRes toolbarColor: Int? = null,
     @DrawableRes closeButtonId: Int? = null
 ) {
     // Check that the scheme is present, add it if not
