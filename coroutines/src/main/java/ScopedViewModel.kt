@@ -29,6 +29,6 @@ open class ScopedViewModel : ViewModel() {
 
     override fun onCleared() {
         super.onCleared()
-        uiScope.destroy()
+        uiScope.cancel()
     }
 }

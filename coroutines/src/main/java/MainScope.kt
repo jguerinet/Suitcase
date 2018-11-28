@@ -27,7 +27,7 @@ import kotlin.coroutines.CoroutineContext
  */
 open class MainScope : CoroutineScope {
 
-    private val job: Job by lazy { Job() }
+    private val job = Job()
 
     override val coroutineContext: CoroutineContext
         get() = job + uiDispatcher
@@ -35,5 +35,5 @@ open class MainScope : CoroutineScope {
     /**
      * Destroys this by cancelling the job
      */
-    fun destroy() = job.cancel()
+    fun cancel() = job.cancel()
 }

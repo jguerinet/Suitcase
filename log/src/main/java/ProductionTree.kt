@@ -26,8 +26,10 @@ import timber.log.Timber
  */
 abstract class ProductionTree : Timber.Tree() {
 
+    override fun isLoggable(tag: String?, priority: Int): Boolean = priority >= Log.INFO
+
     override fun log(priority: Int, tag: String?, message: String, t: Throwable?) {
-        // We don't want to log verbose and debug logs
+        // We don't want to log verbose and debug logs. I'm not sure we need this anymore since we have isLoggable()
         if (priority == Log.VERBOSE || priority == Log.DEBUG) {
             return
         }

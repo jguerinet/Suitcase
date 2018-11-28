@@ -37,5 +37,5 @@ class LifecycleMainScope : MainScope(), LifecycleObserver {
      * Destroy's the [job] when the activity's onDestroy() is called
      */
     @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() = destroy()
+    fun onDestroy() = cancel()
 }

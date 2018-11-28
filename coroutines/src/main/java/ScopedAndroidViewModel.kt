@@ -30,7 +30,7 @@ open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(a
 
     override fun onCleared() {
         super.onCleared()
-        uiScope.destroy()
+        uiScope.cancel()
     }
 
 }
