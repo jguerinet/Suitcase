@@ -25,7 +25,7 @@ import kotlin.coroutines.CoroutineContext
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class UIScope : CoroutineScope {
+open class MainScope : CoroutineScope {
 
     private val job: Job by lazy { Job() }
 

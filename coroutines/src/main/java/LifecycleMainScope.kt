@@ -22,11 +22,11 @@ import androidx.lifecycle.LifecycleOwner
 import androidx.lifecycle.OnLifecycleEvent
 
 /**
- * A UIScope that binds itself to an LifecycleOwner's lifecycle
+ * A MainScope that binds itself to an LifecycleOwner's lifecycle
  * @author Julien Guerinet
  * @since 4.7.0
  */
-class LifecycleUIScope : UIScope(), LifecycleObserver {
+class LifecycleMainScope : MainScope(), LifecycleObserver {
 
     /**
      * Binds this to a [lifecycleOwner]. Should be called in onCreate()

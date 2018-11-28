@@ -19,13 +19,13 @@ package com.guerinet.suitcase.coroutines
 import androidx.lifecycle.ViewModel
 
 /**
- * A ViewModel with an attached [UIScope]
+ * A ViewModel with an attached [MainScope]
  * @author Julien Guerinet
  * @since 4.7.0
  */
 open class ScopedViewModel : ViewModel() {
 
-    protected val uiScope = UIScope()
+    protected val uiScope = MainScope()
 
     override fun onCleared() {
         super.onCleared()

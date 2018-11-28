@@ -20,13 +20,13 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 
 /**
- * An AndroidViewModel with an attached [UIScope]
+ * An AndroidViewModel with an attached [MainScope]
  * @author Julien Guerinet
  * @since 4.7.0
  */
 open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(application) {
 
-    protected val uiScope = UIScope()
+    protected val uiScope = MainScope()
 
     override fun onCleared() {
         super.onCleared()
