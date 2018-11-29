@@ -16,26 +16,18 @@
 
 package com.guerinet.suitcase.coroutines
 
-import androidx.lifecycle.Lifecycle
-import androidx.lifecycle.LifecycleObserver
-import androidx.lifecycle.LifecycleOwner
-import androidx.lifecycle.OnLifecycleEvent
+import androidx.appcompat.app.AppCompatActivity
 
 /**
- * A MainScope that binds itself to an LifecycleOwner's lifecycle
+ * Activity with coroutine lifecycle handling
  * @author Julien Guerinet
- * @since 4.7.0
+ * @since 4.8.0
  */
-class LifecycleMainScope : MainScope(), LifecycleObserver {
+class CoroutinesActivity : AppCompatActivity(), BetterCoroutineScope by MainScope() {
 
-    /**
-     * Binds this to a [lifecycleOwner]. Should be called in onCreate()
-     */
-    fun bind(lifecycleOwner: LifecycleOwner) = lifecycleOwner.lifecycle.addObserver(this)
-
-    /**
-     * Destroy's the [job] when the activity's onDestroy() is called
-     */
-    @OnLifecycleEvent(Lifecycle.Event.ON_DESTROY)
-    fun onDestroy() = cancel()
+    override fun onDestroy() {
+        super.onDestroy()
+        // Cancel the coroutine Job
+        cancel()
+    }
 }
