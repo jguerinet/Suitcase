@@ -16,17 +16,23 @@
 
 package com.guerinet.suitcase.coroutines
 
-import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Job
 
 /**
- * A ViewModel with an attached [MainScope]
+ * A better version of the CoroutineScope, with job cancellation.
+ *  Note: This will be part of Coroutines soon. See:
+ *      https://github.com/Kotlin/kotlinx.coroutines/issues/829
+ *      https://github.com/Kotlin/kotlinx.coroutines/issues/828
  * @author Julien Guerinet
- * @since 4.7.0
+ * @since 4.8.0
  */
-open class ScopedViewModel : ViewModel(), BetterCoroutineScope by MainScope() {
+interface BetterCoroutineScope : CoroutineScope {
 
-    override fun onCleared() {
-        super.onCleared()
-        cancel()
-    }
+    val job: Job
+
+    /**
+     * Cancels the Job
+     */
+    fun cancel() = job.cancel()
 }

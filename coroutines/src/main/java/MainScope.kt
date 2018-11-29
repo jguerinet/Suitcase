@@ -16,7 +16,6 @@
 
 package com.guerinet.suitcase.coroutines
 
-import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlin.coroutines.CoroutineContext
 
@@ -25,15 +24,10 @@ import kotlin.coroutines.CoroutineContext
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class MainScope : CoroutineScope {
+open class MainScope : BetterCoroutineScope {
 
-    private val job = Job()
+    override val job = Job()
 
     override val coroutineContext: CoroutineContext
         get() = job + uiDispatcher
-
-    /**
-     * Destroys this by cancelling the job
-     */
-    fun cancel() = job.cancel()
 }

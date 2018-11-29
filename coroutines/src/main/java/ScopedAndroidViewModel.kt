@@ -24,13 +24,12 @@ import androidx.lifecycle.AndroidViewModel
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(application) {
-
-    protected val uiScope = MainScope()
+open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(application),
+    BetterCoroutineScope by MainScope() {
 
     override fun onCleared() {
         super.onCleared()
-        uiScope.cancel()
+        cancel()
     }
 
 }
