@@ -1,9 +1,17 @@
 # Change Log
 
+## Version 4.8.0 (2018-11-29)
+
+-   `coroutines`: 
+    -   Added the `BetterCoroutineScope`, which is a `CoroutineScope` with a cancel method
+    -   Renamed the `MainScope`
+    -   Changed the `ViewModel` classes to use the new `MainScope`
+    -   Added the `CoroutinesActivity` that uses the `MainScope`
+
 ## Version 4.7.2 (2018-11-23)
 
 -   `coroutines`: 
-    -   Fix the coroutine dependency used (Android specific)
+    -   Fixed the coroutine dependency used (Android specific)
 
 ## Version 4.7.1 (2018-11-23)
 
