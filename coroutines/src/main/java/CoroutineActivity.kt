@@ -23,7 +23,7 @@ import androidx.appcompat.app.AppCompatActivity
  * @author Julien Guerinet
  * @since 4.8.0
  */
-class CoroutinesActivity : AppCompatActivity(), BetterCoroutineScope by MainScope() {
+open class CoroutineActivity : AppCompatActivity(), BetterCoroutineScope by MainScope() {
 
     override fun onDestroy() {
         super.onDestroy()
