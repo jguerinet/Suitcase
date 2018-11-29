@@ -49,7 +49,7 @@ object Utils {
         "===============" +
                 "\nDebug Info" +
                 "\n===============" +
-                "\nDevice: ${Device.model()}" +
+                "\nDevice: ${Device.model}" +
                 "\nSDK Version: ${Build.VERSION.SDK_INT}" +
                 "\nApp Version: $versionName" +
                 "\nBuild Number: $versionCode" +
