@@ -2,11 +2,17 @@
 
 ## Version 4.8.0 (2018-11-29)
 
+-   `analytics`: 
+    -   Deprecated `GAManager` in favor of Firebase
 -   `coroutines`: 
     -   Added the `BetterCoroutineScope`, which is a `CoroutineScope` with a cancel method
     -   Renamed the `MainScope`
     -   Changed the `ViewModel` classes to use the new `MainScope`
     -   Added the `CoroutinesActivity` that uses the `MainScope`
+-   `ui`: 
+    -   Removed pre-21 compatibility when setting the `Drawable` tint
+-   `util`: 
+    -   Cleaned up the `Device` object: Switched to API numbers instead of names, switched functions to variables
 
 ## Version 4.7.2 (2018-11-23)
 
