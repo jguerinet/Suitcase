@@ -17,19 +17,19 @@
 package com.guerinet.suitcase.log
 
 import org.koin.log.Logger
-import timber.log.Timber
 
 /**
  * Default logger to use for Koin
  * @author Julien Guerinet
  * @since 4.3.2
  */
-class KoinLogger : Logger {
+class KoinLogger : Logger, TimberTag {
 
-    override fun debug(msg: String) = Timber.tag("Koin").v(msg)
+    override val tag = "Koin"
 
-    override fun err(msg: String) = Timber.tag("Koin").e(msg)
+    override fun debug(msg: String) = timber.v(msg)
 
-    override fun info(msg: String) = Timber.tag("Koin").d(msg)
+    override fun err(msg: String) = timber.e(msg)
 
+    override fun info(msg: String) = timber.d(msg)
 }
