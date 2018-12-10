@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 4.9.0 (2018-12-10)
+
+-   `log`: 
+    -   Add the `TimberTag` interface, which allows you to easily add tags to every Timber log that implements that class
+
 ## Version 4.8.1 (2018-11-29)
 
 -   `coroutines`: 

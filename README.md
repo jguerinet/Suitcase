@@ -15,9 +15,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
 	dependencies {
 
-        // Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
-        implementation "com.guerinet.suitcase:analytics:$suitcase_version"
-
         // Coroutines extension functions and models, uses Kotlin Coroutines
         implementation "com.guerinet.suitcase:coroutines:$suitcase_version"
 
@@ -50,9 +47,11 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
         // Basic utility methods and resources
         implementation "com.guerinet.suitcase:util:$suitcase_version"
+
+        // DEPRECATED: Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
+        implementation "com.guerinet.suitcase:analytics:$suitcase_version"
 	}
 
-* [Google Play Services](https://developers.google.com/android/guides/overview)
 * [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
 * [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
 * [Material Dialogs](https://github.com/afollestad/material-dialogs)
@@ -60,6 +59,7 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 * [Okio](https://github.com/square/okio)
 * [Timber](https://github.com/JakeWharton/timber)
 * [Koin](https://github.com/InsertKoinIO/koin)
+* [Google Play Services](https://developers.google.com/android/guides/overview)
 
 ## Contributors
 * [Julien Guerinet](https://github.com/jguerinet)
