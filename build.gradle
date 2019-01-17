@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -73,7 +73,7 @@ subprojects {
 
     dependencies {
         implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
-        androidTestImplementation('androidx.test.espresso:espresso-core:3.1.0', {
+        androidTestImplementation('androidx.test.espresso:espresso-core:3.1.1', {
             exclude group: 'com.android.support', module: 'support-annotations'
         })
         testImplementation "junit:junit:$junit_version"
