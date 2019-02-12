@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package com.guerinet.suitcase.coroutines
 
-import kotlinx.coroutines.Job
+import kotlinx.coroutines.SupervisorJob
 import kotlin.coroutines.CoroutineContext
 
 /**
@@ -26,7 +26,7 @@ import kotlin.coroutines.CoroutineContext
  */
 open class MainScope : BetterCoroutineScope {
 
-    override val job = Job()
+    override val job = SupervisorJob()
 
     override val coroutineContext: CoroutineContext
         get() = job + uiDispatcher
