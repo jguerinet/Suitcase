@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,7 @@ import com.google.firebase.analytics.FirebaseAnalytics
 inline fun Context.firebase() = lazy { FirebaseAnalytics.getInstance(this) }
 
 /**
- * Logs the an event with the [name] and an optional set of [params] to attach
+ * Logs an event with the [name] and an optional set of [params] to attach
  */
 @Suppress("NOTHING_TO_INLINE")
 inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) = logEvent(name, bundleOf(*params))
