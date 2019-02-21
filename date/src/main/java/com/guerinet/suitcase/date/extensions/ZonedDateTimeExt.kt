@@ -88,5 +88,8 @@ class ZonedDateProgression(
     override fun iterator(): Iterator<ZonedDateTime> =
         ZonedDateIterator(start, endInclusive, stepDays)
 
+    /**
+     * Steps over by the number of [days]
+     */
     infix fun step(days: Long) = ZonedDateProgression(start, endInclusive, days)
 }

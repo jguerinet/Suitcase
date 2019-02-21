@@ -79,5 +79,8 @@ class LocalDateProgression(
     override fun iterator(): Iterator<LocalDate> =
         LocalDateIterator(start, endInclusive, stepDays)
 
+    /**
+     * Steps over by the number of [days]
+     */
     infix fun step(days: Long) = LocalDateProgression(start, endInclusive, days)
 }
