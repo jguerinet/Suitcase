@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,7 @@
  */
 
 dependencies {
+    api project(':analytics')
     implementation 'androidx.core:core-ktx:1.0.1'
     api 'com.google.firebase:firebase-core:16.0.6'
 }
