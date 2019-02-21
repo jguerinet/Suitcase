@@ -61,7 +61,7 @@ val Context.displaySize: Point
         val windowManager = if (this is Activity) {
             windowManager
         } else {
-            getSystemService(Context.WINDOW_SERVICE) as WindowManager
+            getSystemService(Context.WINDOW_SERVICE) as? WindowManager ?: error("Could not get WindowManager")
         }
 
         return Point().apply {
@@ -193,7 +193,11 @@ fun Context.isPermissionGranted(permission: String): Boolean =
  *  This assumes the internet permission has been granted
  */
 val Context.isConnected: Boolean
-    get() = (getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager).isConnected
+    get() {
+        val connectivityManager = getSystemService(Context.CONNECTIVITY_SERVICE) as? ConnectivityManager
+            ?: error("Could not get ConnectivityManager")
+        return connectivityManager.isConnected
+    }
 
 /**
  * Wraps the current context with a [language] change and returns the corresponding [ContextWrapper]
