@@ -15,6 +15,5 @@
  */
 
 dependencies {
-    implementation 'androidx.annotation:annotation:1.0.1'
     api "com.afollestad.material-dialogs:commons:0.9.6.0"
 }
