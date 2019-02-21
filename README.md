@@ -1,10 +1,13 @@
 # Suitcase
+
 [![Release](https://jitpack.io/v/com.guerinet/suitcase.svg)](https://jitpack.io/#com.guerinet/suitcase)
 
 ## Summary
+
 Android utility classes and methods that I use in all of my projects. When off on a coding adventure, don't forget to pack your suitcase!
 
 ## Instructions
+
 To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above:
 
     repositories {
@@ -13,13 +16,13 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
     def suitcase_version = 'X.X.X'
 
-	dependencies {
+    dependencies {
 
         // Coroutines extension functions and models, uses Kotlin Coroutines
         implementation "com.guerinet.suitcase:coroutines:$suitcase_version"
 
-	    // Date utility methods and classes, uses AndroidThreeTen
-	    implementation "com.guerinet.suitcase:date:$suitcase_version"
+        // Date utility methods and classes, uses AndroidThreeTen
+        implementation "com.guerinet.suitcase:date:$suitcase_version"
 
         // Dialog utility methods, uses Material Dialogs
         implementation "com.guerinet.suitcase:dialog:$suitcase_version"
@@ -50,34 +53,37 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
         // DEPRECATED: Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
         implementation "com.guerinet.suitcase:analytics:$suitcase_version"
-	}
+    }
 
-* [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-* [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
-* [Material Dialogs](https://github.com/afollestad/material-dialogs)
-* [Firebase](https://firebase.google.com/docs/analytics/)
-* [Okio](https://github.com/square/okio)
-* [Timber](https://github.com/JakeWharton/timber)
-* [Koin](https://github.com/InsertKoinIO/koin)
-* [Google Play Services](https://developers.google.com/android/guides/overview)
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+- [Material Dialogs](https://github.com/afollestad/material-dialogs)
+- [Firebase](https://firebase.google.com/docs/analytics/)
+- [Okio](https://github.com/square/okio)
+- [Timber](https://github.com/JakeWharton/timber)
+- [Koin](https://github.com/InsertKoinIO/koin)
+- [Google Play Services](https://developers.google.com/android/guides/overview)
 
 ## Contributors
-* [Julien Guerinet](https://github.com/jguerinet)
+
+- [Julien Guerinet](https://github.com/jguerinet)
 
 ## Version History
+
 See the [Change Log](CHANGELOG.md).
 
 ## Copyright
-	 Copyright 2016-2018 Julien Guerinet
 
-	 Licensed under the Apache License, Version 2.0 (the "License");
-	 you may not use this file except in compliance with the License.
-	 You may obtain a copy of the License at
+     Copyright 2016-2018 Julien Guerinet
 
-	    http://www.apache.org/licenses/LICENSE-2.0
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
 
-	 Unless required by applicable law or agreed to in writing, software
-	 distributed under the License is distributed on an "AS IS" BASIS,
-	 WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-	 See the License for the specific language governing permissions and
-	 limitations under the License.
+        http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.

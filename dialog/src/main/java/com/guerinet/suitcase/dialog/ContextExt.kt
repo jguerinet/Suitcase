@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -34,7 +34,8 @@ import com.afollestad.materialdialogs.MaterialDialog
  *  a [button] text (defaults to the Android OK), and a button [listener].
  */
 fun Context.neutralDialog(
-    @StringRes title: Int = 0, @StringRes message: Int = 0,
+    @StringRes title: Int = 0,
+    @StringRes message: Int = 0,
     @StringRes button: Int = android.R.string.ok,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
 ): MaterialDialog {
@@ -48,7 +49,8 @@ fun Context.neutralDialog(
  *  a [button] text (defaults to the Android OK), and a button [listener]
  */
 fun Context.neutralDialog(
-    @StringRes title: Int = 0, message: String? = null,
+    @StringRes title: Int = 0,
+    message: String? = null,
     @StringRes button: Int = android.R.string.ok,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
 ): MaterialDialog {
@@ -65,7 +67,8 @@ fun Context.neutralDialog(
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(
-    @StringRes title: Int = 0, @StringRes message: Int = 0,
+    @StringRes title: Int = 0,
+    @StringRes message: Int = 0,
     @StringRes positiveText: Int = android.R.string.ok,
     @StringRes negativeText: Int = android.R.string.cancel,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
@@ -82,7 +85,8 @@ fun Context.alertDialog(
  *  a [message], and a [listener] for both buttons.
  */
 fun Context.alertDialog(
-    @StringRes title: Int = 0, message: String? = null,
+    @StringRes title: Int = 0,
+    message: String? = null,
     @StringRes positiveText: Int = android.R.string.ok,
     @StringRes negativeText: Int = android.R.string.cancel,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
@@ -102,8 +106,10 @@ fun Context.alertDialog(
  *  [onChoiceSelected] is called
  */
 fun Context.singleListDialog(
-    choices: Array<String>, @StringRes title: Int = -1,
-    currentChoice: Int = -1, showRadioButtons: Boolean = true,
+    choices: Array<String>,
+    @StringRes title: Int = -1,
+    currentChoice: Int = -1,
+    showRadioButtons: Boolean = true,
     onChoiceSelected: (position: Int) -> Unit
 ): MaterialDialog {
     val builder = build(title)
@@ -127,8 +133,10 @@ fun Context.singleListDialog(
  *  button, [onChoicesSelected] is called with the list of selected choices.
  */
 fun Context.multiListDialog(
-    choices: Array<String>, @StringRes title: Int = -1,
-    @StringRes button: Int = android.R.string.ok, selectedItems: Array<Int> = arrayOf(),
+    choices: Array<String>,
+    @StringRes title: Int = -1,
+    @StringRes button: Int = android.R.string.ok,
+    selectedItems: Array<Int> = arrayOf(),
     onChoicesSelected: (positions: Array<Int>) -> Unit
 ): MaterialDialog {
     return build(title)
@@ -146,7 +154,8 @@ fun Context.multiListDialog(
  *  as well as the [listener] for the buttons
  */
 private fun Context.build(
-    @StringRes title: Int, @StringRes message: Int = 0,
+    @StringRes title: Int,
+    @StringRes message: Int = 0,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
 ):
         MaterialDialog.Builder {
@@ -172,7 +181,8 @@ private fun Context.build(
  *  as well as the [listener] for the buttons
  */
 private fun Context.build(
-    @StringRes title: Int, message: String?,
+    @StringRes title: Int,
+    message: String?,
     listener: ((dialog: MaterialDialog, which: DialogAction) -> Unit)? = null
 ):
         MaterialDialog.Builder {
