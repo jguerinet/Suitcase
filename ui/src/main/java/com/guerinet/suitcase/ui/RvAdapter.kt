@@ -22,7 +22,7 @@ import androidx.recyclerview.widget.ListAdapter
 /**
  * Simple adapter for a RecyclerView. Works with the [RvItem].
  * @author Julien Guerinet
- * @since 4.10.0
+ * @since 5.0.0
  */
 abstract class RvAdapter : ListAdapter<RvItem<Any>, BaseListAdapter.BaseHolder<Any>>(ItemCallback()) {
 

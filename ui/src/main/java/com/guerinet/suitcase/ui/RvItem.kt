@@ -19,7 +19,7 @@ package com.guerinet.suitcase.ui
 /**
  * Interface for an item within the [RvAdapter]
  * @author Julien Guerinet
- * @since 4.10.0
+ * @since 5.0.0
  */
 interface RvItem<T> {
 
