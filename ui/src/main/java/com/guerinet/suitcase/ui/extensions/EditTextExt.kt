@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -37,5 +37,4 @@ fun EditText.watch(watcher: (text: String?) -> Unit) =
         override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
-
     })

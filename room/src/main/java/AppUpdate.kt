@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,9 +25,9 @@ import org.threeten.bp.ZonedDateTime
  * @author Julien Guerinet
  * @since 4.4.0
  *
- * @param version   App version that the user has updated to
+ * @param version App version that the user has updated to
  * @param timestamp Date/time that the user has updated to this version, defaults to now
- * @param id        Auto-generated Id
+ * @param id Auto-generated Id
  */
 @Entity
 data class AppUpdate(

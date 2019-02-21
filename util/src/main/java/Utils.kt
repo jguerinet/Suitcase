@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@ package com.guerinet.suitcase.util
 
 import android.content.pm.PackageManager
 import android.os.Build
-import java.util.*
+import java.util.Locale
+import java.util.UUID
 
 /**
  * Static utility classes
@@ -47,15 +48,15 @@ object Utils {
      */
     fun getDebugInfo(versionName: String, versionCode: Int, customInfo: String = ""): String =
         "===============" +
-                "\nDebug Info" +
-                "\n===============" +
-                "\nDevice: ${Device.model}" +
-                "\nSDK Version: ${Build.VERSION.SDK_INT}" +
-                "\nApp Version: $versionName" +
-                "\nBuild Number: $versionCode" +
-                "\nLanguage: ${Locale.getDefault().language}" +
-                (if (customInfo.isNotBlank()) "\n$customInfo" else "") +
-                "\n===============\n\n"
+            "\nDebug Info" +
+            "\n===============" +
+            "\nDevice: ${Device.model}" +
+            "\nSDK Version: ${Build.VERSION.SDK_INT}" +
+            "\nApp Version: $versionName" +
+            "\nBuild Number: $versionCode" +
+            "\nLanguage: ${Locale.getDefault().language}" +
+            (if (customInfo.isNotBlank()) "\n$customInfo" else "") +
+            "\n===============\n\n"
 
     /**
      * Returns true if the [newVersionName] is more recent than the [oldVersionName] (which is the
@@ -64,7 +65,7 @@ object Utils {
     @JvmStatic
     @JvmOverloads
     fun isNewerVersion(oldVersionName: String? = BuildConfig.VERSION_NAME, newVersionName: String?):
-            Boolean {
+        Boolean {
         if (oldVersionName == null || newVersionName == null) {
             return false
         }

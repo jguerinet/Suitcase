@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -29,8 +29,8 @@ import androidx.recyclerview.widget.RecyclerView
  * @author Julien Guerinet
  * @since 2.3.0
  *
- * @param diffCallback  [DiffUtil.ItemCallback] to use for the [ListAdapter]
- * @param emptyView     [View] to show if the list is empty, null if none (defaults to null)
+ * @param diffCallback [DiffUtil.ItemCallback] to use for the [ListAdapter]
+ * @param emptyView [View] to show if the list is empty, null if none (defaults to null)
  */
 abstract class BaseListAdapter<T>(
     diffCallback: DiffUtil.ItemCallback<T>,

@@ -44,8 +44,5 @@ abstract class RvAdapter : ListAdapter<RvItem<Any>, BaseListAdapter.BaseHolder<A
          */
         private fun isSameItemClass(oldItem: RvItem<Any>, newItem: RvItem<Any>) =
             oldItem.item.javaClass == newItem.item.javaClass
-
     }
-
 }
-
