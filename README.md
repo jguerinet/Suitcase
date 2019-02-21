@@ -2,6 +2,8 @@
 
 [![Release](https://jitpack.io/v/com.guerinet/suitcase.svg)](https://jitpack.io/#com.guerinet/suitcase)
 
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d57fb43931b44309a34b525dd2ad513)](https://www.codacy.com/app/jguerinet/Suitcase?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jguerinet/Suitcase&amp;utm_campaign=Badge_Grade)
+
 ## Summary
 
 Android utility classes and methods that I use in all of my projects. When off on a coding adventure, don't forget to pack your suitcase!
