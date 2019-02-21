@@ -14,6 +14,7 @@
  * limitations under the License.
  */
 
+apply from: './spotless.gradle'
 apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
@@ -32,6 +33,7 @@ buildscript {
 
     dependencies {
         classpath 'com.android.tools.build:gradle:3.2.1'
+        classpath 'com.diffplug.spotless:spotless-plugin-gradle:3.17.0'
         classpath 'com.github.ben-manes:gradle-versions-plugin:0.20.0'
         classpath 'com.github.dcendents:android-maven-gradle-plugin:1.5'
         classpath "org.jetbrains.dokka:dokka-android-gradle-plugin:0.9.17"
@@ -80,8 +82,4 @@ subprojects {
     }
 
     apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/android-kotlin-artifacts.gradle"
-}
-
-task clean(type: Delete) {
-    delete rootProject.buildDir
 }
