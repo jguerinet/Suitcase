@@ -47,6 +47,9 @@ val LocalDate.isFuture: Boolean
  */
 operator fun LocalDate.rangeTo(other: LocalDate) = LocalDateProgression(this, other)
 
+/**
+ * Iterator used for the range functionality
+ */
 class LocalDateIterator(
     startDate: LocalDate,
     val endDateInclusive: LocalDate,
@@ -64,12 +67,14 @@ class LocalDateIterator(
     }
 }
 
+/**
+ * Progression used for the range functionality
+ */
 class LocalDateProgression(
     override val start: LocalDate,
     override val endInclusive: LocalDate,
     val stepDays: Long = 1
-) :
-    Iterable<LocalDate>, ClosedRange<LocalDate> {
+) : Iterable<LocalDate>, ClosedRange<LocalDate> {
 
     override fun iterator(): Iterator<LocalDate> =
         LocalDateIterator(start, endInclusive, stepDays)
