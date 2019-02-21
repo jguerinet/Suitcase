@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-apply from: './spotless.gradle'
+apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/spotless.gradle"
 apply plugin: 'com.github.ben-manes.versions'
 
 buildscript {
