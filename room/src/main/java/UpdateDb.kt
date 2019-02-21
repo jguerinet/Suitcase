@@ -32,10 +32,16 @@ import com.guerinet.room.converter.ZonedDateTimeConverter
 @TypeConverters(ZonedDateTimeConverter::class)
 abstract class UpdateDb : RoomDatabase() {
 
+    /**
+     * Returns the [UpdateDao] instance
+     */
     abstract fun updateDao(): UpdateDao
 
     companion object {
 
+        /**
+         * Initializes the [UpdateDb] using the app [context]
+         */
         fun init(context: Context): UpdateDb =
             Room.databaseBuilder(context, UpdateDb::class.java, "update-db").build()
     }
