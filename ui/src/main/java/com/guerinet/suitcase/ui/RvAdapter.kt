@@ -31,6 +31,9 @@ abstract class RvAdapter : ListAdapter<RvItem<Any>, BaseListAdapter.BaseHolder<A
 
     override fun getItemViewType(position: Int): Int = getItem(position).getViewType()
 
+    /**
+     * Callback used by the [ListAdapter] for list changes
+     */
     class ItemCallback : DiffUtil.ItemCallback<RvItem<Any>>() {
 
         override fun areItemsTheSame(oldItem: RvItem<Any>, newItem: RvItem<Any>): Boolean =
