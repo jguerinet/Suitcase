@@ -20,6 +20,9 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
     dependencies {
 
+        // Analytics interface, used by firebase-analytics.
+        implementation "com.guerinet.suitcase:analytics:$suitcase_version"
+
         // Coroutines extension functions and models, uses Kotlin Coroutines
         implementation "com.guerinet.suitcase:coroutines:$suitcase_version"
 
@@ -52,9 +55,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 
         // Basic utility methods and resources
         implementation "com.guerinet.suitcase:util:$suitcase_version"
-
-        // DEPRECATED: Google Analytics Manager to send screens and events to GA, uses Google Play Services Analytics
-        implementation "com.guerinet.suitcase:analytics:$suitcase_version"
     }
 
 - [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
@@ -64,7 +64,6 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
 - [Okio](https://github.com/square/okio)
 - [Timber](https://github.com/JakeWharton/timber)
 - [Koin](https://github.com/InsertKoinIO/koin)
-- [Google Play Services](https://developers.google.com/android/guides/overview)
 
 ## Contributors
 
@@ -76,7 +75,7 @@ See the [Change Log](CHANGELOG.md).
 
 ## Copyright
 
-     Copyright 2016-2018 Julien Guerinet
+     Copyright 2016-2019 Julien Guerinet
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
