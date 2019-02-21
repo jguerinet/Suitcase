@@ -1,5 +1,20 @@
 # Change Log
 
+## Version 5.0.0 (2019-02-21)
+
+-   `analytics`:
+    -   Added interface for Analytics related functions
+    -   Removed old GA stuff
+-   `dialog`:
+    -   Updated to Material Dialogs v2.0
+-   `ui`:
+    -   Added new `RecyclerView` adapter implementation for easier instantiation
+-   `coroutines`:
+    -   Changed default job to `SupervisorJob`
+-   Updated dependencies
+-   Added Spotless
+-   Started using Codacy
+
 ## Version 4.9.0 (2018-12-10)
 
 -   `log`:
