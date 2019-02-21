@@ -2,7 +2,7 @@
 
 [![Release](https://jitpack.io/v/com.guerinet/suitcase.svg)](https://jitpack.io/#com.guerinet/suitcase)
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d57fb43931b44309a34b525dd2ad513)](https://www.codacy.com/app/jguerinet/Suitcase?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=jguerinet/Suitcase&amp;utm_campaign=Badge_Grade)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d57fb43931b44309a34b525dd2ad513)](https://www.codacy.com/app/jguerinet/Suitcase?utm_source=github.com&utm_medium=referral&utm_content=jguerinet/Suitcase&utm_campaign=Badge_Grade)
 
 ## Summary
 
@@ -57,17 +57,17 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         implementation "com.guerinet.suitcase:util:$suitcase_version"
     }
 
-- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
-- [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
-- [Material Dialogs](https://github.com/afollestad/material-dialogs)
-- [Firebase](https://firebase.google.com/docs/analytics/)
-- [Okio](https://github.com/square/okio)
-- [Timber](https://github.com/JakeWharton/timber)
-- [Koin](https://github.com/InsertKoinIO/koin)
+-   [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+-   [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
+-   [Material Dialogs](https://github.com/afollestad/material-dialogs)
+-   [Firebase](https://firebase.google.com/docs/analytics/)
+-   [Okio](https://github.com/square/okio)
+-   [Timber](https://github.com/JakeWharton/timber)
+-   [Koin](https://github.com/InsertKoinIO/koin)
 
 ## Contributors
 
-- [Julien Guerinet](https://github.com/jguerinet)
+-   [Julien Guerinet](https://github.com/jguerinet)
 
 ## Version History
 

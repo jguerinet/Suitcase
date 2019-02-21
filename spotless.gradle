@@ -29,7 +29,7 @@ spotless {
 
         trimTrailingWhitespace()
         endWithNewline()
-        prettier().config(['parser': 'markdown'])
+        prettier().config(['parser': 'markdown', 'tabWidth': 4])
     }
 
     kotlin {
