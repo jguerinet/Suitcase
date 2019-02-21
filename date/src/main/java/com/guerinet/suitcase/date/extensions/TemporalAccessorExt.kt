@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -20,7 +20,7 @@ package com.guerinet.suitcase.date.extensions
 
 import com.guerinet.suitcase.date.Format
 import org.threeten.bp.temporal.TemporalAccessor
-import java.util.*
+import java.util.Locale
 
 /**
  * TemporalAccessor extensions

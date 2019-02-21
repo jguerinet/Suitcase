@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2019 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -25,11 +25,11 @@ import android.content.SharedPreferences
  * @author Julien Guerinet
  * @since 2.2.1
  *
- * @param prefs                 [SharedPreferences] instance where we can store/read the
+ * @param prefs [SharedPreferences] instance where we can store/read the
  *                              version number
- * @param currentVersionCode    Current version code of the app. Can be retrieved with
+ * @param currentVersionCode Current version code of the app. Can be retrieved with
  *                              BuildConfig.VERSION_CODE
- * @param versionPrefName       Name of the pref where the stored version is stored
+ * @param versionPrefName Name of the pref where the stored version is stored
  *                              (defaults to "version")
  */
 abstract class OldBaseUpdateManager(
