@@ -38,9 +38,11 @@ open class CustomDurationViewPager : ViewPager {
 
             val interpolatorField = ViewPager::class.java.getDeclaredField("sInterpolator")
             interpolatorField.isAccessible = true
+            val interpolator = interpolatorField.get(null) as? Interpolator
+                ?: throw Exception("Cannot get interpolator")
 
             // Create our custom scroller and set it back onto the ViewPager
-            scroller = CustomDurationScroller(context, interpolatorField.get(null) as Interpolator)
+            scroller = CustomDurationScroller(context, interpolator)
             @Suppress("LeakingThis")
             scrollerField.set(this, scroller)
         } catch (ignored: Exception) {
