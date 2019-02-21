@@ -18,5 +18,5 @@ dependencies {
     implementation 'androidx.appcompat:appcompat:1.0.2'
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
-    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.0'
+    api 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.1.1'
 }
