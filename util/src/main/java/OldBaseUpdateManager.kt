@@ -32,6 +32,7 @@ import android.content.SharedPreferences
  * @param versionPrefName Name of the pref where the stored version is stored
  *                              (defaults to "version")
  */
+@Deprecated("Replace with BaseUpdateManager")
 abstract class OldBaseUpdateManager(
     private val prefs: SharedPreferences,
     private val currentVersionCode: Int,
