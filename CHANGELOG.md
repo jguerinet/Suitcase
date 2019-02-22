@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 5.0.1 (2019-02-22)
+
+-   `dialog`:
+    -   Add extension functions to quickly add "Ok" and "Cancel" buttons to a dialog
+
 ## Version 5.0.0 (2019-02-21)
 
 -   `analytics`:
