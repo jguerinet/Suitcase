@@ -1,7 +1,6 @@
 # Suitcase
 
 [![Release](https://jitpack.io/v/com.guerinet/suitcase.svg)](https://jitpack.io/#com.guerinet/suitcase)
-
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/2d57fb43931b44309a34b525dd2ad513)](https://www.codacy.com/app/jguerinet/Suitcase?utm_source=github.com&utm_medium=referral&utm_content=jguerinet/Suitcase&utm_campaign=Badge_Grade)
 
 ## Summary
