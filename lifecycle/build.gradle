@@ -15,7 +15,6 @@
  */
 
 dependencies {
-    compileOnly(project(":prefs"))
     implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
     kapt "androidx.lifecycle:lifecycle-compiler:$lifecycle_version"
 }

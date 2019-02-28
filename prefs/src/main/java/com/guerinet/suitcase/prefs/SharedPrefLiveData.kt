@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.lifecycle
+package com.guerinet.suitcase.prefs
 
 import android.content.SharedPreferences
 import androidx.lifecycle.LiveData
