@@ -2,10 +2,10 @@
 
 ## Version 5.1.0 (2019-02-28)
 
--   `prefs`: 
+-   `prefs`:
     -   Added a `liveData()` method on the prefs objects to make them observable.
--   `ui`: 
-    -   Removed the `RecyclerView` adapter implementation from v5.0.0 as it wasn't working out 
+-   `ui`:
+    -   Removed the `RecyclerView` adapter implementation from v5.0.0 as it wasn't working out
 
 ## Version 5.0.1 (2019-02-22)
 
