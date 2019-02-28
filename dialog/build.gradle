@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api "com.afollestad.material-dialogs:core:2.0.0"
+    api "com.afollestad.material-dialogs:core:2.0.3"
 }
