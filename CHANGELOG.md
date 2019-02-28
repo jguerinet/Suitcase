@@ -1,9 +1,14 @@
 # Change Log
 
+## Version 5.1.0 (2019-02-28)
+
+-   `prefs`: 
+    -   Added a `liveData()` method on the prefs objects to make them observable. 
+
 ## Version 5.0.1 (2019-02-22)
 
 -   `dialog`:
-    -   Add extension functions to quickly add "Ok" and "Cancel" buttons to a dialog
+    -   Added extension functions to quickly add "Ok" and "Cancel" buttons to a dialog
 
 ## Version 5.0.0 (2019-02-21)
 
