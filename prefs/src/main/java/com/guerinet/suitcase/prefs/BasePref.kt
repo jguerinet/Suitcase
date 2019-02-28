@@ -17,6 +17,7 @@
 package com.guerinet.suitcase.prefs
 
 import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
 
 /**
  * Base class for all SharedPreferences helpers
@@ -29,14 +30,10 @@ abstract class BasePref<T>(
     protected val defaultValue: T
 ) {
 
-    /**
-     * Backing property for getting and setting this pref
-     */
+    /** Backing property for getting and setting this pref */
     abstract var value: T
 
-    /**
-     * True if there is something stored in these [prefs] at this [key], false otherwise
-     */
+    /** True if there is something stored in these [prefs] at this [key], false otherwise */
     val isSet: Boolean
         get() = prefs.contains(key)
 
@@ -44,4 +41,31 @@ abstract class BasePref<T>(
      * Clears the [prefs] of anything stored at this [key]
      */
     open fun clear() = prefs.edit().remove(key).apply()
+
+    fun liveData() = SharedPrefLiveData()
+
+    /**
+     * Abstract class that converts a Shared Pref to a LiveData. To be implemented for the different types of valies
+     */
+    inner class SharedPrefLiveData : LiveData<T>() {
+
+        private val prefChangeListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+            if (key == this@BasePref.key) {
+                // If the changed key was this one, update the LiveData value
+                value = this@BasePref.value
+            }
+        }
+
+        override fun onActive() {
+            super.onActive()
+            // First value should be the current one
+            value = this@BasePref.value
+            prefs.registerOnSharedPreferenceChangeListener(prefChangeListener)
+        }
+
+        override fun onInactive() {
+            prefs.unregisterOnSharedPreferenceChangeListener(prefChangeListener)
+            super.onInactive()
+        }
+    }
 }
