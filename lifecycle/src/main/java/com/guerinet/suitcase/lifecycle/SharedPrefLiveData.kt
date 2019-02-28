@@ -16,9 +16,72 @@
 
 package com.guerinet.suitcase.lifecycle
 
+import android.content.SharedPreferences
+import androidx.lifecycle.LiveData
+
 /**
  * Converts the Pref classes into LiveData observables
  *  Heavily inspired by https://gist.github.com/rharter/1df1cd72ce4e9d1801bd2d49f2a96810
  * @author Julien Guerinet
  * @since 5.1.0
  */
+
+fun SharedPreferences.intLiveData(key: String, defValue: Int): SharedPrefLiveData<Int> {
+    return SharedPrefIntLiveData(this, key, defValue)
+}
+
+fun SharedPreferences.stringLiveData(key: String, defValue: String): SharedPrefLiveData<String> {
+    return SharedPrefStringLiveData(this, key, defValue)
+}
+
+fun SharedPreferences.booleanLiveData(key: String, defValue: Boolean): SharedPrefLiveData<Boolean> {
+    return SharedPrefBooleanLiveData(this, key, defValue)
+}
+
+class SharedPrefIntLiveData(sharedPrefs: SharedPreferences, key: String, defValue: Int) :
+    SharedPrefLiveData<Int>(sharedPrefs, key, defValue) {
+
+    override fun getValueFromPreferences(key: String, defValue: Int): Int = sharedPrefs.getInt(key, defValue)
+}
+
+class SharedPrefStringLiveData(sharedPrefs: SharedPreferences, key: String, defValue: String) :
+    SharedPrefLiveData<String>(sharedPrefs, key, defValue) {
+
+    override fun getValueFromPreferences(key: String, defValue: String): String = sharedPrefs.getString(key, defValue)
+}
+
+/**
+ * Observes a Boolean Pref
+ */
+class SharedPrefBooleanLiveData(sharedPrefs: SharedPreferences, key: String, defValue: Boolean) :
+    SharedPrefLiveData<Boolean>(sharedPrefs, key, defValue) {
+
+    override fun getValueFromPreferences(key: String, defValue: Boolean): Boolean =
+        sharedPrefs.getBoolean(key, defValue)
+}
+
+/**
+ * Abstract class that converts a Shared Pref to a LiveData. To be implemented for the different types of valies
+ */
+abstract class SharedPrefLiveData<T>(val sharedPrefs: SharedPreferences, val key: String, val defValue: T) :
+    LiveData<T>() {
+
+    private val preferenceChangeListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
+        if (key == this.key) {
+            value = getValueFromPreferences(key, defValue)
+        }
+    }
+
+    abstract fun getValueFromPreferences(key: String, defValue: T): T
+
+    override fun onActive() {
+        super.onActive()
+        value = getValueFromPreferences(key, defValue)
+        sharedPrefs.registerOnSharedPreferenceChangeListener(preferenceChangeListener)
+    }
+
+    override fun onInactive() {
+        sharedPrefs.unregisterOnSharedPreferenceChangeListener(preferenceChangeListener)
+        super.onInactive()
+    }
+}
