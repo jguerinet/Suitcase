@@ -25,7 +25,7 @@ import androidx.lifecycle.LiveData
  * @since 2.0.0
  */
 abstract class BasePref<T>(
-    protected val prefs: SharedPreferences,
+    val prefs: SharedPreferences,
     protected val key: String,
     protected val defaultValue: T
 ) {
@@ -42,30 +42,5 @@ abstract class BasePref<T>(
      */
     open fun clear() = prefs.edit().remove(key).apply()
 
-    fun liveData() = SharedPrefLiveData()
-
-    /**
-     * Abstract class that converts a Shared Pref to a LiveData. To be implemented for the different types of valies
-     */
-    inner class SharedPrefLiveData : LiveData<T>() {
-
-        private val prefChangeListener = SharedPreferences.OnSharedPreferenceChangeListener { _, key ->
-            if (key == this@BasePref.key) {
-                // If the changed key was this one, update the LiveData value
-                value = this@BasePref.value
-            }
-        }
-
-        override fun onActive() {
-            super.onActive()
-            // First value should be the current one
-            value = this@BasePref.value
-            prefs.registerOnSharedPreferenceChangeListener(prefChangeListener)
-        }
-
-        override fun onInactive() {
-            prefs.unregisterOnSharedPreferenceChangeListener(prefChangeListener)
-            super.onInactive()
-        }
-    }
+    open fun liveData(): LiveData<T> = SharedPrefLiveData(prefs, key, this::value)
 }

@@ -1,5 +1,11 @@
 # Change Log
 
+## Version 5.1.1 (2019-02-28)
+
+-   `prefs`:
+    -   Pulled out the `SharedPrefLiveData` into a separate class to be used by others
+    -   Made the `liveData()` function on the `BasePref` open
+
 ## Version 5.1.0 (2019-02-28)
 
 -   `prefs`:
