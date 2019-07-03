@@ -19,6 +19,7 @@ package com.guerinet.suitcase.ui.extensions
 import android.widget.ImageView
 import androidx.annotation.ColorInt
 import androidx.annotation.ColorRes
+import androidx.appcompat.content.res.AppCompatResources
 import androidx.core.content.ContextCompat
 
 /**
@@ -36,3 +37,10 @@ fun ImageView.setTint(@ColorInt color: Int) = setImageDrawable(drawable.setTintC
  * Sets the tint with the [colorId]
  */
 fun ImageView.setTintId(@ColorRes colorId: Int) = setTint(ContextCompat.getColor(context, colorId))
+
+/**
+ * Sets the [resourceId] on the Image using the Compat functions
+ */
+fun ImageView.setResourceCompat(resourceId: Int) {
+    setImageDrawable(AppCompatResources.getDrawable(context, resourceId))
+}

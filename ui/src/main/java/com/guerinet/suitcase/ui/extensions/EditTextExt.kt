@@ -38,3 +38,16 @@ fun EditText.watch(watcher: (text: String?) -> Unit) =
 
         override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {}
     })
+
+/**
+ * Sets the IME button to be the [type] on this [EditText] and calls [onClick] when pressed
+ */
+fun EditText.setImeButton(type: Int, onClick: () -> Unit) {
+    imeOptions = type
+    setOnEditorActionListener { _, actionId, _ ->
+        if (actionId == type) {
+            onClick()
+        }
+        false
+    }
+}

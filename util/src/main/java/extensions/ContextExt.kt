@@ -27,6 +27,7 @@ import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.LocaleList
+import android.util.TypedValue
 import android.view.WindowManager
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
@@ -68,6 +69,12 @@ val Context.displaySize: Point
             windowManager.defaultDisplay.getSize(this)
         }
     }
+
+/**
+ * Converts a given DP [value] into its equivalent in pixels
+ */
+fun Context.dpToPixel(value: Float): Int =
+    TypedValue.applyDimension(TypedValue.COMPLEX_UNIT_DIP, value, resources.displayMetrics).toInt()
 
 /**
  * Returns a [color] from the resources in a backwards-compatible manner
@@ -120,7 +127,12 @@ fun Context.openCustomTab(
     }
 
     // Build and launch
-    builder.build().launchUrl(this, Uri.parse(fullUrl))
+    try {
+        builder.build().launchUrl(this, Uri.parse(fullUrl))
+    } catch (e: ActivityNotFoundException) {
+        // Fall back to opening the Url
+        openUrl(fullUrl)
+    }
 }
 
 /**

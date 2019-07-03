@@ -81,3 +81,8 @@ fun TextView.setDrawableIds(
  */
 fun TextView.setTextSizeId(@DimenRes textSizeId: Int) =
     setTextSize(TypedValue.COMPLEX_UNIT_PX, context.resources.getDimension(textSizeId))
+
+/**
+ * Sets the [TextView]'s text color using the [textColorId]
+ */
+fun TextView.setTextColorId(@ColorRes textColorId: Int) = setTextColor(ContextCompat.getColor(context, textColorId))
