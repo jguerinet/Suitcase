@@ -16,20 +16,22 @@
 
 package com.guerinet.suitcase.log
 
-import org.koin.log.Logger
+import org.koin.core.logger.Level
+import org.koin.core.logger.Logger
+import org.koin.core.logger.MESSAGE
 
 /**
  * Default logger to use for Koin
  * @author Julien Guerinet
  * @since 4.3.2
  */
-class KoinLogger : Logger, TimberTag {
+class KoinLogger : Logger(), TimberTag {
 
     override val tag = "Koin"
 
-    override fun debug(msg: String) = timber.v(msg)
-
-    override fun err(msg: String) = timber.e(msg)
-
-    override fun info(msg: String) = timber.d(msg)
+    override fun log(level: Level, msg: MESSAGE) = when (level) {
+        Level.DEBUG -> timber.v(msg)
+        Level.INFO -> timber.d(msg)
+        Level.ERROR -> timber.e(msg)
+    }
 }
