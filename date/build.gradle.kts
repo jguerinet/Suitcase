@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,8 +14,18 @@
  * limitations under the License.
  */
 
+android {
+    compileOptions {
+        // Flag to enable support for the new language APIs
+        isCoreLibraryDesugaringEnabled = true
+        // Sets Java compatibility to Java 8
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
+    }
+}
+
 dependencies {
-    implementation project(':prefs')
-    implementation "androidx.appcompat:appcompat:$appcompat_version"
-    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
+    implementation(project(":prefs"))
+    implementation(Deps.AndroidX.APPCOMPAT)
+    implementation(Deps.KOTLINX_DATE_TIME)
 }

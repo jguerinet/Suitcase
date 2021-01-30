@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,18 +18,18 @@ package com.guerinet.suitcase.date
 
 import android.content.SharedPreferences
 import com.guerinet.suitcase.prefs.NullStringPref
-import org.threeten.bp.ZonedDateTime
+import kotlinx.datetime.Instant
 
 /**
- * Preferences utility class for ZonedDateTimes
+ * Preferences utility class for nullable [Instant]s
  * @author Julien Guerinet
  * @since 2.0.0
  */
-open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: ZonedDateTime?) :
+open class NullDatePref(prefs: SharedPreferences, key: String, defaultValue: Instant?) :
     NullStringPref(prefs, key, defaultValue?.toString()) {
 
-    open var date: ZonedDateTime?
-        get() = super.value?.run { ZonedDateTime.parse(this) }
+    open var date: Instant?
+        get() = super.value?.run { Instant.parse(this) }
         set(value) {
             super.value = value?.toString()
         }

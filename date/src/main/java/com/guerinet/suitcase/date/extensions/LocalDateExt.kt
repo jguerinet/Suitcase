@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,13 @@
 
 package com.guerinet.suitcase.date.extensions
 
-import org.threeten.bp.LocalDate
+import com.guerinet.suitcase.date.Format
+import kotlinx.datetime.Clock
+import kotlinx.datetime.LocalDate
+import kotlinx.datetime.TimeZone
+import kotlinx.datetime.toJavaLocalDate
+import kotlinx.datetime.todayAt
+import java.util.Locale
 
 /**
  * LocalDate extensions
@@ -24,63 +30,51 @@ import org.threeten.bp.LocalDate
  * @since 2.3.0
  */
 
+val LocalDate.Companion.today: LocalDate
+    get() = Clock.System.todayAt(TimeZone.currentSystemDefault())
+
 /**
  * True if this [LocalDate] is in the past, false otherwise (today would return false)
  */
 val LocalDate.isPast: Boolean
-    get() = LocalDate.now().isAfter(this)
+    get() = LocalDate.today > this
 
 /**
  * True if this [LocalDate] is today, false otherwise
  */
 val LocalDate.isToday: Boolean
-    get() = LocalDate.now() == this
+    get() = LocalDate.today == this
 
 /**
  * True if this [LocalDate] is in the future, false otherwise (today would return false)
  */
 val LocalDate.isFuture: Boolean
-    get() = LocalDate.now().isBefore(this)
+    get() = LocalDate.today < this
 
 /**
- * Allows us to use the [LocalDate] as a range
+ * Returns localized short date String (ex: 01/01/00) of the [LocalDate],
+ *  null if the [LocalDate] was null. Note: Uses Java Time
  */
-operator fun LocalDate.rangeTo(other: LocalDate) = LocalDateProgression(this, other)
+fun LocalDate?.getShortDateString(locale: Locale = Locale.getDefault()): String? =
+    this?.run { Format.shortDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
 
 /**
- * Iterator used for the range functionality
+ * Returns localized medium date String (ex: Jan 1, 2000) of the [LocalDate],
+ *  null if the [LocalDate] was null. Note: Uses Java Time
  */
-class LocalDateIterator(
-    startDate: LocalDate,
-    val endDateInclusive: LocalDate,
-    val stepDays: Long
-) : Iterator<LocalDate> {
-
-    private var currentDate = startDate
-
-    override fun hasNext() = currentDate <= endDateInclusive
-
-    override fun next(): LocalDate {
-        val next = currentDate
-        currentDate = currentDate.plusDays(stepDays)
-        return next
-    }
-}
+fun LocalDate?.getMediumDateString(locale: Locale = Locale.getDefault()): String? =
+    this?.run { Format.mediumDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
 
 /**
- * Progression used for the range functionality
+ * Returns localized long date String (ex: January 1, 2000) of the [LocalDate],
+ *  null if the [LocalDate] was null. Note: Uses Java Time
  */
-class LocalDateProgression(
-    override val start: LocalDate,
-    override val endInclusive: LocalDate,
-    val stepDays: Long = 1
-) : Iterable<LocalDate>, ClosedRange<LocalDate> {
+fun LocalDate?.getLongDateString(locale: Locale = Locale.getDefault()): String? =
+    this?.run { Format.longDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
 
-    override fun iterator(): Iterator<LocalDate> =
-        LocalDateIterator(start, endInclusive, stepDays)
-
-    /**
-     * Steps over by the number of [days]
-     */
-    infix fun step(days: Long) = LocalDateProgression(start, endInclusive, days)
-}
+/**
+ * Returns localized full date String (ex: Monday, January 1, 2000) of the [LocalDate],
+ *  null if the [LocalDate] was null. Note: Uses Java Time
+ */
+fun LocalDate?.getFullDateString(locale: Locale = Locale.getDefault()): String? =
+    this?.run { Format.fullDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
