@@ -15,7 +15,6 @@
  */
 
 include(
-    ":analytics",
     ":coroutines",
     ":date",
     ":dialog",

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,6 @@
 
 package com.guerinet.suitcase.analytics
 
-import android.app.Activity
 import android.content.Context
 import androidx.core.os.bundleOf
 import com.google.firebase.analytics.FirebaseAnalytics
@@ -37,13 +36,8 @@ inline fun Context.firebase() = lazy { FirebaseAnalytics.getInstance(this) }
  * Logs an event with the [name] and an optional set of [params] to attach
  */
 @Suppress("NOTHING_TO_INLINE")
-inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) = logEvent(name, bundleOf(*params))
-
-/**
- * Sets the screen [name] for the [activity]
- */
-@Suppress("NOTHING_TO_INLINE")
-inline fun FirebaseAnalytics.screen(activity: Activity, name: String) = setCurrentScreen(activity, name, null)
+inline fun FirebaseAnalytics.event(name: String, vararg params: Pair<String, Any?>) =
+    logEvent(name, bundleOf(*params))
 
 /**
  * Sets a list of user [properties] on this [FirebaseAnalytics] instance

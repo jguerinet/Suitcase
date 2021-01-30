@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,9 +16,7 @@
 
 package com.guerinet.suitcase.analytics
 
-import android.app.Activity
 import android.content.Context
-import com.google.firebase.analytics.FirebaseAnalytics
 
 /**
  * [Analytics] implementation for Firebase
@@ -27,11 +25,10 @@ import com.google.firebase.analytics.FirebaseAnalytics
  */
 class FAnalytics(context: Context) : Analytics {
 
-    private val fa = FirebaseAnalytics.getInstance(context)
+    private val fa by context.firebase()
 
     override fun event(name: String, vararg params: Pair<String, Any?>) = fa.event(name, *params)
 
-    override fun screen(activity: Activity, name: String) = fa.screen(activity, name)
-
-    override fun setUserProperties(vararg properties: Pair<String, String?>) = fa.setUserProperties(*properties)
+    override fun setUserProperties(vararg properties: Pair<String, String?>) =
+        fa.setUserProperties(*properties)
 }

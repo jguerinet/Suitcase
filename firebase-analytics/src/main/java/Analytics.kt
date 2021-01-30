@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,8 +16,6 @@
 
 package com.guerinet.suitcase.analytics
 
-import android.app.Activity
-
 /**
  * Generic Analytics interface. Could be implemented using Firebase in production and simple logging in testing
  * @author Julien Guerinet
@@ -29,11 +27,6 @@ interface Analytics {
      * Logs an event with the [name] and an optional set of [params] to attach
      */
     fun event(name: String, vararg params: Pair<String, Any?>)
-
-    /**
-     * Sets the screen [name] for the [activity]
-     */
-    fun screen(activity: Activity, name: String)
 
     /**
      * Sets a list of user [properties] on the [Analytics] instance
