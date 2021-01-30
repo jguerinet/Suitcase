@@ -21,26 +21,28 @@ object Versions {
     /* Plugins */
     object Plugins {
         const val ANDROID = "7.0.0-alpha05"
-        const val FIREBASE_CRASHLYTICS = "2.4.1"
         const val GOOGLE_SERVICES = "4.3.4"
-        const val KN_COCOAPODS = "0.12"
     }
 
     /* Common */
-    const val BLUE_FALCON = "0.8.0"
     const val COROUTINES = "1.4.2-native-mt"
     const val KARMOK = "0.1.8"
     const val KERMIT = "0.1.8"
     const val KOIN = "3.0.0-alpha-4"
     const val KOTLINX_DATE_TIME = "0.1.1"
-    const val KTOR = "1.4.3"
-    const val MULTIPLATFORM_SETTINGS = "0.6.3"
-    const val STATELY = "1.1.1"
-    const val SQLDELIGHT = "1.4.4"
 
-    object Moko {
-        const val MVVM = "0.8.1"
-        const val PERMISSIONS = "0.7.0"
+    object AndroidX {
+        const val APPCOMPAT = "1.2.0"
+        const val COMPOSE = "1.0.0-alpha09"
+        const val CONSTRAINT_LAYOUT = "2.0.4"
+        const val CORE_KTX = "1.3.2"
+        const val LIFECYCLE = "2.2.0"
+        const val RECYCLERVIEW = "1.1.0"
+
+        object Test {
+            const val TEST = "1.3.0"
+            const val TEST_EXT = "1.1.2"
+        }
     }
 
     /* Android app versions */
@@ -50,20 +52,6 @@ object Versions {
 
         const val FIREBASE = "26.3.0"
         const val MATERIAL = "1.2.1"
-
-        object AndroidX {
-            const val APPCOMPAT = "1.2.0"
-            const val COMPOSE = "1.0.0-alpha09"
-            const val CONSTRAINT_LAYOUT = "2.0.4"
-            const val CORE_KTX = "1.3.2"
-            const val LIFECYCLE = "2.2.0"
-            const val RECYCLERVIEW = "1.1.0"
-
-            object Test {
-                const val TEST = "1.3.0"
-                const val TEST_EXT = "1.1.2"
-            }
-        }
 
         /* Test versions */
         object Test {
@@ -77,28 +65,16 @@ object Deps {
 
     object Plugins {
         const val ANDROID = "com.android.tools.build:gradle:${Versions.Plugins.ANDROID}"
-        const val CRASHLYTICS =
-            "${Firebase.BASE}-crashlytics-gradle:${Versions.Plugins.FIREBASE_CRASHLYTICS}"
         const val GOOGLE_SERVICES =
             "com.google.gms:google-services:${Versions.Plugins.GOOGLE_SERVICES}"
-        const val KN_COCOAPODS =
-            "co.touchlab:kotlinnativecocoapods:${Versions.Plugins.KN_COCOAPODS}"
         const val KOTLINX_SERIALIZATION =
             "org.jetbrains.kotlin:kotlin-serialization:${Versions.KOTLIN}"
-        const val SQL_DELIGHT = "${SqlDelight.BASE}:gradle-plugin:${Versions.SQLDELIGHT}"
     }
 
     const val KARMOK = "co.touchlab:karmok-library:${Versions.KARMOK}"
     const val KERMIT = "co.touchlab:kermit:${Versions.KERMIT}"
     const val KOTLINX_DATE_TIME =
         "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.KOTLINX_DATE_TIME}"
-    const val STATELY = "co.touchlab:stately-common:${Versions.STATELY}"
-
-    object BlueFalcon {
-        private const val BASE = "dev.bluefalcon:library"
-        const val COMMON = "$BASE:${Versions.BLUE_FALCON}"
-        const val ANDROID = "$BASE-android:${Versions.BLUE_FALCON}"
-    }
 
     object Coroutines {
         const val COMMON = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
@@ -108,10 +84,9 @@ object Deps {
     }
 
     object Firebase {
-        const val BASE = "com.google.firebase:firebase"
+        private const val BASE = "com.google.firebase:firebase"
         const val BOM = "$BASE-bom:${Versions.Android.FIREBASE}"
         const val ANALYTICS = "$BASE-analytics-ktx"
-        const val CRASHLYTICS = "$BASE-crashlytics-ktx"
     }
 
     object Koin {
@@ -129,76 +104,48 @@ object Deps {
         const val JUNIT = "org.jetbrains.kotlin:kotlin-test-junit:${Versions.KOTLIN}"
     }
 
-    object Ktor {
-        const val COMMON_CORE = "io.ktor:ktor-client-core:${Versions.KTOR}"
-        const val COMMON_JSON = "io.ktor:ktor-client-json:${Versions.KTOR}"
-        const val COMMON_LOGGING = "io.ktor:ktor-client-logging:${Versions.KTOR}"
-        const val COMMON_SERIALIZATION = "io.ktor:ktor-client-serialization:${Versions.KTOR}"
-        const val ANDROID = "io.ktor:ktor-client-okhttp:${Versions.KTOR}"
-        const val IOS = "io.ktor:ktor-client-ios:${Versions.KTOR}"
-    }
+    object AndroidX {
+        private const val BASE = "androidx"
+        const val APPCOMPAT =
+            "androidx.appcompat:appcompat:${Versions.AndroidX.APPCOMPAT}"
+        const val COMPOSE = "androidx.compose.ui:ui:${Versions.AndroidX.COMPOSE}"
+        const val COMPOSE_TOOLING =
+            "androidx.compose.ui:ui-tooling:${Versions.AndroidX.COMPOSE}"
+        const val COMPOSE_FOUNDATION =
+            "androidx.compose.foundation:foundation:${Versions.AndroidX.COMPOSE}"
+        const val COMPOSE_MATERIAL =
+            "androidx.compose.material:material:${Versions.AndroidX.COMPOSE}"
+        const val COMPOSE_MATERIAL_ICONS =
+            "androidx.compose.material:material-icons-core:${Versions.AndroidX.COMPOSE}"
+        const val COMPOSE_LIVE_DATA =
+            "androidx.compose.runtime:runtime-livedata:${Versions.AndroidX.COMPOSE}"
+        const val CORE_KTX = "$BASE.core:core-ktx:${Versions.AndroidX.CORE_KTX}"
+        const val CONSTRAINT_LAYOUT =
+            "androidx.constraintlayout:constraintlayout:${Versions.AndroidX.CONSTRAINT_LAYOUT}"
+        const val RECYCLERVIEW =
+            "androidx.recyclerview:recyclerview:${Versions.AndroidX.RECYCLERVIEW}"
+        const val LIFECYCLE_VIEWMODEL =
+            "androidx.lifecycle:lifecycle-viewmodel:${Versions.AndroidX.LIFECYCLE}"
+        const val LIFECYCLE_VIEWMODEL_KTX =
+            "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.LIFECYCLE}"
+        const val LIFECYCLE_LIVEDATA =
+            "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidX.LIFECYCLE}"
+        const val LIFECYCLE_EXT =
+            "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidX.LIFECYCLE}"
 
-    object Moko {
-        private const val BASE = "dev.icerock.moko"
-        const val MVVM = "$BASE:mvvm:${Versions.Moko.MVVM}"
-        const val PERMISSIONS = "$BASE:permissions:${Versions.Moko.PERMISSIONS}"
-    }
-
-    object MultiplatformSettings {
-        const val CORE = "com.russhwolf:multiplatform-settings:${Versions.MULTIPLATFORM_SETTINGS}"
-        const val TEST =
-            "com.russhwolf:multiplatform-settings-test:${Versions.MULTIPLATFORM_SETTINGS}"
-    }
-
-    object SqlDelight {
-        const val BASE = "com.squareup.sqldelight"
-        const val RUNTIME = "$BASE:runtime:${Versions.SQLDELIGHT}"
-        const val RUNTIME_JDK = "$BASE:runtime-jvm:${Versions.SQLDELIGHT}"
-        const val DRIVER_IOS = "$BASE:native-driver:${Versions.SQLDELIGHT}"
-        const val DRIVER_ANDROID = "$BASE:android-driver:${Versions.SQLDELIGHT}"
+        object Test {
+            const val CORE = "androidx.test:core:${Versions.AndroidX.Test.TEST}"
+            const val JUNIT =
+                "androidx.test.ext:junit:${Versions.AndroidX.Test.TEST_EXT}"
+            const val RUNNER = "androidx.test:runner:${Versions.AndroidX.Test.TEST}"
+            const val RULES = "androidx.test:rules:${Versions.AndroidX.Test.TEST}"
+        }
     }
 
     /* Dependencies for the Android app */
     object Android {
 
         const val MATERIAL = "com.google.android.material:material:${Versions.Android.MATERIAL}"
-
-        object AndroidX {
-            const val APPCOMPAT =
-                "androidx.appcompat:appcompat:${Versions.Android.AndroidX.APPCOMPAT}"
-            const val COMPOSE = "androidx.compose.ui:ui:${Versions.Android.AndroidX.COMPOSE}"
-            const val COMPOSE_TOOLING =
-                "androidx.compose.ui:ui-tooling:${Versions.Android.AndroidX.COMPOSE}"
-            const val COMPOSE_FOUNDATION =
-                "androidx.compose.foundation:foundation:${Versions.Android.AndroidX.COMPOSE}"
-            const val COMPOSE_MATERIAL =
-                "androidx.compose.material:material:${Versions.Android.AndroidX.COMPOSE}"
-            const val COMPOSE_MATERIAL_ICONS =
-                "androidx.compose.material:material-icons-core:${Versions.Android.AndroidX.COMPOSE}"
-            const val COMPOSE_LIVE_DATA =
-                "androidx.compose.runtime:runtime-livedata:${Versions.Android.AndroidX.COMPOSE}"
-            const val CORE_KTX = "androidx.core:core-ktx:${Versions.Android.AndroidX.CORE_KTX}"
-            const val CONSTRAINT_LAYOUT =
-                "androidx.constraintlayout:constraintlayout:${Versions.Android.AndroidX.CONSTRAINT_LAYOUT}"
-            const val RECYCLERVIEW =
-                "androidx.recyclerview:recyclerview:${Versions.Android.AndroidX.RECYCLERVIEW}"
-            const val LIFECYCLE_VIEWMODEL =
-                "androidx.lifecycle:lifecycle-viewmodel:${Versions.Android.AndroidX.LIFECYCLE}"
-            const val LIFECYCLE_VIEWMODEL_KTX =
-                "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.Android.AndroidX.LIFECYCLE}"
-            const val LIFECYCLE_LIVEDATA =
-                "androidx.lifecycle:lifecycle-livedata:${Versions.Android.AndroidX.LIFECYCLE}"
-            const val LIFECYCLE_EXT =
-                "androidx.lifecycle:lifecycle-extensions:${Versions.Android.AndroidX.LIFECYCLE}"
-
-            object Test {
-                const val CORE = "androidx.test:core:${Versions.Android.AndroidX.Test.TEST}"
-                const val JUNIT =
-                    "androidx.test.ext:junit:${Versions.Android.AndroidX.Test.TEST_EXT}"
-                const val RUNNER = "androidx.test:runner:${Versions.Android.AndroidX.Test.TEST}"
-                const val RULES = "androidx.test:rules:${Versions.Android.AndroidX.Test.TEST}"
-            }
-        }
 
         /* Test dependencies */
         object Test {
