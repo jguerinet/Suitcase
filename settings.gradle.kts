@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2018 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,4 +14,17 @@
  * limitations under the License.
  */
 
-include ':analytics', ':coroutines', ':date', ':dialog', ':firebase-analytics', ':io', ':lifecycle', ':log', ':prefs', ':room', ':ui', ':util'
+include(
+    ":analytics",
+    ":coroutines",
+    ":date",
+    ":dialog",
+    ":firebase-analytics",
+    ":io",
+    ":lifecycle",
+    ":log",
+    ":prefs",
+    ":room",
+    ":ui",
+    ":util"
+)
