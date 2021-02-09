@@ -15,6 +15,5 @@
  */
 
 dependencies {
-//    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
     implementation(Deps.AndroidX.BROWSER)
 }
