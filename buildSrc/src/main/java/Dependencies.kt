@@ -37,6 +37,7 @@ object Versions {
     object AndroidX {
         const val ANNOTATION = "1.1.0"
         const val APPCOMPAT = "1.2.0"
+        const val BROWSER = "1.0.0"
         const val CONTENT = "1.0.0"
         const val COMPOSE = "1.0.0-alpha09"
         const val CONSTRAINT_LAYOUT = "2.0.4"
@@ -118,6 +119,7 @@ object Deps {
         const val ANNOTATION = "$BASE.annotation:annotation:${Versions.AndroidX.ANNOTATION}"
         const val APPCOMPAT =
             "$BASE.appcompat:appcompat:${Versions.AndroidX.APPCOMPAT}"
+        const val BROWSER = "$BASE.browser:browser:${Versions.AndroidX.BROWSER}"
         const val CONTENT =
             "$BASE.appcompat:appcompat:${Versions.AndroidX.CONTENT}"
         const val COMPOSE = "androidx.compose.ui:ui:${Versions.AndroidX.COMPOSE}"

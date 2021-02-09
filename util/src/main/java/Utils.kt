@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -63,8 +63,7 @@ object Utils {
      *  current version if not specified)
      */
     @JvmStatic
-    @JvmOverloads
-    fun isNewerVersion(oldVersionName: String? = BuildConfig.VERSION_NAME, newVersionName: String?):
+    fun isNewerVersion(oldVersionName: String?, newVersionName: String?):
         Boolean {
         if (oldVersionName == null || newVersionName == null) {
             return false
