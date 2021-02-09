@@ -31,9 +31,12 @@ object Versions {
     const val KOIN = "3.0.0-alpha-4"
     const val KOTLINX_DATE_TIME = "0.1.1"
     const val MATERIAL_DIALOGS = "3.3.0"
+    const val OKIO = "2.2.2"
 
     object AndroidX {
+        const val ANNOTATION = "1.1.0"
         const val APPCOMPAT = "1.2.0"
+        const val CONTENT = "1.0.0"
         const val COMPOSE = "1.0.0-alpha09"
         const val CONSTRAINT_LAYOUT = "2.0.4"
         const val CORE_KTX = "1.3.2"
@@ -77,6 +80,7 @@ object Deps {
     const val KOTLINX_DATE_TIME =
         "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.KOTLINX_DATE_TIME}"
     const val MATERIAL_DIALOGS = "com.afollestad.material-dialogs:core:${Versions.MATERIAL_DIALOGS}"
+    const val OKIO = "com.squareup.okio:okio:${Versions.OKIO}"
 
     object Coroutines {
         const val COMMON = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"
@@ -108,8 +112,11 @@ object Deps {
 
     object AndroidX {
         private const val BASE = "androidx"
+        const val ANNOTATION = "$BASE.annotation:annotation:${Versions.AndroidX.ANNOTATION}"
         const val APPCOMPAT =
-            "androidx.appcompat:appcompat:${Versions.AndroidX.APPCOMPAT}"
+            "$BASE.appcompat:appcompat:${Versions.AndroidX.APPCOMPAT}"
+        const val CONTENT =
+            "$BASE.appcompat:appcompat:${Versions.AndroidX.CONTENT}"
         const val COMPOSE = "androidx.compose.ui:ui:${Versions.AndroidX.COMPOSE}"
         const val COMPOSE_TOOLING =
             "androidx.compose.ui:ui-tooling:${Versions.AndroidX.COMPOSE}"
