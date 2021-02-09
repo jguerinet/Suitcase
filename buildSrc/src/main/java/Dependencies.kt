@@ -28,10 +28,11 @@ object Versions {
     const val COROUTINES = "1.4.2-native-mt"
     const val KARMOK = "0.1.8"
     const val KERMIT = "0.1.8"
-    const val KOIN = "3.0.0-alpha-4"
+    const val KOIN = "2.0.1"
     const val KOTLINX_DATE_TIME = "0.1.1"
     const val MATERIAL_DIALOGS = "3.3.0"
     const val OKIO = "2.2.2"
+    const val TIMBER = "4.7.1"
 
     object AndroidX {
         const val ANNOTATION = "1.1.0"
@@ -81,6 +82,7 @@ object Deps {
         "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.KOTLINX_DATE_TIME}"
     const val MATERIAL_DIALOGS = "com.afollestad.material-dialogs:core:${Versions.MATERIAL_DIALOGS}"
     const val OKIO = "com.squareup.okio:okio:${Versions.OKIO}"
+    const val TIMBER = "com.jakewharton.timber:timber:${Versions.TIMBER}"
 
     object Coroutines {
         const val COMMON = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"

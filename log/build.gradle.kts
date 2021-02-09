@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,6 +15,6 @@
  */
 
 dependencies {
-    api "com.jakewharton.timber:timber:4.7.1"
-    compileOnly "org.koin:koin-core:2.0.1"
+    api(Deps.TIMBER)
+    compileOnly(Deps.Koin.CORE)
 }
