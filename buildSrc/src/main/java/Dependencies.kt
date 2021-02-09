@@ -139,8 +139,10 @@ object Deps {
             "androidx.lifecycle:lifecycle-viewmodel-ktx:${Versions.AndroidX.LIFECYCLE}"
         const val LIFECYCLE_LIVEDATA =
             "androidx.lifecycle:lifecycle-livedata:${Versions.AndroidX.LIFECYCLE}"
+        const val LIFECYCLE_COMPILER =
+            "$BASE.lifecycle:lifecycle-compiler:${Versions.AndroidX.LIFECYCLE}"
         const val LIFECYCLE_EXT =
-            "androidx.lifecycle:lifecycle-extensions:${Versions.AndroidX.LIFECYCLE}"
+            "$BASE.lifecycle:lifecycle-extensions:${Versions.AndroidX.LIFECYCLE}"
 
         object Test {
             const val CORE = "androidx.test:core:${Versions.AndroidX.Test.TEST}"
