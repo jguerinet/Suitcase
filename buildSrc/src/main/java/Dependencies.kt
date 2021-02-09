@@ -30,6 +30,7 @@ object Versions {
     const val KERMIT = "0.1.8"
     const val KOIN = "3.0.0-alpha-4"
     const val KOTLINX_DATE_TIME = "0.1.1"
+    const val MATERIAL_DIALOGS = "3.3.0"
 
     object AndroidX {
         const val APPCOMPAT = "1.2.0"
@@ -75,6 +76,7 @@ object Deps {
     const val KERMIT = "co.touchlab:kermit:${Versions.KERMIT}"
     const val KOTLINX_DATE_TIME =
         "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.KOTLINX_DATE_TIME}"
+    const val MATERIAL_DIALOGS = "com.afollestad.material-dialogs:core:${Versions.MATERIAL_DIALOGS}"
 
     object Coroutines {
         const val COMMON = "org.jetbrains.kotlinx:kotlinx-coroutines-core:${Versions.COROUTINES}"

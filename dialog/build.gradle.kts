@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -15,5 +15,5 @@
  */
 
 dependencies {
-    api "com.afollestad.material-dialogs:core:3.1.0"
+    api(Deps.MATERIAL_DIALOGS)
 }
