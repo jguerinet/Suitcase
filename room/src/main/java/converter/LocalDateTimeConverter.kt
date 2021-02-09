@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -16,7 +16,7 @@
 
 package com.guerinet.room.converter
 
-import org.threeten.bp.LocalDateTime
+import kotlinx.datetime.LocalDateTime
 
 /**
  * Converts [LocalDateTime]s to Strings and vice-versa for Room
@@ -25,5 +25,9 @@ import org.threeten.bp.LocalDateTime
  */
 class LocalDateTimeConverter : BaseConverter<LocalDateTime>() {
 
-    override fun objectFromString(value: String): LocalDateTime? = LocalDateTime.parse(value)
+    override fun objectFromString(value: String): LocalDateTime? = try {
+        LocalDateTime.parse(value)
+    } catch (e: Exception) {
+        null
+    }
 }

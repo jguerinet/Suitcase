@@ -43,6 +43,7 @@ object Versions {
         const val CORE_KTX = "1.3.2"
         const val LIFECYCLE = "2.2.0"
         const val RECYCLERVIEW = "1.1.0"
+        const val ROOM = "2.1.0"
 
         object Test {
             const val TEST = "1.3.0"
@@ -145,6 +146,8 @@ object Deps {
             "$BASE.lifecycle:lifecycle-compiler:${Versions.AndroidX.LIFECYCLE}"
         const val LIFECYCLE_EXT =
             "$BASE.lifecycle:lifecycle-extensions:${Versions.AndroidX.LIFECYCLE}"
+        const val ROOM = "$BASE.room:room-runtime:${Versions.AndroidX.ROOM}"
+        const val ROOM_COMPILER = "$BASE.room:room-compiler:${Versions.AndroidX.ROOM}"
 
         object Test {
             const val CORE = "androidx.test:core:${Versions.AndroidX.Test.TEST}"

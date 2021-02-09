@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,12 +14,8 @@
  * limitations under the License.
  */
 
-apply plugin: 'kotlin-kapt'
-
-def room_version = "2.1.0"
-
 dependencies {
-    implementation "androidx.room:room-runtime:$room_version"
-    kapt "androidx.room:room-compiler:$room_version"
-    implementation "com.jakewharton.threetenabp:threetenabp:$threetenabp_version"
+    implementation(Deps.AndroidX.ROOM)
+    kapt(Deps.AndroidX.ROOM_COMPILER)
+    implementation(Deps.KOTLINX_DATE_TIME)
 }

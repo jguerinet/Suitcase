@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -18,7 +18,8 @@ package com.guerinet.room
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-import org.threeten.bp.ZonedDateTime
+import kotlinx.datetime.Clock
+import kotlinx.datetime.Instant
 
 /**
  * Logs a date/time the app was updates
@@ -32,7 +33,7 @@ import org.threeten.bp.ZonedDateTime
 @Entity
 data class AppUpdate(
     val version: String,
-    val timestamp: ZonedDateTime = ZonedDateTime.now(),
+    val timestamp: Instant = Clock.System.now(),
     @PrimaryKey(autoGenerate = true) val id: Int = 0
 ) {
     companion object {

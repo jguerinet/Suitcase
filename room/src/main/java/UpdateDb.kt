@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -21,7 +21,7 @@ import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
 import androidx.room.TypeConverters
-import com.guerinet.room.converter.ZonedDateTimeConverter
+import com.guerinet.room.converter.InstantConverter
 
 /**
  * Database to store all [AppUpdate]s
@@ -29,7 +29,7 @@ import com.guerinet.room.converter.ZonedDateTimeConverter
  * @since 4.4.0
  */
 @Database(exportSchema = false, entities = [AppUpdate::class], version = 1)
-@TypeConverters(ZonedDateTimeConverter::class)
+@TypeConverters(InstantConverter::class)
 abstract class UpdateDb : RoomDatabase() {
 
     /**
