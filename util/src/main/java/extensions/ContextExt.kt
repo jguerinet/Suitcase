@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -223,7 +223,7 @@ fun Context.wrapWithLanguage(language: String): ContextWrapper {
     if (Device.isApiLevel(24)) {
         val localeList = LocaleList(locale)
         LocaleList.setDefault(localeList)
-        configuration.locales = localeList
+        configuration.setLocales(localeList)
     }
 
     return ContextWrapper(createConfigurationContext(configuration))

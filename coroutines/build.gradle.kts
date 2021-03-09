@@ -39,7 +39,10 @@ android {
 }
 
 dependencies {
-    implementation(Deps.AndroidX.BROWSER)
+    implementation(Deps.AndroidX.APPCOMPAT)
+    implementation(Deps.AndroidX.LIFECYCLE_EXT)
+    kapt(Deps.AndroidX.LIFECYCLE_COMPILER)
+    api(Deps.Coroutines.ANDROID)
 }
 
 // TODO

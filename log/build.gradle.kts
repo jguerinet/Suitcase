@@ -14,7 +14,34 @@
  * limitations under the License.
  */
 
+plugins {
+    id("com.android.library")
+    kotlin("android")
+    kotlin("kapt")
+    id("com.github.dcendents.android-maven")
+}
+
+android {
+    compileSdkVersion(Versions.Android.TARGET_SDK)
+
+    defaultConfig {
+        minSdkVersion(Versions.Android.MIN_SDK)
+        targetSdkVersion(Versions.Android.TARGET_SDK)
+        versionName = Versions.SUITCASE
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
+    }
+}
+
 dependencies {
     api(Deps.TIMBER)
     compileOnly(Deps.Koin.CORE)
 }
+
+// TODO
+//    apply from: "https://raw.githubusercontent.com/jguerinet/Gradle-Artifact-Scripts/master/android-kotlin-artifacts.gradle"

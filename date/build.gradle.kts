@@ -14,13 +14,35 @@
  * limitations under the License.
  */
 
+plugins {
+    id("com.android.library")
+    kotlin("android")
+    kotlin("kapt")
+    id("com.github.dcendents.android-maven")
+}
+
 android {
+    compileSdkVersion(Versions.Android.TARGET_SDK)
+
+    defaultConfig {
+        minSdkVersion(Versions.Android.MIN_SDK)
+        targetSdkVersion(Versions.Android.TARGET_SDK)
+        versionName = Versions.SUITCASE
+    }
+
     compileOptions {
         // Flag to enable support for the new language APIs
         isCoreLibraryDesugaringEnabled = true
         // Sets Java compatibility to Java 8
         sourceCompatibility = JavaVersion.VERSION_1_8
         targetCompatibility = JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        getByName("release") {
+            isMinifyEnabled = false
+            proguardFiles(getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro")
+        }
     }
 }
 
