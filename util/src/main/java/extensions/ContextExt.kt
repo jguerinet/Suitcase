@@ -16,6 +16,7 @@
 
 package com.guerinet.suitcase.util.extensions
 
+import android.annotation.SuppressLint
 import android.app.Activity
 import android.content.ActivityNotFoundException
 import android.content.Context
@@ -23,10 +24,10 @@ import android.content.ContextWrapper
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.graphics.BitmapFactory
-import android.graphics.Point
 import android.net.ConnectivityManager
 import android.net.Uri
 import android.os.LocaleList
+import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.WindowManager
 import androidx.annotation.ColorRes
@@ -46,28 +47,34 @@ import java.util.Locale
  * Device screen width, in pixels
  */
 val Context.displayWidth: Int
-    get() = displaySize.x
+    get() = displaySize.widthPixels
 
 /**
  * Device screen height, in pixels
  */
 val Context.displayHeight: Int
-    get() = displaySize.y
+    get() = displaySize.heightPixels
 
 /**
- * Device display size as a [Point]
+ * Device display size as [DisplayMetrics]
  */
-val Context.displaySize: Point
+val Context.displaySize: DisplayMetrics
     get() {
-        val windowManager = if (this is Activity) {
-            windowManager
+        val displayMetrics = DisplayMetrics()
+        if (Device.isApiLevel(30)) {
+            display?.getRealMetrics(displayMetrics)
         } else {
-            getSystemService(Context.WINDOW_SERVICE) as? WindowManager ?: error("Could not get WindowManager")
-        }
+            val windowManager = if (this is Activity) {
+                windowManager
+            } else {
+                getSystemService(Context.WINDOW_SERVICE) as? WindowManager
+                    ?: error("Could not get WindowManager")
+            }
 
-        return Point().apply {
-            windowManager.defaultDisplay.getSize(this)
+            @Suppress("DEPRECATION")
+            windowManager.defaultDisplay.getRealMetrics(displayMetrics)
         }
+        return displayMetrics
     }
 
 /**
@@ -139,6 +146,7 @@ fun Context.openCustomTab(
  * Attempts to open the Pdf at the given [path]
  * @throws ActivityNotFoundException if no app to open the pdf is found
  */
+@SuppressLint("QueryPermissionsNeeded")
 @Throws(ActivityNotFoundException::class)
 fun Context.openPdf(path: Uri) {
     // Check if there is a Pdf reader
