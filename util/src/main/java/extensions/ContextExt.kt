@@ -33,6 +33,7 @@ import android.view.WindowManager
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.browser.customtabs.CustomTabsIntent
+import androidx.browser.customtabs.CustomTabsIntent.SHARE_STATE_ON
 import androidx.core.content.ContextCompat
 import com.guerinet.suitcase.util.Device
 import java.util.Locale
@@ -121,7 +122,7 @@ fun Context.openCustomTab(
     }
 
     val builder = CustomTabsIntent.Builder()
-        .addDefaultShareMenuItem()
+        .setShareState(SHARE_STATE_ON)
 
     if (toolbarColor != null) {
         // Set the custom toolbar color if there is one
