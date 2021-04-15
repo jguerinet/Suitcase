@@ -126,6 +126,7 @@ fun Context.openCustomTab(
 
     if (toolbarColor != null) {
         // Set the custom toolbar color if there is one
+        // TODO
         builder.setToolbarColor(getColorCompat(toolbarColor))
     }
 
