@@ -39,7 +39,8 @@ android {
 }
 
 dependencies {
-    implementation(Deps.AndroidX.LIFECYCLE_EXT)
+    implementation(Deps.AndroidX.LIFECYCLE)
+    implementation(Deps.AndroidX.LIFECYCLE_LIVEDATA)
     kapt(Deps.AndroidX.LIFECYCLE_COMPILER)
 }
 

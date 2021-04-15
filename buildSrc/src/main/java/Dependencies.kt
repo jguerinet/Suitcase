@@ -17,30 +17,30 @@
 object Versions {
 
     const val SUITCASE = "6.0.0"
-    const val KOTLIN = "1.4.21"
+    const val KOTLIN = "1.4.31"
 
     object Plugins {
-        const val ANDROID = "4.1.0"
-        const val ANDROID_MAVEN = "1.5"
+        const val ANDROID = "4.1.2"
+        const val ANDROID_MAVEN = "2.1"
     }
 
     const val COROUTINES = "1.4.2-native-mt"
-    const val FIREBASE = "26.3.0"
-    const val KOIN = "2.0.1"
+    const val FIREBASE = "26.6.0"
+    const val KOIN = "2.2.2"
     const val KOTLINX_DATE_TIME = "0.1.1"
     const val MATERIAL_DIALOGS = "3.3.0"
-    const val OKIO = "2.2.2"
+    const val OKIO = "2.10.0"
     const val TIMBER = "4.7.1"
 
     object AndroidX {
         const val ANNOTATION = "1.1.0"
         const val APPCOMPAT = "1.2.0"
-        const val BROWSER = "1.0.0"
+        const val BROWSER = "1.3.0"
         const val CONTENT = "1.0.0"
         const val CORE_KTX = "1.3.2"
-        const val LIFECYCLE = "2.2.0"
+        const val LIFECYCLE = "2.3.0"
         const val RECYCLERVIEW = "1.1.0"
-        const val ROOM = "2.1.0"
+        const val ROOM = "2.2.6"
     }
 
     object Android {
@@ -88,10 +88,11 @@ object Deps {
         const val CONTENT = "$BASE.appcompat:appcompat:${Versions.AndroidX.CONTENT}"
         const val CORE_KTX = "$BASE.core:core-ktx:${Versions.AndroidX.CORE_KTX}"
         const val RECYCLERVIEW = "$BASE.recyclerview:recyclerview:${Versions.AndroidX.RECYCLERVIEW}"
+        const val LIFECYCLE = "$BASE.lifecycle:lifecycle-runtime-ktx:${Versions.AndroidX.LIFECYCLE}"
         const val LIFECYCLE_COMPILER =
             "$BASE.lifecycle:lifecycle-compiler:${Versions.AndroidX.LIFECYCLE}"
-        const val LIFECYCLE_EXT =
-            "$BASE.lifecycle:lifecycle-extensions:${Versions.AndroidX.LIFECYCLE}"
+        const val LIFECYCLE_LIVEDATA =
+            "$BASE.lifecycle:lifecycle-livedata-ktx:${Versions.AndroidX.LIFECYCLE}"
         const val ROOM = "$BASE.room:room-runtime:${Versions.AndroidX.ROOM}"
         const val ROOM_COMPILER = "$BASE.room:room-compiler:${Versions.AndroidX.ROOM}"
     }

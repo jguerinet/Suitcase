@@ -40,7 +40,7 @@ android {
 
 dependencies {
     implementation(Deps.AndroidX.APPCOMPAT)
-    implementation(Deps.AndroidX.LIFECYCLE_EXT)
+    implementation(Deps.AndroidX.LIFECYCLE)
     kapt(Deps.AndroidX.LIFECYCLE_COMPILER)
     api(Deps.Coroutines.ANDROID)
 }
