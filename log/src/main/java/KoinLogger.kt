@@ -30,7 +30,7 @@ class KoinLogger : Logger(), TimberTag {
     override val tag = "Koin"
 
     override fun log(level: Level, msg: MESSAGE) = when (level) {
-        Level.DEBUG -> timber.v(msg)
+        Level.DEBUG, Level.NONE -> timber.v(msg)
         Level.INFO -> timber.d(msg)
         Level.ERROR -> timber.e(msg)
     }
