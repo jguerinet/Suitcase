@@ -20,27 +20,27 @@ object Versions {
     const val KOTLIN = "1.4.31"
 
     object Plugins {
-        const val ANDROID = "4.1.2"
+        const val ANDROID = "4.1.3"
         const val ANDROID_MAVEN = "2.1"
     }
 
     const val COROUTINES = "1.4.2-native-mt"
-    const val FIREBASE = "26.6.0"
+    const val FIREBASE = "27.1.0"
     const val KOIN = "2.2.2"
-    const val KOTLINX_DATE_TIME = "0.1.1"
+    const val KOTLINX_DATE_TIME = "0.2.0"
     const val MATERIAL_DIALOGS = "3.3.0"
     const val OKIO = "2.10.0"
     const val TIMBER = "4.7.1"
 
     object AndroidX {
-        const val ANNOTATION = "1.1.0"
+        const val ANNOTATION = "1.2.0"
         const val APPCOMPAT = "1.2.0"
         const val BROWSER = "1.3.0"
         const val CONTENT = "1.0.0"
         const val CORE_KTX = "1.3.2"
-        const val LIFECYCLE = "2.3.0"
-        const val RECYCLERVIEW = "1.1.0"
-        const val ROOM = "2.2.6"
+        const val LIFECYCLE = "2.3.1"
+        const val RECYCLERVIEW = "1.2.0"
+        const val ROOM = "2.3.0"
     }
 
     object Android {
