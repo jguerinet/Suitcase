@@ -1,14 +1,20 @@
 # Change Log
 
+## Version 6.0.0 (2021-04-30)
+
+- Updated all dependencies to their latest versions
+- Restructured the Gradle scripts (using Kotlin DSL and `buildSrc`)
+- Updated the publishing action for all of the modules
+
 ## Version 5.2.0 (2019-07-03)
 
--   Updated all dependencies to their latest versions
--   `ui`: 
-    -   Added extension function to `ImageView` to set an image resource using the Compat functions
-    -   Added extension to `EditText` to set the IME action button and listener
-    -   Added extension to `TextView` to set the text color using the Compat functions and a color Id
--   `util`: 
-    -   Added extension function to convert a dp value to pixels
+- Updated all dependencies to their latest versions
+- `ui`:
+    - Added extension function to `ImageView` to set an image resource using the Compat functions
+    - Added extension to `EditText` to set the IME action button and listener
+    - Added extension to `TextView` to set the text color using the Compat functions and a color Id
+- `util`:
+    - Added extension function to convert a dp value to pixels
     -   Added fallback on opening a Chrome custom tab to use the opening of a normal Url
 
 ## Version 5.1.1 (2019-02-28)
