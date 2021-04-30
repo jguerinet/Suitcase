@@ -61,6 +61,7 @@ publishing {
             run {
                 groupId = group
                 artifactId = artifact_name
+                version = Versions.SUITCASE
                 // Main Artifact
                 from(components.findByName("release"))
             }
