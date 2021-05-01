@@ -68,7 +68,7 @@ publishing {
             pom.withXml {
                 asNode().apply {
                     appendNode("name", artifact_name)
-                    appendNode("name", url_site)
+                    appendNode("url", url_site)
 
                     appendNode("licenses").appendNode("license").apply {
                         appendNode("name", license_name)
