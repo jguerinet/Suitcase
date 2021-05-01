@@ -83,14 +83,18 @@ spotless {
 
     kotlin {
         target("**/*.kt")
-        ktlint()
+        // See https://github.com/pinterest/ktlint/issues/527
+        ktlint("0.41.0")
+            .userData(mapOf("ij_kotlin_imports_layout" to "*,java.**,javax.**,kotlin.**"))
         trimTrailingWhitespace()
         endWithNewline()
     }
 
     kotlinGradle {
         target("**/*.gradle.kts")
-        ktlint()
+        // See https://github.com/pinterest/ktlint/issues/527
+        ktlint("0.41.0")
+            .userData(mapOf("ij_kotlin_imports_layout" to "*,java.**,javax.**,kotlin.**"))
         trimTrailingWhitespace()
         endWithNewline()
     }

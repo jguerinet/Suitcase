@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -24,7 +24,8 @@ import androidx.lifecycle.AndroidViewModel
  * @author Julien Guerinet
  * @since 4.7.0
  */
-open class ScopedAndroidViewModel(application: Application) : AndroidViewModel(application),
+open class ScopedAndroidViewModel(application: Application) :
+    AndroidViewModel(application),
     BetterCoroutineScope by MainScope() {
 
     override fun onCleared() {

@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -52,7 +52,7 @@ abstract class BaseRecyclerViewAdapter(val emptyView: View? = null) :
          * Convenience constructor taking the [parent] and the [layoutId] of the item view to create
          */
         constructor(parent: ViewGroup, @LayoutRes layoutId: Int) :
-                this(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
+            this(LayoutInflater.from(parent.context).inflate(layoutId, parent, false))
 
         /**
          * Binds this holder to the given [position]
