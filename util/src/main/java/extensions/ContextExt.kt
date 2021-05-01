@@ -30,6 +30,7 @@ import android.os.LocaleList
 import android.util.DisplayMetrics
 import android.util.TypedValue
 import android.view.WindowManager
+import android.widget.Toast
 import androidx.annotation.ColorRes
 import androidx.annotation.DrawableRes
 import androidx.browser.customtabs.CustomTabsIntent
@@ -77,6 +78,12 @@ val Context.displaySize: DisplayMetrics
         }
         return displayMetrics
     }
+
+/**
+ * Shows a toast with [text] for a given [duration]
+ */
+fun Context.toast(text: CharSequence, duration: Int = Toast.LENGTH_SHORT): Toast =
+    Toast.makeText(applicationContext, text, duration).apply { show() }
 
 /**
  * Converts a given DP [value] into its equivalent in pixels
