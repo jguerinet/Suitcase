@@ -15,7 +15,7 @@
     - Added extension to `TextView` to set the text color using the Compat functions and a color Id
 - `util`:
     - Added extension function to convert a dp value to pixels
-    -   Added fallback on opening a Chrome custom tab to use the opening of a normal Url
+    - Added fallback on opening a Chrome custom tab to use the opening of a normal Url
 
 ## Version 5.1.1 (2019-02-28)
 
