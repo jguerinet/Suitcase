@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 6.1.0 (2021-05-01)
+
+- Added function to display a toast (It was removed from AndroidX)
+
 ## Version 6.0.0 (2021-04-30)
 
 - Updated all dependencies to their latest versions
