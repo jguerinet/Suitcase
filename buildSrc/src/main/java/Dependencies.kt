@@ -25,6 +25,7 @@ object Versions {
     }
 
     const val COROUTINES = "1.4.2-native-mt"
+    const val DESUGAR_JDK_LIBS = "1.0.9"
     const val FIREBASE = "27.1.0"
     const val KOIN = "2.2.2"
     const val KOTLINX_DATE_TIME = "0.2.0"
@@ -57,6 +58,7 @@ object Deps {
             "com.github.dcendents:android-maven-gradle-plugin:${Versions.Plugins.ANDROID_MAVEN}"
     }
 
+    const val DESUGAR_JDK_LIBS = "com.android.tools:desugar_jdk_libs:${Versions.DESUGAR_JDK_LIBS}"
     const val KOTLINX_DATE_TIME =
         "org.jetbrains.kotlinx:kotlinx-datetime:${Versions.KOTLINX_DATE_TIME}"
     const val MATERIAL_DIALOGS = "com.afollestad.material-dialogs:core:${Versions.MATERIAL_DIALOGS}"

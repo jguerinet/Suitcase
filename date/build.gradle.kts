@@ -48,6 +48,7 @@ android {
 
 dependencies {
     implementation(project(":prefs"))
+    coreLibraryDesugaring(Deps.DESUGAR_JDK_LIBS)
     implementation(Deps.AndroidX.APPCOMPAT)
     implementation(Deps.KOTLINX_DATE_TIME)
 }
