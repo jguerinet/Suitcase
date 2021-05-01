@@ -74,13 +74,6 @@ spotless {
         endWithNewline()
     }
 
-    format("markdown") {
-        target("**/*.md")
-        trimTrailingWhitespace()
-        endWithNewline()
-        prettier().config(mapOf("parser" to "markdown", "tabWidth" to 4))
-    }
-
     kotlin {
         target("**/*.kt")
         // See https://github.com/pinterest/ktlint/issues/527
