@@ -45,60 +45,59 @@ dependencies {
     api(Deps.Coroutines.ANDROID)
 }
 
-val group: String by project
-val artifact_name: String by project
-val url_site: String by project
-val license_name: String by project
-val license_url: String by project
-val developer_id: String by project
-val developer_name: String by project
-val developer_email: String by project
-val url_git: String by project
-
-publishing {
-    publications {
-        // Creates a Maven publication called "release".
-        create<MavenPublication>("release") {
-            run {
-                groupId = group
-                artifactId = artifact_name
-                version = Versions.SUITCASE
-                // Main Artifact
-                from(components.findByName("release"))
-            }
-
-            pom.withXml {
-                asNode().apply {
-                    appendNode("name", artifact_name)
-                    appendNode("url", url_site)
-
-                    appendNode("licenses").appendNode("license").apply {
-                        appendNode("name", license_name)
-                        appendNode("url", license_url)
-                    }
-
-                    appendNode("developers").appendNode("developer").apply {
-                        appendNode("id", developer_id)
-                        appendNode("name", developer_name)
-                        appendNode("email", developer_email)
-                    }
-
-                    appendNode("scm").apply {
-                        appendNode("connection", url_git)
-                        appendNode("developerConnection", url_git)
-                        appendNode("url", url_site)
-                    }
-                }
-            }
-        }
-    }
-}
-
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets.getByName("main").java.srcDirs)
 }
 
-artifacts {
-    add("archives", sourcesJar)
+afterEvaluate {
+    publishing {
+        val group: String by project
+        val artifact_name: String by project
+        val url_site: String by project
+        val license_name: String by project
+        val license_url: String by project
+        val developer_id: String by project
+        val developer_name: String by project
+        val developer_email: String by project
+        val url_git: String by project
+
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>("release") {
+                run {
+                    // Main Artifact
+                    from(components.findByName("release"))
+                    artifact(sourcesJar.get())
+                    groupId = group
+                    artifactId = artifact_name
+                    version = Versions.SUITCASE
+                }
+
+                pom.withXml {
+                    asNode().apply {
+                        appendNode("name", artifact_name)
+                        appendNode("url", url_site)
+
+                        appendNode("licenses").appendNode("license").apply {
+                            appendNode("name", license_name)
+                            appendNode("url", license_url)
+                        }
+
+                        appendNode("developers").appendNode("developer").apply {
+                            appendNode("id", developer_id)
+                            appendNode("name", developer_name)
+                            appendNode("email", developer_email)
+                        }
+
+                        appendNode("scm").apply {
+                            appendNode("connection", url_git)
+                            appendNode("developerConnection", url_git)
+                            appendNode("url", url_site)
+                        }
+                    }
+                }
+            }
+        }
+    }
 }

@@ -42,61 +42,59 @@ dependencies {
     implementation(Deps.AndroidX.BROWSER)
 }
 
-val group: String by project
-val artifact_name: String by project
-val url_site: String by project
-val license_name: String by project
-val license_url: String by project
-val developer_id: String by project
-val developer_name: String by project
-val developer_email: String by project
-val url_git: String by project
-
 val sourcesJar by tasks.registering(Jar::class) {
     archiveClassifier.set("sources")
     from(android.sourceSets.getByName("main").java.srcDirs)
 }
 
-publishing {
-    publications {
-        // Creates a Maven publication called "release".
-        create<MavenPublication>("release") {
-            run {
-                // Main Artifact
-                from(components.findByName("release"))
-                artifact(sourcesJar.get())
-                groupId = group
-                artifactId = artifact_name
-                version = Versions.SUITCASE
-            }
+afterEvaluate {
+    publishing {
+        val group: String by project
+        val artifact_name: String by project
+        val url_site: String by project
+        val license_name: String by project
+        val license_url: String by project
+        val developer_id: String by project
+        val developer_name: String by project
+        val developer_email: String by project
+        val url_git: String by project
 
-            pom.withXml {
-                asNode().apply {
-                    appendNode("name", artifact_name)
-                    appendNode("url", url_site)
+        publications {
+            // Creates a Maven publication called "release".
+            create<MavenPublication>("release") {
+                run {
+                    // Main Artifact
+                    from(components.findByName("release"))
+                    artifact(sourcesJar.get())
+                    groupId = group
+                    artifactId = artifact_name
+                    version = Versions.SUITCASE
+                }
 
-                    appendNode("licenses").appendNode("license").apply {
-                        appendNode("name", license_name)
-                        appendNode("url", license_url)
-                    }
-
-                    appendNode("developers").appendNode("developer").apply {
-                        appendNode("id", developer_id)
-                        appendNode("name", developer_name)
-                        appendNode("email", developer_email)
-                    }
-
-                    appendNode("scm").apply {
-                        appendNode("connection", url_git)
-                        appendNode("developerConnection", url_git)
+                pom.withXml {
+                    asNode().apply {
+                        appendNode("name", artifact_name)
                         appendNode("url", url_site)
+
+                        appendNode("licenses").appendNode("license").apply {
+                            appendNode("name", license_name)
+                            appendNode("url", license_url)
+                        }
+
+                        appendNode("developers").appendNode("developer").apply {
+                            appendNode("id", developer_id)
+                            appendNode("name", developer_name)
+                            appendNode("email", developer_email)
+                        }
+
+                        appendNode("scm").apply {
+                            appendNode("connection", url_git)
+                            appendNode("developerConnection", url_git)
+                            appendNode("url", url_site)
+                        }
                     }
                 }
             }
         }
     }
 }
-
-// artifacts {
-//    add("archives", sourcesJar)
-// }
