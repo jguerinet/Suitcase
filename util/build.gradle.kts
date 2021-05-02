@@ -52,6 +52,11 @@ val developer_name: String by project
 val developer_email: String by project
 val url_git: String by project
 
+val sourcesJar by tasks.registering(Jar::class) {
+    archiveClassifier.set("sources")
+    from(android.sourceSets.getByName("main").java.srcDirs)
+}
+
 publishing {
     publications {
         // Creates a Maven publication called "release".
@@ -90,11 +95,6 @@ publishing {
             }
         }
     }
-}
-
-val sourcesJar by tasks.registering(Jar::class) {
-    archiveClassifier.set("sources")
-    from(android.sourceSets.getByName("main").java.srcDirs)
 }
 
 //artifacts {
