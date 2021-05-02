@@ -57,11 +57,12 @@ publishing {
         // Creates a Maven publication called "release".
         create<MavenPublication>("release") {
             run {
+                // Main Artifact
+                from(components.findByName("release"))
+                artifact(sourcesJar.get())
                 groupId = group
                 artifactId = artifact_name
                 version = Versions.SUITCASE
-                // Main Artifact
-                from(components.findByName("release"))
             }
 
             pom.withXml {
@@ -96,6 +97,6 @@ val sourcesJar by tasks.registering(Jar::class) {
     from(android.sourceSets.getByName("main").java.srcDirs)
 }
 
-artifacts {
-    add("archives", sourcesJar)
-}
+//artifacts {
+//    add("archives", sourcesJar)
+//}
