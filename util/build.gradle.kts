@@ -97,6 +97,6 @@ publishing {
     }
 }
 
-//artifacts {
+// artifacts {
 //    add("archives", sourcesJar)
-//}
+// }
