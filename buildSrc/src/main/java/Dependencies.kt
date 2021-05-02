@@ -16,7 +16,7 @@
 
 object Versions {
 
-    const val SUITCASE = "6.1.0"
+    const val SUITCASE = "6.0.0"
     const val KOTLIN = "1.4.31"
 
     object Plugins {

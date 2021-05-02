@@ -1,14 +1,11 @@
 # Change Log
 
-## Version 6.1.0 (2021-05-01)
-
-- Added function to display a toast (It was removed from AndroidX)
-
-## Version 6.0.0 (2021-04-30)
+## Version 6.0.0 (2021-05-02)
 
 - Updated all dependencies to their latest versions
 - Restructured the Gradle scripts (using Kotlin DSL and `buildSrc`)
 - Updated the publishing action for all of the modules
+- Added function to display a toast (It was removed from AndroidX)
 
 ## Version 5.2.0 (2019-07-03)
 
