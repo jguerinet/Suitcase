@@ -27,6 +27,7 @@ object Versions {
     const val COROUTINES = "1.4.2-native-mt"
     const val DESUGAR_JDK_LIBS = "1.0.9"
     const val FIREBASE = "27.1.0"
+    const val FIREBASE_API = "18.0.3" // as required by above
     const val KOIN = "2.2.2"
     const val KOTLINX_DATE_TIME = "0.2.0"
     const val MATERIAL_DIALOGS = "3.3.0"
@@ -73,7 +74,7 @@ object Deps {
     object Firebase {
         private const val BASE = "com.google.firebase:firebase"
         const val BOM = "$BASE-bom:${Versions.FIREBASE}"
-        const val ANALYTICS = "$BASE-analytics-ktx"
+        const val ANALYTICS = "$BASE-analytics-ktx:${Versions.FIREBASE_API}"
     }
 
     object Koin {
