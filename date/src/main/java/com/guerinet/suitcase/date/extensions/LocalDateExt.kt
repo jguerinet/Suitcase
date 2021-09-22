@@ -16,13 +16,10 @@
 
 package com.guerinet.suitcase.date.extensions
 
-import com.guerinet.suitcase.date.Format
 import kotlinx.datetime.Clock
 import kotlinx.datetime.LocalDate
 import kotlinx.datetime.TimeZone
-import kotlinx.datetime.toJavaLocalDate
 import kotlinx.datetime.todayAt
-import java.util.Locale
 
 /**
  * LocalDate extensions
@@ -30,6 +27,9 @@ import java.util.Locale
  * @since 2.3.0
  */
 
+/**
+ * Returns today as a [LocalDate]
+ */
 val LocalDate.Companion.today: LocalDate
     get() = Clock.System.todayAt(TimeZone.currentSystemDefault())
 
@@ -50,31 +50,3 @@ val LocalDate.isToday: Boolean
  */
 val LocalDate.isFuture: Boolean
     get() = LocalDate.today < this
-
-/**
- * Returns localized short date String (ex: 01/01/00) of the [LocalDate],
- *  null if the [LocalDate] was null. Note: Uses Java Time
- */
-fun LocalDate?.getShortDateString(locale: Locale = Locale.getDefault()): String? =
-    this?.run { Format.shortDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
-
-/**
- * Returns localized medium date String (ex: Jan 1, 2000) of the [LocalDate],
- *  null if the [LocalDate] was null. Note: Uses Java Time
- */
-fun LocalDate?.getMediumDateString(locale: Locale = Locale.getDefault()): String? =
-    this?.run { Format.mediumDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
-
-/**
- * Returns localized long date String (ex: January 1, 2000) of the [LocalDate],
- *  null if the [LocalDate] was null. Note: Uses Java Time
- */
-fun LocalDate?.getLongDateString(locale: Locale = Locale.getDefault()): String? =
-    this?.run { Format.longDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }
-
-/**
- * Returns localized full date String (ex: Monday, January 1, 2000) of the [LocalDate],
- *  null if the [LocalDate] was null. Note: Uses Java Time
- */
-fun LocalDate?.getFullDateString(locale: Locale = Locale.getDefault()): String? =
-    this?.run { Format.fullDateFormatter.withLocale(locale).format(this.toJavaLocalDate()) }

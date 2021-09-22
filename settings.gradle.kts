@@ -17,6 +17,7 @@
 include(
     ":coroutines",
     ":date",
+    ":date-android",
     ":dialog",
     ":firebase-analytics",
     ":io",
