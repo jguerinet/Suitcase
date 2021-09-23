@@ -14,36 +14,30 @@
  * limitations under the License.
  */
 
-package com.chillybandz.wen.common.util.settings
+package com.guerinet.suitcase.settings
 
-import com.guerinet.suitcase.prefs.BaseSetting
 import com.russhwolf.settings.ExperimentalSettingsApi
 import com.russhwolf.settings.Settings
-import com.russhwolf.settings.coroutines.getBooleanOrNullFlow
+import com.russhwolf.settings.coroutines.getStringFlow
 import com.russhwolf.settings.set
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Helper class for nullable Boolean settings
+ * Helper class for String settings
  * @author Julien Guerinet
- * @since 7.0.0
+ * @since 1.0.0
  */
-open class NullBooleanSetting(settings: Settings, key: String, defaultValue: Boolean? = null) :
-    BaseSetting<Boolean?>(settings, key, defaultValue) {
+open class StringSetting(settings: Settings, key: String, defaultValue: String) :
+        BaseSetting<String>(settings, key, defaultValue) {
 
-    override var value: Boolean?
-        get() = settings.getBooleanOrNull(key) ?: defaultValue
+    override var value: String
+        get() = settings.getString(key, defaultValue)
         set(value) = set(value)
 
-    override fun set(value: Boolean?) {
-        if (value != null) {
-            settings[key] = value
-        } else {
-            // If the value that we are trying to set is null, clear the value
-            clear()
-        }
+    override fun set(value: String) {
+        settings[key] = value
     }
 
     @ExperimentalSettingsApi
-    override fun asFlow(): Flow<Boolean?> = observableSettings.getBooleanOrNullFlow(key)
+    override fun asFlow(): Flow<String> = observableSettings.getStringFlow(key, defaultValue)
 }

@@ -14,35 +14,35 @@
  * limitations under the License.
  */
 
-package com.chillybandz.wen.common.util.settings
+package com.guerinet.suitcase.settings
 
-import com.guerinet.suitcase.prefs.BaseSetting
 import com.russhwolf.settings.ExperimentalSettingsApi
 import com.russhwolf.settings.Settings
-import com.russhwolf.settings.coroutines.getStringOrNullFlow
+import com.russhwolf.settings.coroutines.getIntOrNullFlow
 import com.russhwolf.settings.set
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Helper class for nullable String settings
+ * Helper class for nullable Int settings
  * @author Julien Guerinet
- * @since 7.0.0
+ * @since 1.0.0
  */
-open class NullStringSetting(settings: Settings, key: String, defaultValue: String? = null) :
-    BaseSetting<String?>(settings, key, defaultValue) {
+open class NullIntSetting(settings: Settings, key: String, defaultValue: Int?) :
+    BaseSetting<Int?>(settings, key, defaultValue) {
 
-    override var value: String?
-        get() = settings.getStringOrNull(key) ?: defaultValue
+    override var value: Int?
+        get() = settings.getIntOrNull(key) ?: defaultValue
         set(value) = set(value)
 
-    override fun set(value: String?) {
-        if (!value.isNullOrEmpty()) {
+    override fun set(value: Int?) {
+        if (value != null) {
             settings[key] = value
         } else {
-            settings.clear()
+            // If the value that we are trying to set is null, clear the value
+            clear()
         }
     }
 
     @ExperimentalSettingsApi
-    override fun asFlow(): Flow<String?> = observableSettings.getStringOrNullFlow(key)
+    override fun asFlow(): Flow<Int?> = observableSettings.getIntOrNullFlow(key)
 }

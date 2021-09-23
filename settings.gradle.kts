@@ -23,7 +23,7 @@ include(
     ":io",
     ":lifecycle",
     ":log",
-    ":prefs",
+    ":settings",
     ":room",
     ":ui",
     ":util"

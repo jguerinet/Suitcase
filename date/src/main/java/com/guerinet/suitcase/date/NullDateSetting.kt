@@ -16,7 +16,7 @@
 
 package com.guerinet.suitcase.date
 
-import com.chillybandz.wen.common.util.settings.NullStringSetting
+import com.guerinet.suitcase.settings.NullStringSetting
 import com.russhwolf.settings.Settings
 import kotlinx.datetime.Instant
 

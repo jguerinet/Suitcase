@@ -14,9 +14,8 @@
  * limitations under the License.
  */
 
-package com.chillybandz.wen.common.util.settings
+package com.guerinet.suitcase.settings
 
-import com.guerinet.suitcase.prefs.BaseSetting
 import com.russhwolf.settings.ExperimentalSettingsApi
 import com.russhwolf.settings.Settings
 import com.russhwolf.settings.coroutines.getIntFlow

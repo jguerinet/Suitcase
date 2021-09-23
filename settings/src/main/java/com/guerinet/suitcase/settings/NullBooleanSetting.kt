@@ -14,28 +14,27 @@
  * limitations under the License.
  */
 
-package com.chillybandz.wen.common.util.settings
+package com.guerinet.suitcase.settings
 
-import com.guerinet.suitcase.prefs.BaseSetting
 import com.russhwolf.settings.ExperimentalSettingsApi
 import com.russhwolf.settings.Settings
-import com.russhwolf.settings.coroutines.getIntOrNullFlow
+import com.russhwolf.settings.coroutines.getBooleanOrNullFlow
 import com.russhwolf.settings.set
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Helper class for nullable Int settings
+ * Helper class for nullable Boolean settings
  * @author Julien Guerinet
- * @since 1.0.0
+ * @since 7.0.0
  */
-open class NullIntSetting(settings: Settings, key: String, defaultValue: Int?) :
-    BaseSetting<Int?>(settings, key, defaultValue) {
+open class NullBooleanSetting(settings: Settings, key: String, defaultValue: Boolean? = null) :
+    BaseSetting<Boolean?>(settings, key, defaultValue) {
 
-    override var value: Int?
-        get() = settings.getIntOrNull(key) ?: defaultValue
+    override var value: Boolean?
+        get() = settings.getBooleanOrNull(key) ?: defaultValue
         set(value) = set(value)
 
-    override fun set(value: Int?) {
+    override fun set(value: Boolean?) {
         if (value != null) {
             settings[key] = value
         } else {
@@ -45,5 +44,5 @@ open class NullIntSetting(settings: Settings, key: String, defaultValue: Int?) :
     }
 
     @ExperimentalSettingsApi
-    override fun asFlow(): Flow<Int?> = observableSettings.getIntOrNullFlow(key)
+    override fun asFlow(): Flow<Boolean?> = observableSettings.getBooleanOrNullFlow(key)
 }
