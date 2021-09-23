@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.prefs
+package com.guerinet.suitcase.date
 
-import android.content.SharedPreferences
+import com.chillybandz.wen.common.util.settings.NullStringSetting
+import com.russhwolf.settings.Settings
+import kotlinx.datetime.Instant
 
 /**
- * Preference utility class for [Boolean]s
+ * Preferences utility class for nullable [Instant]s
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 7.0.0
  */
-open class BooleanPref(prefs: SharedPreferences, key: String, defaultValue: Boolean) :
-    BasePref<Boolean>(prefs, key, defaultValue) {
+open class NullDateSetting(settings: Settings, key: String, defaultValue: Instant?) :
+    NullStringSetting(settings, key, defaultValue?.toString()) {
 
-    override var value: Boolean
-        get() = prefs.getBoolean(key, defaultValue)
-        set(value) = prefs.edit().putBoolean(key, value).apply()
+    open var date: Instant?
+        get() = super.value?.run { Instant.parse(this) }
+        set(value) {
+            super.value = value?.toString()
+        }
 }

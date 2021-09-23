@@ -30,6 +30,7 @@ object Versions {
     const val KOIN = "2.2.2"
     const val KOTLINX_DATE_TIME = "0.2.0"
     const val MATERIAL_DIALOGS = "3.3.0"
+    const val MULTIPLATFORM_SETTINGS = "0.7.6"
     const val OKIO = "2.10.0"
     const val TIMBER = "4.7.1"
 
@@ -79,6 +80,12 @@ object Deps {
     object Koin {
         const val ANDROID = "org.koin:koin-android:${Versions.KOIN}"
         const val CORE = "org.koin:koin-core:${Versions.KOIN}"
+    }
+
+    object MultiplatformSettings {
+        private const val BASE = "com.russhwolf:multiplatform-settings"
+        const val CORE = "$BASE:${Versions.MULTIPLATFORM_SETTINGS}"
+        const val COROUTINES = "$BASE-coroutines-native-mt:${Versions.MULTIPLATFORM_SETTINGS}"
     }
 
     object AndroidX {

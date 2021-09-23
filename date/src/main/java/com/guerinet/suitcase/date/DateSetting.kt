@@ -1,5 +1,5 @@
 /*
- * Copyright 2016-2019 Julien Guerinet
+ * Copyright 2016-2021 Julien Guerinet
  *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
@@ -14,19 +14,23 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.prefs
+package com.guerinet.suitcase.date
 
-import android.content.SharedPreferences
+import com.chillybandz.wen.common.util.settings.StringSetting
+import com.russhwolf.settings.Settings
+import kotlinx.datetime.Instant
 
 /**
- * SharedPreferences utility class for [Int]s
+ * Settings utility class for [Instant]s
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 7.0.0
  */
-open class IntPref(prefs: SharedPreferences, key: String, defaultValue: Int) :
-    BasePref<Int>(prefs, key, defaultValue) {
+open class DateSetting(settings: Settings, key: String, defaultValue: Instant) :
+    StringSetting(settings, key, defaultValue.toString()) {
 
-    override var value: Int
-        get() = prefs.getInt(key, defaultValue)
-        set(value) = prefs.edit().putInt(key, value).apply()
+    open var date: Instant
+        get() = Instant.parse(value)
+        set(value) {
+            super.value = value.toString()
+        }
 }

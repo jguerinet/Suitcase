@@ -16,24 +16,24 @@
 
 package com.guerinet.suitcase.date
 
-import android.content.SharedPreferences
-import com.guerinet.suitcase.prefs.NullStringPref
+import com.chillybandz.wen.common.util.settings.StringSetting
+import com.russhwolf.settings.Settings
 import kotlinx.datetime.LocalDate
 
 /**
- * Preferences utility class for nullable [LocalDate]s
+ * Preferences utility class for [LocalDate]s
  * @author Julien Guerinet
- * @since 2.0.0
+ * @since 7.0.0
  */
-open class NullLocalDatePref(prefs: SharedPreferences, key: String, defaultValue: LocalDate?) :
-    NullStringPref(prefs, key, defaultValue?.toString()) {
+open class LocalDateSetting(settings: Settings, key: String, defaultValue: LocalDate) :
+    StringSetting(settings, key, defaultValue.toString()) {
 
     /**
      * Backing date property for getting and setting this pref
      */
-    open var date: LocalDate?
-        get() = super.value?.run { LocalDate.parse(this) }
+    open var date: LocalDate
+        get() = LocalDate.parse(super.value)
         set(value) {
-            super.value = value?.toString()
+            super.value = value.toString()
         }
 }

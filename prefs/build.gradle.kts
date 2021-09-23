@@ -42,6 +42,8 @@ dependencies {
     implementation(Deps.AndroidX.LIFECYCLE)
     implementation(Deps.AndroidX.LIFECYCLE_LIVEDATA)
     kapt(Deps.AndroidX.LIFECYCLE_COMPILER)
+    api(Deps.MultiplatformSettings.CORE)
+    api(Deps.MultiplatformSettings.COROUTINES)
 }
 
 val sourcesJar by tasks.registering(Jar::class) {
