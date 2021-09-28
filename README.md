@@ -5,11 +5,15 @@
 
 ## Summary
 
-Android utility classes and methods that I use in all of my projects. When off on a coding adventure, don't forget to pack your suitcase!
+Android utility classes and methods that I use in all of my projects. When off on a coding
+adventure, don't forget to pack your suitcase!
+
+Note: We are slowly moving to start supporting Kotlin Multiplatform (KMP).
 
 ## Instructions
 
-To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io). Replace X.X.X below with the latest version found on the status badge above:
+To include this in your project, you can add it with Gradle by using [JitPack](https://jitpack.io).
+Replace X.X.X below with the latest version found on the status badge above:
 
     repositories {
         maven { url "https://jitpack.io" }
@@ -25,8 +29,11 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // Coroutines extension functions and models, uses Kotlin Coroutines
         implementation "com.guerinet.suitcase:coroutines:$suitcase_version"
 
-        // Date utility methods and classes, uses AndroidThreeTen
+        // Date utility methods and classes, uses Kotlinx DateTime
         implementation "com.guerinet.suitcase:date:$suitcase_version"
+        
+        // Date utility formatting methods and classes specifically for Android, uses Kotlinx DateTime
+        implementation "com.guerinet.suitcase:date-android:$suitcase_version"
 
         // Dialog utility methods, uses Material Dialogs
         implementation "com.guerinet.suitcase:dialog:$suitcase_version"
@@ -43,8 +50,8 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         // Logging utility methods and classes, uses Timber. Also a Logger for Koin, but Koin is explicitly needed as a dependency
         implementation "com.guerinet.suitcase:log:$suitcase_version"
 
-        // SharedPreferences utility methods and classes
-        implementation "com.guerinet.suitcase:prefs:$suitcase_version"
+        // Key-value utility methods and classes (i.e. SharedPreferences on Android), uses Multiplatform Settings
+        implementation "com.guerinet.suitcase:settings:$suitcase_version"
 
         // Room utility methods, uses Room
         implementation "com.guerinet.suitcase:room:$suitcase_version"
@@ -56,13 +63,14 @@ To include this in your project, you can add it with Gradle by using [JitPack](h
         implementation "com.guerinet.suitcase:util:$suitcase_version"
     }
 
--   [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
--   [ThreeTenABP](https://github.com/JakeWharton/ThreeTenABP)
--   [Material Dialogs](https://github.com/afollestad/material-dialogs)
+- [Coroutines](https://github.com/Kotlin/kotlinx.coroutines)
+- [Kotlinx DateTime](https://github.com/Kotlin/kotlinx-datetime)
+- [Material Dialogs](https://github.com/afollestad/material-dialogs)
 -   [Firebase](https://firebase.google.com/docs/analytics/)
 -   [Okio](https://github.com/square/okio)
 -   [Timber](https://github.com/JakeWharton/timber)
--   [Koin](https://github.com/InsertKoinIO/koin)
+- [Koin](https://github.com/InsertKoinIO/koin)
+- [Multiplatform Settings](https://github.com/russhwolf/multiplatform-settings)
 
 ## Contributors
 
@@ -74,7 +82,7 @@ See the [Change Log](CHANGELOG.md).
 
 ## Copyright
 
-     Copyright 2016-2019 Julien Guerinet
+     Copyright 2016-2021 Julien Guerinet
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.

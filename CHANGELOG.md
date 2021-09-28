@@ -1,5 +1,12 @@
 # Change Log
 
+## Version 7.0.0 (2021-09-28)
+
+- Updated all dependencies to their latest versions
+- Separated the `date` module into `date` and `date-android` in preparation for KMP
+- Switched the `prefs` module to be `settings` to use the `MultiplatformSettings` library in
+  preparation for KMP
+
 ## Version 6.0.0 (2021-05-02)
 
 - Updated all dependencies to their latest versions

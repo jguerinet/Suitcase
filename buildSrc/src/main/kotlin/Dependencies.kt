@@ -16,7 +16,7 @@
 
 object Versions {
 
-    const val SUITCASE = "6.0.0"
+    const val SUITCASE = "7.0.0"
     const val KOTLIN = "1.5.31"
 
     object Plugins {
@@ -49,7 +49,7 @@ object Versions {
 
     object Android {
         const val MIN_SDK = 21
-        const val TARGET_SDK = 30
+        const val TARGET_SDK = 31
     }
 }
 
