@@ -28,7 +28,7 @@ import kotlinx.coroutines.flow.Flow
  * @since 1.0.0
  */
 open class StringSetting(settings: Settings, key: String, defaultValue: String) :
-        BaseSetting<String>(settings, key, defaultValue) {
+    BaseSetting<String>(settings, key, defaultValue) {
 
     override var value: String
         get() = settings.getString(key, defaultValue)
