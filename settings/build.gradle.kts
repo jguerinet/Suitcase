@@ -22,12 +22,11 @@ plugins {
 }
 
 android {
-    compileSdkVersion(Versions.Android.TARGET_SDK)
+    compileSdk = Versions.Android.TARGET_SDK
 
     defaultConfig {
-        minSdkVersion(Versions.Android.MIN_SDK)
-        targetSdkVersion(Versions.Android.TARGET_SDK)
-        versionName = Versions.SUITCASE
+        minSdk = Versions.Android.MIN_SDK
+        targetSdk = Versions.Android.TARGET_SDK
     }
 
     buildTypes {

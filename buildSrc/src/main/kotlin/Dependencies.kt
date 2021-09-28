@@ -17,31 +17,33 @@
 object Versions {
 
     const val SUITCASE = "6.0.0"
-    const val KOTLIN = "1.4.31"
+    const val KOTLIN = "1.5.31"
 
     object Plugins {
-        const val ANDROID = "4.1.3"
+        const val ANDROID = "7.0.2"
         const val ANDROID_MAVEN = "2.1"
+        const val SPOTLESS = "5.15.2"
+        const val VERSIONS = "0.39.0"
     }
 
-    const val COROUTINES = "1.4.2-native-mt"
+    const val COROUTINES = "1.5.2-native-mt"
     const val DESUGAR_JDK_LIBS = "1.0.9"
-    const val FIREBASE = "27.1.0"
+    const val FIREBASE = "28.4.1"
     const val KOIN = "2.2.2"
-    const val KOTLINX_DATE_TIME = "0.2.0"
+    const val KOTLINX_DATE_TIME = "0.2.1"
     const val MATERIAL_DIALOGS = "3.3.0"
     const val MULTIPLATFORM_SETTINGS = "0.7.6"
     const val OKIO = "2.10.0"
-    const val TIMBER = "4.7.1"
+    const val TIMBER = "5.0.1"
 
     object AndroidX {
         const val ANNOTATION = "1.2.0"
-        const val APPCOMPAT = "1.2.0"
+        const val APPCOMPAT = "1.3.1"
         const val BROWSER = "1.3.0"
         const val CONTENT = "1.0.0"
-        const val CORE_KTX = "1.3.2"
+        const val CORE_KTX = "1.6.0"
         const val LIFECYCLE = "2.3.1"
-        const val RECYCLERVIEW = "1.2.0"
+        const val RECYCLERVIEW = "1.2.1"
         const val ROOM = "2.3.0"
     }
 
@@ -57,6 +59,8 @@ object Deps {
         const val ANDROID = "com.android.tools.build:gradle:${Versions.Plugins.ANDROID}"
         const val ANDROID_MAVEN =
             "com.github.dcendents:android-maven-gradle-plugin:${Versions.Plugins.ANDROID_MAVEN}"
+        const val SPOTLESS = "com.diffplug.spotless"
+        const val VERSIONS = "com.github.ben-manes.versions"
     }
 
     const val DESUGAR_JDK_LIBS = "com.android.tools:desugar_jdk_libs:${Versions.DESUGAR_JDK_LIBS}"
