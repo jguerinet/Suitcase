@@ -27,10 +27,10 @@ object Versions {
     }
 
     const val COROUTINES = "1.5.2-native-mt"
-    const val DESUGAR_JDK_LIBS = "1.0.9"
+    const val DESUGAR_JDK_LIBS = "1.1.5"
     const val FIREBASE = "28.4.1"
-    const val KOIN = "2.2.2"
-    const val KOTLINX_DATE_TIME = "0.2.1"
+    const val KOIN = "3.1.2"
+    const val KOTLINX_DATE_TIME = "0.3.0"
     const val MATERIAL_DIALOGS = "3.3.0"
     const val MULTIPLATFORM_SETTINGS = "0.7.6"
     const val OKIO = "2.10.0"
@@ -82,8 +82,9 @@ object Deps {
     }
 
     object Koin {
-        const val ANDROID = "org.koin:koin-android:${Versions.KOIN}"
-        const val CORE = "org.koin:koin-core:${Versions.KOIN}"
+        private const val BASE = "io.insert-koin:koin"
+        const val ANDROID = "$BASE-android:${Versions.KOIN}"
+        const val CORE = "$BASE-core:${Versions.KOIN}"
     }
 
     object MultiplatformSettings {
