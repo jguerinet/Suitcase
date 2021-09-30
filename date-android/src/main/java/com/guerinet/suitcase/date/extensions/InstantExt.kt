@@ -19,7 +19,7 @@ package com.guerinet.suitcase.date.extensions
 import com.guerinet.suitcase.date.Format
 import kotlinx.datetime.Instant
 import kotlinx.datetime.toJavaInstant
-import java.util.*
+import java.util.Locale
 
 /**
  * Instant extensions
