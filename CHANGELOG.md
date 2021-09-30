@@ -1,5 +1,9 @@
 # Change Log
 
+## Version 6.0.1 (2021-09-30)
+
+- Fix bug with resolving Firebase Analytics
+
 ## Version 6.0.0 (2021-05-02)
 
 - Updated all dependencies to their latest versions
