@@ -14,9 +14,10 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.date.extensions
+package com.guerinet.suitcase.date.android.extensions
 
-import com.guerinet.suitcase.date.Format
+import com.guerinet.suitcase.date.android.Format
+import com.guerinet.suitcase.date.extensions.toLocalDate
 import kotlinx.datetime.Instant
 import kotlinx.datetime.toJavaInstant
 import java.util.Locale

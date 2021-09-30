@@ -14,7 +14,7 @@
  * limitations under the License.
  */
 
-package com.guerinet.suitcase.date
+package com.guerinet.suitcase.date.android
 
 import java.time.format.DateTimeFormatter
 import java.time.format.FormatStyle
