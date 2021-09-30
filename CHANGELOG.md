@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 7.0.2 (2021-09-30)
+
+- `date-android`:
+    - Fixed package name for classes in this module to avoid a clash with the `date` library
+
 ## Version 7.0.1 (2021-09-29)
 
 - `date-android`:
