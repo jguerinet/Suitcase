@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 7.0.1 (2021-09-29)
+
+- `date-android`:
+    - Added a method to get a date and time String from an `Instant`
+
 ## Version 7.0.0 (2021-09-28)
 
 - Updated all dependencies to their latest versions

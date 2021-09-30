@@ -19,7 +19,7 @@ package com.guerinet.suitcase.date.extensions
 import com.guerinet.suitcase.date.Format
 import kotlinx.datetime.Instant
 import kotlinx.datetime.toJavaInstant
-import java.util.Locale
+import java.util.*
 
 /**
  * Instant extensions
@@ -47,6 +47,13 @@ fun Instant?.getShortDateString(locale: Locale = Locale.getDefault()): String? =
  */
 fun Instant?.getMediumDateString(locale: Locale = Locale.getDefault()): String? =
     this?.toLocalDate().getMediumDateString(locale)
+
+/**
+ * Returns localized medium date String (ex: Jan 1, 2000) and short time String (ex: 3:30PM) of
+ *  the [Instant], null if the [Instant] was null
+ */
+fun Instant?.getMediumDateAndTimeString(locale: Locale = Locale.getDefault()): String? =
+    this?.let { "${this.getLongDateString(locale)} ${this.getShortTimeString(locale)}" }
 
 /**
  * Returns localized long date String (ex: January 1, 2000) of the [Instant],
