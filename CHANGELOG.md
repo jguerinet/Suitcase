@@ -1,5 +1,10 @@
 # Change Log
 
+## Version 7.0.3 (2021-10-09)
+
+- `date-android`:
+    - Fixed package name in the manifest to avoid `BuildConfig` clash with the `date` library
+
 ## Version 7.0.2 (2021-09-30)
 
 - `date-android`:
