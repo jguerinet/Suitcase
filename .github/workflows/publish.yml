@@ -1,0 +1,30 @@
+# Workflow auto-trigger the Jitpack build when a new version tag is pushed to the main branch
+name: Jitpack Publish
+
+on:
+  push:
+    tags:
+      - '*'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Cancel Queued/In Progress Workflows
+        uses: styfle/cancel-workflow-action@0.4.1
+        with:
+          access_token: ${{ github.token }}
+
+      - name: Get tag name
+        run: |
+          echo "Ref: $GITHUB_REF"
+          version=${GITHUB_REF##*/}
+          echo "Version $version"
+          echo "VERSION=$version" >> $GITHUB_ENV
+
+      - name: Request the endpoint
+        uses: satak/webrequest-action@master
+        with:
+          url: https://jitpack.io/com/github/jguerinet/suitcase/utils/${{ env.VERSION }}/${{ env.VERSION }}.pom
+          method: GET
