@@ -9,6 +9,7 @@ on:
 jobs:
   build:
     runs-on: ubuntu-latest
+    timeout-minutes: 2
 
     steps:
       - name: Cancel Queued/In Progress Workflows
@@ -18,7 +19,6 @@ jobs:
 
       - name: Get tag name
         run: |
-          echo "Ref: $GITHUB_REF"
           version=${GITHUB_REF##*/}
           echo "Version $version"
           echo "VERSION=$version" >> $GITHUB_ENV
@@ -26,5 +26,5 @@ jobs:
       - name: Request the endpoint
         uses: satak/webrequest-action@master
         with:
-          url: https://jitpack.io/com/github/jguerinet/suitcase/utils/${{ env.VERSION }}/${{ env.VERSION }}.pom
+          url: https://jitpack.io/com/guerinet/suitcase/utils/${{ env.VERSION }}/utils-${{ env.VERSION }}.pom
           method: GET
